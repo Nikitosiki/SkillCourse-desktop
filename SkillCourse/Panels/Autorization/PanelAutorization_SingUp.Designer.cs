@@ -36,13 +36,16 @@
             this.newGoogleTextBox1 = new yt_DesignUI.NewGoogleTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.newRadioButton1 = new yt_DesignUI.NewRadioButton();
+            this.newRadioButton2 = new yt_DesignUI.NewRadioButton();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(49)))), ((int)(((byte)(60)))));
             this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(44, 321);
+            this.dateTimePicker1.Location = new System.Drawing.Point(44, 300);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(462, 29);
             this.dateTimePicker1.TabIndex = 23;
@@ -81,7 +84,7 @@
             this.newGoogleTextBox4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.newGoogleTextBox4.FontTextPreview = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.newGoogleTextBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newGoogleTextBox4.Location = new System.Drawing.Point(44, 244);
+            this.newGoogleTextBox4.Location = new System.Drawing.Point(44, 227);
             this.newGoogleTextBox4.Name = "newGoogleTextBox4";
             this.newGoogleTextBox4.SelectionStart = 0;
             this.newGoogleTextBox4.Size = new System.Drawing.Size(462, 44);
@@ -98,7 +101,7 @@
             this.newGoogleTextBox3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.newGoogleTextBox3.FontTextPreview = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.newGoogleTextBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newGoogleTextBox3.Location = new System.Drawing.Point(44, 177);
+            this.newGoogleTextBox3.Location = new System.Drawing.Point(44, 167);
             this.newGoogleTextBox3.Name = "newGoogleTextBox3";
             this.newGoogleTextBox3.SelectionStart = 0;
             this.newGoogleTextBox3.Size = new System.Drawing.Size(462, 44);
@@ -157,20 +160,61 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(104)))), ((int)(((byte)(197)))));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(104)))), ((int)(((byte)(197)))));
-            this.linkLabel1.Location = new System.Drawing.Point(364, 366);
+            this.linkLabel1.Location = new System.Drawing.Point(364, 392);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(142, 20);
             this.linkLabel1.TabIndex = 24;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Sign up as a teacher";
+            this.linkLabel1.Visible = false;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(104)))), ((int)(((byte)(197)))));
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.label2.Location = new System.Drawing.Point(55, 357);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(167, 23);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Select Your Position?";
+            // 
+            // newRadioButton1
+            // 
+            this.newRadioButton1.BackColor = System.Drawing.Color.White;
+            this.newRadioButton1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.newRadioButton1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.newRadioButton1.Location = new System.Drawing.Point(240, 357);
+            this.newRadioButton1.Name = "newRadioButton1";
+            this.newRadioButton1.Size = new System.Drawing.Size(103, 23);
+            this.newRadioButton1.TabIndex = 26;
+            this.newRadioButton1.Text = " Teacher";
+            this.newRadioButton1.UseVisualStyleBackColor = false;
+            // 
+            // newRadioButton2
+            // 
+            this.newRadioButton2.BackColor = System.Drawing.Color.White;
+            this.newRadioButton2.Checked = true;
+            this.newRadioButton2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.newRadioButton2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.newRadioButton2.Location = new System.Drawing.Point(355, 357);
+            this.newRadioButton2.Name = "newRadioButton2";
+            this.newRadioButton2.Size = new System.Drawing.Size(103, 23);
+            this.newRadioButton2.TabIndex = 27;
+            this.newRadioButton2.TabStop = true;
+            this.newRadioButton2.Text = " Student";
+            this.newRadioButton2.UseVisualStyleBackColor = false;
             // 
             // PanelAutorization_SingUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(49)))), ((int)(((byte)(60)))));
+            this.Controls.Add(this.newRadioButton2);
+            this.Controls.Add(this.newRadioButton1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.newButton2);
@@ -197,5 +241,8 @@
         private yt_DesignUI.NewGoogleTextBox newGoogleTextBox1;
         private Label label1;
         private LinkLabel linkLabel1;
+        private Label label2;
+        private yt_DesignUI.NewRadioButton newRadioButton1;
+        private yt_DesignUI.NewRadioButton newRadioButton2;
     }
 }

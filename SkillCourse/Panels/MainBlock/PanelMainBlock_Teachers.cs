@@ -16,5 +16,6 @@ namespace SkillCourse.Panels.MainBlock
         {
             InitializeComponent();
         }
+
     }
 }

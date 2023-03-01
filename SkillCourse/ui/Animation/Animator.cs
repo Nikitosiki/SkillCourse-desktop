@@ -98,7 +98,7 @@ namespace yt_DesignUI
             catch (Exception IsNull)
             {
                 Debug.WriteLine($"Animation.a is Null! {IsNull}");
-                return Anim;
+                return null;
             }
         }
     }
