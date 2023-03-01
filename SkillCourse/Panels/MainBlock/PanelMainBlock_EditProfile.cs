@@ -15,6 +15,7 @@ namespace SkillCourse.Panels.MainBlock
         public PanelMainBlock_EditProfile()
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
         }
     }
 }

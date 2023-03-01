@@ -61,7 +61,7 @@ namespace yt_DesignUI
             Debug.WriteLine("Запуск анимации: " + Anim.ID + "| TargetValue: " + Anim.TargetValue);
             Anim.Status = Animation.AnimationStatus.Requested;
 
-            Animation dupAnim = GetDuplicate(Anim);
+            Animation? dupAnim = GetDuplicate(Anim);
 
             if(dupAnim != null)
             {
@@ -78,9 +78,28 @@ namespace yt_DesignUI
             AnimationList.Add(Anim);
         }
 
-        private static Animation GetDuplicate(Animation Anim)
+        private static Animation? GetDuplicate(Animation Anim)
         {
-            return AnimationList.Find(a => a.ID == Anim.ID);
+            try
+            {
+                foreach (Animation a in AnimationList)
+                {
+                    if (a.ID == Anim.ID)
+                    {
+                        return a;
+                    }
+                }
+
+                return null;
+
+
+                //return AnimationList.Find(a => a.ID == Anim.ID);
+            }
+            catch (Exception IsNull)
+            {
+                Debug.WriteLine($"Animation.a is Null! {IsNull}");
+                return Anim;
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace SkillCourse.Panels.MainBlock
         public PanelMainBlock_Courses()
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
         }
     }
 }
