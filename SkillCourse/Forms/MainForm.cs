@@ -62,7 +62,7 @@ namespace SkillCourse
 
         }
 
-        private void EditControl(object panel, object content)
+        public void EditControl(object panel, object content)
         {
             Panel panelEdit = (Panel)panel;
             UserControl Content = (UserControl)content;
@@ -72,6 +72,11 @@ namespace SkillCourse
                 panelEdit.Controls.Clear();
                 panelEdit.Controls.Add(Content);
             }
+        }
+
+        public void EditControlMainPage(object content)
+        {
+            EditControl(panel2, content);
         }
 
         #endregion

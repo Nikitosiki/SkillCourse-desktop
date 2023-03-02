@@ -122,9 +122,9 @@
             this.newButton_Teacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(173)))), ((int)(((byte)(212)))));
             this.newButton_Teacher.Location = new System.Drawing.Point(38, 117);
             this.newButton_Teacher.Name = "newButton_Teacher";
-            this.newButton_Teacher.Size = new System.Drawing.Size(77, 28);
+            this.newButton_Teacher.Size = new System.Drawing.Size(85, 28);
             this.newButton_Teacher.TabIndex = 2;
-            this.newButton_Teacher.Text = "Teacher";
+            this.newButton_Teacher.Text = "Teachers";
             this.newButton_Teacher.Click += new System.EventHandler(this.newButton_Teacher_Click);
             // 
             // newButton_Courses

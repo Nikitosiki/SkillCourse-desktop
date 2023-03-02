@@ -129,6 +129,7 @@
             this.newButton1.UseRippleEffect = false;
             this.newButton1.UseVisualStyleBackColor = false;
             this.newButton1.UseZoomEffectOnHover = false;
+            this.newButton1.Click += new System.EventHandler(this.newButton1_Click);
             // 
             // label1
             // 
@@ -198,6 +199,7 @@
             this.newButton2.UseRippleEffect = false;
             this.newButton2.UseVisualStyleBackColor = false;
             this.newButton2.UseZoomEffectOnHover = false;
+            this.newButton2.Click += new System.EventHandler(this.newButton2_Click);
             // 
             // label3
             // 
@@ -267,6 +269,7 @@
             this.newButton3.UseRippleEffect = false;
             this.newButton3.UseVisualStyleBackColor = false;
             this.newButton3.UseZoomEffectOnHover = false;
+            this.newButton3.Click += new System.EventHandler(this.newButton3_Click);
             // 
             // label5
             // 
@@ -336,6 +339,7 @@
             this.newButton4.UseRippleEffect = false;
             this.newButton4.UseVisualStyleBackColor = false;
             this.newButton4.UseZoomEffectOnHover = false;
+            this.newButton4.Click += new System.EventHandler(this.newButton4_Click);
             // 
             // label7
             // 
@@ -405,6 +409,7 @@
             this.newButton5.UseRippleEffect = false;
             this.newButton5.UseVisualStyleBackColor = false;
             this.newButton5.UseZoomEffectOnHover = false;
+            this.newButton5.Click += new System.EventHandler(this.newButton5_Click);
             // 
             // label10
             // 
@@ -474,6 +479,7 @@
             this.newButton6.UseRippleEffect = false;
             this.newButton6.UseVisualStyleBackColor = false;
             this.newButton6.UseZoomEffectOnHover = false;
+            this.newButton6.Click += new System.EventHandler(this.newButton6_Click);
             // 
             // label12
             // 
@@ -543,6 +549,7 @@
             this.newButton7.UseRippleEffect = false;
             this.newButton7.UseVisualStyleBackColor = false;
             this.newButton7.UseZoomEffectOnHover = false;
+            this.newButton7.Click += new System.EventHandler(this.newButton7_Click);
             // 
             // label14
             // 
