@@ -58,82 +58,94 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="newButton_LogIn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
+  <data name="newButton_LogIn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 40</value>
+  </data>
   <data name="newButton_LogIn.Size" type="System.Drawing.Size, System.Drawing">
     <value>221, 47</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>532, 653</value>
-  </data>
-  <data name="panel_Header.Size" type="System.Drawing.Size, System.Drawing">
-    <value>532, 109</value>
-  </data>
-  <data name="newButton_SingUp.Text" xml:space="preserve">
-    <value>Sing Up</value>
-  </data>
-  <data name="&gt;&gt;newButton_SingUp.Type" xml:space="preserve">
-    <value>yt_DesignUI.NewButton, SkillCourse, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;newButton_SingUp.Name" xml:space="preserve">
-    <value>newButton_SingUp</value>
-  </data>
-  <data name="&gt;&gt;panel_Main.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 20</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Authorization</value>
-  </data>
-  <data name="&gt;&gt;newButton_SingUp.ZOrder" xml:space="preserve">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="newButton_LogIn.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="newButton_LogIn.Text" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="&gt;&gt;newButton_LogIn.Name" xml:space="preserve">
+    <value>newButton_LogIn</value>
   </data>
   <data name="&gt;&gt;newButton_LogIn.Type" xml:space="preserve">
     <value>yt_DesignUI.NewButton, SkillCourse, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;panel_Header.Name" xml:space="preserve">
-    <value>panel_Header</value>
-  </data>
   <data name="&gt;&gt;newButton_LogIn.Parent" xml:space="preserve">
     <value>panel_Header</value>
-  </data>
-  <data name="newButton_SingUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 47</value>
-  </data>
-  <data name="newButton_SingUp.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt</value>
-  </data>
-  <data name="panel_Header.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="newButton_SingUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 40</value>
-  </data>
-  <data name="&gt;&gt;newButton_SingUp.Parent" xml:space="preserve">
-    <value>panel_Header</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="newButton_SingUp.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="newButton_LogIn.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;newButton_LogIn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="newButton_LogIn.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="newButton_SingUp.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 8.25pt</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Authorization</value>
+  <data name="newButton_SingUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>278, 40</value>
   </data>
-  <data name="newButton_LogIn.Text" xml:space="preserve">
-    <value>Log In</value>
+  <data name="newButton_SingUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 47</value>
+  </data>
+  <data name="newButton_SingUp.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="newButton_SingUp.Text" xml:space="preserve">
+    <value>Sing Up</value>
+  </data>
+  <data name="&gt;&gt;newButton_SingUp.Name" xml:space="preserve">
+    <value>newButton_SingUp</value>
+  </data>
+  <data name="&gt;&gt;newButton_SingUp.Type" xml:space="preserve">
+    <value>yt_DesignUI.NewButton, SkillCourse, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;newButton_SingUp.Parent" xml:space="preserve">
+    <value>panel_Header</value>
+  </data>
+  <data name="&gt;&gt;newButton_SingUp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel_Header.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel_Header.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel_Header.Size" type="System.Drawing.Size, System.Drawing">
+    <value>532, 109</value>
+  </data>
+  <data name="panel_Header.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel_Header.Name" xml:space="preserve">
+    <value>panel_Header</value>
+  </data>
+  <data name="&gt;&gt;panel_Header.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_Header.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_Header.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 109</value>
+  </data>
+  <data name="panel_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>532, 544</value>
   </data>
   <data name="panel_Main.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -141,46 +153,34 @@
   <data name="&gt;&gt;panel_Main.Name" xml:space="preserve">
     <value>panel_Main</value>
   </data>
-  <data name="&gt;&gt;panel_Header.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="newButton_LogIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 40</value>
-  </data>
-  <data name="panel_Main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>532, 544</value>
-  </data>
   <data name="&gt;&gt;panel_Main.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_Header.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
   </data>
   <data name="&gt;&gt;panel_Main.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="panel_Header.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;panel_Main.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="panel_Main.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 109</value>
-  </data>
-  <data name="&gt;&gt;panel_Header.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;newButton_LogIn.Name" xml:space="preserve">
-    <value>newButton_LogIn</value>
-  </data>
-  <data name="panel_Header.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>532, 653</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Authorization</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Authorization</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

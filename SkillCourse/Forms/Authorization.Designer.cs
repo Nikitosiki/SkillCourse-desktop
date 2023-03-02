@@ -38,14 +38,13 @@
             // 
             // panel_Header
             // 
-            resources.ApplyResources(this.panel_Header, "panel_Header");
             this.panel_Header.Controls.Add(this.newButton_LogIn);
             this.panel_Header.Controls.Add(this.newButton_SingUp);
+            resources.ApplyResources(this.panel_Header, "panel_Header");
             this.panel_Header.Name = "panel_Header";
             // 
             // newButton_LogIn
             // 
-            resources.ApplyResources(this.newButton_LogIn, "newButton_LogIn");
             this.newButton_LogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(175)))), ((int)(((byte)(138)))));
             this.newButton_LogIn.BackColorAdditional = System.Drawing.Color.Gray;
             this.newButton_LogIn.BackColorGradientEnabled = false;
@@ -54,6 +53,7 @@
             this.newButton_LogIn.BorderColorEnabled = false;
             this.newButton_LogIn.BorderColorOnHover = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(175)))), ((int)(((byte)(138)))));
             this.newButton_LogIn.BorderColorOnHoverEnabled = false;
+            resources.ApplyResources(this.newButton_LogIn, "newButton_LogIn");
             this.newButton_LogIn.ForeColor = System.Drawing.Color.White;
             this.newButton_LogIn.Name = "newButton_LogIn";
             this.newButton_LogIn.RippleColor = System.Drawing.Color.Black;
@@ -67,7 +67,6 @@
             // 
             // newButton_SingUp
             // 
-            resources.ApplyResources(this.newButton_SingUp, "newButton_SingUp");
             this.newButton_SingUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(82)))), ((int)(((byte)(89)))));
             this.newButton_SingUp.BackColorAdditional = System.Drawing.Color.Gray;
             this.newButton_SingUp.BackColorGradientEnabled = false;
@@ -76,6 +75,7 @@
             this.newButton_SingUp.BorderColorEnabled = false;
             this.newButton_SingUp.BorderColorOnHover = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(82)))), ((int)(((byte)(89)))));
             this.newButton_SingUp.BorderColorOnHoverEnabled = false;
+            resources.ApplyResources(this.newButton_SingUp, "newButton_SingUp");
             this.newButton_SingUp.ForeColor = System.Drawing.Color.White;
             this.newButton_SingUp.Name = "newButton_SingUp";
             this.newButton_SingUp.RippleColor = System.Drawing.Color.Black;
