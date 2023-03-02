@@ -31,9 +31,7 @@
             this.panelNavbar = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.newButton_EditProfile = new System.Windows.Forms.Label();
-            this.newButton_not_authorized2 = new System.Windows.Forms.Label();
-            this.newButton_not_authorized = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.newButton_AddCourses = new System.Windows.Forms.Label();
             this.newButton_Teacher = new System.Windows.Forms.Label();
             this.newButton_Courses = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -58,9 +56,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.newButton_EditProfile);
-            this.groupBox2.Controls.Add(this.newButton_not_authorized2);
-            this.groupBox2.Controls.Add(this.newButton_not_authorized);
-            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.newButton_AddCourses);
             this.groupBox2.Controls.Add(this.newButton_Teacher);
             this.groupBox2.Controls.Add(this.newButton_Courses);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,45 +71,24 @@
             this.newButton_EditProfile.AutoSize = true;
             this.newButton_EditProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.newButton_EditProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(173)))), ((int)(((byte)(212)))));
-            this.newButton_EditProfile.Location = new System.Drawing.Point(37, 303);
+            this.newButton_EditProfile.Location = new System.Drawing.Point(38, 241);
             this.newButton_EditProfile.Name = "newButton_EditProfile";
             this.newButton_EditProfile.Size = new System.Drawing.Size(108, 28);
-            this.newButton_EditProfile.TabIndex = 7;
+            this.newButton_EditProfile.TabIndex = 6;
             this.newButton_EditProfile.Text = "Edit profile";
             this.newButton_EditProfile.Click += new System.EventHandler(this.newButton_EditProfile_Click);
             // 
-            // newButton_not_authorized2
+            // newButton_AddCourses
             // 
-            this.newButton_not_authorized2.AutoSize = true;
-            this.newButton_not_authorized2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.newButton_not_authorized2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(173)))), ((int)(((byte)(212)))));
-            this.newButton_not_authorized2.Location = new System.Drawing.Point(38, 241);
-            this.newButton_not_authorized2.Name = "newButton_not_authorized2";
-            this.newButton_not_authorized2.Size = new System.Drawing.Size(141, 28);
-            this.newButton_not_authorized2.TabIndex = 6;
-            this.newButton_not_authorized2.Text = "not authorized";
-            // 
-            // newButton_not_authorized
-            // 
-            this.newButton_not_authorized.AutoSize = true;
-            this.newButton_not_authorized.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.newButton_not_authorized.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(173)))), ((int)(((byte)(212)))));
-            this.newButton_not_authorized.Location = new System.Drawing.Point(38, 179);
-            this.newButton_not_authorized.Name = "newButton_not_authorized";
-            this.newButton_not_authorized.Size = new System.Drawing.Size(141, 28);
-            this.newButton_not_authorized.TabIndex = 5;
-            this.newButton_not_authorized.Text = "not authorized";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(173)))), ((int)(((byte)(212)))));
-            this.label4.Location = new System.Drawing.Point(37, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 28);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "not authorized";
+            this.newButton_AddCourses.AutoSize = true;
+            this.newButton_AddCourses.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.newButton_AddCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(173)))), ((int)(((byte)(212)))));
+            this.newButton_AddCourses.Location = new System.Drawing.Point(38, 179);
+            this.newButton_AddCourses.Name = "newButton_AddCourses";
+            this.newButton_AddCourses.Size = new System.Drawing.Size(122, 28);
+            this.newButton_AddCourses.TabIndex = 5;
+            this.newButton_AddCourses.Text = "Add Courses";
+            this.newButton_AddCourses.Click += new System.EventHandler(this.newButton_AddCourses_Click);
             // 
             // newButton_Teacher
             // 
@@ -225,9 +200,7 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private Label newButton_EditProfile;
-        private Label newButton_not_authorized2;
-        private Label newButton_not_authorized;
-        private Label label4;
+        private Label newButton_AddCourses;
         private Label newButton_Teacher;
         private Label newButton_Courses;
     }

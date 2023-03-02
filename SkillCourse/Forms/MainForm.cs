@@ -48,6 +48,11 @@ namespace SkillCourse
             EditControl(panel2, new PanelMainBlock_EditProfile());
         }
 
+        private void newButton_AddCourses_Click(object sender, EventArgs e)
+        {
+            ChangeColorButton(sender);
+            EditControl(panel2, new PanelMainBlock_AddCourses());
+        }
 
         private void ChangeColorButton(object senderButtonSelected)
         {
