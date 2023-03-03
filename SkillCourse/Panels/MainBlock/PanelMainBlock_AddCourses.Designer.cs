@@ -34,6 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.newButton7 = new yt_DesignUI.NewButton();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,7 +49,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.newButton2 = new yt_DesignUI.NewButton();
             this.newButton_Back = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.newButton3 = new yt_DesignUI.NewButton();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -80,6 +81,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.newButton3);
             this.panel2.Controls.Add(this.newButton7);
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.panel6);
@@ -127,6 +129,17 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1012, 101);
             this.panel8.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(98, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 28);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Text:";
             // 
             // textBox2
             // 
@@ -311,16 +324,31 @@
             this.newButton_Back.TabIndex = 47;
             this.newButton_Back.Text = "🠔";
             // 
-            // label1
+            // newButton3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(98, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 28);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Text:";
+            this.newButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(86)))), ((int)(((byte)(106)))));
+            this.newButton3.BackColorAdditional = System.Drawing.Color.Gray;
+            this.newButton3.BackColorGradientEnabled = false;
+            this.newButton3.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.newButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(175)))), ((int)(((byte)(138)))));
+            this.newButton3.BorderColorEnabled = false;
+            this.newButton3.BorderColorOnHover = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(175)))), ((int)(((byte)(138)))));
+            this.newButton3.BorderColorOnHoverEnabled = false;
+            this.newButton3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.newButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(173)))), ((int)(((byte)(212)))));
+            this.newButton3.Location = new System.Drawing.Point(836, 390);
+            this.newButton3.Name = "newButton3";
+            this.newButton3.RippleColor = System.Drawing.Color.Black;
+            this.newButton3.Rounding = 50;
+            this.newButton3.RoundingEnable = false;
+            this.newButton3.Size = new System.Drawing.Size(156, 40);
+            this.newButton3.TabIndex = 43;
+            this.newButton3.Text = "Public";
+            this.newButton3.TextHover = null;
+            this.newButton3.UseDownPressEffectOnClick = false;
+            this.newButton3.UseRippleEffect = false;
+            this.newButton3.UseVisualStyleBackColor = false;
+            this.newButton3.UseZoomEffectOnHover = false;
             // 
             // PanelMainBlock_AddCourses
             // 
@@ -369,5 +397,6 @@
         private TextBox textBox1;
         private yt_DesignUI.NewButton newButton2;
         private Label label1;
+        private yt_DesignUI.NewButton newButton3;
     }
 }
