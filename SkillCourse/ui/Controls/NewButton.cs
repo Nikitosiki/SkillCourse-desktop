@@ -65,6 +65,8 @@ namespace yt_DesignUI
                 }
             }
         }
+        [Description("Вкл/Выкл эффект перехода (переливания, основной эффект) по нажатию кнопки курсором.")]
+        public bool UseMainGradientEffect { get; set; } = false;
 
         [Description("Вкл/Выкл эффект волны по нажатию кнопки курсором.")]
         public bool UseRippleEffect { get; set; } = true;
@@ -197,8 +199,11 @@ namespace yt_DesignUI
             graph.SetClip(rectPath);
 
             // Рисуем доп. прямоугольник (Наша шторка)
-            graph.DrawRectangle(new Pen(Color.FromArgb(60, Color.White)), rectCurtain);
-            graph.FillRectangle(new SolidBrush(Color.FromArgb(60, Color.White)), rectCurtain);
+            if (UseMainGradientEffect)
+            {
+                graph.DrawRectangle(new Pen(Color.FromArgb(60, Color.White)), rectCurtain);
+                graph.FillRectangle(new SolidBrush(Color.FromArgb(60, Color.White)), rectCurtain);
+            }
 
             
             if (UseRippleEffect == false)

@@ -126,6 +126,7 @@
             this.newButton1.Text = "View";
             this.newButton1.TextHover = null;
             this.newButton1.UseDownPressEffectOnClick = false;
+            this.newButton1.UseMainGradientEffect = true;
             this.newButton1.UseRippleEffect = false;
             this.newButton1.UseVisualStyleBackColor = false;
             this.newButton1.UseZoomEffectOnHover = false;
@@ -196,6 +197,7 @@
             this.newButton2.Text = "View";
             this.newButton2.TextHover = null;
             this.newButton2.UseDownPressEffectOnClick = false;
+            this.newButton2.UseMainGradientEffect = true;
             this.newButton2.UseRippleEffect = false;
             this.newButton2.UseVisualStyleBackColor = false;
             this.newButton2.UseZoomEffectOnHover = false;
@@ -266,6 +268,7 @@
             this.newButton3.Text = "View";
             this.newButton3.TextHover = null;
             this.newButton3.UseDownPressEffectOnClick = false;
+            this.newButton3.UseMainGradientEffect = true;
             this.newButton3.UseRippleEffect = false;
             this.newButton3.UseVisualStyleBackColor = false;
             this.newButton3.UseZoomEffectOnHover = false;
@@ -336,6 +339,7 @@
             this.newButton4.Text = "View";
             this.newButton4.TextHover = null;
             this.newButton4.UseDownPressEffectOnClick = false;
+            this.newButton4.UseMainGradientEffect = true;
             this.newButton4.UseRippleEffect = false;
             this.newButton4.UseVisualStyleBackColor = false;
             this.newButton4.UseZoomEffectOnHover = false;
@@ -406,6 +410,7 @@
             this.newButton5.Text = "View";
             this.newButton5.TextHover = null;
             this.newButton5.UseDownPressEffectOnClick = false;
+            this.newButton5.UseMainGradientEffect = true;
             this.newButton5.UseRippleEffect = false;
             this.newButton5.UseVisualStyleBackColor = false;
             this.newButton5.UseZoomEffectOnHover = false;
@@ -476,6 +481,7 @@
             this.newButton6.Text = "View";
             this.newButton6.TextHover = null;
             this.newButton6.UseDownPressEffectOnClick = false;
+            this.newButton6.UseMainGradientEffect = true;
             this.newButton6.UseRippleEffect = false;
             this.newButton6.UseVisualStyleBackColor = false;
             this.newButton6.UseZoomEffectOnHover = false;
@@ -546,6 +552,7 @@
             this.newButton7.Text = "View";
             this.newButton7.TextHover = null;
             this.newButton7.UseDownPressEffectOnClick = false;
+            this.newButton7.UseMainGradientEffect = true;
             this.newButton7.UseRippleEffect = false;
             this.newButton7.UseVisualStyleBackColor = false;
             this.newButton7.UseZoomEffectOnHover = false;
