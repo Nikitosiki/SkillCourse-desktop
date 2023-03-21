@@ -8,6 +8,8 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SkillCourse.DataBaseStructure;
+using SkillCourse.PanelComponents;
 
 namespace SkillCourse.Panels.MainBlock
 {
@@ -16,43 +18,26 @@ namespace SkillCourse.Panels.MainBlock
         public PanelMainBlock_Courses()
         {
             InitializeComponent();
+
             Dock = DockStyle.Fill;
+            SkillCourseDB DataBase = SkillCourseDB.Instance;
+            AddCourseToFlowLayoutPanel(DataBase.Courses);
         }
 
-        private void newButton1_Click(object sender, EventArgs e)
+
+        public bool AddCourseToFlowLayoutPanel(List<Course> Course)
         {
-            openPageCourse(new PanelMainBlock_CoursePage());
+            foreach (Course course in Course)
+            {
+                UserControl userControl = new Component_BriefСourse(course.Name, course.Description, course.Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
+                flowLayoutPanel1.Controls.Add(userControl);
+            }
+            return true;
         }
 
-        private void newButton2_Click(object sender, EventArgs e)
-        {
-            openPageCourse(new PanelMainBlock_CoursePage());
-        }
 
-        private void newButton3_Click(object sender, EventArgs e)
-        {
-            openPageCourse(new PanelMainBlock_CoursePage());
-        }
 
-        private void newButton4_Click(object sender, EventArgs e)
-        {
-            openPageCourse(new PanelMainBlock_CoursePage());
-        }
 
-        private void newButton5_Click(object sender, EventArgs e)
-        {
-            openPageCourse(new PanelMainBlock_CoursePage());
-        }
-
-        private void newButton6_Click(object sender, EventArgs e)
-        {
-            openPageCourse(new PanelMainBlock_CoursePage());
-        }
-
-        private void newButton7_Click(object sender, EventArgs e)
-        {
-            openPageCourse(new PanelMainBlock_CoursePage());
-        }
 
         private void openPageCourse(UserControl Content)
         {

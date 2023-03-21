@@ -24,11 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataBaseStructure\collections\" />
-    <Folder Include="DataBaseStructure\entities\" />
     <Folder Include="DataBaseStructure\types\" />
     <Folder Include="DataBaseStructure\interfaces\" />
-    <Folder Include="PanelComponents\" />
   </ItemGroup>
 
 </Project>
