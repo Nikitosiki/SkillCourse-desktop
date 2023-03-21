@@ -82,9 +82,9 @@ namespace yt_DesignUI
         {
             try
             {
-                foreach (Animation a in AnimationList)
+                foreach (Animation? a in AnimationList)
                 {
-                    if (a.ID == Anim.ID)
+                    if (a != null && a.ID == Anim.ID)
                     {
                         return a;
                     }
