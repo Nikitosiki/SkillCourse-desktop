@@ -54,6 +54,12 @@ namespace SkillCourse
             EditControl(panel2, new PanelMainBlock_AddCourses());
         }
 
+        private void newButton_Certificate_Click(object sender, EventArgs e)
+        {
+            ChangeColorButton(sender);
+            EditControl(panel2, new PanelMainBlock_AddCourses());
+        }
+
         private void ChangeColorButton(object senderButtonSelected)
         {
             // Сброс всех кнопок на дефолт
@@ -85,6 +91,5 @@ namespace SkillCourse
         }
 
         #endregion
-
     }
 }

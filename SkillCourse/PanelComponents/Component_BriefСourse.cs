@@ -16,7 +16,7 @@ namespace SkillCourse.PanelComponents
         public Component_BriefСourse(string nameCourse, string descriptionCourse, Image imageCourse, Action buttonCoutse)
         {
             InitializeComponent();
-            //this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Top;
 
             label_NameCourse.Text = nameCourse;
             label_DescriptionCourse.Text = descriptionCourse;

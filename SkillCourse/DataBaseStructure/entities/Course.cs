@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SkillCourse.DataBaseStructure
 {
+    [Serializable]
     public class Course
     {
         private static int idCounter = 0;
@@ -33,14 +34,13 @@ namespace SkillCourse.DataBaseStructure
         {
             get
             {
-                return IdCourse;
+                return idCourse;
             }
-            set
+            private set
             {
-                if (value >= 0)
-                    idCourse = value;
-                else
-                    throw new ArgumentOutOfRangeException(nameof(IdCourse));
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(idCourse));
+                idCourse = value;
             }
         }
 
@@ -53,10 +53,9 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value != null)
-                    name = value;
-                else
+                if (value == null)
                     throw new ArgumentNullException(nameof(name));
+                name = value;
             }
         }
 
@@ -69,10 +68,9 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value != null)
-                    description = value;
-                else
+                if (value == null)                    
                     throw new ArgumentNullException(nameof(description));
+                description = value;
             }
         }
 
@@ -85,10 +83,9 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value != null)
-                    image = value;
-                else
+                if (value == null)
                     throw new ArgumentNullException(nameof(image));
+                image = value;
             }
         }
 
@@ -101,10 +98,9 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value >= 0)
-                    idTeacher = value;
-                else
+                if (value < 0)
                     throw new ArgumentOutOfRangeException(nameof(idTeacher));
+                idTeacher = value;
             }
         }
     }

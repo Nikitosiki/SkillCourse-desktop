@@ -30,6 +30,7 @@
         {
             panelNavbar = new Panel();
             groupBox2 = new GroupBox();
+            newButton_Certificate = new Label();
             newButton_EditProfile = new Label();
             newButton_AddCourses = new Label();
             newButton_Teacher = new Label();
@@ -57,6 +58,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(newButton_Certificate);
             groupBox2.Controls.Add(newButton_EditProfile);
             groupBox2.Controls.Add(newButton_AddCourses);
             groupBox2.Controls.Add(newButton_Teacher);
@@ -68,12 +70,24 @@
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             // 
+            // newButton_Certificate
+            // 
+            newButton_Certificate.AutoSize = true;
+            newButton_Certificate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            newButton_Certificate.ForeColor = Color.FromArgb(142, 173, 212);
+            newButton_Certificate.Location = new Point(38, 241);
+            newButton_Certificate.Name = "newButton_Certificate";
+            newButton_Certificate.Size = new Size(108, 28);
+            newButton_Certificate.TabIndex = 7;
+            newButton_Certificate.Text = "Certificates";
+            newButton_Certificate.Click += newButton_Certificate_Click;
+            // 
             // newButton_EditProfile
             // 
             newButton_EditProfile.AutoSize = true;
             newButton_EditProfile.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newButton_EditProfile.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_EditProfile.Location = new Point(38, 241);
+            newButton_EditProfile.Location = new Point(38, 303);
             newButton_EditProfile.Name = "newButton_EditProfile";
             newButton_EditProfile.Size = new Size(108, 28);
             newButton_EditProfile.TabIndex = 6;
@@ -198,7 +212,7 @@
             BackColor = Color.FromArgb(40, 49, 60);
             ClientSize = new Size(1262, 673);
             Controls.Add(tableLayoutPanel1);
-            MinimumSize = new Size(700, 600);
+            MinimumSize = new Size(1280, 600);
             Name = "MainForm";
             Text = "SkillCourse";
             panelNavbar.ResumeLayout(false);
@@ -223,5 +237,6 @@
         private Label newButton_Teacher;
         private Label newButton_Courses;
         private TableLayoutPanel tableLayoutPanel1;
+        private Label newButton_Certificate;
     }
 }

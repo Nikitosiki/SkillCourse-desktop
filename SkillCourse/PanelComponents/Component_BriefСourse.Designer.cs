@@ -115,6 +115,7 @@
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(groupBox1);
             MaximumSize = new Size(3500, 81);
+            MinimumSize = new Size(500, 81);
             Name = "Component_BriefСourse";
             Size = new Size(935, 81);
             groupBox1.ResumeLayout(false);

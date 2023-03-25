@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataBaseStructure\types\" />
     <Folder Include="DataBaseStructure\interfaces\" />
   </ItemGroup>
 
