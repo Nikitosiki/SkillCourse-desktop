@@ -10,12 +10,23 @@ namespace SkillCourse.DataBaseStructure
     {
         private static SkillCourseDB? instance;
 
+        public AnswerToTaskCollection AnswerTasks { get; set; }
+        public CertificateCollection Certificates { get; set; }
+        public SubscriptionCollection Subscriptions { get; set; }
         public CourseCollection Courses { get; set; }
+        public TaskCollection Tasks { get; set; }
+        public UserCollection Users { get; set; }
+
 
 
         private SkillCourseDB()
         {
+            AnswerTasks = new AnswerToTaskCollection();
+            Certificates = new CertificateCollection();
+            Subscriptions = new SubscriptionCollection();
             Courses = new CourseCollection();
+            Tasks = new TaskCollection();
+            Users = new UserCollection();
 
             randomAddCourseToCourseCollection();
         }
@@ -31,6 +42,7 @@ namespace SkillCourse.DataBaseStructure
                 return instance;
             }
         }
+
 
 
         public void randomAddCourseToCourseCollection()
