@@ -10,7 +10,7 @@ using System.Xml.Linq;
 namespace SkillCourse.DataBaseStructure
 {
     [Serializable]
-    public class Certificate
+    public class Certificate : ICloneable
     {
         private static int idCounter = 0;
 
@@ -25,6 +25,15 @@ namespace SkillCourse.DataBaseStructure
         public Certificate(string description, DateTime presentationTime, int idPresenterTeacher, int idOwner)
         {
             IdCertificate = idCounter++;
+            Description = description;
+            PresentationTime = presentationTime;
+            IdPresenterTeacher = idPresenterTeacher;
+            IdOwner = idOwner;
+        }
+
+        private Certificate(int id, string description, DateTime presentationTime, int idPresenterTeacher, int idOwner)
+        {
+            IdCertificate = id;
             Description = description;
             PresentationTime = presentationTime;
             IdPresenterTeacher = idPresenterTeacher;
@@ -119,6 +128,12 @@ namespace SkillCourse.DataBaseStructure
                     throw new ArgumentOutOfRangeException(nameof(idCourse));
                 idCourse = value;
             }
+        }
+
+
+        public object Clone()
+        {
+            return new Certificate(IdCertificate, Description, PresentationTime, IdPresenterTeacher, IdOwner);
         }
     }
 }

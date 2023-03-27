@@ -1,14 +1,16 @@
-﻿using System;
+﻿using SkillCourse.DataBaseStructure.entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SkillCourse.DataBaseStructure
 {
     [Serializable]
-    public class Course
+    public class Course : ICloneable
     {
         private static int idCounter = 0;
 
@@ -23,6 +25,15 @@ namespace SkillCourse.DataBaseStructure
         public Course(string name, string description, Image image, int idTeacher)
         {
             IdCourse = idCounter++;
+            Name = name;
+            Description = description;
+            Image = image;
+            IdTeacher = idTeacher;
+        }
+
+        private Course(int id, string name, string description, Image image, int idTeacher)
+        {
+            IdCourse = id;
             Name = name;
             Description = description;
             Image = image;
@@ -102,6 +113,12 @@ namespace SkillCourse.DataBaseStructure
                     throw new ArgumentOutOfRangeException(nameof(idTeacher));
                 idTeacher = value;
             }
+        }
+
+
+        public object Clone()
+        {
+            return new Course(IdCourse, Name, Description, Image, IdTeacher);
         }
     }
 }

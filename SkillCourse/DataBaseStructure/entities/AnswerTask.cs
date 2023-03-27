@@ -4,12 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.Design.Behavior;
 using SkillCourse.DataBaseStructure.types;
 
 namespace SkillCourse.DataBaseStructure
 {
     [Serializable]
-    public class AnswerTask
+    public class AnswerTask : ICloneable
     {
         private static int idCounter = 0;
 
@@ -24,6 +25,15 @@ namespace SkillCourse.DataBaseStructure
         public AnswerTask(StateTask state, int grade, int idTask, int idUser)
         {
             IdAnswerToTask = idCounter++;
+            State = state;
+            Grade = grade;
+            IdTask = idTask;
+            IdUser = idUser;
+        }
+
+        private AnswerTask(int id, StateTask state, int grade, int idTask, int idUser)
+        {
+            IdAnswerToTask = id;
             State = state;
             Grade = grade;
             IdTask = idTask;
@@ -101,6 +111,12 @@ namespace SkillCourse.DataBaseStructure
                     throw new ArgumentOutOfRangeException(nameof(idUser));
                 idUser = value;
             }
+        }
+
+
+        public object Clone()
+        {
+            return new AnswerTask(IdAnswerToTask, State, Grade, IdTask, IdUser);
         }
     }
 }

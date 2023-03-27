@@ -1,14 +1,17 @@
-﻿using System;
+﻿using SkillCourse.DataBaseStructure.serialize.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.Design.Behavior;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SkillCourse.DataBaseStructure
 {
     [Serializable]
-    public class SubscriptionCourse
+    public class SubscriptionCourse : ICloneable
     {
         private static int idCounter = 0;
 
@@ -18,10 +21,19 @@ namespace SkillCourse.DataBaseStructure
         private int idCourse;
         private int idStudent;
 
+
         public SubscriptionCourse(int idStudent, int idCourse)
         {
             IdSubscriptionCourse = idCounter++;
             DateSub = DateTime.Now;
+            IdCourse = idCourse;
+            IdStudent = idStudent;
+        }
+
+        private SubscriptionCourse(int id, DateTime date, int idStudent, int idCourse)
+        {
+            IdSubscriptionCourse = id;
+            DateSub = date;
             IdCourse = idCourse;
             IdStudent = idStudent;
         }
@@ -84,6 +96,12 @@ namespace SkillCourse.DataBaseStructure
                     throw new ArgumentOutOfRangeException(nameof(idStudent));
                 idStudent = value;
             }
+        }
+
+
+        public object Clone()
+        {
+            return new SubscriptionCourse(IdSubscriptionCourse, DateSub, IdStudent, IdCourse);
         }
     }
 }
