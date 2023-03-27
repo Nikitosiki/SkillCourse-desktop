@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NikitosikSUI;
+using System.Xml.Linq;
+using SkillCourse.DataBaseStructure;
 
 namespace SkillCourse
 {
@@ -18,7 +20,9 @@ namespace SkillCourse
         public MainForm()
         {
             InitializeComponent();
+            Random();
             panel2.Controls.Add(new PanelMainBlock_Courses());
+
         }
 
         private void newButton1_Click(object sender, EventArgs e)
@@ -88,6 +92,31 @@ namespace SkillCourse
         public void EditControlMainPage(object content)
         {
             EditControl(panel2, content);
+        }
+
+        #endregion
+
+
+        #region randomFilling
+
+        public void Random()
+        {
+            RandomAddCourseToCourseCollection();
+        }
+
+        public void RandomAddCourseToCourseCollection()
+        {
+            SkillCourseDB DataBase = SkillCourseDB.Instance;
+            Image image = Properties.Resources.image008;
+
+            for (int i = 0; i < 100; i++)
+            {
+                string nameCourse = $"{i} - ый курс, по программированию!";
+                string descriptionCourse = "Description: Это...";
+
+                Course course = new Course(nameCourse, descriptionCourse, image, 0);
+                DataBase.Courses.Add(course);
+            }
         }
 
         #endregion

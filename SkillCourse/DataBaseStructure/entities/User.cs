@@ -87,7 +87,7 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
-        [DisplayName("phoneNumber")]
+        [DisplayName("Email")]
         public string Email
         {
             get

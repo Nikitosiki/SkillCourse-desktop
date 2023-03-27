@@ -27,8 +27,6 @@ namespace SkillCourse.DataBaseStructure
             Courses = new CourseCollection();
             Tasks = new TaskCollection();
             Users = new UserCollection();
-
-            randomAddCourseToCourseCollection();
         }
 
         public static SkillCourseDB Instance
@@ -40,22 +38,6 @@ namespace SkillCourse.DataBaseStructure
                     instance = new SkillCourseDB();
                 }
                 return instance;
-            }
-        }
-
-
-
-        public void randomAddCourseToCourseCollection()
-        {
-            Image image = Properties.Resources.image008;
-
-            for (int i = 0; i < 100; i++)
-            {
-                string nameCourse = $"{i} - ый курс, по программированию!";
-                string descriptionCourse = "Description: Это...";
-
-                Course course = new Course(nameCourse, descriptionCourse, image, 0);
-                Courses.Add(course);
             }
         }
 

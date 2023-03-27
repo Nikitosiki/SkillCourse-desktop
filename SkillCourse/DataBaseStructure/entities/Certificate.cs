@@ -20,6 +20,7 @@ namespace SkillCourse.DataBaseStructure
 
         private int idPresenterTeacher;
         private int idOwner;
+        private int idCourse;
 
         public Certificate(string description, DateTime presentationTime, int idPresenterTeacher, int idOwner)
         {
@@ -102,6 +103,21 @@ namespace SkillCourse.DataBaseStructure
                 if (value < 0)
                     throw new ArgumentOutOfRangeException(nameof(idOwner));
                 idOwner = value;
+            }
+        }
+
+        [DisplayName("Id Course")]
+        public int IdCourse
+        {
+            get
+            {
+                return idCourse;
+            }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(idCourse));
+                idCourse = value;
             }
         }
     }
