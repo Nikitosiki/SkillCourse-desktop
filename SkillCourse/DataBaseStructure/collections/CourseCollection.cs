@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.Devices;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,11 +32,20 @@ namespace SkillCourse.DataBaseStructure
             return false;
         }
 
+        private bool CheckCorrectId(Course course)
+        {
+            int targetIndex = this.FindIndex(item => item.IdCourse == course.IdCourse);
+            if (targetIndex != -1)
+                return true;
+
+            return false;
+        }
+
 
         public new void Add(Course course)
         {
             //Есть ли такой учитель, который создает курс
-            if (CheckCorrectObject(course))
+            if (CheckCorrectObject(course) && CheckCorrectId(course))
                 base.Add(course);
         }
 
