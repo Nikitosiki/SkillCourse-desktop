@@ -101,8 +101,8 @@ namespace SkillCourse.DataBaseStructure
 
 
 
-        private new void AddRange(IEnumerable<Course> collection) { throw new Exception(); }
-        private new void Insert(int index, Course item) { throw new Exception(); }
-        private new void InsertRange(int index, IEnumerable<Course> collection) { throw new Exception(); }
+        private new void AddRange(IEnumerable<Course> collection) { throw new NotImplementedException(); }
+        private new void Insert(int index, Course item) { throw new NotImplementedException(); }
+        private new void InsertRange(int index, IEnumerable<Course> collection) { throw new NotImplementedException(); }
     }
 }

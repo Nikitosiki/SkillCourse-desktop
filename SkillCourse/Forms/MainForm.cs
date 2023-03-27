@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NikitosikSUI;
-using System.Xml.Linq;
 using SkillCourse.DataBaseStructure;
 
 namespace SkillCourse
