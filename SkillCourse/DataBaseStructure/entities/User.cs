@@ -132,7 +132,7 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value.Length < 8 || !Regex.IsMatch(password, @"^[a-zA-Z0-9]+$"))
+                if (value.Length < 8 || !Regex.IsMatch(value, @"^[a-zA-Z0-9]+$"))
                     throw new FormatException($"Invalid format.\n{nameof(password)}");
                 password = value;
             }

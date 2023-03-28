@@ -11,7 +11,7 @@ namespace SkillCourse.DataBaseStructure.entities
     [Serializable]
     public class Student : User, ICloneable
     {
-        protected Student(UserType userType, string firstName, string lastName, string email, string password, GenderType gender, DateTime lastLoginDate)
+        public Student(UserType userType, string firstName, string lastName, string email, string password, GenderType gender)
         {
             IdUser = idCounter;
             UserType = userType;
@@ -20,7 +20,7 @@ namespace SkillCourse.DataBaseStructure.entities
             Email = email;
             Password = password;
             Gender = gender;
-            LastLoginDate = lastLoginDate;
+            LastLoginDate = DateTime.Now;
         }
 
         private Student(int id, UserType userType, string firstName, string lastName, string email, string password, GenderType gender, DateTime lastLoginDate)

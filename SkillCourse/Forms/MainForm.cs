@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NikitosikSUI;
 using SkillCourse.DataBaseStructure;
+using SkillCourse.DataBaseStructure.entities;
+using SkillCourse.DataBaseStructure.types;
+using System.IO;
+
 
 namespace SkillCourse
 {
@@ -100,7 +104,15 @@ namespace SkillCourse
 
         public void Random()
         {
+            RandomAddUserToUserCollection();
             RandomAddCourseToCourseCollection();
+        }
+
+        public void RandomAddUserToUserCollection()
+        {
+            SkillCourseDB DataBase = SkillCourseDB.Instance;
+
+            DataBase.Users.Add(new Teather(UserType.Teacher, "Kir", "Leir", "leir.k@gmail.com", "123456789", GenderType.Male));
         }
 
         public void RandomAddCourseToCourseCollection()
@@ -113,7 +125,8 @@ namespace SkillCourse
                 string nameCourse = $"{i} - ый курс, по программированию!";
                 string descriptionCourse = "Description: Это...";
 
-                Course course = new Course(nameCourse, descriptionCourse, image, 0);
+                int idTeather = DataBase.Users.Teathers()[0].IdUser;
+                Course course = new Course(nameCourse, descriptionCourse, image, idTeather);
                 DataBase.Courses.Add(course);
             }
         }

@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SkillCourse.DataBaseStructure.serialize" GeneratedClassName="SerializeSetting">
+  <Profiles />
+  <Settings>
+    <Setting Name="SerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/</Value>
+    </Setting>
+    <Setting Name="CourseCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionCourse</Value>
+    </Setting>
+    <Setting Name="TaskCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionTask</Value>
+    </Setting>
+    <Setting Name="AnswerToTaskCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionAnswerToTask</Value>
+    </Setting>
+    <Setting Name="CertificateCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionCertificate</Value>
+    </Setting>
+    <Setting Name="SubscriptionCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionSubscription</Value>
+    </Setting>
+    <Setting Name="UserCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionUser</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

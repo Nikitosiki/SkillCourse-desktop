@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using SkillCourse.DataBaseStructure.serialize;
+using SkillCourse.DataBaseStructure.serialize.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace SkillCourse.DataBaseStructure
 {
-    public class AnswerToTaskCollection : List<AnswerTask>
+    [Serializable]
+    public class AnswerToTaskCollection : List<AnswerTask>, ISerializableJSON
     {
         private static SkillCourseDB? instanceDB = null;
         private static SkillCourseDB DataBase
@@ -34,7 +38,7 @@ namespace SkillCourse.DataBaseStructure
         private bool CheckCorrectId(AnswerTask answer)
         {
             int targetIndex = this.FindIndex(item => item.IdAnswerToTask == answer.IdAnswerToTask);
-            if (targetIndex != -1)
+            if (targetIndex == -1)
                 return true;
 
             return false;
@@ -44,28 +48,32 @@ namespace SkillCourse.DataBaseStructure
         public new void Add(AnswerTask answer)
         {
             if (CheckCorrectObject(answer) && CheckCorrectId(answer))
+            {
                 base.Add(answer);
+                if (!SerializeObject())
+                    throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.AnswerTasks));
+            }
+            else
+                throw new Exception("Answer Task, uncorrect id or object!");
         }
 
         public new void Remove(AnswerTask answer)
         {
-            base.Remove(answer);
+            this.RemoveNonSerialized(answer);
+
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.AnswerTasks));
         }
 
         public new void RemoveAll(Predicate<AnswerTask> match)
         {
-            foreach (AnswerTask answer in DataBase.AnswerTasks)
-            {
-                if (match(answer))
-                    this.Remove(answer);
-            }
+            this.RemoveAllNonSerialized(match);
+
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.AnswerTasks));
         }
 
-        public new void RemoveAt(int index)
-        {
-            AnswerTask answer = DataBase.AnswerTasks[index];
-            this.Remove(answer);
-        }
+        public new void RemoveAt(int index) => this.Remove(DataBase.AnswerTasks[index]);
 
         public void Update(AnswerTask answer)
         {
@@ -82,18 +90,99 @@ namespace SkillCourse.DataBaseStructure
 
 
             DataBase.AnswerTasks[objectIndex] = answer;
+
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.AnswerTasks));
         }
 
         public new void Clear()
         {
             foreach (AnswerTask answer in DataBase.AnswerTasks)
             {
-                this.Remove(answer);
+                this.RemoveNonSerialized(answer);
             }
+
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.AnswerTasks));
         }
 
 
+        #region Serialize
 
+        public void RemoveNonSerialized(AnswerTask answer)
+        {
+            base.Remove(answer);
+        }
+
+        public void RemoveAllNonSerialized(Predicate<AnswerTask> match)
+        {
+            foreach (AnswerTask answer in DataBase.AnswerTasks)
+            {
+                if (match(answer))
+                    this.RemoveNonSerialized(answer);
+            }
+        }
+
+        private bool CheckCorrectPathToDeserialize(string pathFile)
+        {
+            if (string.IsNullOrEmpty(pathFile))
+                return false;
+
+            string serializePathFolder = SerializeSetting.Default.SerializationPath;
+            if (!Directory.Exists(serializePathFolder))
+                Directory.CreateDirectory(serializePathFolder);
+
+            if (!File.Exists($"{pathFile}.json"))
+                return false;
+
+            return true;
+        }
+
+        private bool CheckCorrectPathToSerialize(string pathFile)
+        {
+            if (string.IsNullOrEmpty(pathFile))
+                return false;
+
+            string serializePathFolder = SerializeSetting.Default.SerializationPath;
+            if (!Directory.Exists(serializePathFolder))
+                Directory.CreateDirectory(serializePathFolder);
+
+            return true;
+        }
+
+
+        public bool SerializeObject()
+        {
+            string path = SerializeSetting.Default.AnswerToTaskCollectionSerializationPath;
+
+            if (!CheckCorrectPathToSerialize(path))
+                throw new ArgumentException("Uncorrect Path: " + nameof(path));
+
+            if (Serialize.SerializeObject(DataBase.AnswerTasks, path))
+                return true;
+
+            return false;
+        }
+
+        public bool DeserializeObject()
+        {
+            string path = SerializeSetting.Default.AnswerToTaskCollectionSerializationPath;
+
+            if (!CheckCorrectPathToDeserialize(path))
+                throw new ArgumentException("Uncorrect Path: " + nameof(path));
+
+            List<AnswerTask> newListAnswer = new List<AnswerTask>();
+            if (Serialize.DeserializeObject(ref newListAnswer, path))
+            {
+                base.Clear();
+                base.AddRange(newListAnswer);
+                return true;
+            }
+
+            return false;
+        }
+
+        #endregion
 
         private new void AddRange(IEnumerable<Course> collection) { throw new NotImplementedException(); }
         private new void Insert(int index, Course item) { throw new NotImplementedException(); }

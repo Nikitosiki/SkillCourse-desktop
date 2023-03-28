@@ -8,7 +8,7 @@ namespace SkillCourse.DataBaseStructure.serialize.interfaces
 {
     public interface ISerializableJSON
     {
-        public bool SerializeObject(string inFileName);
-        public bool DeserializeObject(string fromFileName);
+        public bool SerializeObject();
+        public bool DeserializeObject();
     }
 }

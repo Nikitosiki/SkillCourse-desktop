@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.VisualBasic.Devices;
 using SkillCourse.DataBaseStructure.entities;
+using SkillCourse.DataBaseStructure.serialize;
+using SkillCourse.DataBaseStructure.serialize.interfaces;
 using SkillCourse.DataBaseStructure.types;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace SkillCourse.DataBaseStructure
 {
-    public class UserCollection : List<User>
+    [Serializable]
+    public class UserCollection : List<User>, ISerializableJSON
     {
         private static SkillCourseDB? instanceDB = null;
         private static SkillCourseDB DataBase
@@ -44,7 +47,7 @@ namespace SkillCourse.DataBaseStructure
         private bool CheckCorrectId(User user)
         {
             int targetIndex = this.FindIndex(item => item.IdUser == user.IdUser);
-            if (targetIndex != -1)
+            if (targetIndex == -1)
                 return true;
 
             return false;
@@ -54,54 +57,32 @@ namespace SkillCourse.DataBaseStructure
         public new void Add(User user)
         {
             if (CheckCorrectId(user))
+            {
                 base.Add(user);
+                if (!SerializeObject())
+                    throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Users));
+            }
+            else
+                throw new Exception("User uncorrect id!");
         }
 
         public new void Remove(User user)
         {
-            UserType typeUser = user.UserType;
+            this.RemoveNonSerialized(user);
 
-            switch (typeUser)
-            {
-                case UserType.Teacher:
-                    {
-                        DataBase.Courses.RemoveAll(course => course.IdTeacher == user.IdUser);
-                        DataBase.AnswerTasks.RemoveAll(answer => answer.IdUser == user.IdUser);
-                        DataBase.Certificates.RemoveAll(teather => teather.IdPresenterTeacher == user.IdUser);
-
-                        base.Remove(user);
-                    }
-                    break;
-
-                case UserType.Student:
-                    {
-                        DataBase.Subscriptions.RemoveAll(sub => sub.IdStudent == user.IdUser);
-                        DataBase.AnswerTasks.RemoveAll(answer => answer.IdUser == user.IdUser);
-                        DataBase.Certificates.RemoveAll(owner => owner.IdOwner == user.IdUser);
-
-                        base.Remove(user);
-                    }
-                    break;
-
-                default:
-                    throw new ArgumentNullException(nameof(typeUser));
-            }
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Users));
         }
 
         public new void RemoveAll(Predicate<User> match)
         {
-            foreach (User user in DataBase.Users)
-            {
-                if (match(user))
-                    this.Remove(user);
-            }
+            this.RemoveAllNonSerialized(match);
+
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Users));
         }
 
-        public new void RemoveAt(int index)
-        {
-            User removeUser = DataBase.Users[index];
-            this.Remove(removeUser);
-        }
+        public new void RemoveAt(int index) => this.Remove(DataBase.Users[index]);
 
         public void Update(User user)
         {
@@ -115,18 +96,125 @@ namespace SkillCourse.DataBaseStructure
 
 
             DataBase.Users[objectIndex] = user;
+
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Users));
         }
 
         public new void Clear()
         {
             foreach (User user in DataBase.Users)
             {
-                this.Remove(user);
+                this.RemoveNonSerialized(user);
             }
+
+            if (!SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Users));
         }
 
 
+        #region Serialize
 
+        public void RemoveNonSerialized(User user)
+        {
+            UserType typeUser = user.UserType;
+
+            switch (typeUser)
+            {
+                case UserType.Teacher:
+                    {
+                        DataBase.Courses.RemoveAllNonSerialized(course => course.IdTeacher == user.IdUser);
+                        DataBase.AnswerTasks.RemoveAllNonSerialized(answer => answer.IdUser == user.IdUser);
+                        DataBase.Certificates.RemoveAllNonSerialized(teather => teather.IdPresenterTeacher == user.IdUser);
+
+                        base.Remove(user);
+                    }
+                    break;
+
+                case UserType.Student:
+                    {
+                        DataBase.Subscriptions.RemoveAllNonSerialized(sub => sub.IdStudent == user.IdUser);
+                        DataBase.AnswerTasks.RemoveAllNonSerialized(answer => answer.IdUser == user.IdUser);
+                        DataBase.Certificates.RemoveAllNonSerialized(owner => owner.IdOwner == user.IdUser);
+
+                        base.Remove(user);
+                    }
+                    break;
+
+                default:
+                    throw new ArgumentNullException(nameof(typeUser));
+            }
+        }
+
+        public void RemoveAllNonSerialized(Predicate<User> match)
+        {
+            foreach (User user in DataBase.Users)
+            {
+                if (match(user))
+                    this.RemoveNonSerialized(user);
+            }
+        }
+
+        private bool CheckCorrectPathToDeserialize(string pathFile)
+        {
+            if (string.IsNullOrEmpty(pathFile))
+                return false;
+
+            string serializePathFolder = SerializeSetting.Default.SerializationPath;
+            if (!Directory.Exists(serializePathFolder))
+                Directory.CreateDirectory(serializePathFolder);
+
+            if (!File.Exists($"{pathFile}.json"))
+                return false;
+
+            return true;
+        }
+
+        private bool CheckCorrectPathToSerialize(string pathFile)
+        {
+            if (string.IsNullOrEmpty(pathFile))
+                return false;
+
+            string serializePathFolder = SerializeSetting.Default.SerializationPath;
+            if (!Directory.Exists(serializePathFolder))
+                Directory.CreateDirectory(serializePathFolder);
+
+            return true;
+        }
+
+
+        public bool SerializeObject()
+        {
+            string path = SerializeSetting.Default.UserCollectionSerializationPath;
+
+            if (!CheckCorrectPathToSerialize(path))
+                throw new ArgumentException("Uncorrect Path: " + nameof(path));
+
+            if (Serialize.SerializeObject(DataBase.Users, path))
+                return true;
+
+            return false;
+        }
+
+        public bool DeserializeObject()
+        {
+            string path = SerializeSetting.Default.UserCollectionSerializationPath;
+
+            if (!CheckCorrectPathToDeserialize(path))
+                throw new ArgumentException("Uncorrect Path: " + nameof(path));
+
+            List<User> newListUser = new List<User>();
+            if (Serialize.DeserializeObject(ref newListUser, path))
+            {
+                base.Clear();
+                base.AddRange(newListUser);
+                return true;
+            }
+
+            return false;
+        }
+
+        #endregion
 
         private new void AddRange(IEnumerable<Course> collection) { throw new NotImplementedException(); }
         private new void Insert(int index, Course item) { throw new NotImplementedException(); }

@@ -10,7 +10,7 @@ namespace SkillCourse.DataBaseStructure.entities
     [Serializable]
     public class Teather : User, ICloneable
     {
-        protected Teather(UserType userType, string firstName, string lastName, string email, string password, GenderType gender, DateTime lastLoginDate)
+        public Teather(UserType userType, string firstName, string lastName, string email, string password, GenderType gender)
         {
             IdUser = idCounter;
             UserType = userType;
@@ -19,10 +19,10 @@ namespace SkillCourse.DataBaseStructure.entities
             Email = email;
             Password = password;
             Gender = gender;
-            LastLoginDate = lastLoginDate;
+            LastLoginDate = DateTime.Now;
         }
 
-        protected Teather(int id, UserType userType, string firstName, string lastName, string email, string password, GenderType gender, DateTime lastLoginDate)
+        private Teather(int id, UserType userType, string firstName, string lastName, string email, string password, GenderType gender, DateTime lastLoginDate)
         {
             IdUser = id;
             UserType = userType;

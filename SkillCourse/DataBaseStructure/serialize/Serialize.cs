@@ -9,7 +9,7 @@ namespace SkillCourse.DataBaseStructure.serialize
 {
     public class Serialize
     {
-        public bool SerializeObject<T>(ref T obj, string fileName)
+        public static bool SerializeObject<T>(T obj, string fileName)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace SkillCourse.DataBaseStructure.serialize
             }
             catch { return false; }
         }
-        public bool DeserializeObject<T>(ref T obj, string fileName)
+        public static bool DeserializeObject<T>(ref T obj, string fileName)
         {
             try
             {
