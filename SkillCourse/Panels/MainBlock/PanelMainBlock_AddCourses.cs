@@ -22,7 +22,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             SkillCourseDB DataBase = SkillCourseDB.Instance;
 
-            Course course = new Course(textBox_NameCourse.Text, textBox_DescriptionCourse.Text, Properties.Resources.image008, 0);
+            Course course = new Course(textBox_NameCourse.Text, textBox_DescriptionCourse.Text, "image008", 0);
             DataBase.Courses.Add(course);
         }
     }

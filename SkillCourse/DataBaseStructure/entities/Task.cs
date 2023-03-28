@@ -22,7 +22,7 @@ namespace SkillCourse.DataBaseStructure
 
         public Task(string textTask, int idCourse)
         {
-            IdTask = idCounter++;
+            IdTask = ++idCounter;
             TextTask = textTask;
             IdCourse = idCourse;
         }

@@ -1,5 +1,4 @@
-﻿using SkillCourse.DataBaseStructure.entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,26 +16,26 @@ namespace SkillCourse.DataBaseStructure
         private int idCourse;
         private string name;
         private string description;
-        private Image image;
+        private string imagePath;
 
         private int idTeacher;
 
 
-        public Course(string name, string description, Image image, int idTeacher)
+        public Course(string name, string description, string imagePath, int idTeacher)
         {
-            IdCourse = idCounter++;
+            IdCourse = ++idCounter;
             Name = name;
             Description = description;
-            Image = image;
+            ImagePath = imagePath;
             IdTeacher = idTeacher;
         }
 
-        private Course(int id, string name, string description, Image image, int idTeacher)
+        private Course(int id, string name, string description, string imagePath, int idTeacher)
         {
             IdCourse = id;
             Name = name;
             Description = description;
-            Image = image;
+            ImagePath = imagePath;
             IdTeacher = idTeacher;
         }
 
@@ -86,17 +85,17 @@ namespace SkillCourse.DataBaseStructure
         }
 
         [DisplayName("Image")]
-        public Image Image
+        public string ImagePath
         {
             get
             {
-                return image;
+                return imagePath;
             }
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException(nameof(image));
-                image = value;
+                    throw new ArgumentNullException(nameof(imagePath));
+                imagePath = value;
             }
         }
 
@@ -118,7 +117,7 @@ namespace SkillCourse.DataBaseStructure
 
         public object Clone()
         {
-            return new Course(IdCourse, Name, Description, Image, IdTeacher);
+            return new Course(IdCourse, Name, Description, ImagePath, IdTeacher);
         }
     }
 }

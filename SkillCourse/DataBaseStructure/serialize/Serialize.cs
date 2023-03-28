@@ -25,8 +25,8 @@ namespace SkillCourse.DataBaseStructure.serialize
             {
                 if (File.Exists(fileName + ".json"))
                 {
-                    var stringJson = File.ReadAllText(fileName + ".json");
-                    T? deserializeObject = JsonSerializer.Deserialize<T>(stringJson);
+                    string stringJson = File.ReadAllText(fileName + ".json");
+                    var deserializeObject = JsonSerializer.Deserialize<T>(stringJson);
                     if (deserializeObject == null)
                     {
                         return false;

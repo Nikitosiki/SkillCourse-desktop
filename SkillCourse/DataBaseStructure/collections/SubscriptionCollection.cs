@@ -1,5 +1,4 @@
-﻿using SkillCourse.DataBaseStructure.entities;
-using SkillCourse.DataBaseStructure.serialize;
+﻿using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.serialize.interfaces;
 using System;
 using System.Collections.Generic;

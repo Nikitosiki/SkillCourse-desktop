@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.VisualBasic.Devices;
-using SkillCourse.DataBaseStructure.entities;
 using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.serialize.interfaces;
 using SkillCourse.DataBaseStructure.types;
@@ -69,6 +68,15 @@ namespace SkillCourse.DataBaseStructure
         public new void Remove(User user)
         {
             this.RemoveNonSerialized(user);
+
+            if (!DataBase.Courses.SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Courses));
+            if (!DataBase.AnswerTasks.SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.AnswerTasks));
+            if (!DataBase.Tasks.SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Tasks));
+            if (!DataBase.Certificates.SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Certificates));
 
             if (!SerializeObject())
                 throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Users));

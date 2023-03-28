@@ -24,7 +24,7 @@ namespace SkillCourse.DataBaseStructure
 
         public SubscriptionCourse(int idStudent, int idCourse)
         {
-            IdSubscriptionCourse = idCounter++;
+            IdSubscriptionCourse = ++idCounter;
             DateSub = DateTime.Now;
             IdCourse = idCourse;
             IdStudent = idStudent;

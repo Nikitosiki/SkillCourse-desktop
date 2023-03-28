@@ -29,7 +29,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             foreach (Course course in Course)
             {
-                UserControl userControl = new Component_BriefСourse(course.Name, course.Description, course.Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
+                UserControl userControl = new Component_BriefСourse(course.Name, course.Description, (Image)Properties.Resources.ResourceManager.GetObject(course.ImagePath), () => openPageCourse(new PanelMainBlock_CoursePage()));
                 flowLayoutPanel1.Controls.Add(userControl);
             }
             return true;

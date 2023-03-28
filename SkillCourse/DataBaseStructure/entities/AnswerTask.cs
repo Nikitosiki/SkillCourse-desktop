@@ -24,7 +24,7 @@ namespace SkillCourse.DataBaseStructure
 
         public AnswerTask(StateTask state, int grade, int idTask, int idUser)
         {
-            IdAnswerToTask = idCounter++;
+            IdAnswerToTask = ++idCounter;
             State = state;
             Grade = grade;
             IdTask = idTask;

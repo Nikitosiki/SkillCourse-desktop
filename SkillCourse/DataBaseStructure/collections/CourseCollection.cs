@@ -62,6 +62,13 @@ namespace SkillCourse.DataBaseStructure
         {
             this.RemoveNonSerialized(course);
 
+            if (!DataBase.Tasks.SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Tasks));
+            if (!DataBase.Certificates.SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Certificates));
+            if (!DataBase.Subscriptions.SerializeObject())
+                throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Subscriptions));
+
             if (!SerializeObject())
                 throw new ArgumentException("Uncorrect Serialize: " + nameof(DataBase.Courses));
         }

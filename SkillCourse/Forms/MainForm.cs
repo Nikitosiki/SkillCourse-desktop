@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NikitosikSUI;
 using SkillCourse.DataBaseStructure;
-using SkillCourse.DataBaseStructure.entities;
 using SkillCourse.DataBaseStructure.types;
 using System.IO;
 
@@ -23,7 +22,7 @@ namespace SkillCourse
         public MainForm()
         {
             InitializeComponent();
-            Random();
+            //Random();
             panel2.Controls.Add(new PanelMainBlock_Courses());
 
         }
@@ -102,34 +101,41 @@ namespace SkillCourse
 
         #region randomFilling
 
-        public void Random()
-        {
-            RandomAddUserToUserCollection();
-            RandomAddCourseToCourseCollection();
-        }
+        //public void Random()
+        //{
+        //    RandomAddUserToUserCollection();
+        //    RandomAddCourseToCourseCollection();
 
-        public void RandomAddUserToUserCollection()
-        {
-            SkillCourseDB DataBase = SkillCourseDB.Instance;
+        //    SkillCourseDB DataBase = SkillCourseDB.Instance;
+        //    DataBase.Users.Add(new Student(UserType.Student, "Nik", "Tas", "tas.nk@gmail.com", "000000001", GenderType.Female));
+        //    DataBase.Subscriptions.Add(new SubscriptionCourse(2, 5));
+        //    DataBase.Tasks.Add(new DataBaseStructure.Task("bla-bla-blabalalala", 5));
+        //    DataBase.AnswerTasks.Add(new AnswerTask(StateTask.Done, 2, 1, 2));
+        //    DataBase.Certificates.Add(new Certificate("You>!", DateTime.Now, 1, 2, 3));
+        //}
 
-            DataBase.Users.Add(new Teather(UserType.Teacher, "Kir", "Leir", "leir.k@gmail.com", "123456789", GenderType.Male));
-        }
+        //public void RandomAddUserToUserCollection()
+        //{
+        //    SkillCourseDB DataBase = SkillCourseDB.Instance;
 
-        public void RandomAddCourseToCourseCollection()
-        {
-            SkillCourseDB DataBase = SkillCourseDB.Instance;
-            Image image = Properties.Resources.image008;
+        //    DataBase.Users.Add(new Teather(UserType.Teacher, "Kir", "Leir", "leir.k@gmail.com", "123456789", GenderType.Male));
+        //}
 
-            for (int i = 0; i < 100; i++)
-            {
-                string nameCourse = $"{i} - ый курс, по программированию!";
-                string descriptionCourse = "Description: Это...";
+        //public void RandomAddCourseToCourseCollection()
+        //{
+        //    SkillCourseDB DataBase = SkillCourseDB.Instance;
+        //    string image = "image008";
 
-                int idTeather = DataBase.Users.Teathers()[0].IdUser;
-                Course course = new Course(nameCourse, descriptionCourse, image, idTeather);
-                DataBase.Courses.Add(course);
-            }
-        }
+        //    for (int i = 0; i < 100; i++)
+        //    {
+        //        string nameCourse = $"{i} - ый курс, по программированию!";
+        //        string descriptionCourse = "Description: Это...";
+
+        //        int idTeather = DataBase.Users.Teathers()[0].IdUser;
+        //        Course course = new Course(nameCourse, descriptionCourse, image, idTeather);
+        //        DataBase.Courses.Add(course);
+        //    }
+        //}
 
         #endregion
     }

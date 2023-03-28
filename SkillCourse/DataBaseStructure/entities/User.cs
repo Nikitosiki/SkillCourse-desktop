@@ -8,6 +8,7 @@ using SkillCourse.DataBaseStructure.types;
 using System.Text.RegularExpressions;
 using static System.Windows.Forms.AxHost;
 using Microsoft.VisualBasic.Logging;
+using System.Text.Json.Serialization;
 
 namespace SkillCourse.DataBaseStructure
 {
@@ -27,7 +28,7 @@ namespace SkillCourse.DataBaseStructure
         private GenderType gender;
         private DateTime lastLoginDate;
 
-
+        
 
         [DisplayName("Id User")]
         public int IdUser

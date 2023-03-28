@@ -22,22 +22,24 @@ namespace SkillCourse.DataBaseStructure
         private int idOwner;
         private int idCourse;
 
-        public Certificate(string description, DateTime presentationTime, int idPresenterTeacher, int idOwner)
+        public Certificate(string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
         {
-            IdCertificate = idCounter++;
+            IdCertificate = ++idCounter;
             Description = description;
             PresentationTime = presentationTime;
             IdPresenterTeacher = idPresenterTeacher;
             IdOwner = idOwner;
+            IdCourse = idCourse;
         }
 
-        private Certificate(int id, string description, DateTime presentationTime, int idPresenterTeacher, int idOwner)
+        private Certificate(int id, string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
         {
             IdCertificate = id;
             Description = description;
             PresentationTime = presentationTime;
             IdPresenterTeacher = idPresenterTeacher;
             IdOwner = idOwner;
+            IdCourse = idCourse;
         }
 
         [DisplayName("Id Certificate")]
@@ -133,7 +135,7 @@ namespace SkillCourse.DataBaseStructure
 
         public object Clone()
         {
-            return new Certificate(IdCertificate, Description, PresentationTime, IdPresenterTeacher, IdOwner);
+            return new Certificate(IdCertificate, Description, PresentationTime, IdPresenterTeacher, IdOwner, IdCourse);
         }
     }
 }
