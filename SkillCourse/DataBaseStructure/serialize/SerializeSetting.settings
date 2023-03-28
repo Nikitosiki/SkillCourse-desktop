@@ -23,5 +23,11 @@
     <Setting Name="UserCollectionSerializationPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">./serializations/collectionUser</Value>
     </Setting>
+    <Setting Name="StudentCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionStudent</Value>
+    </Setting>
+    <Setting Name="TeatherCollectionSerializationPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./serializations/collectionTeather</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

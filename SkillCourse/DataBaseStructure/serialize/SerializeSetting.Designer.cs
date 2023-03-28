@@ -85,5 +85,23 @@ namespace SkillCourse.DataBaseStructure.serialize {
                 return ((string)(this["UserCollectionSerializationPath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("./serializations/collectionStudent")]
+        public string StudentCollectionSerializationPath {
+            get {
+                return ((string)(this["StudentCollectionSerializationPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("./serializations/collectionTeather")]
+        public string TeatherCollectionSerializationPath {
+            get {
+                return ((string)(this["TeatherCollectionSerializationPath"]));
+            }
+        }
     }
 }

@@ -193,12 +193,17 @@ namespace SkillCourse.DataBaseStructure
 
         public bool SerializeObject()
         {
-            string path = SerializeSetting.Default.UserCollectionSerializationPath;
+            string pathStud = SerializeSetting.Default.StudentCollectionSerializationPath;
+            string pathTeat = SerializeSetting.Default.TeatherCollectionSerializationPath;
 
-            if (!CheckCorrectPathToSerialize(path))
-                throw new ArgumentException("Uncorrect Path: " + nameof(path));
+            if (!CheckCorrectPathToSerialize(pathStud))
+                throw new ArgumentException("Uncorrect Path: " + nameof(pathStud));
 
-            if (Serialize.SerializeObject(DataBase.Users, path))
+            if (!CheckCorrectPathToSerialize(pathTeat))
+                throw new ArgumentException("Uncorrect Path: " + nameof(pathTeat));
+
+            if (Serialize.SerializeObject(DataBase.Users.Teathers(), pathStud)
+                && Serialize.SerializeObject(DataBase.Users.Students(), pathTeat))
                 return true;
 
             return false;
@@ -206,16 +211,22 @@ namespace SkillCourse.DataBaseStructure
 
         public bool DeserializeObject()
         {
-            string path = SerializeSetting.Default.UserCollectionSerializationPath;
+            string pathStud = SerializeSetting.Default.StudentCollectionSerializationPath;
+            string pathTeat = SerializeSetting.Default.TeatherCollectionSerializationPath;
 
-            if (!CheckCorrectPathToDeserialize(path))
-                throw new ArgumentException("Uncorrect Path: " + nameof(path));
+            if (!CheckCorrectPathToDeserialize(pathStud))
+                throw new ArgumentException("Uncorrect Path: " + nameof(pathStud));
 
-            List<User> newListUser = new List<User>();
-            if (Serialize.DeserializeObject(ref newListUser, path))
+            if (!CheckCorrectPathToDeserialize(pathTeat))
+                throw new ArgumentException("Uncorrect Path: " + nameof(pathTeat));
+
+            List<Teather> newListTeather = new List<Teather>();
+            List<Student> newListStudent = new List<Student>();
+            if (Serialize.DeserializeObject(ref newListStudent, pathStud) && Serialize.DeserializeObject(ref newListTeather, pathStud))
             {
                 base.Clear();
-                base.AddRange(newListUser);
+                base.AddRange(newListTeather);
+                base.AddRange(newListStudent);
                 return true;
             }
 
