@@ -11,35 +11,37 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public class Teather : User, ICloneable
     {
-        public Teather(UserType userType, string firstName, string lastName, string email, string password, GenderType gender)
+        public Teather(string firstName, string lastName, string email, string password, DateTime dateOfBirth, GenderType gender)
         {
             IdUser = ++idCounter;
-            UserType = userType;
+            UserType = UserType.Teacher;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
             Gender = gender;
+            DateOfBirth = dateOfBirth;
             LastLoginDate = DateTime.Now;
         }
 
         [JsonConstructor]
-        private Teather(int id, UserType userType, string firstName, string lastName, string email, string password, GenderType gender, DateTime lastLoginDate)
+        private Teather(int id, string firstName, string lastName, string email, string password, DateTime dateOfBirth, GenderType gender, DateTime lastLoginDate)
         {
             IdUser = id;
-            UserType = userType;
+            UserType = UserType.Teacher;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
             Gender = gender;
+            DateOfBirth = dateOfBirth;
             LastLoginDate = lastLoginDate;
         }
 
 
         public object Clone()
         {
-            return new Teather(IdUser, UserType, FirstName, LastName, Email, Password, Gender, LastLoginDate);
+            return new Teather(IdUser, FirstName, LastName, Email, Password, DateOfBirth, Gender, LastLoginDate);
         }
     }
 }

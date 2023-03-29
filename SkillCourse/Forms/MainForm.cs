@@ -107,7 +107,7 @@ namespace SkillCourse
         //    RandomAddCourseToCourseCollection();
 
         //    SkillCourseDB DataBase = SkillCourseDB.Instance;
-        //    DataBase.Users.Add(new Student(UserType.Student, "Nik", "Tas", "tas.nk@gmail.com", "000000001", GenderType.Female));
+        //    DataBase.Users.Add(new Student("Nik", "Tas", "tas.nk@gmail.com", "000000001", DateTime.Now.AddDays(-8000), GenderType.Female));
         //    DataBase.Subscriptions.Add(new SubscriptionCourse(2, 5));
         //    DataBase.Tasks.Add(new DataBaseStructure.Task("bla-bla-blabalalala", 5));
         //    DataBase.AnswerTasks.Add(new AnswerTask(StateTask.Done, 2, 1, 2));
@@ -118,7 +118,7 @@ namespace SkillCourse
         //{
         //    SkillCourseDB DataBase = SkillCourseDB.Instance;
 
-        //    DataBase.Users.Add(new Teather(UserType.Teacher, "Kir", "Leir", "leir.k@gmail.com", "123456789", GenderType.Male));
+        //    DataBase.Users.Add(new Teather("Kir", "Leir", "leir.k@gmail.com", "123456789", DateTime.Now.AddDays(-8000), GenderType.Male));
         //}
 
         //public void RandomAddCourseToCourseCollection()

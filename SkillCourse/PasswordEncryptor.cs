@@ -14,7 +14,7 @@ namespace SkillCourse
         private const int Iterations = 10000;   // число итераций для функции PBKDF2
 
 
-        public bool CheckPassword(string password, string hash)
+        public static bool CheckPassword(string password, string hash)
         {
             byte[] hashBytes = Convert.FromBase64String(hash);
             byte[] salt = new byte[SaltSize];
@@ -34,7 +34,7 @@ namespace SkillCourse
             return true;
         }
 
-        public string Encrypt(string password)
+        public static string Encrypt(string password)
         {
             byte[] salt = GenerateSalt();
             byte[] hash = GetHash(password, salt);
@@ -46,14 +46,14 @@ namespace SkillCourse
             return Convert.ToBase64String(hashBytes);
         }
 
-        private byte[] GetHash(string password, byte[] salt)
+        private static byte[] GetHash(string password, byte[] salt)
         {
             var pbkdf2 = new Rfc2898DeriveBytes(password, salt, Iterations);
             byte[] hash = pbkdf2.GetBytes(HashSize);
             return hash;
         }
 
-        private byte[] GenerateSalt()
+        private static byte[] GenerateSalt()
         {
             byte[] salt = new byte[SaltSize];
             RandomNumberGenerator.Fill(salt);

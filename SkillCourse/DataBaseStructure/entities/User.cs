@@ -24,7 +24,7 @@ namespace SkillCourse.DataBaseStructure
         private string email;
         private string password;
         private string? phoneNumber;
-        private DateTime? dateOfBirth;
+        private DateTime dateOfBirth;
         private GenderType gender;
         private DateTime lastLoginDate;
 
@@ -133,14 +133,14 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value.Length < 8 || !Regex.IsMatch(value, @"^[a-zA-Z0-9]+$"))
-                    throw new FormatException($"Invalid format.\n{nameof(password)}");
+                if (value == null)
+                    throw new FormatException($"Incorrect value.");
                 password = value;
             }
         }
 
         [DisplayName("Date Of Birth")]
-        public DateTime? DateOfBirth
+        public DateTime DateOfBirth
         {
             get
             {
@@ -148,12 +148,6 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value == null)
-                {
-                    dateOfBirth = null;
-                    return;
-                }
-
                 if ((value < new DateTime(2000, 01, 01)) || value > DateTime.Now.AddDays(1))
                     throw new ArgumentOutOfRangeException(nameof(dateOfBirth));
                 dateOfBirth = value;
