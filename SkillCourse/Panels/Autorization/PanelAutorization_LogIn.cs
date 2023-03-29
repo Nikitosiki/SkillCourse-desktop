@@ -23,9 +23,7 @@ namespace SkillCourse.Panels
 
         private void newButton2_Click(object sender, EventArgs e)
         {
-            //MainForm LoadForm = new MainForm();
-            //LoadForm.ShowDialog();
-
+            AccountHandler.Instance.LogIn(newGoogleTextBox3.Text, newGoogleTextBox4.Text);
             parentForm.Hide();
         }
     }

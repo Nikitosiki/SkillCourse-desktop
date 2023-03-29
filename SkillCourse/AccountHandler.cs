@@ -12,6 +12,18 @@ namespace SkillCourse
 {
     public class AccountHandler
     {
+        public delegate void UserChange(User? newUser);
+        private event UserChange OnChangeUser;
+        private void OnUserChanged()
+        {
+            OnChangeUser?.Invoke(this.userLog);
+        }
+        public void subscribeOnChange(UserChange subscribeEvent)
+        {
+            OnChangeUser += subscribeEvent;
+        }
+
+
         private static AccountHandler? instance;
         public static AccountHandler Instance
         {
@@ -68,6 +80,7 @@ namespace SkillCourse
                 throw new ArgumentException("Incorrect password.");
 
             userLog = thisUser;
+            OnChangeUser(thisUser);
 
             return true;
         }
