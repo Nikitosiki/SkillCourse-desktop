@@ -26,7 +26,7 @@ namespace SkillCourse
             //Random();
             panel2.Controls.Add(new PanelMainBlock_Courses());
 
-            AccountHandler.Instance.subscribeOnChange((DataBaseStructure.User? user) => { updateUser(user); });
+            AccountHandler.Instance.subscribeOnChange(updateUser);
         }
 
         private void newButton1_Click(object sender, EventArgs e)
@@ -39,9 +39,17 @@ namespace SkillCourse
         public void updateUser(DataBaseStructure.User? user)
         {
             if (user == null)
+            {
+                label1.Location = new Point(label1.Location.X, label1.Location.Y + 25);
+                label1.Font = new Font(label1.Font.FontFamily, 14);
                 label1.Text = "not authorized";
+            }
             else
+            {
+                label1.Location = new Point(label1.Location.X, label1.Location.Y - 25);
+                label1.Font = new Font(label1.Font.FontFamily, 12);
                 label1.Text = user.FirstName + "\n" + user.LastName;
+            }
         }
 
 

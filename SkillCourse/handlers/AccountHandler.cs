@@ -12,13 +12,8 @@ namespace SkillCourse
 {
     public class AccountHandler
     {
-        public delegate void UserChange(User? newUser);
-        private event UserChange OnChangeUser;
-        private void OnUserChanged()
-        {
-            OnChangeUser?.Invoke(this.userLog);
-        }
-        public void subscribeOnChange(UserChange subscribeEvent)
+        private event Action<User?> OnChangeUser;
+        public void subscribeOnChange(Action<User> subscribeEvent)
         {
             OnChangeUser += subscribeEvent;
         }
@@ -62,7 +57,7 @@ namespace SkillCourse
             }
             private set
             {
-                if (value.IdUser < 0 || DataBase.Users.Find(user => user.IdUser == value.IdUser) != null)
+                if (value?.IdUser < 0 || DataBase.Users.Find(user => user.IdUser == value?.IdUser) != null)
                     throw new ArgumentOutOfRangeException(nameof(userLog));
                 userLog = value;
             }
@@ -115,6 +110,7 @@ namespace SkillCourse
         public bool LogOut()
         {
             UserLog = null;
+            OnChangeUser(null);
             return true;
         }
 
