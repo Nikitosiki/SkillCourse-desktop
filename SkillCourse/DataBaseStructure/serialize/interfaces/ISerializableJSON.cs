@@ -10,5 +10,6 @@ namespace SkillCourse.DataBaseStructure.serialize.interfaces
     {
         public bool SerializeObject();
         public bool DeserializeObject();
+
     }
 }
