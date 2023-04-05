@@ -34,7 +34,7 @@ namespace SkillCourse
 
 
 
-        public List<Course> Courses
+        public List<Course> MyCourses
         {
             get
             {
@@ -51,6 +51,11 @@ namespace SkillCourse
         {
             IEnumerable<int> subscriptionIds = DataBase.Subscriptions.Where(sub => sub.IdCourse == course.IdCourse).Select(sub => sub.IdStudent);
             return DataBase.Users.Students().Where(user => subscriptionIds.Contains(user.IdUser)).ToList();
+        }
+
+        public List<Certificate> GetCertificate(Course course)
+        {
+            return DataBase.Certificates.Where(cer => cer.IdCourse == course.IdCourse).ToList();
         }
 
         public List<Course> FindAllCourses(string search)
