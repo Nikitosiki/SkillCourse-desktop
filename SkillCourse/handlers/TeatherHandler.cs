@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse
@@ -56,6 +55,18 @@ namespace SkillCourse
         public List<Certificate> GetCertificate(Course course)
         {
             return DataBase.Certificates.Where(cer => cer.IdCourse == course.IdCourse).ToList();
+        }
+
+        public List<AnswerTask> GetAnswersToBeChecked(Course course)
+        {
+            // Находим задачи для курса
+            List<Task> courseTasks = DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse).ToList();
+
+            // Находим ответы на задачи для перечисления заданий
+            return DataBase.AnswerTasks
+                .Join(courseTasks, ans => ans.IdTask, task => task.IdTask, (ans, task) => ans)
+                .Where(answer => answer.State == StateTask.Done)
+                .ToList();
         }
 
         public List<Course> FindAllCourses(string search)
