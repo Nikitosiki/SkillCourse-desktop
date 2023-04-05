@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse
@@ -60,16 +62,17 @@ namespace SkillCourse
                 .ToList();
         }
 
-        public bool CreateCourse(string name, string description)
+        public Course? CreateCourse(string name, string description)
         {
             try
             {
-                DataBase.Courses.Add(new Course(name, description, "imageDefaultCourse", this.IdUser));
-                return true;
+                Course newCourse = new Course(name, description, "imageDefaultCourse", this.IdUser);
+                DataBase.Courses.Add(newCourse);
+                return newCourse;
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
 
@@ -107,9 +110,11 @@ namespace SkillCourse
                         course.IdCourse
                     );
                     DataBase.Subscriptions.Add(subscription);
+
+                    return true;
                 }
 
-                return true;
+                return false;
             }
             catch (Exception)
             {
@@ -136,6 +141,59 @@ namespace SkillCourse
                 }
 
                 return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool AddTaskToCourse(Course course, string textTask)
+        {
+            try
+            {
+                // Проверяем, что такой курс существует
+                if (DataBase.Courses.Any(cou => cou.IdCourse == course.IdCourse))
+                {
+                    Task task = new Task(textTask, course.IdCourse);
+                    DataBase.Tasks.Add(task);
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool AddCertificate(Course course, Student student, string description)
+        {
+            try
+            {
+                // Проверяем, что такой курс и студент существует
+                if (DataBase.Courses.Any(cou => cou.IdCourse == course.IdCourse) &&
+                    DataBase.Users.Students().Any(user => user.IdUser == user.IdUser))
+                    //Нет ли уже такого сертификата
+                    if (!DataBase.Certificates.Any(Cer => Cer.IdCourse == course.IdCourse && Cer.IdOwner == student.IdUser))                    
+                    {
+                        //Проверяем что студент выполнил все задания
+                        //------------------------------------------
+
+
+                        // Находим задачи для заданного курса
+                        List<Task> courseTasks = DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse).ToList();
+
+                        // Находим ответы на задачи для перечисления заданий и студента
+                        List<AnswerTask> completedTasks = DataBase.AnswerTasks.Where(ans => ans.IdUser == student.IdUser)
+                            .Join(courseTasks, ans => ans.IdTask, task => task.IdTask, (ans, task) => ans).ToList();
+
+                        return courseTasks.Count == completedTasks.Count;
+                    }
+
+                return false;
             }
             catch (Exception)
             {
