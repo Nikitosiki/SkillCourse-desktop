@@ -15,14 +15,14 @@ namespace SkillCourse.DataBaseStructure
         private static int idCounter = 0;
 
         private int idAnswerToTask;
-        private StateTask state;
-        private int grade;
+        private StateTask state = StateTask.NotDone;
+        private int? grade;
 
         private int idTask;
         private int idUser;
 
 
-        public AnswerTask(StateTask state, int grade, int idTask, int idUser)
+        public AnswerTask(StateTask state, int? grade, int idTask, int idUser)
         {
             IdAnswerToTask = ++idCounter;
             State = state;
@@ -31,7 +31,7 @@ namespace SkillCourse.DataBaseStructure
             IdUser = idUser;
         }
 
-        private AnswerTask(int id, StateTask state, int grade, int idTask, int idUser)
+        private AnswerTask(int id, StateTask state, int? grade, int idTask, int idUser)
         {
             IdAnswerToTask = id;
             State = state;
@@ -69,7 +69,7 @@ namespace SkillCourse.DataBaseStructure
         }
 
         [DisplayName("Grade")]
-        public int Grade
+        public int? Grade
         {
             get
             {

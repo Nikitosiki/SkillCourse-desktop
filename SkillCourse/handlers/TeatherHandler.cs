@@ -205,5 +205,27 @@ namespace SkillCourse
                 return false;
             }
         }
+
+        //Оценить задание
+        public bool RateTask(AnswerTask answer, int garde)
+        {
+            try
+            {
+                if (DataBase.AnswerTasks.Any(ans => ans.IdTask == answer.IdTask))
+                {
+                    answer.Grade = garde;
+                    answer.State = StateTask.Checked;
+                    DataBase.AnswerTasks.Update(answer);
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
