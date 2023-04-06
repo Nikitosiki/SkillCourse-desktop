@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms.Design.Behavior;
 using SkillCourse.DataBaseStructure.types;
@@ -17,6 +18,7 @@ namespace SkillCourse.DataBaseStructure
         private int idAnswerToTask;
         private StateTask state = StateTask.NotDone;
         private int? grade;
+        //private string? text;
 
         private int idTask;
         private int idUser;
@@ -82,6 +84,19 @@ namespace SkillCourse.DataBaseStructure
                 grade = value;
             }
         }
+
+        //[DisplayName("Text")]
+        //public string? Text
+        //{
+        //    get
+        //    {
+        //        return text;
+        //    }
+        //    set
+        //    {
+        //        text = value;
+        //    }
+        //}
 
         [DisplayName("Id Task")]
         public int IdTask

@@ -1,7 +1,7 @@
 using SkillCourse;
 using SkillCourse.DataBaseStructure.serialize;
 
-namespace Tests
+namespace Tests.helpers
 {
     [TestClass]
     public class UnitTests_Serialize
@@ -28,7 +28,7 @@ namespace Tests
         public void DeserializeObject_Success()
         {
             // Arrange
-            object obj = null;
+            object? obj = null;
             string fileName = "test";
             Serialize.SerializeObject<object>(new { Name = "John", Age = 30 }, fileName);
 

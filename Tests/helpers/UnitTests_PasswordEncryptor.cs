@@ -1,6 +1,6 @@
 using SkillCourse;
 
-namespace Tests
+namespace Tests.helpers
 {
     [TestClass]
     public class UnitTests_PasswordEncryptor

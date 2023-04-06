@@ -148,7 +148,7 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if ((value < new DateTime(2000, 01, 01)) || value > DateTime.Now.AddDays(1))
+                if ((value < new DateTime(1900, 01, 01)) || value > DateTime.Now.AddDays(1))
                     throw new ArgumentOutOfRangeException(nameof(dateOfBirth));
                 dateOfBirth = value;
             }
