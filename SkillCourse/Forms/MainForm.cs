@@ -89,21 +89,29 @@ namespace SkillCourse
             panelNavbarBut.Controls.Add(
                 new Component_NavigationBut("Teachers",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                true, () =>
+                false, () =>
                 {
                     NavigatePages.openPage(new PanelMainBlock_Teachers(), panelMain);
                     UpdateStateButtons("Teachers");
                 }, null));
 
 
+            ControlCollection CourseDopButtons = new ControlCollection(this)
+            {
+                new Component_NavigationDopBut("Info"),
+                new Component_NavigationDopBut("Tasks"),
+                new Component_NavigationDopBut("Students"),
+                new Component_NavigationDopBut("Home")
+            };
+
             panelNavbarBut.Controls.Add(
                 new Component_NavigationBut("Courses",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
+                true, () =>
                 {
                     NavigatePages.openPage(new PanelMainBlock_Courses(), panelMain);
                     UpdateStateButtons("Courses");
-                }, null));
+                }, CourseDopButtons));
         }
 
 
@@ -119,7 +127,7 @@ namespace SkillCourse
             }
         }
 
-        
+
 
 
         #region randomFilling
