@@ -14,7 +14,7 @@ using SkillCourse.DataBaseStructure;
 using SkillCourse.DataBaseStructure.types;
 using System.IO;
 using Microsoft.VisualBasic.ApplicationServices;
-
+using SkillCourse.PanelComponents;
 
 namespace SkillCourse
 {
@@ -25,6 +25,7 @@ namespace SkillCourse
             InitializeComponent();
             //Random();
             panel2.Controls.Add(new PanelMainBlock_Courses());
+            AddButtonToNavbar();
 
             AccountHandler.Instance.subscribeOnChange(updateUser);
         }
@@ -53,11 +54,54 @@ namespace SkillCourse
         }
 
 
+        public void ChangeActiveButton(Button button)
+        {
+
+        }
+
+        private void AddButtonToNavbar()
+        {
+            panelNavbarBut.Controls.Add(new Component_NavigationBut("Edit profile", false));
+            panelNavbarBut.Controls.Add(new Component_NavigationBut("Certificates", false));
+            panelNavbarBut.Controls.Add(new Component_NavigationBut("Add Courses", false));
+            panelNavbarBut.Controls.Add(new Component_NavigationBut("Teachers", false));
+            panelNavbarBut.Controls.Add(new Component_NavigationBut("Courses", true));
+        }
+
+
         #region clickHandler_navbar
         private void newButton_Courses_Click(object sender, EventArgs e)
         {
             ChangeColorButton(sender);
+            //EditControlWithLoad(panel2, new PanelMainBlock_Courses(), new Component_Loading());
+
             EditControl(panel2, new PanelMainBlock_Courses());
+
+            //EditControl(panel2, new PanelMainBlock_EditProfile());
+
+            //// Асинхронно загружаем пользовательский элемент в фоновом потоке
+            //object panel = await System.Threading.Tasks.Task.Run(() =>
+            //{
+            //    object control = new PanelMainBlock_Courses();
+            //    // Выполняем здесь необходимые операции загрузки
+            //    // ...
+            //    return control;
+            //});
+
+            //EditControl(panel2, panel);
+
+
+            //Control control = await System.Threading.Tasks.Task.Run(() =>
+            //{
+            //    Control cont = new Control();
+            //    cont = new PanelMainBlock_Courses();
+
+            //    return cont;
+            //});
+
+            //Panel panelEdit = (Panel)panel2;
+            //panelEdit.Controls.Clear();
+            //panelEdit.Controls.Add(control);
         }
 
         private void newButton_Teacher_Click(object sender, EventArgs e)
@@ -105,7 +149,24 @@ namespace SkillCourse
             if (panelEdit.Controls.Count < 1 || panelEdit.Controls[0] != Content)
             {
                 panelEdit.Controls.Clear();
+                //panelEdit.Visible = false;
                 panelEdit.Controls.Add(Content);
+
+            }
+        }
+
+        public void EditControlWithLoad(object panel, object content, object loader)
+        {
+            Panel panelEdit = (Panel)panel;
+            UserControl Content = (UserControl)content;
+            UserControl Loader = (UserControl)loader;
+
+            if (panelEdit.Controls.Count < 1 || panelEdit.Controls[0] != Content)
+            {
+                panelEdit.Controls.Clear();
+                panelEdit.Controls.Add(Loader);
+                //panelEdit.Controls.Add(Content);
+                //panelEdit.Controls.Remove(Loader);
             }
         }
 

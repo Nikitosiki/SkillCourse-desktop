@@ -9,9 +9,9 @@ namespace SkillCourse
 {
     public class PasswordEncryptor
     {
-        private const int SaltSize = 16;        // размер соли в байтах
-        private const int HashSize = 20;        // размер хэша в байтах
-        private const int Iterations = 10000;   // число итераций для функции PBKDF2
+        private static readonly int SaltSize = 16;        // размер соли в байтах
+        private static readonly int HashSize = 20;        // размер хэша в байтах
+        private static readonly int Iterations = 10000;   // число итераций для функции PBKDF2
 
 
         public static bool CheckPassword(string password, string hash)

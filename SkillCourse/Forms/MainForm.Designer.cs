@@ -40,10 +40,15 @@
             newButton1 = new yt_DesignUI.NewButton();
             panel2 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            panelNavbarBut = new Panel();
+            label2 = new Label();
             panelNavbar.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            panel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelNavbar
@@ -58,11 +63,8 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(newButton_Certificate);
-            groupBox2.Controls.Add(newButton_EditProfile);
-            groupBox2.Controls.Add(newButton_AddCourses);
-            groupBox2.Controls.Add(newButton_Teacher);
-            groupBox2.Controls.Add(newButton_Courses);
+            groupBox2.Controls.Add(panelNavbarBut);
+            groupBox2.Controls.Add(panel1);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(0, 163);
             groupBox2.Name = "groupBox2";
@@ -75,7 +77,7 @@
             newButton_Certificate.AutoSize = true;
             newButton_Certificate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newButton_Certificate.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_Certificate.Location = new Point(38, 241);
+            newButton_Certificate.Location = new Point(204, 389);
             newButton_Certificate.Name = "newButton_Certificate";
             newButton_Certificate.Size = new Size(108, 28);
             newButton_Certificate.TabIndex = 7;
@@ -87,7 +89,7 @@
             newButton_EditProfile.AutoSize = true;
             newButton_EditProfile.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newButton_EditProfile.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_EditProfile.Location = new Point(38, 303);
+            newButton_EditProfile.Location = new Point(204, 451);
             newButton_EditProfile.Name = "newButton_EditProfile";
             newButton_EditProfile.Size = new Size(108, 28);
             newButton_EditProfile.TabIndex = 6;
@@ -99,7 +101,7 @@
             newButton_AddCourses.AutoSize = true;
             newButton_AddCourses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newButton_AddCourses.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_AddCourses.Location = new Point(38, 179);
+            newButton_AddCourses.Location = new Point(204, 327);
             newButton_AddCourses.Name = "newButton_AddCourses";
             newButton_AddCourses.Size = new Size(122, 28);
             newButton_AddCourses.TabIndex = 5;
@@ -111,7 +113,7 @@
             newButton_Teacher.AutoSize = true;
             newButton_Teacher.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newButton_Teacher.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_Teacher.Location = new Point(38, 117);
+            newButton_Teacher.Location = new Point(204, 265);
             newButton_Teacher.Name = "newButton_Teacher";
             newButton_Teacher.Size = new Size(85, 28);
             newButton_Teacher.TabIndex = 2;
@@ -123,7 +125,7 @@
             newButton_Courses.AutoSize = true;
             newButton_Courses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newButton_Courses.ForeColor = SystemColors.ControlLight;
-            newButton_Courses.Location = new Point(38, 55);
+            newButton_Courses.Location = new Point(204, 203);
             newButton_Courses.Name = "newButton_Courses";
             newButton_Courses.Size = new Size(80, 28);
             newButton_Courses.TabIndex = 1;
@@ -182,6 +184,11 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(newButton_Certificate);
+            panel2.Controls.Add(newButton_Courses);
+            panel2.Controls.Add(newButton_EditProfile);
+            panel2.Controls.Add(newButton_Teacher);
+            panel2.Controls.Add(newButton_AddCourses);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(253, 3);
             panel2.Name = "panel2";
@@ -205,6 +212,34 @@
             tableLayoutPanel1.Size = new Size(1262, 673);
             tableLayoutPanel1.TabIndex = 2;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(label2);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(3, 464);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(238, 37);
+            panel1.TabIndex = 0;
+            // 
+            // panelNavbarBut
+            // 
+            panelNavbarBut.Dock = DockStyle.Fill;
+            panelNavbarBut.Location = new Point(3, 23);
+            panelNavbarBut.Name = "panelNavbarBut";
+            panelNavbarBut.Size = new Size(238, 441);
+            panelNavbarBut.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.ControlDark;
+            label2.Location = new Point(47, 11);
+            label2.Name = "label2";
+            label2.Size = new Size(174, 20);
+            label2.TabIndex = 0;
+            label2.Text = "ChatGPT Mar 23 Version";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -217,10 +252,13 @@
             Text = "SkillCourse";
             panelNavbar.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -238,5 +276,8 @@
         private Label newButton_Courses;
         private TableLayoutPanel tableLayoutPanel1;
         private Label newButton_Certificate;
+        private Panel panelNavbarBut;
+        private Panel panel1;
+        private Label label2;
     }
 }

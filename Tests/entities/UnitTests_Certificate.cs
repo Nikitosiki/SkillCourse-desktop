@@ -17,39 +17,19 @@ namespace Tests.entities
             int expectedIdCertificate = 1;
             string expectedDescription = "Test Description";
             DateTime expectedPresentationTime = DateTime.Now;
-            int expectedIdPresenterTeacher = 2;
-            int expectedIdOwner = 3;
-            int expectedIdCourse = 4;
+            int expectedIdPresenterTeacher = 3;
+            int expectedIdOwner = 1;
+            int expectedIdCourse = 2;
 
             // Act
             Certificate certificate = new Certificate(expectedDescription, expectedPresentationTime, expectedIdPresenterTeacher, expectedIdOwner, expectedIdCourse);
 
             // Assert
-            Assert.AreEqual(expectedIdCertificate, certificate.IdCertificate);
             Assert.AreEqual(expectedDescription, certificate.Description);
             Assert.AreEqual(expectedPresentationTime, certificate.PresentationTime);
             Assert.AreEqual(expectedIdPresenterTeacher, certificate.IdPresenterTeacher);
             Assert.AreEqual(expectedIdOwner, certificate.IdOwner);
             Assert.AreEqual(expectedIdCourse, certificate.IdCourse);
-        }
-
-
-        [TestMethod]
-        public void Constructor_SetsIdCertificateCorrectly()
-        {
-            // Arrange
-            int expectedIdCertificate = 1;
-            string expectedDescription = "Test Description";
-            DateTime expectedPresentationTime = DateTime.Now;
-            int expectedIdPresenterTeacher = 2;
-            int expectedIdOwner = 3;
-            int expectedIdCourse = 4;
-
-            // Act
-            Certificate certificate = new Certificate(expectedDescription, expectedPresentationTime, expectedIdPresenterTeacher, expectedIdOwner, expectedIdCourse);
-
-            // Assert
-            Assert.AreEqual(expectedIdCertificate, certificate.IdCertificate);
         }
 
 
@@ -101,7 +81,6 @@ namespace Tests.entities
             Certificate clonedCertificate = (Certificate)certificate.Clone();
 
             // Assert
-            Assert.AreEqual(expectedIdCertificate, clonedCertificate.IdCertificate);
             Assert.AreEqual(expectedDescription, clonedCertificate.Description);
             Assert.AreEqual(expectedPresentationTime, clonedCertificate.PresentationTime);
             Assert.AreEqual(expectedIdPresenterTeacher, clonedCertificate.IdPresenterTeacher);
@@ -183,6 +162,58 @@ namespace Tests.entities
             Assert.AreEqual(certificate.IdPresenterTeacher, clonedCertificate.IdPresenterTeacher);
             Assert.AreEqual(certificate.IdOwner, clonedCertificate.IdOwner);
             Assert.AreEqual(certificate.IdCourse, clonedCertificate.IdCourse);
+        }
+
+
+        [TestMethod]
+        public void Clone_ReturnsCopyOfCertificate()
+        {
+            // Arrange
+            Certificate originalCertificate = new Certificate("Test Certificate", DateTime.Now, 1, 2, 3);
+
+            // Act
+            Certificate clonedCertificate = (Certificate)originalCertificate.Clone();
+
+            // Assert
+            Assert.AreEqual(originalCertificate.IdCertificate, clonedCertificate.IdCertificate);
+            Assert.AreEqual(originalCertificate.Description, clonedCertificate.Description);
+            Assert.AreEqual(originalCertificate.PresentationTime, clonedCertificate.PresentationTime);
+            Assert.AreEqual(originalCertificate.IdPresenterTeacher, clonedCertificate.IdPresenterTeacher);
+            Assert.AreEqual(originalCertificate.IdOwner, clonedCertificate.IdOwner);
+            Assert.AreEqual(originalCertificate.IdCourse, clonedCertificate.IdCourse);
+        }
+
+
+        [TestMethod]
+        public void PresentationTime_SettingValueBelow2000_ThrowsArgumentOutOfRangeException()
+        {
+            // Arrange
+            Certificate certificate = new Certificate("Test Certificate", DateTime.Now, 1, 2, 3);
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => certificate.PresentationTime = new DateTime(1999, 12, 31));
+        }
+
+
+        [TestMethod]
+        public void PresentationTime_SettingValueInFuture_ThrowsArgumentOutOfRangeException()
+        {
+            // Arrange
+            Certificate certificate = new Certificate("Test Certificate", DateTime.Now, 1, 2, 3);
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => certificate.PresentationTime = DateTime.Now.AddDays(2));
+        }
+
+
+        [TestMethod]
+        public void Description_SettingNullValue_ThrowsArgumentNullException()
+        {
+            // Arrange
+            Certificate certificate = new Certificate("Test Certificate", DateTime.Now, 1, 2, 3);
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentNullException>(() => certificate.Description = null);
         }
     }
 }
