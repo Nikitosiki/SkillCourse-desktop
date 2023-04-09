@@ -15,6 +15,7 @@ using SkillCourse.DataBaseStructure.types;
 using System.IO;
 using Microsoft.VisualBasic.ApplicationServices;
 using SkillCourse.PanelComponents;
+using Microsoft.VisualBasic.Devices;
 
 namespace SkillCourse
 {
@@ -24,7 +25,7 @@ namespace SkillCourse
         {
             InitializeComponent();
             //Random();
-            panel2.Controls.Add(new PanelMainBlock_Courses());
+            panelMain.Controls.Add(new PanelMainBlock_Courses());
             AddButtonToNavbar();
 
             AccountHandler.Instance.subscribeOnChange(updateUser);
@@ -53,129 +54,72 @@ namespace SkillCourse
             }
         }
 
-
-        public void ChangeActiveButton(Button button)
-        {
-
-        }
-
         private void AddButtonToNavbar()
         {
-            panelNavbarBut.Controls.Add(new Component_NavigationBut("Edit profile", false));
-            panelNavbarBut.Controls.Add(new Component_NavigationBut("Certificates", false));
-            panelNavbarBut.Controls.Add(new Component_NavigationBut("Add Courses", false));
-            panelNavbarBut.Controls.Add(new Component_NavigationBut("Teachers", false));
-            panelNavbarBut.Controls.Add(new Component_NavigationBut("Courses", true));
+            panelNavbarBut.Controls.Add(
+                new Component_NavigationBut("Edit profile",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_EditProfile(), panelMain);
+                    UpdateStateButtons("Edit profile");
+                }, null));
+
+
+            panelNavbarBut.Controls.Add(
+                new Component_NavigationBut("Certificates",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Certificates(), panelMain);
+                    UpdateStateButtons("Certificates");
+                }, null));
+
+
+            panelNavbarBut.Controls.Add(
+                new Component_NavigationBut("Add Courses",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_AddCourses(), panelMain);
+                    UpdateStateButtons("Add Courses");
+                }, null));
+
+
+            panelNavbarBut.Controls.Add(
+                new Component_NavigationBut("Teachers",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                true, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Teachers(), panelMain);
+                    UpdateStateButtons("Teachers");
+                }, null));
+
+
+            panelNavbarBut.Controls.Add(
+                new Component_NavigationBut("Courses",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Courses(), panelMain);
+                    UpdateStateButtons("Courses");
+                }, null));
         }
 
 
-        #region clickHandler_navbar
-        private void newButton_Courses_Click(object sender, EventArgs e)
+        private void UpdateStateButtons(string nameButtonActive)
         {
-            ChangeColorButton(sender);
-            //EditControlWithLoad(panel2, new PanelMainBlock_Courses(), new Component_Loading());
-
-            EditControl(panel2, new PanelMainBlock_Courses());
-
-            //EditControl(panel2, new PanelMainBlock_EditProfile());
-
-            //// Асинхронно загружаем пользовательский элемент в фоновом потоке
-            //object panel = await System.Threading.Tasks.Task.Run(() =>
-            //{
-            //    object control = new PanelMainBlock_Courses();
-            //    // Выполняем здесь необходимые операции загрузки
-            //    // ...
-            //    return control;
-            //});
-
-            //EditControl(panel2, panel);
-
-
-            //Control control = await System.Threading.Tasks.Task.Run(() =>
-            //{
-            //    Control cont = new Control();
-            //    cont = new PanelMainBlock_Courses();
-
-            //    return cont;
-            //});
-
-            //Panel panelEdit = (Panel)panel2;
-            //panelEdit.Controls.Clear();
-            //panelEdit.Controls.Add(control);
-        }
-
-        private void newButton_Teacher_Click(object sender, EventArgs e)
-        {
-            ChangeColorButton(sender);
-            EditControl(panel2, new PanelMainBlock_Teachers());
-        }
-
-        private void newButton_EditProfile_Click(object sender, EventArgs e)
-        {
-            ChangeColorButton(sender);
-            EditControl(panel2, new PanelMainBlock_EditProfile());
-        }
-
-        private void newButton_AddCourses_Click(object sender, EventArgs e)
-        {
-            ChangeColorButton(sender);
-            EditControl(panel2, new PanelMainBlock_AddCourses());
-        }
-
-        private void newButton_Certificate_Click(object sender, EventArgs e)
-        {
-            ChangeColorButton(sender);
-            EditControl(panel2, new PanelMainBlock_AddCourses());
-        }
-
-        private void ChangeColorButton(object senderButtonSelected)
-        {
-            // Сброс всех кнопок на дефолт
-            foreach (Control control in groupBox2.Controls)
+            foreach (Control item in panelNavbarBut.Controls)
             {
-                control.ForeColor = FlatColors.ProjectBlueGreyButton;
-            }
-
-            // ----
-            ((Label)senderButtonSelected).ForeColor = SystemColors.ControlLight;
-
-        }
-
-        public void EditControl(object panel, object content)
-        {
-            Panel panelEdit = (Panel)panel;
-            UserControl Content = (UserControl)content;
-
-            if (panelEdit.Controls.Count < 1 || panelEdit.Controls[0] != Content)
-            {
-                panelEdit.Controls.Clear();
-                //panelEdit.Visible = false;
-                panelEdit.Controls.Add(Content);
-
+                Component_NavigationBut objectPan = (Component_NavigationBut)item;
+                if (objectPan.name == nameButtonActive)
+                    objectPan.ChangeStateDopButton(true);
+                else
+                    objectPan.ChangeStateDopButton(false);
             }
         }
 
-        public void EditControlWithLoad(object panel, object content, object loader)
-        {
-            Panel panelEdit = (Panel)panel;
-            UserControl Content = (UserControl)content;
-            UserControl Loader = (UserControl)loader;
-
-            if (panelEdit.Controls.Count < 1 || panelEdit.Controls[0] != Content)
-            {
-                panelEdit.Controls.Clear();
-                panelEdit.Controls.Add(Loader);
-                //panelEdit.Controls.Add(Content);
-                //panelEdit.Controls.Remove(Loader);
-            }
-        }
-
-        public void EditControlMainPage(object content)
-        {
-            EditControl(panel2, content);
-        }
-
-        #endregion
+        
 
 
         #region randomFilling

@@ -30,25 +30,19 @@
         {
             panelNavbar = new Panel();
             groupBox2 = new GroupBox();
-            newButton_Certificate = new Label();
-            newButton_EditProfile = new Label();
-            newButton_AddCourses = new Label();
-            newButton_Teacher = new Label();
-            newButton_Courses = new Label();
+            panelNavbarBut = new Panel();
+            panel1 = new Panel();
+            label2 = new Label();
             groupBox1 = new GroupBox();
             label1 = new Label();
             newButton1 = new yt_DesignUI.NewButton();
-            panel2 = new Panel();
+            panelMain = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            panel1 = new Panel();
-            panelNavbarBut = new Panel();
-            label2 = new Label();
             panelNavbar.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
-            panel2.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelNavbar
@@ -72,65 +66,33 @@
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             // 
-            // newButton_Certificate
+            // panelNavbarBut
             // 
-            newButton_Certificate.AutoSize = true;
-            newButton_Certificate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton_Certificate.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_Certificate.Location = new Point(204, 389);
-            newButton_Certificate.Name = "newButton_Certificate";
-            newButton_Certificate.Size = new Size(108, 28);
-            newButton_Certificate.TabIndex = 7;
-            newButton_Certificate.Text = "Certificates";
-            newButton_Certificate.Click += newButton_Certificate_Click;
+            panelNavbarBut.Dock = DockStyle.Fill;
+            panelNavbarBut.Location = new Point(3, 23);
+            panelNavbarBut.Name = "panelNavbarBut";
+            panelNavbarBut.Size = new Size(238, 441);
+            panelNavbarBut.TabIndex = 1;
             // 
-            // newButton_EditProfile
+            // panel1
             // 
-            newButton_EditProfile.AutoSize = true;
-            newButton_EditProfile.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton_EditProfile.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_EditProfile.Location = new Point(204, 451);
-            newButton_EditProfile.Name = "newButton_EditProfile";
-            newButton_EditProfile.Size = new Size(108, 28);
-            newButton_EditProfile.TabIndex = 6;
-            newButton_EditProfile.Text = "Edit profile";
-            newButton_EditProfile.Click += newButton_EditProfile_Click;
+            panel1.Controls.Add(label2);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(3, 464);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(238, 37);
+            panel1.TabIndex = 0;
             // 
-            // newButton_AddCourses
+            // label2
             // 
-            newButton_AddCourses.AutoSize = true;
-            newButton_AddCourses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton_AddCourses.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_AddCourses.Location = new Point(204, 327);
-            newButton_AddCourses.Name = "newButton_AddCourses";
-            newButton_AddCourses.Size = new Size(122, 28);
-            newButton_AddCourses.TabIndex = 5;
-            newButton_AddCourses.Text = "Add Courses";
-            newButton_AddCourses.Click += newButton_AddCourses_Click;
-            // 
-            // newButton_Teacher
-            // 
-            newButton_Teacher.AutoSize = true;
-            newButton_Teacher.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton_Teacher.ForeColor = Color.FromArgb(142, 173, 212);
-            newButton_Teacher.Location = new Point(204, 265);
-            newButton_Teacher.Name = "newButton_Teacher";
-            newButton_Teacher.Size = new Size(85, 28);
-            newButton_Teacher.TabIndex = 2;
-            newButton_Teacher.Text = "Teachers";
-            newButton_Teacher.Click += newButton_Teacher_Click;
-            // 
-            // newButton_Courses
-            // 
-            newButton_Courses.AutoSize = true;
-            newButton_Courses.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton_Courses.ForeColor = SystemColors.ControlLight;
-            newButton_Courses.Location = new Point(204, 203);
-            newButton_Courses.Name = "newButton_Courses";
-            newButton_Courses.Size = new Size(80, 28);
-            newButton_Courses.TabIndex = 1;
-            newButton_Courses.Text = "Courses";
-            newButton_Courses.Click += newButton_Courses_Click;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.ControlDark;
+            label2.Location = new Point(47, 11);
+            label2.Name = "label2";
+            label2.Size = new Size(174, 20);
+            label2.TabIndex = 0;
+            label2.Text = "ChatGPT Mar 23 Version";
             // 
             // groupBox1
             // 
@@ -182,18 +144,13 @@
             newButton1.UseZoomEffectOnHover = false;
             newButton1.Click += newButton1_Click;
             // 
-            // panel2
+            // panelMain
             // 
-            panel2.Controls.Add(newButton_Certificate);
-            panel2.Controls.Add(newButton_Courses);
-            panel2.Controls.Add(newButton_EditProfile);
-            panel2.Controls.Add(newButton_Teacher);
-            panel2.Controls.Add(newButton_AddCourses);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(253, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1006, 667);
-            panel2.TabIndex = 1;
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(253, 3);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(1006, 667);
+            panelMain.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -203,7 +160,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 1012F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(panelNavbar, 1, 0);
-            tableLayoutPanel1.Controls.Add(panel2, 2, 0);
+            tableLayoutPanel1.Controls.Add(panelMain, 2, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -211,34 +168,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(1262, 673);
             tableLayoutPanel1.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(label2);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(3, 464);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(238, 37);
-            panel1.TabIndex = 0;
-            // 
-            // panelNavbarBut
-            // 
-            panelNavbarBut.Dock = DockStyle.Fill;
-            panelNavbarBut.Location = new Point(3, 23);
-            panelNavbarBut.Name = "panelNavbarBut";
-            panelNavbarBut.Size = new Size(238, 441);
-            panelNavbarBut.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ControlDark;
-            label2.Location = new Point(47, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(174, 20);
-            label2.TabIndex = 0;
-            label2.Text = "ChatGPT Mar 23 Version";
             // 
             // MainForm
             // 
@@ -252,13 +181,11 @@
             Text = "SkillCourse";
             panelNavbar.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -267,15 +194,10 @@
         private Panel panelNavbar;
         private yt_DesignUI.NewButton newButton1;
         private Label label1;
-        private Panel panel2;
+        private Panel panelMain;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Label newButton_EditProfile;
-        private Label newButton_AddCourses;
-        private Label newButton_Teacher;
-        private Label newButton_Courses;
         private TableLayoutPanel tableLayoutPanel1;
-        private Label newButton_Certificate;
         private Panel panelNavbarBut;
         private Panel panel1;
         private Label label2;
