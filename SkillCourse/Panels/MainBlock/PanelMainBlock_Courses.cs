@@ -29,6 +29,7 @@ namespace SkillCourse.Panels.MainBlock
             AddCourseToFlowLayoutPanel(DataBase.Courses);
         }
 
+        #region LoadPage
 
         public bool AddCourseToFlowLayoutPanel(List<Course> Course)
         {
@@ -38,26 +39,8 @@ namespace SkillCourse.Panels.MainBlock
                 flowLayoutPanel1.Controls.Add(userControl);
             }
             return true;
+
         }
-
-        //public async System.Threading.Tasks.Task<ControlCollection> dasdas(List<Course> Course)
-        //{
-        //    ControlCollection temp = new ControlCollection(this);
-        //    foreach (Course course in Course)
-        //    {
-        //        temp.Add(new Component_BriefСourse(course.Name, course.Description,
-        //            (Image)Properties.Resources.ResourceManager.GetObject(course.ImagePath),
-        //            () => openPageCourse(new PanelMainBlock_CoursePage())));
-        //    }
-
-        //    return temp;
-        //}
-
-        //private async void PanelMainBlock_Courses_Load(object sender, EventArgs e)
-        //{
-        //    collection = await System.Threading.Tasks.Task.Run(() => dasdas(SkillCourseDB.Instance.Courses));
-        //}
-
 
         private void openPageCourse(UserControl Content)
         {
@@ -72,6 +55,39 @@ namespace SkillCourse.Panels.MainBlock
                     mainPanel.Controls.Clear();
                     mainPanel.Controls.Add(Content);
                 }
+            }
+        }
+
+        #endregion
+
+
+        //public List<Course> FindAllCourses(string search)
+        //{
+        //    string[] searchWords = search.Split(' '); // разбиваем на отдельные слова
+        //    return DataBase.Courses
+        //        .Where(course => searchWords.Any(word =>
+        //            course.Name.Contains(word) || course.Description.Contains(word)))
+        //        .ToList();
+        //}
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ControlCollection sortedCollection = new ControlCollection(flowLayoutPanel1);
+
+            //Востанавливаем все елементы после поиска
+            if (textBox1.Text == "" || textBox1.Text == " ")
+                foreach (Control item in flowLayoutPanel1.Controls)
+                {
+                    item.Visible = true;
+                }
+
+            foreach (Control item in flowLayoutPanel1.Controls)
+            {
+                if (item.Visible == false)
+                    continue;
+
+                if (!item.Name.Contains(textBox1.Text))
+                    item.Visible = false;
             }
         }
     }
