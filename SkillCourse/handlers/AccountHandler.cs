@@ -82,10 +82,6 @@ namespace SkillCourse
 
         public bool RegIn(string firstName, string lastName, string email, DateTime dateOfBirth, UserType type, string password)
         {
-            if (DataBase.Users.FindLast(user => user.Email == email) != null)
-                throw new ArgumentException("User already registered!");
-
-
             if (password.Length < 8 || !Regex.IsMatch(password, @"^[a-zA-Z0-9]+$"))
                 throw new FormatException($"Invalid format.\n{nameof(password)}");
 

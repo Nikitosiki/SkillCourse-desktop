@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SkillCourse.DataBaseStructure
 {
@@ -52,9 +53,20 @@ namespace SkillCourse.DataBaseStructure
             return false;
         }
 
+        private bool NotRepeatedEmail(User user)
+        {
+            if (DataBase.Users.FindLast(us => us.Email == user.Email) != null)
+                return false;
+
+            return true;
+        }
+
 
         public new void Add(User user)
         {
+            if (!NotRepeatedEmail(user))
+                throw new ArgumentException("User already registered!");
+
             if (CheckCorrectId(user))
             {
                 base.Add(user);
