@@ -41,6 +41,8 @@ namespace SkillCourse.Panels
 
         private void newButtonSingUp_Click(object sender, EventArgs e)
         {
+            labelMesError.Visible = false;
+
             if (!ValidityCheckName(TextBoxLastName, false))
                 return;
             if (!ValidityCheckName(TextBoxFirstName, false))
@@ -50,7 +52,9 @@ namespace SkillCourse.Panels
             if (!ValidityCheckPassword(TextBoxPassword, false))
                 return;
 
-            AccountHandler.Instance.RegIn(
+            try
+            {
+                AccountHandler.Instance.RegIn(
                     TextBoxFirstName.Text,
                     TextBoxLastName.Text,
                     TextBoxEmail.Text,
@@ -58,7 +62,13 @@ namespace SkillCourse.Panels
                     userType,
                     TextBoxPassword.Text);
 
-            ((Authorization)parentForm).SelectLogInWithRegistred(TextBoxEmail.Text);
+                ((Authorization)parentForm).SelectLogInWithRegistred(TextBoxEmail.Text);
+            }
+            catch (Exception ex)
+            {
+                labelMesError.Text = ex.Message;
+                labelMesError.Visible = true;
+            }
         }
 
 
