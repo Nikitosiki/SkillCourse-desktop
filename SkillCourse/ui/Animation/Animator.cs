@@ -44,7 +44,10 @@ namespace yt_DesignUI
 
                 Parallel.For(0, Count(), index =>
                 {
-                    AnimationList[index].UpdateFrame();
+                    if (AnimationList[index] != null)
+                        AnimationList[index].UpdateFrame();
+                    else
+                        Debug.WriteLine("AnimationList item - null!");
                 });
 
                 Thread.Sleep((int)Interval);

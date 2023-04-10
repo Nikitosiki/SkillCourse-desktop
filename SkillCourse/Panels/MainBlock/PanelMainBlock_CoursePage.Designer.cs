@@ -64,10 +64,10 @@
             label4 = new Label();
             label3 = new Label();
             panel15 = new Panel();
-            panel6 = new Panel();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            button3 = new Button();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -86,6 +86,7 @@
             panel10.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel15.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -181,11 +182,10 @@
             panel2.Controls.Add(panel11);
             panel2.Controls.Add(panel8);
             panel2.Controls.Add(panel7);
-            panel2.Controls.Add(panel6);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 264);
+            panel2.Location = new Point(0, 266);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1012, 409);
+            panel2.Size = new Size(1012, 407);
             panel2.TabIndex = 48;
             // 
             // panel13
@@ -194,7 +194,7 @@
             panel13.Controls.Add(label11);
             panel13.Controls.Add(label12);
             panel13.Dock = DockStyle.Top;
-            panel13.Location = new Point(0, 313);
+            panel13.Location = new Point(0, 303);
             panel13.Name = "panel13";
             panel13.Size = new Size(1012, 101);
             panel13.TabIndex = 5;
@@ -279,7 +279,7 @@
             panel11.Controls.Add(label6);
             panel11.Controls.Add(label10);
             panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(0, 212);
+            panel11.Location = new Point(0, 202);
             panel11.Name = "panel11";
             panel11.Size = new Size(1012, 101);
             panel11.TabIndex = 4;
@@ -364,7 +364,7 @@
             panel8.Controls.Add(label8);
             panel8.Controls.Add(label9);
             panel8.Dock = DockStyle.Top;
-            panel8.Location = new Point(0, 111);
+            panel8.Location = new Point(0, 101);
             panel8.Name = "panel8";
             panel8.Size = new Size(1012, 101);
             panel8.TabIndex = 3;
@@ -449,7 +449,7 @@
             panel7.Controls.Add(label5);
             panel7.Controls.Add(label4);
             panel7.Dock = DockStyle.Top;
-            panel7.Location = new Point(0, 10);
+            panel7.Location = new Point(0, 0);
             panel7.Name = "panel7";
             panel7.Size = new Size(1012, 101);
             panel7.TabIndex = 2;
@@ -525,62 +525,74 @@
             // 
             // panel15
             // 
-            panel15.Controls.Add(button3);
-            panel15.Controls.Add(button2);
-            panel15.Controls.Add(button1);
+            panel15.Controls.Add(tableLayoutPanel5);
             panel15.Controls.Add(label3);
             panel15.Dock = DockStyle.Top;
             panel15.Location = new Point(0, 221);
             panel15.Name = "panel15";
-            panel15.Size = new Size(1012, 43);
+            panel15.Size = new Size(1012, 45);
             panel15.TabIndex = 49;
             // 
-            // panel6
+            // tableLayoutPanel5
             // 
-            panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(0, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1012, 10);
-            panel6.TabIndex = 0;
+            tableLayoutPanel5.ColumnCount = 5;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Controls.Add(button3, 3, 0);
+            tableLayoutPanel5.Controls.Add(button1, 1, 0);
+            tableLayoutPanel5.Controls.Add(button2, 2, 0);
+            tableLayoutPanel5.Dock = DockStyle.Bottom;
+            tableLayoutPanel5.Location = new Point(0, 7);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Size = new Size(1012, 38);
+            tableLayoutPanel5.TabIndex = 2;
+            // 
+            // button3
+            // 
+            button3.Dock = DockStyle.Fill;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.ButtonShadow;
+            button3.Location = new Point(569, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(114, 32);
+            button3.TabIndex = 4;
+            button3.Text = "People";
+            button3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
+            button1.Dock = DockStyle.Fill;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ControlLight;
-            button1.Location = new Point(326, 8);
+            button1.Location = new Point(329, 3);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(114, 32);
             button1.TabIndex = 2;
             button1.Text = "Stream";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
+            button2.Dock = DockStyle.Fill;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = SystemColors.ButtonShadow;
-            button2.Location = new Point(436, 8);
+            button2.Location = new Point(449, 3);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(114, 32);
             button2.TabIndex = 3;
             button2.Text = "Classwork";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.ButtonShadow;
-            button3.Location = new Point(553, 8);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 4;
-            button3.Text = "People";
-            button3.UseVisualStyleBackColor = true;
             // 
             // PanelMainBlock_CoursePage
             // 
@@ -617,6 +629,7 @@
             tableLayoutPanel2.ResumeLayout(false);
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
+            tableLayoutPanel5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -655,10 +668,10 @@
         private yt_DesignUI.NewButton newButton2;
         private Label label6;
         private Label label10;
-        private Panel panel6;
         private Panel panel15;
         private Button button3;
         private Button button2;
         private Button button1;
+        private TableLayoutPanel tableLayoutPanel5;
     }
 }

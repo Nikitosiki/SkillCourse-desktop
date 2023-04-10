@@ -38,7 +38,17 @@ namespace SkillCourse
                 panel_Main.Controls.Add(new PanelAutorization_LogIn(this));
                 PaintButton("newButton_LogIn");
             }
-        }   
+        }
+
+        public void SelectLogInWithRegistred(string userName)
+        {
+            if (!(panel_Main.Controls.Count > 0 && panel_Main.Controls[0] is PanelAutorization_LogIn))
+            {
+                panel_Main.Controls.Clear();
+                panel_Main.Controls.Add(new PanelAutorization_LogIn(this, userName));
+                PaintButton("newButton_LogIn");
+            }
+        }
 
         private void SelectSingUp()
         {

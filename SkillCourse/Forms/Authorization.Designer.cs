@@ -29,82 +29,83 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authorization));
-            this.panel_Header = new System.Windows.Forms.Panel();
-            this.newButton_LogIn = new yt_DesignUI.NewButton();
-            this.newButton_SingUp = new yt_DesignUI.NewButton();
-            this.panel_Main = new System.Windows.Forms.Panel();
-            this.panel_Header.SuspendLayout();
-            this.SuspendLayout();
+            panel_Header = new Panel();
+            newButton_LogIn = new yt_DesignUI.NewButton();
+            newButton_SingUp = new yt_DesignUI.NewButton();
+            panel_Main = new Panel();
+            panel_Header.SuspendLayout();
+            SuspendLayout();
             // 
             // panel_Header
             // 
-            this.panel_Header.Controls.Add(this.newButton_LogIn);
-            this.panel_Header.Controls.Add(this.newButton_SingUp);
-            resources.ApplyResources(this.panel_Header, "panel_Header");
-            this.panel_Header.Name = "panel_Header";
+            panel_Header.Controls.Add(newButton_LogIn);
+            panel_Header.Controls.Add(newButton_SingUp);
+            resources.ApplyResources(panel_Header, "panel_Header");
+            panel_Header.Name = "panel_Header";
             // 
             // newButton_LogIn
             // 
-            this.newButton_LogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(175)))), ((int)(((byte)(138)))));
-            this.newButton_LogIn.BackColorAdditional = System.Drawing.Color.Gray;
-            this.newButton_LogIn.BackColorGradientEnabled = false;
-            this.newButton_LogIn.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.newButton_LogIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(175)))), ((int)(((byte)(138)))));
-            this.newButton_LogIn.BorderColorEnabled = false;
-            this.newButton_LogIn.BorderColorOnHover = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(175)))), ((int)(((byte)(138)))));
-            this.newButton_LogIn.BorderColorOnHoverEnabled = false;
-            resources.ApplyResources(this.newButton_LogIn, "newButton_LogIn");
-            this.newButton_LogIn.ForeColor = System.Drawing.Color.White;
-            this.newButton_LogIn.Name = "newButton_LogIn";
-            this.newButton_LogIn.RippleColor = System.Drawing.Color.Black;
-            this.newButton_LogIn.RoundingEnable = false;
-            this.newButton_LogIn.TextHover = null;
-            this.newButton_LogIn.UseDownPressEffectOnClick = false;
-            this.newButton_LogIn.UseRippleEffect = true;
-            this.newButton_LogIn.UseVisualStyleBackColor = false;
-            this.newButton_LogIn.UseZoomEffectOnHover = false;
-            this.newButton_LogIn.Click += new System.EventHandler(this.newButton_LogIn_Click);
+            newButton_LogIn.BackColor = Color.FromArgb(80, 175, 138);
+            newButton_LogIn.BackColorAdditional = Color.Gray;
+            newButton_LogIn.BackColorGradientEnabled = false;
+            newButton_LogIn.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            newButton_LogIn.BorderColor = Color.FromArgb(80, 175, 138);
+            newButton_LogIn.BorderColorEnabled = false;
+            newButton_LogIn.BorderColorOnHover = Color.FromArgb(80, 175, 138);
+            newButton_LogIn.BorderColorOnHoverEnabled = false;
+            resources.ApplyResources(newButton_LogIn, "newButton_LogIn");
+            newButton_LogIn.ForeColor = Color.White;
+            newButton_LogIn.Name = "newButton_LogIn";
+            newButton_LogIn.RippleColor = Color.Black;
+            newButton_LogIn.RoundingEnable = false;
+            newButton_LogIn.TextHover = null;
+            newButton_LogIn.UseDownPressEffectOnClick = false;
+            newButton_LogIn.UseMainGradientEffect = false;
+            newButton_LogIn.UseRippleEffect = true;
+            newButton_LogIn.UseVisualStyleBackColor = false;
+            newButton_LogIn.UseZoomEffectOnHover = false;
+            newButton_LogIn.Click += newButton_LogIn_Click;
             // 
             // newButton_SingUp
             // 
-            this.newButton_SingUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(82)))), ((int)(((byte)(89)))));
-            this.newButton_SingUp.BackColorAdditional = System.Drawing.Color.Gray;
-            this.newButton_SingUp.BackColorGradientEnabled = false;
-            this.newButton_SingUp.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.newButton_SingUp.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(82)))), ((int)(((byte)(89)))));
-            this.newButton_SingUp.BorderColorEnabled = false;
-            this.newButton_SingUp.BorderColorOnHover = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(82)))), ((int)(((byte)(89)))));
-            this.newButton_SingUp.BorderColorOnHoverEnabled = false;
-            resources.ApplyResources(this.newButton_SingUp, "newButton_SingUp");
-            this.newButton_SingUp.ForeColor = System.Drawing.Color.White;
-            this.newButton_SingUp.Name = "newButton_SingUp";
-            this.newButton_SingUp.RippleColor = System.Drawing.Color.Black;
-            this.newButton_SingUp.RoundingEnable = false;
-            this.newButton_SingUp.TextHover = null;
-            this.newButton_SingUp.UseDownPressEffectOnClick = false;
-            this.newButton_SingUp.UseRippleEffect = true;
-            this.newButton_SingUp.UseVisualStyleBackColor = false;
-            this.newButton_SingUp.UseZoomEffectOnHover = false;
-            this.newButton_SingUp.Click += new System.EventHandler(this.newButton_SingUp_Click);
+            newButton_SingUp.BackColor = Color.FromArgb(70, 82, 89);
+            newButton_SingUp.BackColorAdditional = Color.Gray;
+            newButton_SingUp.BackColorGradientEnabled = false;
+            newButton_SingUp.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            newButton_SingUp.BorderColor = Color.FromArgb(70, 82, 89);
+            newButton_SingUp.BorderColorEnabled = false;
+            newButton_SingUp.BorderColorOnHover = Color.FromArgb(70, 82, 89);
+            newButton_SingUp.BorderColorOnHoverEnabled = false;
+            resources.ApplyResources(newButton_SingUp, "newButton_SingUp");
+            newButton_SingUp.ForeColor = Color.White;
+            newButton_SingUp.Name = "newButton_SingUp";
+            newButton_SingUp.RippleColor = Color.Black;
+            newButton_SingUp.RoundingEnable = false;
+            newButton_SingUp.TextHover = null;
+            newButton_SingUp.UseDownPressEffectOnClick = false;
+            newButton_SingUp.UseMainGradientEffect = false;
+            newButton_SingUp.UseRippleEffect = true;
+            newButton_SingUp.UseVisualStyleBackColor = false;
+            newButton_SingUp.UseZoomEffectOnHover = false;
+            newButton_SingUp.Click += newButton_SingUp_Click;
             // 
             // panel_Main
             // 
-            resources.ApplyResources(this.panel_Main, "panel_Main");
-            this.panel_Main.Name = "panel_Main";
+            resources.ApplyResources(panel_Main, "panel_Main");
+            panel_Main.Name = "panel_Main";
             // 
             // Authorization
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(49)))), ((int)(((byte)(60)))));
-            this.Controls.Add(this.panel_Main);
-            this.Controls.Add(this.panel_Header);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "Authorization";
-            this.TopMost = true;
-            this.panel_Header.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(40, 49, 60);
+            Controls.Add(panel_Main);
+            Controls.Add(panel_Header);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Name = "Authorization";
+            TopMost = true;
+            panel_Header.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
