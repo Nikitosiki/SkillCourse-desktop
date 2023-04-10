@@ -98,10 +98,10 @@ namespace SkillCourse
 
             ControlCollection CourseDopButtons = new ControlCollection(this)
             {
-                new Component_NavigationDopBut("Info"),
-                new Component_NavigationDopBut("Tasks"),
-                new Component_NavigationDopBut("Students"),
-                new Component_NavigationDopBut("Home")
+                //new Component_NavigationDopBut("Info"),
+                //new Component_NavigationDopBut("Tasks"),
+                new Component_NavigationDopBut("Subscribed"),
+                new Component_NavigationDopBut("All")
             };
 
             panelNavbarBut.Controls.Add(

@@ -25,22 +25,42 @@ namespace SkillCourse.Panels.MainBlock
             InitializeComponent();
 
             Dock = DockStyle.Fill;
-            SkillCourseDB DataBase = SkillCourseDB.Instance;
-            AddCourseToFlowLayoutPanel(DataBase.Courses);
+            //SkillCourseDB DataBase = SkillCourseDB.Instance;
+            //AddCourseToFlowLayoutPanel(DataBase.Courses);
         }
 
         #region LoadPage
 
-        public bool AddCourseToFlowLayoutPanel(List<Course> Course)
-        {
-            foreach (Course course in Course)
-            {
-                UserControl userControl = new Component_BriefСourse(course.Name, course.Description, (Image)Properties.Resources.ResourceManager.GetObject(course.ImagePath), () => openPageCourse(new PanelMainBlock_CoursePage()));
-                flowLayoutPanel1.Controls.Add(userControl);
-            }
-            return true;
+        //public bool AddCourseToFlowLayoutPanel(List<Course> Course)
+        //{
+        //    foreach (Course course in Course)
+        //    {
+        //        UserControl userControl = new Component_BriefСourse(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
+        //        flowLayoutPanel1.Controls.Add(userControl);
+        //    }
+        //    return true;
 
+        //}
+
+
+        private async void PanelMainBlock_Courses_Load(object sender, EventArgs e)
+        {
+            // Вызываем метод, который будет добавлять элементы в фоновом потоке
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+                foreach (Course course in SkillCourseDB.Instance.Courses)
+                {
+                    UserControl userControl = new Component_BriefСourse(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
+
+                    // Используем метод Invoke, чтобы добавить элемент в контексте потока пользовательского интерфейса
+                    flowLayoutPanel1.Invoke((MethodInvoker)delegate
+                    {
+                        flowLayoutPanel1.Controls.Add(userControl);
+                    });
+                }
+            });
         }
+
 
         private void openPageCourse(UserControl Content)
         {
@@ -72,10 +92,8 @@ namespace SkillCourse.Panels.MainBlock
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ControlCollection sortedCollection = new ControlCollection(flowLayoutPanel1);
-
             //Востанавливаем все елементы после поиска
-            if (textBox1.Text == "" || textBox1.Text == " ")
+            if (textBox1.Text.Trim() == "")
                 foreach (Control item in flowLayoutPanel1.Controls)
                 {
                     item.Visible = true;
@@ -86,6 +104,7 @@ namespace SkillCourse.Panels.MainBlock
                 if (item.Visible == false)
                     continue;
 
+                // if (!((Component_BriefСourse)item).Dab.Contains(textBox1.Text))
                 if (!item.Name.Contains(textBox1.Text))
                     item.Visible = false;
             }

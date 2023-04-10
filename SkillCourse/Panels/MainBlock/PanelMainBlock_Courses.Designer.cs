@@ -103,6 +103,7 @@
             Controls.Add(tableLayoutPanel1);
             Name = "PanelMainBlock_Courses";
             Size = new Size(1012, 673);
+            Load += PanelMainBlock_Courses_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

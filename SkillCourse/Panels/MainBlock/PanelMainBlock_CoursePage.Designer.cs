@@ -62,8 +62,12 @@
             label7 = new Label();
             label5 = new Label();
             label4 = new Label();
-            panel6 = new Panel();
             label3 = new Label();
+            panel15 = new Panel();
+            panel6 = new Panel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -81,7 +85,7 @@
             panel7.SuspendLayout();
             panel10.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            panel6.SuspendLayout();
+            panel15.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -179,9 +183,9 @@
             panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel6);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 221);
+            panel2.Location = new Point(0, 264);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1012, 452);
+            panel2.Size = new Size(1012, 409);
             panel2.TabIndex = 48;
             // 
             // panel13
@@ -509,24 +513,74 @@
             label4.TabIndex = 3;
             label4.Text = "#1";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.ControlLight;
+            label3.Location = new Point(-10, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(3933, 20);
+            label3.TabIndex = 1;
+            label3.Text = resources.GetString("label3.Text");
+            // 
+            // panel15
+            // 
+            panel15.Controls.Add(button3);
+            panel15.Controls.Add(button2);
+            panel15.Controls.Add(button1);
+            panel15.Controls.Add(label3);
+            panel15.Dock = DockStyle.Top;
+            panel15.Location = new Point(0, 221);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(1012, 43);
+            panel15.TabIndex = 49;
+            // 
             // panel6
             // 
-            panel6.Controls.Add(label3);
             panel6.Dock = DockStyle.Top;
             panel6.Location = new Point(0, 0);
             panel6.Name = "panel6";
             panel6.Size = new Size(1012, 10);
             panel6.TabIndex = 0;
             // 
-            // label3
+            // button1
             // 
-            label3.AutoSize = true;
-            label3.ForeColor = SystemColors.ControlLight;
-            label3.Location = new Point(-44, -5);
-            label3.Name = "label3";
-            label3.Size = new Size(3933, 20);
-            label3.TabIndex = 1;
-            label3.Text = resources.GetString("label3.Text");
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.ControlLight;
+            button1.Location = new Point(326, 8);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "Stream";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.ButtonShadow;
+            button2.Location = new Point(436, 8);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 3;
+            button2.Text = "Classwork";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.ButtonShadow;
+            button3.Location = new Point(553, 8);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 4;
+            button3.Text = "People";
+            button3.UseVisualStyleBackColor = true;
             // 
             // PanelMainBlock_CoursePage
             // 
@@ -534,6 +588,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(panel2);
+            Controls.Add(panel15);
             Controls.Add(panel3);
             Name = "PanelMainBlock_CoursePage";
             Size = new Size(1012, 673);
@@ -560,8 +615,8 @@
             panel7.PerformLayout();
             panel10.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
+            panel15.ResumeLayout(false);
+            panel15.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -575,7 +630,6 @@
         private Panel panel5;
         private Panel panel1;
         private PictureBox pictureBox1;
-        private Panel panel6;
         private Label label3;
         private Panel panel8;
         private Panel panel9;
@@ -601,5 +655,10 @@
         private yt_DesignUI.NewButton newButton2;
         private Label label6;
         private Label label10;
+        private Panel panel6;
+        private Panel panel15;
+        private Button button3;
+        private Button button2;
+        private Button button1;
     }
 }
