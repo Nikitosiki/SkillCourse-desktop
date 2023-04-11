@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using yt_DesignUI;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using User = SkillCourse.DataBaseStructure.User;
 
 namespace SkillCourse.Panels
@@ -57,7 +58,7 @@ namespace SkillCourse.Panels
                 AccountHandler.Instance.RegIn(
                     TextBoxFirstName.Text,
                     TextBoxLastName.Text,
-                    TextBoxEmail.Text,
+                    TextBoxEmail.Text.ToLower(),
                     DateTimeBirth.Value,
                     userType,
                     TextBoxPassword.Text);
@@ -153,15 +154,28 @@ namespace SkillCourse.Panels
             thisTimePicker.Refresh();
         }
 
+        private void ToUpperFirstLetter(object sender)
+        {
+            Control control = (Control)sender;
+            string inputValue = control.Text;
+            if (!string.IsNullOrEmpty(inputValue))
+            {
+                control.Text = char.ToUpper(inputValue[0]) + inputValue.Substring(1);
+                ((System.Windows.Forms.TextBox)control).SelectionStart = control.Text.Length;
+            }
+        }
 
         private void TextBoxLastName_TextChanged(object sender, EventArgs e)
         {
+            ToUpperFirstLetter(sender);
             ValidityCheckName(TextBoxLastName, true);
         }
         private void TextBoxFirstName_TextChanged(object sender, EventArgs e)
         {
+            ToUpperFirstLetter(sender);
             ValidityCheckName(TextBoxFirstName, true);
         }
+
         private void TextBoxEmail_TextChanged(object sender, EventArgs e)
         {
             ValidityCheckEmail(TextBoxEmail, true);

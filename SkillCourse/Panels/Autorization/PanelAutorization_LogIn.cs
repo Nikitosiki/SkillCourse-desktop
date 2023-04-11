@@ -34,7 +34,9 @@ namespace SkillCourse.Panels
             ResetLabelErrorMes();
 
             newGoogleTextBox3.Text = userEmail;
-            //newGoogleTextBox3.Select(newGoogleTextBox3.Text.Length, 0);
+
+            // Установить курсор в конец поля ввода
+            newGoogleTextBox3.SelectionStart = newGoogleTextBox3.Text.Length;
         }
 
         private void newButton2_Click(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace SkillCourse.Panels
 
             try
             {
-                if (AccountHandler.Instance.LogIn(newGoogleTextBox3.Text, newGoogleTextBox4.Text))
+                if (AccountHandler.Instance.LogIn(newGoogleTextBox3.Text.ToLower(), newGoogleTextBox4.Text))
                     parentForm.Hide();
 
 
