@@ -34,14 +34,16 @@
             panel1 = new Panel();
             label2 = new Label();
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            newButton1 = new yt_DesignUI.NewButton();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            labelAuthorization = new Label();
+            newButtonAuthorization = new yt_DesignUI.NewButton();
             panelMain = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panelNavbar.SuspendLayout();
             groupBox2.SuspendLayout();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -96,8 +98,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(newButton1);
+            groupBox1.Controls.Add(tableLayoutPanel2);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
@@ -105,44 +106,66 @@
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
-            // label1
+            // tableLayoutPanel2
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(15, 45);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 31);
-            label1.TabIndex = 0;
-            label1.Text = "not authorized";
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 10F));
+            tableLayoutPanel2.Controls.Add(labelAuthorization, 1, 0);
+            tableLayoutPanel2.Controls.Add(newButtonAuthorization, 1, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 23);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(238, 137);
+            tableLayoutPanel2.TabIndex = 0;
             // 
-            // newButton1
+            // labelAuthorization
             // 
-            newButton1.BackColor = Color.FromArgb(70, 82, 89);
-            newButton1.BackColorAdditional = Color.Gray;
-            newButton1.BackColorGradientEnabled = false;
-            newButton1.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            newButton1.BorderColor = Color.FromArgb(70, 82, 89);
-            newButton1.BorderColorEnabled = false;
-            newButton1.BorderColorOnHover = Color.FromArgb(70, 82, 89);
-            newButton1.BorderColorOnHoverEnabled = false;
-            newButton1.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton1.ForeColor = Color.White;
-            newButton1.Location = new Point(15, 88);
-            newButton1.Name = "newButton1";
-            newButton1.RippleColor = Color.Black;
-            newButton1.Rounding = 70;
-            newButton1.RoundingEnable = true;
-            newButton1.Size = new Size(125, 38);
-            newButton1.TabIndex = 1;
-            newButton1.Text = "LogIn / RegIn";
-            newButton1.TextHover = null;
-            newButton1.UseDownPressEffectOnClick = false;
-            newButton1.UseMainGradientEffect = false;
-            newButton1.UseRippleEffect = true;
-            newButton1.UseVisualStyleBackColor = false;
-            newButton1.UseZoomEffectOnHover = false;
-            newButton1.Click += newButton1_Click;
+            labelAuthorization.AutoSize = true;
+            labelAuthorization.Dock = DockStyle.Fill;
+            labelAuthorization.FlatStyle = FlatStyle.Flat;
+            labelAuthorization.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAuthorization.ForeColor = SystemColors.Control;
+            labelAuthorization.Location = new Point(23, 0);
+            labelAuthorization.Name = "labelAuthorization";
+            labelAuthorization.Size = new Size(202, 72);
+            labelAuthorization.TabIndex = 0;
+            labelAuthorization.Text = " \r\nnot authorized\r\n";
+            // 
+            // newButtonAuthorization
+            // 
+            newButtonAuthorization.BackColor = Color.FromArgb(70, 82, 89);
+            newButtonAuthorization.BackColorAdditional = Color.Gray;
+            newButtonAuthorization.BackColorGradientEnabled = false;
+            newButtonAuthorization.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            newButtonAuthorization.BorderColor = Color.FromArgb(70, 82, 89);
+            newButtonAuthorization.BorderColorEnabled = false;
+            newButtonAuthorization.BorderColorOnHover = Color.FromArgb(70, 82, 89);
+            newButtonAuthorization.BorderColorOnHoverEnabled = false;
+            newButtonAuthorization.Dock = DockStyle.Left;
+            newButtonAuthorization.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            newButtonAuthorization.ForeColor = Color.White;
+            newButtonAuthorization.Location = new Point(23, 75);
+            newButtonAuthorization.Name = "newButtonAuthorization";
+            newButtonAuthorization.RippleColor = Color.Black;
+            newButtonAuthorization.Rounding = 70;
+            newButtonAuthorization.RoundingEnable = true;
+            newButtonAuthorization.Size = new Size(125, 39);
+            newButtonAuthorization.TabIndex = 1;
+            newButtonAuthorization.Text = "LogIn / RegIn";
+            newButtonAuthorization.TextHover = null;
+            newButtonAuthorization.UseDownPressEffectOnClick = false;
+            newButtonAuthorization.UseMainGradientEffect = false;
+            newButtonAuthorization.UseRippleEffect = true;
+            newButtonAuthorization.UseVisualStyleBackColor = false;
+            newButtonAuthorization.UseZoomEffectOnHover = false;
+            newButtonAuthorization.Click += newButtonAuthorization_Click;
             // 
             // panelMain
             // 
@@ -184,7 +207,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -192,8 +216,7 @@
         #endregion
 
         private Panel panelNavbar;
-        private yt_DesignUI.NewButton newButton1;
-        private Label label1;
+        private yt_DesignUI.NewButton newButtonAuthorization;
         private Panel panelMain;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
@@ -201,5 +224,7 @@
         private Panel panelNavbarBut;
         private Panel panel1;
         private Label label2;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label labelAuthorization;
     }
 }

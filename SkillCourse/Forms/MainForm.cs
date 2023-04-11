@@ -16,119 +16,165 @@ using System.IO;
 using Microsoft.VisualBasic.ApplicationServices;
 using SkillCourse.PanelComponents;
 using Microsoft.VisualBasic.Devices;
+using SkillCourse.Panels.MainBlock.Navbar;
 
 namespace SkillCourse
 {
     public partial class MainForm : Form
     {
+        public DataBaseStructure.User? User { get; private set; }
+
+
         public MainForm()
         {
             InitializeComponent();
-            //Random();
-            panelMain.Controls.Add(new PanelMainBlock_Courses());
-            AddButtonToNavbar();
-
             AccountHandler.Instance.subscribeOnChange(updateUser);
+
+            //--- NavigateBar
+
+            //panelMain.Controls.Add(new PanelMainBlock_Courses());
+            panelNavbarBut.Controls.Add(new PanelMainBlock_Navbar((User != null ? User.UserType : null), panelMain));
+            //AddButtonToNavbar();
+
+            //--- endNavigateBar
+
         }
 
-        private void newButton1_Click(object sender, EventArgs e)
+        private void newButtonAuthorization_Click(object sender, EventArgs e)
         {
-            Authorization LoadForm = new Authorization();
-            //this.Hide();
-            LoadForm.ShowDialog();
+            if (((Button)sender).Text == "LogIn / RegIn")
+            {
+                Authorization LoadForm = new Authorization();
+                LoadForm.ShowDialog();
+            }
+            else
+            {
+                AccountHandler.Instance.LogOut();
+            }
+
         }
 
         public void updateUser(DataBaseStructure.User? user)
         {
             if (user == null)
             {
-                label1.Location = new Point(label1.Location.X, label1.Location.Y + 25);
-                label1.Font = new Font(label1.Font.FontFamily, 14);
-                label1.Text = "not authorized";
+                //Все настройки для Не авторизированного пользователя
+
+
+                User = null;
+                labelAuthorization.Location = new Point(labelAuthorization.Location.X, labelAuthorization.Location.Y + 25);
+                labelAuthorization.Font = new Font(labelAuthorization.Font.FontFamily, 14);
+                labelAuthorization.Text = "\nnot authorized";
+
+                newButtonAuthorization.Text = "LogIn / RegIn";
+
+                ((PanelMainBlock_Navbar)panelNavbarBut.Controls[0]).Redraw(null);
             }
             else
             {
-                label1.Location = new Point(label1.Location.X, label1.Location.Y - 25);
-                label1.Font = new Font(label1.Font.FontFamily, 12);
-                label1.Text = user.FirstName + "\n" + user.LastName;
-            }
-        }
 
-        private void AddButtonToNavbar()
-        {
-            panelNavbarBut.Controls.Add(
-                new Component_NavigationBut("Edit profile",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
+                if (user.UserType == UserType.Teacher)
                 {
-                    NavigatePages.openPage(new PanelMainBlock_EditProfile(), panelMain);
-                    UpdateStateButtons("Edit profile");
-                }, null));
+                    //Все настройки для авторизированного учителя
 
 
-            panelNavbarBut.Controls.Add(
-                new Component_NavigationBut("Certificates",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), panelMain);
-                    UpdateStateButtons("Certificates");
-                }, null));
-
-
-            panelNavbarBut.Controls.Add(
-                new Component_NavigationBut("Add Courses",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_AddCourses(), panelMain);
-                    UpdateStateButtons("Add Courses");
-                }, null));
-
-
-            panelNavbarBut.Controls.Add(
-                new Component_NavigationBut("Teachers",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Teachers(), panelMain);
-                    UpdateStateButtons("Teachers");
-                }, null));
-
-
-            ControlCollection CourseDopButtons = new ControlCollection(this)
-            {
-                //new Component_NavigationDopBut("Info"),
-                //new Component_NavigationDopBut("Tasks"),
-                new Component_NavigationDopBut("Subscribed"),
-                new Component_NavigationDopBut("All")
-            };
-
-            panelNavbarBut.Controls.Add(
-                new Component_NavigationBut("Courses",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                true, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Courses(), panelMain);
-                    UpdateStateButtons("Courses");
-                }, CourseDopButtons));
-        }
-
-
-        private void UpdateStateButtons(string nameButtonActive)
-        {
-            foreach (Control item in panelNavbarBut.Controls)
-            {
-                Component_NavigationBut objectPan = (Component_NavigationBut)item;
-                if (objectPan.name == nameButtonActive)
-                    objectPan.ChangeStateDopButton(true);
+                }
                 else
-                    objectPan.ChangeStateDopButton(false);
+                {
+                    //Все настройки для авторизированного студента
+
+
+                }
+
+
+                User = user;
+                labelAuthorization.Location = new Point(labelAuthorization.Location.X, labelAuthorization.Location.Y - 25);
+                labelAuthorization.Font = new Font(labelAuthorization.Font.FontFamily, 12);
+                labelAuthorization.Text = user.FirstName + "\n" + user.LastName;
+
+                newButtonAuthorization.Text = "Go Out";
+
+                ((PanelMainBlock_Navbar)panelNavbarBut.Controls[0]).Redraw(user.UserType);
             }
         }
 
 
+        #region Navbar
+        //private void AddButtonToNavbar()
+        //{
+        //    panelNavbarBut.Controls.Add(
+        //        new Component_NavigationBut("Edit profile",
+        //        Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+        //        false, () =>
+        //        {
+        //            NavigatePages.openPage(new PanelMainBlock_EditProfile(), panelMain);
+        //            UpdateStateButtons("Edit profile");
+        //        }, null));
 
+
+        //    panelNavbarBut.Controls.Add(
+        //        new Component_NavigationBut("Certificates",
+        //        Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+        //        false, () =>
+        //        {
+        //            NavigatePages.openPage(new PanelMainBlock_Certificates(), panelMain);
+        //            UpdateStateButtons("Certificates");
+        //        }, null));
+
+
+        //    panelNavbarBut.Controls.Add(
+        //        new Component_NavigationBut("Add Courses",
+        //        Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+        //        false, () =>
+        //        {
+        //            NavigatePages.openPage(new PanelMainBlock_AddCourses(), panelMain);
+        //            UpdateStateButtons("Add Courses");
+        //        }, null));
+
+
+        //    panelNavbarBut.Controls.Add(
+        //        new Component_NavigationBut("Teachers",
+        //        Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+        //        false, () =>
+        //        {
+        //            NavigatePages.openPage(new PanelMainBlock_Teachers(), panelMain);
+        //            UpdateStateButtons("Teachers");
+        //        }, null));
+
+
+        //    List<Component_NavigationDopBut> CourseDopButtons = new List<Component_NavigationDopBut>()
+        //    {
+        //        //new Component_NavigationDopBut("Info"),
+        //        //new Component_NavigationDopBut("Tasks"),
+        //        new Component_NavigationDopBut("All"),
+        //        new Component_NavigationDopBut("Subscribed")
+        //    };
+        //    CourseDopButtons.Reverse();
+
+        //    panelNavbarBut.Controls.Add(
+        //        new Component_NavigationBut("Courses",
+        //        Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+        //        true, () =>
+        //        {
+        //            NavigatePages.openPage(new PanelMainBlock_Courses(), panelMain);
+        //            UpdateStateButtons("Courses");
+        //        }, CourseDopButtons));
+        //}
+
+
+        //private void UpdateStateButtons(string nameButtonActive)
+        //{
+        //    foreach (Control item in panelNavbarBut.Controls)
+        //    {
+        //        Component_NavigationBut objectPan = (Component_NavigationBut)item;
+        //        if (objectPan.name == nameButtonActive)
+        //            objectPan.ChangeStateDopButton(true);
+        //        else
+        //            objectPan.ChangeStateDopButton(false);
+        //    }
+        //}
+
+        #endregion
 
         #region randomFilling
 

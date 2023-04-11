@@ -15,7 +15,7 @@ namespace SkillCourse.PanelComponents
         private Action clickOnThis;
         public string name;
 
-        public Component_NavigationBut(string text, Image? image, bool action, Action buttonThisObject, ControlCollection? controlsAddBut)
+        public Component_NavigationBut(string text, Image? image, bool action, Action buttonThisObject, List<Component_NavigationDopBut> controlsAddBut)
         {
             InitializeComponent();
             clickOnThis = buttonThisObject;
@@ -28,7 +28,7 @@ namespace SkillCourse.PanelComponents
             ChangeStateDopButton(action);
 
             if (controlsAddBut != null)
-                foreach (Control item in controlsAddBut)
+                foreach (Component_NavigationDopBut item in controlsAddBut)
                 {
                     panelDopButton.Controls.Add(item);
                 }

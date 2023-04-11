@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using yt_DesignUI;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace SkillCourse.Panels
 {
@@ -80,5 +81,14 @@ namespace SkillCourse.Panels
                 buttonHidePassword.Refresh();
             }
         }
+
+        //private void PanelAutorization_LogIn_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        // Вызвать событие Click для другой кнопки
+        //        newButton2.PerformClick();
+        //    }
+        //}
     }
 }

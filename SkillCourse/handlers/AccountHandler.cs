@@ -103,7 +103,7 @@ namespace SkillCourse
             }
 
 
-            DataBase.Users.Add(newUser);
+            //DataBase.Users.Add(newUser);
             return true;
         }
 
