@@ -10,11 +10,10 @@ using System.Windows.Forms;
 
 namespace SkillCourse.PanelComponents
 {
-    public partial class Component_BriefСourse : UserControl
+    public partial class Component_BriefСourse_Base : UserControl
     {
 
-        private Action clickOnCourse;
-        public Component_BriefСourse(string nameCourse, string descriptionCourse, Image imageCourse, Action buttonCoutse)
+        public Component_BriefСourse_Base(string nameCourse, string descriptionCourse, Image imageCourse)
         {
             InitializeComponent();
             Dock = DockStyle.Top;
@@ -24,12 +23,6 @@ namespace SkillCourse.PanelComponents
             label_NameCourse.Text = nameCourse;
             label_DescriptionCourse.Text = descriptionCourse;
             picture_imageCourse.Image = imageCourse;
-            clickOnCourse = buttonCoutse;
-        }
-
-        private void button_ViewCourse_Click(object sender, EventArgs e)
-        {
-            clickOnCourse?.Invoke();
         }
     }
 }

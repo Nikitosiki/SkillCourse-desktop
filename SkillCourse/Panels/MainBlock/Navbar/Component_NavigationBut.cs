@@ -51,7 +51,7 @@ namespace SkillCourse.PanelComponents
         private void button1_Click(object sender, EventArgs e)
         {
             //проверка, не пытаемся ли мы нажать на уже выбранную кнопку
-            if (button1.ForeColor != SystemColors.ControlLight)
+            //if (button1.ForeColor != SystemColors.ControlLight)
                 clickOnThis?.Invoke();
         }
     }

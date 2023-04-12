@@ -18,15 +18,16 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_Courses : UserControl
     {
-        //public static ControlCollection collection = null;
+        private bool VisibleButView { get; set; }
+        private bool VisibleButSub { get; set; }
 
-        public PanelMainBlock_Courses()
+        public PanelMainBlock_Courses(bool buttonView, bool buttonSub)
         {
             InitializeComponent();
 
             Dock = DockStyle.Fill;
-            //SkillCourseDB DataBase = SkillCourseDB.Instance;
-            //AddCourseToFlowLayoutPanel(DataBase.Courses);
+            VisibleButView = buttonView;
+            VisibleButSub = buttonSub;
         }
 
         #region LoadPage
@@ -50,7 +51,7 @@ namespace SkillCourse.Panels.MainBlock
             {
                 foreach (Course course in SkillCourseDB.Instance.Courses)
                 {
-                    UserControl userControl = new Component_BriefСourse(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
+                    UserControl userControl = CreateCourse(course);
 
                     // Используем метод Invoke, чтобы добавить элемент в контексте потока пользовательского интерфейса
                     flowLayoutPanel1.Invoke((MethodInvoker)delegate
@@ -61,6 +62,14 @@ namespace SkillCourse.Panels.MainBlock
             });
         }
 
+        private UserControl CreateCourse(Course course)
+        {
+            if (VisibleButView)
+                return new Component_BriefСourse_View(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
+            else
+                return new Component_BriefСourse_Base(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image);
+
+        }
 
         private void openPageCourse(UserControl Content)
         {
@@ -72,7 +81,7 @@ namespace SkillCourse.Panels.MainBlock
 
                 if (mainPanel.Controls.Count < 1 || mainPanel.Controls[0] != Content)
                 {
-                    mainPanel.Controls.Clear();
+                    mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = false;
                     mainPanel.Controls.Add(Content);
                 }
             }

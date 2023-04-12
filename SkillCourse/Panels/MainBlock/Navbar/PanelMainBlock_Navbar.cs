@@ -45,19 +45,19 @@ namespace SkillCourse.Panels.MainBlock.Navbar
         {
             if (userType == null)
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(false, false), PanelParent);
                 UpdateStateButtons("Courses");
             }
 
             if (userType == DataBaseStructure.types.UserType.Student)
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
                 UpdateStateButtons("Courses");
             }
 
             if (userType == DataBaseStructure.types.UserType.Teacher)
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
                 UpdateStateButtons("Courses");
             }
         }
@@ -77,7 +77,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                     break;
 
                 case DataBaseStructure.types.UserType.Teacher:
-
+                    AddBNForTeacher(ref buttonControlsList);
                     break;
             }
 
@@ -99,7 +99,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 true, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Courses(), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_Courses(false, false), PanelParent);
                     UpdateStateButtons("Courses");
                 }, null));
 
@@ -147,7 +147,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 true, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Courses(), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
                     UpdateStateButtons("Courses");
                 }, CourseDopButtons));
 
@@ -159,7 +159,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
             {
                 new Component_NavigationDopBut("Assigned"),
                 new Component_NavigationDopBut("Missing"),
-                new Component_NavigationDopBut("Subscribed")
+                new Component_NavigationDopBut("Done")
             };
             TaskDopButtons.Reverse();
 
@@ -189,12 +189,12 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             //------- Certificates
 
-            List<Component_NavigationDopBut> TaskDopCertificates = new List<Component_NavigationDopBut>()
+            List<Component_NavigationDopBut> CertificatesDopButtons = new List<Component_NavigationDopBut>()
             {
                 new Component_NavigationDopBut("My"),
                 new Component_NavigationDopBut("Check")
             };
-            TaskDopCertificates.Reverse();
+            CertificatesDopButtons.Reverse();
 
             listControls.Add(
                 new Component_NavigationBut("Certificates",
@@ -203,7 +203,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 {
                     NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
                     UpdateStateButtons("Certificates");
-                }, TaskDopCertificates));
+                }, CertificatesDopButtons));
 
 
 
@@ -216,6 +216,108 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 {
                     NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
                     UpdateStateButtons("Teachers");
+                }, null));
+
+
+
+            //------- Edit profile
+
+            listControls.Add(
+                new Component_NavigationBut("Edit profile",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_EditProfile(), PanelParent);
+                    UpdateStateButtons("Edit profile");
+                }, null));
+        }
+
+
+        private void AddBNForTeacher(ref List<Component_NavigationBut> listControls)
+        {
+            //------- Courses
+
+            List<Component_NavigationDopBut> CourseDopButtons = new List<Component_NavigationDopBut>()
+            {
+                new Component_NavigationDopBut("All"),
+                new Component_NavigationDopBut("Created")
+            };
+            CourseDopButtons.Reverse();
+
+            listControls.Add(
+                new Component_NavigationBut("Courses",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                true, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                    UpdateStateButtons("Courses");
+                }, CourseDopButtons));
+
+
+
+            //------- Queue
+
+            listControls.Add(
+                new Component_NavigationBut("Queue",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    UpdateStateButtons("Queue");
+                }, null));
+
+
+
+            //------- Certificates
+
+            List<Component_NavigationDopBut> CertificatesDopButtons = new List<Component_NavigationDopBut>()
+            {
+                new Component_NavigationDopBut("All"),
+                new Component_NavigationDopBut("Waiting"),
+                new Component_NavigationDopBut("Check")
+            };
+            CertificatesDopButtons.Reverse();
+
+            listControls.Add(
+                new Component_NavigationBut("Certificates",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    UpdateStateButtons("Certificates");
+                }, CertificatesDopButtons));
+
+
+
+            //------- Students
+
+            List<Component_NavigationDopBut> StudentsDopButtons = new List<Component_NavigationDopBut>()
+            {
+                new Component_NavigationDopBut("All"),
+                new Component_NavigationDopBut("My")
+            };
+            StudentsDopButtons.Reverse();
+
+            listControls.Add(
+                new Component_NavigationBut("Students",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    UpdateStateButtons("Students");
+                }, StudentsDopButtons));
+
+
+
+            //------- Statistics
+
+            listControls.Add(
+                new Component_NavigationBut("Statistics",
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                false, () =>
+                {
+                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    UpdateStateButtons("Statistics");
                 }, null));
 
 
