@@ -99,6 +99,6 @@
         #endregion
         private Button button1;
         private TableLayoutPanel tableLayoutPanel1;
-        private Panel panelDopButton;
+        protected Panel panelDopButton;
     }
 }

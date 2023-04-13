@@ -25,7 +25,7 @@ namespace SkillCourse.PanelComponents
             if (image != null)
                 button1.Image = image;
 
-            ChangeStateDopButton(action);
+            ChangeStateButton(action);
 
             if (controlsAddBut != null)
                 foreach (Component_NavigationDopBut item in controlsAddBut)
@@ -34,7 +34,7 @@ namespace SkillCourse.PanelComponents
                 }
         }
 
-        public void ChangeStateDopButton(bool action)
+        public void ChangeStateButton(bool action)
         {
             if (action)
             {
@@ -48,11 +48,23 @@ namespace SkillCourse.PanelComponents
             }
         }
 
+        public void UpdateStateDopButton(string nameDopButtop)
+        {
+            foreach (Control item in panelDopButton.Controls)
+            {
+                Component_NavigationDopBut objectPan = (Component_NavigationDopBut)item;
+                if (objectPan.name == nameDopButtop)
+                    objectPan.ChangeDopButton(true);
+                else
+                    objectPan.ChangeDopButton(false);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             //проверка, не пытаемся ли мы нажать на уже выбранную кнопку
             //if (button1.ForeColor != SystemColors.ControlLight)
-                clickOnThis?.Invoke();
+            clickOnThis?.Invoke();
         }
     }
 }

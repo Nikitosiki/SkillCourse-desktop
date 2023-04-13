@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             panel2 = new Panel();
-            button1 = new Button();
+            buttonThis = new Button();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,29 +45,30 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(buttonThis);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(39, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(172, 32);
             panel2.TabIndex = 1;
             // 
-            // button1
+            // buttonThis
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLight;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(172, 32);
-            button1.TabIndex = 2;
-            button1.Text = "All";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = true;
+            buttonThis.Dock = DockStyle.Fill;
+            buttonThis.FlatAppearance.BorderSize = 0;
+            buttonThis.FlatStyle = FlatStyle.Flat;
+            buttonThis.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonThis.ForeColor = SystemColors.ControlLight;
+            buttonThis.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonThis.Location = new Point(0, 0);
+            buttonThis.Name = "buttonThis";
+            buttonThis.Size = new Size(172, 32);
+            buttonThis.TabIndex = 2;
+            buttonThis.Text = "All";
+            buttonThis.TextAlign = ContentAlignment.MiddleLeft;
+            buttonThis.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonThis.UseVisualStyleBackColor = true;
+            buttonThis.Click += buttonThis_Click;
             // 
             // Component_NavigationDopBut
             // 
@@ -86,6 +87,6 @@
 
         private Panel panel1;
         private Panel panel2;
-        private Button button1;
+        protected Button buttonThis;
     }
 }

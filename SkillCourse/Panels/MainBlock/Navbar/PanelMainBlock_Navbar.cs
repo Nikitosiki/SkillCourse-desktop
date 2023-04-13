@@ -36,8 +36,8 @@ namespace SkillCourse.Panels.MainBlock.Navbar
         public void Redraw(UserType? userType)
         {
             UserType = userType;
-            LoadDefaultPanel(UserType);
             AddButtonToNavbar(UserType);
+            LoadDefaultPanel(UserType);
         }
 
         //Установка дефолтной страници для разных ролей
@@ -52,13 +52,13 @@ namespace SkillCourse.Panels.MainBlock.Navbar
             if (userType == DataBaseStructure.types.UserType.Student)
             {
                 NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
-                UpdateStateButtons("Courses");
+                UpdateStateButtons("Courses", "Subscribed");
             }
 
             if (userType == DataBaseStructure.types.UserType.Teacher)
             {
                 NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
-                UpdateStateButtons("Courses");
+                UpdateStateButtons("Courses", "Created");
             }
         }
 
@@ -135,42 +135,67 @@ namespace SkillCourse.Panels.MainBlock.Navbar
         {
             //------- Courses
 
+            Action defaultCourseDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                UpdateStateButtons("Courses", "Subscribed");
+            };
+
+            Action All_CourseDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                UpdateStateButtons("Courses", "All");
+            };
+
+
             List<Component_NavigationDopBut> CourseDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All"),
-                new Component_NavigationDopBut("Subscribed")
+                new Component_NavigationDopBut("All", All_CourseDopButtons),
+                new Component_NavigationDopBut("Subscribed", defaultCourseDopButtons)
             };
             CourseDopButtons.Reverse();
 
             listControls.Add(
                 new Component_NavigationBut("Courses",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                true, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
-                    UpdateStateButtons("Courses");
-                }, CourseDopButtons));
+                true, defaultCourseDopButtons, CourseDopButtons));
 
 
 
             //------- Tasks
 
+            Action defaultTasksDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Tasks", "Assigned");
+            };
+
+
+            Action missing_TasksDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Tasks", "Missing");
+            };
+
+            Action done_TasksDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Tasks", "Done");
+            };
+
+
             List<Component_NavigationDopBut> TaskDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("Assigned"),
-                new Component_NavigationDopBut("Missing"),
-                new Component_NavigationDopBut("Done")
+                new Component_NavigationDopBut("Assigned", defaultTasksDopButtons),
+                new Component_NavigationDopBut("Missing", missing_TasksDopButtons),
+                new Component_NavigationDopBut("Done", done_TasksDopButtons)
             };
             TaskDopButtons.Reverse();
 
             listControls.Add(
                 new Component_NavigationBut("Tasks",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
-                    UpdateStateButtons("Tasks");
-                }, TaskDopButtons));
+                false, defaultTasksDopButtons, TaskDopButtons));
 
 
 
@@ -189,21 +214,31 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             //------- Certificates
 
+            Action defaultCertificatesDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Certificates", "My");
+            };
+
+
+            Action check_CertificatesDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Certificates", "Check");
+            };
+
+
             List<Component_NavigationDopBut> CertificatesDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("My"),
-                new Component_NavigationDopBut("Check")
+                new Component_NavigationDopBut("My", defaultCertificatesDopButtons),
+                new Component_NavigationDopBut("Check", check_CertificatesDopButtons)
             };
             CertificatesDopButtons.Reverse();
 
             listControls.Add(
                 new Component_NavigationBut("Certificates",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
-                    UpdateStateButtons("Certificates");
-                }, CertificatesDopButtons));
+                false, defaultCertificatesDopButtons, CertificatesDopButtons));
 
 
 
@@ -237,21 +272,31 @@ namespace SkillCourse.Panels.MainBlock.Navbar
         {
             //------- Courses
 
+            Action defaultCoursesDopButtonPage = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                UpdateStateButtons("Courses", "Created");
+            };
+
+
+            Action all_CoursesDopButtonPage = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                UpdateStateButtons("Courses", "All");
+            };
+
+
             List<Component_NavigationDopBut> CourseDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All"),
-                new Component_NavigationDopBut("Created")
+                new Component_NavigationDopBut("All", all_CoursesDopButtonPage),
+                new Component_NavigationDopBut("Created", defaultCoursesDopButtonPage)
             };
             CourseDopButtons.Reverse();
 
             listControls.Add(
                 new Component_NavigationBut("Courses",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                true, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
-                    UpdateStateButtons("Courses");
-                }, CourseDopButtons));
+                true, defaultCoursesDopButtonPage, CourseDopButtons));
 
 
 
@@ -270,42 +315,66 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             //------- Certificates
 
+            Action defaultCertificatesDopButtonPage = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Certificates", "All");
+            };
+
+            Action waiting_CertificatesDopButtonPage = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Certificates", "Waiting");
+            };
+
+            Action check_CertificatesDopButtonPage = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Certificates", "Check");
+            };
+
+
             List<Component_NavigationDopBut> CertificatesDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All"),
-                new Component_NavigationDopBut("Waiting"),
-                new Component_NavigationDopBut("Check")
+                new Component_NavigationDopBut("All", defaultCertificatesDopButtonPage),
+                new Component_NavigationDopBut("Waiting", waiting_CertificatesDopButtonPage),
+                new Component_NavigationDopBut("Check", check_CertificatesDopButtonPage)
             };
             CertificatesDopButtons.Reverse();
 
             listControls.Add(
                 new Component_NavigationBut("Certificates",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
-                    UpdateStateButtons("Certificates");
-                }, CertificatesDopButtons));
+                false, defaultCertificatesDopButtonPage, CertificatesDopButtons));
 
 
 
             //------- Students
 
+            Action defaultStudentsDopButtonPage = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Students", "My");
+            };
+
+            Action all_StudentsDopButtonPage = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                UpdateStateButtons("Students", "All");
+            };
+
+
             List<Component_NavigationDopBut> StudentsDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All"),
-                new Component_NavigationDopBut("My")
+                new Component_NavigationDopBut("All", all_StudentsDopButtonPage),
+                new Component_NavigationDopBut("My", defaultStudentsDopButtonPage)
             };
             StudentsDopButtons.Reverse();
 
             listControls.Add(
                 new Component_NavigationBut("Students",
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
-                    UpdateStateButtons("Students");
-                }, StudentsDopButtons));
+                false, defaultStudentsDopButtonPage, StudentsDopButtons));
 
 
 
@@ -334,6 +403,11 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 }, null));
         }
 
+        //private void ClickButtToPage(string namePage, UserControl openPage, Panel thisPanel)
+        //{
+        //    NavigatePages.openPage(openPage, thisPanel);
+        //    UpdateStateButtons(namePage);
+        //}
 
         private void UpdateStateButtons(string nameButtonActive)
         {
@@ -341,9 +415,24 @@ namespace SkillCourse.Panels.MainBlock.Navbar
             {
                 Component_NavigationBut objectPan = (Component_NavigationBut)item;
                 if (objectPan.name == nameButtonActive)
-                    objectPan.ChangeStateDopButton(true);
+                    objectPan.ChangeStateButton(true);
                 else
-                    objectPan.ChangeStateDopButton(false);
+                    objectPan.ChangeStateButton(false);
+            }
+        }
+
+        private void UpdateStateButtons(string nameButtonActive, string nameDopButtonActive)
+        {
+            foreach (Control item in this.Controls)
+            {
+                Component_NavigationBut objectPan = (Component_NavigationBut)item;
+                if (objectPan.name == nameButtonActive)
+                {
+                    objectPan.ChangeStateButton(true);
+                    objectPan.UpdateStateDopButton(nameDopButtonActive);
+                }
+                else
+                    objectPan.ChangeStateButton(false);
             }
         }
     }

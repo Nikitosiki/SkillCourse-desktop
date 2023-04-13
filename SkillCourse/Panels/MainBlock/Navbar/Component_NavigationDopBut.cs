@@ -12,11 +12,33 @@ namespace SkillCourse.PanelComponents
 {
     public partial class Component_NavigationDopBut : UserControl
     {
-        public Component_NavigationDopBut(string text)
+        private Action clickOnThis;
+        public string name;
+
+        public Component_NavigationDopBut(string text, Action buttonThisObject)
         {
             InitializeComponent();
-            button1.Text = text;
             Dock = DockStyle.Top;
+            buttonThis.Text = text;
+            name = text;
+            clickOnThis = buttonThisObject;
+        }
+
+        public void ChangeDopButton(bool action)
+        {
+            if (action)
+            {
+                buttonThis.Font = new Font(buttonThis.Font, FontStyle.Bold);
+            }
+            else
+            {
+                buttonThis.Font = new Font(buttonThis.Font, FontStyle.Regular);
+            }
+        }
+
+        private void buttonThis_Click(object sender, EventArgs e)
+        {
+            clickOnThis?.Invoke();
         }
     }
 }
