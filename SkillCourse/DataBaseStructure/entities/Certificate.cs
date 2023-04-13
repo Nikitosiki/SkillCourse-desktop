@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -12,7 +13,7 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public class Certificate : ICloneable
     {
-        private static int idCounter = 0;
+        private static int idCounter = SkillCourseDB.Instance.Certificates.Any() ? SkillCourseDB.Instance.Certificates.Max(c => c.idCertificate) : 0;
 
         private int idCertificate;
         private string description;
@@ -32,9 +33,10 @@ namespace SkillCourse.DataBaseStructure
             IdCourse = idCourse;
         }
 
-        private Certificate(int id, string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
+        [JsonConstructor]
+        public Certificate(int idCertificate, string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
         {
-            IdCertificate = id;
+            IdCertificate = idCertificate;
             Description = description;
             PresentationTime = presentationTime;
             IdPresenterTeacher = idPresenterTeacher;

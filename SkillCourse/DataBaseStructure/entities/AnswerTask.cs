@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms.Design.Behavior;
@@ -13,7 +14,8 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public class AnswerTask : ICloneable
     {
-        private static int idCounter = 0;
+
+        private static int idCounter = SkillCourseDB.Instance.AnswerTasks.Any() ? SkillCourseDB.Instance.AnswerTasks.Max(a => a.idAnswerToTask) : 0;
 
         private int idAnswerToTask;
         private StateTask state = StateTask.NotDone;
@@ -33,9 +35,10 @@ namespace SkillCourse.DataBaseStructure
             IdUser = idUser;
         }
 
-        private AnswerTask(int id, StateTask state, int? grade, int idTask, int idUser)
+        [JsonConstructor]
+        public AnswerTask(int idAnswerToTask, StateTask state, int? grade, int idTask, int idUser)
         {
-            IdAnswerToTask = id;
+            IdAnswerToTask = idAnswerToTask;
             State = state;
             Grade = grade;
             IdTask = idTask;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms.Design.Behavior;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -13,7 +14,7 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public class SubscriptionCourse : ICloneable
     {
-        private static int idCounter = 0;
+        private static int idCounter = SkillCourseDB.Instance.Subscriptions.Any() ? SkillCourseDB.Instance.Subscriptions.Max(s => s.IdSubscriptionCourse) : 0;
 
         private int idSubscriptionCourse;
         private DateTime dateSub;
@@ -30,10 +31,11 @@ namespace SkillCourse.DataBaseStructure
             IdStudent = idStudent;
         }
 
-        private SubscriptionCourse(int id, DateTime date, int idStudent, int idCourse)
+        [JsonConstructor]
+        public SubscriptionCourse(int idSubscriptionCourse, DateTime dateSub, int idStudent, int idCourse)
         {
-            IdSubscriptionCourse = id;
-            DateSub = date;
+            IdSubscriptionCourse = idSubscriptionCourse;
+            DateSub = dateSub;
             IdCourse = idCourse;
             IdStudent = idStudent;
         }

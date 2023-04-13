@@ -15,9 +15,13 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_CoursePage : UserControl
     {
-        public PanelMainBlock_CoursePage()
+        public PanelMainBlock_CoursePage(Course course)
         {
             InitializeComponent();
+
+            labelName.Text = course.Name;
+            textBoxDescription.Text = course.Description;
+            pictureBoxImage.Image = Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image;
         }
 
         private void newButton_Back_Click(object sender, EventArgs e)

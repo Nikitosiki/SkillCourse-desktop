@@ -15,7 +15,7 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public abstract class User
     {
-        protected static int idCounter = 0;
+        protected static int idCounter = SkillCourseDB.Instance.Users.Any() ? SkillCourseDB.Instance.Users.Max(u => u.idUser) : 0;
 
         private int idUser;
         private UserType userType;
@@ -24,6 +24,7 @@ namespace SkillCourse.DataBaseStructure
         private string email;
         private string password;
         private string? phoneNumber;
+        private string? imagePath;
         private DateTime dateOfBirth;
         private GenderType gender;
         private DateTime lastLoginDate;
@@ -136,6 +137,19 @@ namespace SkillCourse.DataBaseStructure
                 if (value == null)
                     throw new FormatException($"Incorrect value.");
                 password = value;
+            }
+        }
+
+        [DisplayName("Image Path")]
+        public string? ImagePath
+        {
+            get
+            {
+                return imagePath;
+            }
+            set
+            {
+                imagePath = value;
             }
         }
 

@@ -65,7 +65,7 @@ namespace SkillCourse.Panels.MainBlock
         private UserControl CreateCourse(Course course)
         {
             if (VisibleButView)
-                return new Component_BriefСourse_View(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
+                return new Component_BriefСourse_View(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage(course)));
             else
                 return new Component_BriefСourse_Base(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image);
 

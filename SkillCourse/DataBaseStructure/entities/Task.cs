@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms.Design.Behavior;
 using System.Xml.Linq;
@@ -12,10 +13,11 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public class Task : ICloneable
     {
-        private static int idCounter = 0;
+        private static int idCounter = SkillCourseDB.Instance.Tasks.Any() ? SkillCourseDB.Instance.Tasks.Max(t => t.idTask) : 0;
 
         private int idTask;
         private string textTask;
+        private bool taskTypeMessage = false;
 
         private int idCourse;
 
@@ -25,13 +27,24 @@ namespace SkillCourse.DataBaseStructure
             IdTask = ++idCounter;
             TextTask = textTask;
             IdCourse = idCourse;
+            TaskTypeMessage = false;
         }
 
-        private Task(int id, string textTask, int idCourse)
+        public Task(string textTask, int idCourse, bool taskTypeMessage)
         {
-            IdTask = id;
+            IdTask = ++idCounter;
             TextTask = textTask;
             IdCourse = idCourse;
+            TaskTypeMessage = taskTypeMessage;
+        }
+
+        [JsonConstructor]
+        public Task(int idTask, string textTask, int idCourse, bool taskTypeMessage)
+        {
+            IdTask = idTask;
+            TextTask = textTask;
+            IdCourse = idCourse;
+            TaskTypeMessage = taskTypeMessage;
         }
 
         [DisplayName("Id Task")]
@@ -79,10 +92,23 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
+        [DisplayName("Task Type Message")]
+        public bool TaskTypeMessage
+        {
+            get
+            {
+                return taskTypeMessage;
+            }
+            private set
+            {
+                taskTypeMessage = value;
+            }
+        }
+
 
         public object Clone()
         {
-            return new Task(idTask, textTask, idCourse);
+            return new Task(IdCourse, TextTask, IdCourse, TaskTypeMessage);
         }
     }
 }

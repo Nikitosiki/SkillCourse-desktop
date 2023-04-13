@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainBlock_CoursePage));
             panel3 = new Panel();
             panel4 = new Panel();
-            textBox1 = new TextBox();
+            textBoxDescription = new TextBox();
             panel5 = new Panel();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
+            pictureBoxImage = new PictureBox();
             newButton_Back = new Label();
-            label1 = new Label();
+            labelName = new Label();
             panel2 = new Panel();
             panel13 = new Panel();
             panel14 = new Panel();
@@ -71,7 +71,7 @@
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
             panel2.SuspendLayout();
             panel13.SuspendLayout();
             panel14.SuspendLayout();
@@ -94,7 +94,7 @@
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(panel1);
             panel3.Controls.Add(newButton_Back);
-            panel3.Controls.Add(label1);
+            panel3.Controls.Add(labelName);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
@@ -103,7 +103,7 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(textBoxDescription);
             panel4.Controls.Add(panel5);
             panel4.Dock = DockStyle.Bottom;
             panel4.Location = new Point(0, 63);
@@ -111,19 +111,19 @@
             panel4.Size = new Size(694, 158);
             panel4.TabIndex = 49;
             // 
-            // textBox1
+            // textBoxDescription
             // 
-            textBox1.BackColor = Color.FromArgb(40, 49, 60);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.ForeColor = SystemColors.ControlDark;
-            textBox1.Location = new Point(53, 0);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(641, 158);
-            textBox1.TabIndex = 0;
-            textBox1.Text = resources.GetString("textBox1.Text");
+            textBoxDescription.BackColor = Color.FromArgb(40, 49, 60);
+            textBoxDescription.BorderStyle = BorderStyle.None;
+            textBoxDescription.Dock = DockStyle.Fill;
+            textBoxDescription.ForeColor = SystemColors.ControlDark;
+            textBoxDescription.Location = new Point(53, 0);
+            textBoxDescription.Multiline = true;
+            textBoxDescription.Name = "textBoxDescription";
+            textBoxDescription.ReadOnly = true;
+            textBoxDescription.Size = new Size(641, 158);
+            textBoxDescription.TabIndex = 0;
+            textBoxDescription.Text = resources.GetString("textBoxDescription.Text");
             // 
             // panel5
             // 
@@ -135,23 +135,23 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pictureBoxImage);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(694, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 221);
             panel1.TabIndex = 48;
             // 
-            // pictureBox1
+            // pictureBoxImage
             // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.image008;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(318, 221);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pictureBoxImage.Dock = DockStyle.Fill;
+            pictureBoxImage.Image = Properties.Resources.image008;
+            pictureBoxImage.Location = new Point(0, 0);
+            pictureBoxImage.Name = "pictureBoxImage";
+            pictureBoxImage.Size = new Size(318, 221);
+            pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxImage.TabIndex = 0;
+            pictureBoxImage.TabStop = false;
             // 
             // newButton_Back
             // 
@@ -165,16 +165,16 @@
             newButton_Back.Text = "🠔";
             newButton_Back.Click += newButton_Back_Click;
             // 
-            // label1
+            // labelName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(61, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(459, 31);
-            label1.TabIndex = 2;
-            label1.Text = "Об'єктно-орієнтоване програмування (КР)";
+            labelName.AutoSize = true;
+            labelName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelName.ForeColor = SystemColors.Control;
+            labelName.Location = new Point(61, 22);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(459, 31);
+            labelName.TabIndex = 2;
+            labelName.Text = "Об'єктно-орієнтоване програмування (КР)";
             // 
             // panel2
             // 
@@ -609,7 +609,7 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxImage).EndInit();
             panel2.ResumeLayout(false);
             panel13.ResumeLayout(false);
             panel13.PerformLayout();
@@ -635,14 +635,14 @@
 
         #endregion
         private Panel panel3;
-        private Label label1;
+        private Label labelName;
         private Label newButton_Back;
         private Panel panel2;
-        private TextBox textBox1;
+        private TextBox textBoxDescription;
         private Panel panel4;
         private Panel panel5;
         private Panel panel1;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBoxImage;
         private Label label3;
         private Panel panel8;
         private Panel panel9;

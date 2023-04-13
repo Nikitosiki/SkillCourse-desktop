@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -11,7 +12,7 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public class Course : ICloneable
     {
-        private static int idCounter = 0;
+        private static int idCounter = SkillCourseDB.Instance.Courses.Any() ? SkillCourseDB.Instance.Courses.Max(c => c.idCourse) : 0;
 
         private int idCourse;
         private string name;
@@ -30,9 +31,10 @@ namespace SkillCourse.DataBaseStructure
             IdTeacher = idTeacher;
         }
 
-        private Course(int id, string name, string description, string imagePath, int idTeacher)
+        [JsonConstructor]
+        public Course(int idCourse, string name, string description, string imagePath, int idTeacher)
         {
-            IdCourse = id;
+            IdCourse = idCourse;
             Name = name;
             Description = description;
             ImagePath = imagePath;
