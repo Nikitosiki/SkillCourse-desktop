@@ -1,6 +1,7 @@
 ﻿using SkillCourse.DataBaseStructure.types;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -14,6 +15,7 @@ namespace SkillCourse.DataBaseStructure
         [JsonConstructor]
         public Teather(int idUser, string firstName, string lastName, string email, string? phoneNumber, string password, string? imagePath, DateTime dateOfBirth, GenderType gender, DateTime lastLoginDate)
         {
+            idCounter++;
             IdUser = idUser;
             UserType = UserType.Student;
             FirstName = firstName;

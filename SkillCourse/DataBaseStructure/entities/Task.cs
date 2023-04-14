@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -18,6 +19,7 @@ namespace SkillCourse.DataBaseStructure
         private int idTask;
         private string textTask;
         private bool taskTypeMessage = false;
+        private DateTime taskStartTime;
 
         private int idCourse;
 
@@ -28,6 +30,7 @@ namespace SkillCourse.DataBaseStructure
             TextTask = textTask;
             IdCourse = idCourse;
             TaskTypeMessage = false;
+            TaskStartTime = DateTime.Now;
         }
 
         public Task(string textTask, int idCourse, bool taskTypeMessage)
@@ -36,15 +39,18 @@ namespace SkillCourse.DataBaseStructure
             TextTask = textTask;
             IdCourse = idCourse;
             TaskTypeMessage = taskTypeMessage;
+            TaskStartTime = DateTime.Now;
         }
 
         [JsonConstructor]
-        public Task(int idTask, string textTask, int idCourse, bool taskTypeMessage)
+        public Task(int idTask, string textTask, int idCourse, bool taskTypeMessage, DateTime taskStartTime)
         {
+            idCounter++;
             IdTask = idTask;
             TextTask = textTask;
             IdCourse = idCourse;
             TaskTypeMessage = taskTypeMessage;
+            TaskStartTime = taskStartTime;
         }
 
         [DisplayName("Id Task")]
@@ -105,10 +111,25 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
+        [DisplayName("Task Start Time")]
+        public DateTime TaskStartTime
+        {
+            get
+            {
+                return taskStartTime;
+            }
+            private set
+            {
+                if (value > DateTime.Now)
+                    throw new ArgumentOutOfRangeException(nameof(taskStartTime));
+                taskStartTime = value;
+            }
+        }
+
 
         public object Clone()
         {
-            return new Task(IdCourse, TextTask, IdCourse, TaskTypeMessage);
+            return new Task(IdCourse, TextTask, IdCourse, TaskTypeMessage, TaskStartTime);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -38,6 +39,7 @@ namespace SkillCourse.DataBaseStructure
         [JsonConstructor]
         public AnswerTask(int idAnswerToTask, StateTask state, int? grade, int idTask, int idUser)
         {
+            idCounter++;
             IdAnswerToTask = idAnswerToTask;
             State = state;
             Grade = grade;

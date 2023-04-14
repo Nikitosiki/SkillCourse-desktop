@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -34,6 +35,7 @@ namespace SkillCourse.DataBaseStructure
         [JsonConstructor]
         public SubscriptionCourse(int idSubscriptionCourse, DateTime dateSub, int idStudent, int idCourse)
         {
+            idCounter++;
             IdSubscriptionCourse = idSubscriptionCourse;
             DateSub = dateSub;
             IdCourse = idCourse;

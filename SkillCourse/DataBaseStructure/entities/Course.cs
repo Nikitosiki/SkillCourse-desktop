@@ -34,6 +34,7 @@ namespace SkillCourse.DataBaseStructure
         [JsonConstructor]
         public Course(int idCourse, string name, string description, string imagePath, int idTeacher)
         {
+            idCounter++;
             IdCourse = idCourse;
             Name = name;
             Description = description;
