@@ -3,13 +3,14 @@ using SkillCourse.DataBaseStructure.types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Task = SkillCourse.DataBaseStructure.Task;
 
-namespace SkillCourse
+namespace SkillCourse.DataBaseStructure
 {
-    public class StudentHandler : Student
+    public partial class Student
     {
         private static SkillCourseDB? instanceDB = null;
         private static SkillCourseDB DataBase
@@ -22,13 +23,7 @@ namespace SkillCourse
                 }
                 return instanceDB;
             }
-        }
-
-
-
-        public StudentHandler(string firstName, string lastName, string email, string password, DateTime dateOfBirth, GenderType gender) :
-            base(firstName, lastName, email, password, dateOfBirth, gender) { }
-
+        }        
 
         public List<Course> CoursesSubscribed
         {
@@ -47,15 +42,28 @@ namespace SkillCourse
             }
         }
 
-        public List<Task> GetTasks(Course course)
+        public List<Task> GetAllTasks(Course course)
         {
-            return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse).ToList();
+            return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse)
+                .OrderBy(task => task.TaskStartTime).ToList();
+        }
+
+        public List<Task> GetOnlyTask(Course course)
+        {
+            return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse && task.TaskTypeMessage == false)
+                .OrderBy(task => task.TaskStartTime).ToList();
         }
 
         public List<Student> GetStudents(Course course)
         {
             IEnumerable<int> subscriptionIds = DataBase.Subscriptions.Where(sub => sub.IdCourse == course.IdCourse).Select(sub => sub.IdStudent);
-            return DataBase.Users.Students().Where(user => subscriptionIds.Contains(user.IdUser)).ToList();
+            return DataBase.Users.Students().Where(user => subscriptionIds.Contains(user.IdUser))
+                .OrderBy(user => user.LastName).ToList();
+        }
+
+        public Teather? GetTeacher(Course course)
+        {
+            return DataBase.Users.Teathers().Find(cours => cours.IdUser == course.IdTeacher);
         }
 
         public List<Course> FindAllCourses(string search)

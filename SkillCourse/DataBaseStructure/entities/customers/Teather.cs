@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace SkillCourse.DataBaseStructure
 {
     [Serializable]
-    public class Teather : User, ICloneable
+    public partial class Teather : User, ICloneable
     {
         [JsonConstructor]
-        public Teather(int idUser, string firstName, string lastName, string email, string? phoneNumber, string password, string? imagePath, DateTime dateOfBirth, GenderType gender, DateTime lastLoginDate)
+        public Teather(int idUser, string firstName, string lastName, string email, string? phoneNumber, string password, string? imagePath, DateTime dateOfBirth, GenderType gender, DateTime lastLoginDate) : base(UserType.Teacher, firstName, lastName, email, password)
         {
             idCounter++;
             IdUser = idUser;
@@ -29,7 +29,7 @@ namespace SkillCourse.DataBaseStructure
             LastLoginDate = lastLoginDate;
         }
 
-        public Teather(string firstName, string lastName, string email, string password, DateTime dateOfBirth, GenderType gender)
+        public Teather(string firstName, string lastName, string email, string password, DateTime dateOfBirth, GenderType gender) : base(UserType.Teacher, firstName, lastName, email, password)
         {
             IdUser = ++idCounter;
             UserType = UserType.Teacher;

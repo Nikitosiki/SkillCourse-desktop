@@ -29,7 +29,14 @@ namespace SkillCourse.DataBaseStructure
         private GenderType gender;
         private DateTime lastLoginDate;
 
-        
+        protected User(UserType userType, string firstName, string lastName, string email, string password)
+        {
+            UserType = userType;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Password = password;
+        }
 
         [DisplayName("Id User")]
         public int IdUser

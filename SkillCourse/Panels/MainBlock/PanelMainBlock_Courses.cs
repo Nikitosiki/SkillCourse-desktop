@@ -28,6 +28,10 @@ namespace SkillCourse.Panels.MainBlock
             Dock = DockStyle.Fill;
             VisibleButView = buttonView;
             VisibleButSub = buttonSub;
+
+            string view = VisibleButView ? "View" : "";
+            string sub = VisibleButSub ? "Sub" : "";
+            Name = $"{Name} {VisibleButView} {VisibleButSub}";
         }
 
         #region LoadPage

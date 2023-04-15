@@ -10,7 +10,7 @@ using System.Web;
 using System.Xml.Linq;
 using Task = SkillCourse.DataBaseStructure.Task;
 
-namespace SkillCourse
+namespace SkillCourse.DataBaseStructure
 {
     public class TeatherHandler : Teather
     {
