@@ -95,6 +95,7 @@
             AutoSize = true;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(tableLayoutPanel1);
+            MaximumSize = new Size(4000, 407);
             Name = "Component_NotTaskMessage";
             Size = new Size(1012, 407);
             tableLayoutPanel1.ResumeLayout(false);

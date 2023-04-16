@@ -35,7 +35,8 @@ namespace SkillCourse.PanelComponents
 
             //labelId.Text = "◆";
             pictureBoxId.Visible = true;
-            tableLayoutPanel1.Visible = false;
+            panelButSend.Visible = false;
+            labelBall.Visible = false;
             labelText.Text = task.TextTask;
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
         }
