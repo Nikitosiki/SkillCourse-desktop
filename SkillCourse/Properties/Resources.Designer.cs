@@ -73,6 +73,26 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_up_341_svgrepo_com_down {
+            get {
+                object obj = ResourceManager.GetObject("arrow-up-341-svgrepo-com-down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_up_341_svgrepo_com_up {
+            get {
+                object obj = ResourceManager.GetObject("arrow-up-341-svgrepo-com-up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cursor_navbar_Blue {
             get {
                 object obj = ResourceManager.GetObject("cursor_navbar_Blue", resourceCulture);

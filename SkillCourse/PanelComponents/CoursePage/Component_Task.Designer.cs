@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Component_Task));
             panel7 = new Panel();
             panel10 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -35,16 +36,18 @@
             panel1 = new Panel();
             panel2 = new Panel();
             labelDate = new Label();
+            labelText = new Label();
             panelIndex = new Panel();
+            pictureBoxId = new PictureBox();
             labelId = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel3 = new Panel();
             labelBall = new Label();
             newButton3 = new yt_DesignUI.NewButton();
-            labelText = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panelIndex.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxId).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -103,9 +106,9 @@
             panel2.Controls.Add(labelDate);
             panel2.Controls.Add(labelText);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(89, 0);
+            panel2.Location = new Point(166, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(737, 101);
+            panel2.Size = new Size(660, 101);
             panel2.TabIndex = 9;
             // 
             // labelDate
@@ -122,26 +125,56 @@
             labelDate.TabIndex = 9;
             labelDate.Text = "(22 мая 2023г.)";
             // 
+            // labelText
+            // 
+            labelText.AutoSize = true;
+            labelText.Dock = DockStyle.Top;
+            labelText.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelText.ForeColor = SystemColors.Control;
+            labelText.Location = new Point(0, 0);
+            labelText.Name = "labelText";
+            labelText.Padding = new Padding(21, 19, 0, 0);
+            labelText.Size = new Size(490, 50);
+            labelText.TabIndex = 8;
+            labelText.Text = "Пояснювальна записка до курсової роботи";
+            // 
             // panelIndex
             // 
+            panelIndex.AutoSize = true;
+            panelIndex.Controls.Add(pictureBoxId);
             panelIndex.Controls.Add(labelId);
             panelIndex.Dock = DockStyle.Left;
             panelIndex.Location = new Point(0, 0);
             panelIndex.Name = "panelIndex";
-            panelIndex.Size = new Size(89, 101);
+            panelIndex.Size = new Size(166, 101);
             panelIndex.TabIndex = 8;
+            // 
+            // pictureBoxId
+            // 
+            pictureBoxId.Dock = DockStyle.Left;
+            pictureBoxId.Image = (Image)resources.GetObject("pictureBoxId.Image");
+            pictureBoxId.Location = new Point(83, 0);
+            pictureBoxId.MinimumSize = new Size(83, 0);
+            pictureBoxId.Name = "pictureBoxId";
+            pictureBoxId.Size = new Size(83, 101);
+            pictureBoxId.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxId.TabIndex = 5;
+            pictureBoxId.TabStop = false;
+            pictureBoxId.Visible = false;
             // 
             // labelId
             // 
-            labelId.Dock = DockStyle.Fill;
+            labelId.Dock = DockStyle.Left;
             labelId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             labelId.ForeColor = SystemColors.Control;
             labelId.Location = new Point(0, 0);
+            labelId.MinimumSize = new Size(83, 0);
             labelId.Name = "labelId";
-            labelId.Size = new Size(89, 101);
+            labelId.Size = new Size(83, 101);
             labelId.TabIndex = 4;
             labelId.Text = "#1";
             labelId.TextAlign = ContentAlignment.MiddleCenter;
+            labelId.Visible = false;
             // 
             // tableLayoutPanel1
             // 
@@ -212,19 +245,6 @@
             newButton3.UseZoomEffectOnHover = false;
             newButton3.Visible = false;
             // 
-            // labelText
-            // 
-            labelText.AutoSize = true;
-            labelText.Dock = DockStyle.Top;
-            labelText.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelText.ForeColor = SystemColors.Control;
-            labelText.Location = new Point(0, 0);
-            labelText.Name = "labelText";
-            labelText.Padding = new Padding(21, 19, 0, 0);
-            labelText.Size = new Size(490, 50);
-            labelText.TabIndex = 8;
-            labelText.Text = "Пояснювальна записка до курсової роботи";
-            // 
             // Component_Task
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -235,9 +255,11 @@
             Name = "Component_Task";
             Size = new Size(1012, 101);
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panelIndex.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxId).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel3.ResumeLayout(false);
@@ -257,8 +279,9 @@
         private Label labelBall;
         private Label labelDate;
         private Panel panelIndex;
-        private Label labelId;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelText;
+        private Label labelId;
+        private PictureBox pictureBoxId;
     }
 }

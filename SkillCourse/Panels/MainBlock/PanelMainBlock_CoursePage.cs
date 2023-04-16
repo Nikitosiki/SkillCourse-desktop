@@ -139,6 +139,8 @@ namespace SkillCourse.Panels.MainBlock
                 return;
 
             ChangeButtonPanel(sender);
+            ButSortTasksDefault();
+
             ClearThisPanel();
             AddStreamPanel();
         }
@@ -150,6 +152,8 @@ namespace SkillCourse.Panels.MainBlock
                 return;
 
             ChangeButtonPanel(sender);
+            ButSortTasksDefault();
+
             ClearThisPanel();
             AddClassworkPanel();
         }
@@ -161,6 +165,8 @@ namespace SkillCourse.Panels.MainBlock
                 return;
 
             ChangeButtonPanel(sender);
+            ButSortTasksDefault();
+
             ClearThisPanel();
             AddPeoplePanel();
         }
@@ -186,6 +192,51 @@ namespace SkillCourse.Panels.MainBlock
                 //    mainPanel.Controls.Clear();
                 //    mainPanel.Controls.Add(control);
                 //}
+            }
+        }
+
+        private bool upSortTasks = true;
+        private void buttonSortTasks_Click(object sender, EventArgs e)
+        {
+            ButSortTasksChangeImage();
+            Control[] controlsArray = new Control[panelTasks.Controls.Count];
+            panelTasks.Controls.CopyTo(controlsArray, 0);
+            Array.Reverse(controlsArray);
+            panelTasks.Controls.Clear();
+            panelTasks.Controls.AddRange(controlsArray);
+
+            panelTasks.Refresh();
+
+
+            void ButSortTasksChangeImage()
+            {
+                Button thisButton = (Button)sender;
+                Image upBut = Properties.Resources.ResourceManager.GetObject("arrow-up-341-svgrepo-com-up") as Image;
+                Image downBut = Properties.Resources.ResourceManager.GetObject("arrow-up-341-svgrepo-com-down") as Image;
+
+
+                if (upSortTasks)
+                {
+                    upSortTasks = false;
+                    thisButton.Image = downBut;
+                }
+                else
+                {
+                    upSortTasks = true;
+                    thisButton.Image = upBut;
+                }
+            }
+        }
+
+        void ButSortTasksDefault()
+        {
+            Button thisButton = buttonSortTasks;
+            Image upBut = Properties.Resources.ResourceManager.GetObject("arrow-up-341-svgrepo-com-up") as Image;
+
+            if (!upSortTasks)
+            {
+                upSortTasks = true;
+                thisButton.Image = upBut;
             }
         }
     }

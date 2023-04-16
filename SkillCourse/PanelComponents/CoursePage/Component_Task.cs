@@ -20,6 +20,8 @@ namespace SkillCourse.PanelComponents
             InitializeComponent();
             Dock = DockStyle.Top;
 
+            labelId.Visible = true;
+            labelBall.Visible = true;
             labelId.Text = "#" + id.ToString();
             labelText.Text = task.TextTask;
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
@@ -31,7 +33,8 @@ namespace SkillCourse.PanelComponents
             InitializeComponent();
             Dock = DockStyle.Top;
 
-            labelId.Text = "◆";
+            //labelId.Text = "◆";
+            pictureBoxId.Visible = true;
             tableLayoutPanel1.Visible = false;
             labelText.Text = task.TextTask;
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));

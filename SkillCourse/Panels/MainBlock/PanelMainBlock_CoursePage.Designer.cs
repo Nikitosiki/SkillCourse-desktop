@@ -44,6 +44,7 @@
             buttonPanelPeople = new Button();
             buttonPanelStream = new Button();
             buttonPanelClasswork = new Button();
+            buttonSortTasks = new Button();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -122,6 +123,7 @@
             newButton_Back.Font = new Font("Segoe UI", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
             newButton_Back.ForeColor = SystemColors.Control;
             newButton_Back.Location = new Point(3, 14);
+            newButton_Back.Margin = new Padding(0, 0, 3, 0);
             newButton_Back.Name = "newButton_Back";
             newButton_Back.Size = new Size(49, 45);
             newButton_Back.TabIndex = 47;
@@ -179,6 +181,7 @@
             tableLayoutPanel5.Controls.Add(buttonPanelPeople, 3, 0);
             tableLayoutPanel5.Controls.Add(buttonPanelStream, 1, 0);
             tableLayoutPanel5.Controls.Add(buttonPanelClasswork, 2, 0);
+            tableLayoutPanel5.Controls.Add(buttonSortTasks, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Bottom;
             tableLayoutPanel5.Location = new Point(0, 13);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -235,6 +238,20 @@
             buttonPanelClasswork.UseVisualStyleBackColor = true;
             buttonPanelClasswork.Click += buttonPanelClasswork_Click;
             // 
+            // buttonSortTasks
+            // 
+            buttonSortTasks.Dock = DockStyle.Left;
+            buttonSortTasks.FlatAppearance.BorderSize = 0;
+            buttonSortTasks.FlatStyle = FlatStyle.Flat;
+            buttonSortTasks.Image = Properties.Resources.arrow_up_341_svgrepo_com_up;
+            buttonSortTasks.Location = new Point(15, 9);
+            buttonSortTasks.Margin = new Padding(15, 5, 3, 3);
+            buttonSortTasks.Name = "buttonSortTasks";
+            buttonSortTasks.Size = new Size(50, 30);
+            buttonSortTasks.TabIndex = 5;
+            buttonSortTasks.UseVisualStyleBackColor = true;
+            buttonSortTasks.Click += buttonSortTasks_Click;
+            // 
             // PanelMainBlock_CoursePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -273,5 +290,6 @@
         private Button buttonPanelClasswork;
         private Button buttonPanelStream;
         private TableLayoutPanel tableLayoutPanel5;
+        private Button buttonSortTasks;
     }
 }
