@@ -244,8 +244,8 @@
             buttonSortTasks.FlatAppearance.BorderSize = 0;
             buttonSortTasks.FlatStyle = FlatStyle.Flat;
             buttonSortTasks.Image = Properties.Resources.arrow_up_341_svgrepo_com_up;
-            buttonSortTasks.Location = new Point(15, 9);
-            buttonSortTasks.Margin = new Padding(15, 5, 3, 3);
+            buttonSortTasks.Location = new Point(17, 9);
+            buttonSortTasks.Margin = new Padding(17, 5, 3, 3);
             buttonSortTasks.Name = "buttonSortTasks";
             buttonSortTasks.Size = new Size(50, 30);
             buttonSortTasks.TabIndex = 5;
