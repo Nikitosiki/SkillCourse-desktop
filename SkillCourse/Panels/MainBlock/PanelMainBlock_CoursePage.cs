@@ -34,6 +34,7 @@ namespace SkillCourse.Panels.MainBlock
         public PanelMainBlock_CoursePage(Course course)
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
 
             labelName.Text = course.Name;
             textBoxDescription.Text = course.Description;
@@ -41,6 +42,7 @@ namespace SkillCourse.Panels.MainBlock
 
             UpdateThisList(course);
             AddStreamPanel();
+            panelTasks.Refresh();
         }
 
         private void UpdateThisList(Course course)
@@ -83,8 +85,8 @@ namespace SkillCourse.Panels.MainBlock
             }
             ListPanelClasswork.Reverse();
 
-            if (ListPanelClasswork == null || ListPanelClasswork.Count == 0)
-                ListPanelClasswork.Add(new Component_NotTaskMessage());
+            if (ListPanelStreams == null || ListPanelStreams.Count == 0)
+                ListPanelStreams.Add(new Component_NotTaskMessage());
         }
 
         private void ChangeButtonPanel(object sender)
@@ -108,10 +110,20 @@ namespace SkillCourse.Panels.MainBlock
             panelTasks.Controls.Clear();
         }
 
+        private void ChangeStateButtonSort(bool active)
+        {
+            if (active)
+                buttonSortTasks.Visible = true;
+            else
+                buttonSortTasks.Visible = false;
+        }
+
         private void AddStreamPanel()
         {
             foreach (UserControl item in ListPanelStreams)
                 panelTasks.Controls.Add(item);
+
+            ChangeStateButtonSort(panelTasks.Controls.Count <= 1 ? false : true);
 
             panelTasks.Refresh();
         }
@@ -120,6 +132,8 @@ namespace SkillCourse.Panels.MainBlock
         {
             foreach (UserControl item in ListPanelClasswork)
                 panelTasks.Controls.Add(item);
+
+            ChangeStateButtonSort(panelTasks.Controls.Count <= 1 ? false : true);
 
             panelTasks.Refresh();
         }

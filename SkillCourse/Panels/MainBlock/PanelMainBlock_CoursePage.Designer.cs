@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainBlock_CoursePage));
             panel3 = new Panel();
+            newButton_Back = new Button();
             panel4 = new Panel();
             textBoxDescription = new TextBox();
             panel5 = new Panel();
             panel1 = new Panel();
             pictureBoxImage = new PictureBox();
-            newButton_Back = new Label();
             labelName = new Label();
             panelTasks = new Panel();
             label3 = new Label();
@@ -55,15 +55,29 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(newButton_Back);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(panel1);
-            panel3.Controls.Add(newButton_Back);
             panel3.Controls.Add(labelName);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(1012, 221);
             panel3.TabIndex = 45;
+            // 
+            // newButton_Back
+            // 
+            newButton_Back.Dock = DockStyle.Left;
+            newButton_Back.FlatAppearance.BorderSize = 0;
+            newButton_Back.FlatStyle = FlatStyle.Flat;
+            newButton_Back.Image = (Image)resources.GetObject("newButton_Back.Image");
+            newButton_Back.Location = new Point(0, 0);
+            newButton_Back.Name = "newButton_Back";
+            newButton_Back.Padding = new Padding(0, 12, 0, 0);
+            newButton_Back.Size = new Size(52, 63);
+            newButton_Back.TabIndex = 0;
+            newButton_Back.UseVisualStyleBackColor = true;
+            newButton_Back.Click += newButton_Back_Click;
             // 
             // panel4
             // 
@@ -116,19 +130,6 @@
             pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
-            // 
-            // newButton_Back
-            // 
-            newButton_Back.AutoSize = true;
-            newButton_Back.Font = new Font("Segoe UI", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton_Back.ForeColor = SystemColors.Control;
-            newButton_Back.Location = new Point(3, 14);
-            newButton_Back.Margin = new Padding(0, 0, 3, 0);
-            newButton_Back.Name = "newButton_Back";
-            newButton_Back.Size = new Size(49, 45);
-            newButton_Back.TabIndex = 47;
-            newButton_Back.Text = "🠔";
-            newButton_Back.Click += newButton_Back_Click;
             // 
             // labelName
             // 
@@ -277,7 +278,6 @@
         #endregion
         private Panel panel3;
         private Label labelName;
-        private Label newButton_Back;
         private Panel panelTasks;
         private TextBox textBoxDescription;
         private Panel panel4;
@@ -291,5 +291,6 @@
         private Button buttonPanelStream;
         private TableLayoutPanel tableLayoutPanel5;
         private Button buttonSortTasks;
+        private Button newButton_Back;
     }
 }

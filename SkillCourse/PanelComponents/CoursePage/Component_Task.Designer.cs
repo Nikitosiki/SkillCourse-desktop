@@ -41,8 +41,8 @@
             pictureBoxId = new PictureBox();
             labelId = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            panel3 = new Panel();
             labelBall = new Label();
+            panel3 = new Panel();
             newButton3 = new yt_DesignUI.NewButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -182,40 +182,41 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(labelBall, 1, 2);
             tableLayoutPanel1.Controls.Add(panel3, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Right;
             tableLayoutPanel1.Location = new Point(826, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new Size(186, 101);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // panel3
-            // 
-            panel3.AutoSize = true;
-            panel3.Controls.Add(labelBall);
-            panel3.Controls.Add(newButton3);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(34, 20);
-            panel3.MinimumSize = new Size(118, 31);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(118, 60);
-            panel3.TabIndex = 10;
-            // 
             // labelBall
             // 
-            labelBall.Dock = DockStyle.Top;
+            labelBall.Dock = DockStyle.Fill;
             labelBall.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelBall.ForeColor = SystemColors.Control;
-            labelBall.Location = new Point(0, 29);
+            labelBall.Location = new Point(34, 53);
             labelBall.Name = "labelBall";
             labelBall.Size = new Size(118, 31);
             labelBall.TabIndex = 7;
             labelBall.Text = "0 / 5";
             labelBall.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            panel3.AutoSize = true;
+            panel3.Controls.Add(newButton3);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(34, 19);
+            panel3.MinimumSize = new Size(118, 31);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(118, 31);
+            panel3.TabIndex = 10;
             // 
             // newButton3
             // 
