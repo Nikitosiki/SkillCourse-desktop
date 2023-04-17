@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Component_Task));
             panel7 = new Panel();
             panel10 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -41,7 +40,6 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             labelText = new Label();
             panelIndex = new Panel();
-            pictureBoxId = new PictureBox();
             labelId = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             labelBall = new Label();
@@ -53,7 +51,6 @@
             panelText.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             panelIndex.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxId).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panelButSend.SuspendLayout();
             SuspendLayout();
@@ -105,7 +102,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1012, 124);
+            panel1.Size = new Size(1012, 112);
             panel1.TabIndex = 3;
             // 
             // panel2
@@ -113,9 +110,9 @@
             panel2.AutoSize = true;
             panel2.Controls.Add(tableLayoutPanel3);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(175, 0);
+            panel2.Location = new Point(83, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(651, 124);
+            panel2.Size = new Size(743, 112);
             panel2.TabIndex = 9;
             // 
             // tableLayoutPanel3
@@ -133,7 +130,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(651, 124);
+            tableLayoutPanel3.Size = new Size(743, 112);
             tableLayoutPanel3.TabIndex = 10;
             // 
             // labelDate
@@ -155,7 +152,7 @@
             panelText.Dock = DockStyle.Top;
             panelText.Location = new Point(3, 23);
             panelText.Name = "panelText";
-            panelText.Size = new Size(645, 44);
+            panelText.Size = new Size(737, 44);
             panelText.TabIndex = 10;
             // 
             // tableLayoutPanel4
@@ -169,7 +166,7 @@
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(645, 31);
+            tableLayoutPanel4.Size = new Size(737, 31);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // labelText
@@ -181,7 +178,7 @@
             labelText.Location = new Point(3, 0);
             labelText.Name = "labelText";
             labelText.Padding = new Padding(18, 0, 0, 0);
-            labelText.Size = new Size(639, 31);
+            labelText.Size = new Size(731, 31);
             labelText.TabIndex = 10;
             labelText.Text = "Пояснювальна записка до курсової роботи";
             labelText.TextChanged += labelText_TextChanged;
@@ -189,26 +186,12 @@
             // panelIndex
             // 
             panelIndex.AutoSize = true;
-            panelIndex.Controls.Add(pictureBoxId);
             panelIndex.Controls.Add(labelId);
             panelIndex.Dock = DockStyle.Left;
             panelIndex.Location = new Point(0, 0);
             panelIndex.Name = "panelIndex";
-            panelIndex.Size = new Size(175, 124);
+            panelIndex.Size = new Size(83, 112);
             panelIndex.TabIndex = 8;
-            // 
-            // pictureBoxId
-            // 
-            pictureBoxId.Dock = DockStyle.Left;
-            pictureBoxId.Image = (Image)resources.GetObject("pictureBoxId.Image");
-            pictureBoxId.Location = new Point(83, 0);
-            pictureBoxId.MinimumSize = new Size(92, 101);
-            pictureBoxId.Name = "pictureBoxId";
-            pictureBoxId.Size = new Size(92, 124);
-            pictureBoxId.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBoxId.TabIndex = 5;
-            pictureBoxId.TabStop = false;
-            pictureBoxId.Visible = false;
             // 
             // labelId
             // 
@@ -224,7 +207,6 @@
             labelId.TabIndex = 4;
             labelId.Text = "#1";
             labelId.TextAlign = ContentAlignment.MiddleCenter;
-            labelId.Visible = false;
             // 
             // tableLayoutPanel1
             // 
@@ -244,7 +226,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(186, 124);
+            tableLayoutPanel1.Size = new Size(186, 112);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // labelBall
@@ -252,7 +234,7 @@
             labelBall.Dock = DockStyle.Fill;
             labelBall.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelBall.ForeColor = SystemColors.Control;
-            labelBall.Location = new Point(34, 65);
+            labelBall.Location = new Point(34, 59);
             labelBall.Name = "labelBall";
             labelBall.Size = new Size(118, 31);
             labelBall.TabIndex = 7;
@@ -264,7 +246,7 @@
             panelButSend.AutoSize = true;
             panelButSend.Controls.Add(newButton3);
             panelButSend.Dock = DockStyle.Fill;
-            panelButSend.Location = new Point(34, 31);
+            panelButSend.Location = new Point(34, 25);
             panelButSend.MinimumSize = new Size(118, 31);
             panelButSend.Name = "panelButSend";
             panelButSend.Size = new Size(118, 31);
@@ -308,7 +290,7 @@
             MaximumSize = new Size(1012, 1000);
             MinimumSize = new Size(0, 101);
             Name = "Component_Task";
-            Size = new Size(1012, 124);
+            Size = new Size(1012, 112);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -321,7 +303,6 @@
             tableLayoutPanel4.PerformLayout();
             panelIndex.ResumeLayout(false);
             panelIndex.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxId).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panelButSend.ResumeLayout(false);
@@ -340,7 +321,6 @@
         private Label labelDate;
         private Panel panelIndex;
         private Label labelId;
-        private PictureBox pictureBoxId;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelBall;

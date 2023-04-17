@@ -20,10 +20,9 @@ namespace SkillCourse.PanelComponents
             InitializeComponent();
             Dock = DockStyle.Top;
 
-            labelId.Visible = true;
             labelBall.Visible = true;
             labelId.Text = "#" + id.ToString();
-            labelText.Text = task.TextTask;
+            labelText.Text = task.TextTask + "        ";
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
         }
@@ -35,10 +34,12 @@ namespace SkillCourse.PanelComponents
             Dock = DockStyle.Top;
 
             //labelId.Text = "◆";
-            pictureBoxId.Visible = true;
+            labelId.Text = "";
+            labelId.Image = Properties.Resources.task_message;
+
             panelButSend.Visible = false;
             labelBall.Visible = false;
-            labelText.Text = task.TextTask;
+            labelText.Text = task.TextTask + "        ";
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
         }
