@@ -24,6 +24,7 @@ namespace SkillCourse.PanelComponents
             labelBall.Visible = true;
             labelId.Text = "#" + id.ToString();
             labelText.Text = task.TextTask;
+            ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
         }
 
@@ -38,7 +39,18 @@ namespace SkillCourse.PanelComponents
             panelButSend.Visible = false;
             labelBall.Visible = false;
             labelText.Text = task.TextTask;
+            ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
+        }
+
+        private void labelText_TextChanged(object sender, EventArgs e)
+        {
+            ReSizeDescription();
+        }
+
+        private void ReSizeDescription()
+        {
+            panelText.Size = new System.Drawing.Size(labelText.Width, labelText.Height);
         }
     }
 }

@@ -36,22 +36,26 @@
             panel1 = new Panel();
             panel2 = new Panel();
             tableLayoutPanel3 = new TableLayoutPanel();
-            labelText = new Label();
             labelDate = new Label();
+            panelText = new Panel();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            labelText = new Label();
             panelIndex = new Panel();
             pictureBoxId = new PictureBox();
             labelId = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            labelBall = new Label();
             panelButSend = new Panel();
             newButton3 = new yt_DesignUI.NewButton();
-            labelBall = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            panelText.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
             panelIndex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxId).BeginInit();
-            panelButSend.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            panelButSend.SuspendLayout();
             SuspendLayout();
             // 
             // panel7
@@ -119,8 +123,8 @@
             tableLayoutPanel3.AutoSize = true;
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Controls.Add(labelText, 0, 1);
             tableLayoutPanel3.Controls.Add(labelDate, 0, 2);
+            tableLayoutPanel3.Controls.Add(panelText, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(0, 0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -132,31 +136,55 @@
             tableLayoutPanel3.Size = new Size(651, 124);
             tableLayoutPanel3.TabIndex = 10;
             // 
-            // labelText
-            // 
-            labelText.AutoSize = true;
-            labelText.Dock = DockStyle.Fill;
-            labelText.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelText.ForeColor = SystemColors.Control;
-            labelText.Location = new Point(3, 20);
-            labelText.Name = "labelText";
-            labelText.Padding = new Padding(21, 0, 0, 0);
-            labelText.Size = new Size(645, 186);
-            labelText.TabIndex = 8;
-            labelText.Text = resources.GetString("labelText.Text");
-            // 
             // labelDate
             // 
             labelDate.AutoSize = true;
             labelDate.Font = new Font("Segoe UI Variable Display", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelDate.ForeColor = SystemColors.ControlDark;
-            labelDate.Location = new Point(5, 206);
+            labelDate.Location = new Point(5, 70);
             labelDate.Margin = new Padding(5, 0, 3, 0);
             labelDate.Name = "labelDate";
             labelDate.Padding = new Padding(21, 0, 0, 0);
             labelDate.Size = new Size(141, 22);
             labelDate.TabIndex = 9;
             labelDate.Text = "(22 мая 2023г.)";
+            // 
+            // panelText
+            // 
+            panelText.Controls.Add(tableLayoutPanel4);
+            panelText.Dock = DockStyle.Top;
+            panelText.Location = new Point(3, 23);
+            panelText.Name = "panelText";
+            panelText.Size = new Size(645, 44);
+            panelText.TabIndex = 10;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.AutoSize = true;
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Controls.Add(labelText, 0, 0);
+            tableLayoutPanel4.Dock = DockStyle.Top;
+            tableLayoutPanel4.Location = new Point(0, 0);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle());
+            tableLayoutPanel4.Size = new Size(645, 31);
+            tableLayoutPanel4.TabIndex = 0;
+            // 
+            // labelText
+            // 
+            labelText.AutoSize = true;
+            labelText.Dock = DockStyle.Top;
+            labelText.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelText.ForeColor = SystemColors.Control;
+            labelText.Location = new Point(3, 0);
+            labelText.Name = "labelText";
+            labelText.Padding = new Padding(18, 0, 0, 0);
+            labelText.Size = new Size(639, 31);
+            labelText.TabIndex = 10;
+            labelText.Text = "Пояснювальна записка до курсової роботи";
+            labelText.TextChanged += labelText_TextChanged;
             // 
             // panelIndex
             // 
@@ -198,6 +226,39 @@
             labelId.TextAlign = ContentAlignment.MiddleCenter;
             labelId.Visible = false;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(labelBall, 1, 2);
+            tableLayoutPanel1.Controls.Add(panelButSend, 1, 1);
+            tableLayoutPanel1.Dock = DockStyle.Right;
+            tableLayoutPanel1.Location = new Point(826, 0);
+            tableLayoutPanel1.MinimumSize = new Size(186, 101);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(186, 124);
+            tableLayoutPanel1.TabIndex = 1;
+            // 
+            // labelBall
+            // 
+            labelBall.Dock = DockStyle.Fill;
+            labelBall.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelBall.ForeColor = SystemColors.Control;
+            labelBall.Location = new Point(34, 65);
+            labelBall.Name = "labelBall";
+            labelBall.Size = new Size(118, 31);
+            labelBall.TabIndex = 7;
+            labelBall.Text = "0 / 5";
+            labelBall.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // panelButSend
             // 
             panelButSend.AutoSize = true;
@@ -237,39 +298,6 @@
             newButton3.UseZoomEffectOnHover = false;
             newButton3.Visible = false;
             // 
-            // labelBall
-            // 
-            labelBall.Dock = DockStyle.Fill;
-            labelBall.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBall.ForeColor = SystemColors.Control;
-            labelBall.Location = new Point(34, 65);
-            labelBall.Name = "labelBall";
-            labelBall.Size = new Size(118, 31);
-            labelBall.TabIndex = 7;
-            labelBall.Text = "0 / 5";
-            labelBall.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(labelBall, 1, 2);
-            tableLayoutPanel1.Controls.Add(panelButSend, 1, 1);
-            tableLayoutPanel1.Dock = DockStyle.Right;
-            tableLayoutPanel1.Location = new Point(826, 0);
-            tableLayoutPanel1.MinimumSize = new Size(186, 101);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(186, 124);
-            tableLayoutPanel1.TabIndex = 1;
-            // 
             // Component_Task
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -287,12 +315,16 @@
             panel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            panelText.ResumeLayout(false);
+            panelText.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
             panelIndex.ResumeLayout(false);
             panelIndex.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxId).EndInit();
-            panelButSend.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            panelButSend.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -307,7 +339,6 @@
         private Panel panel2;
         private Label labelDate;
         private Panel panelIndex;
-        private Label labelText;
         private Label labelId;
         private PictureBox pictureBoxId;
         private TableLayoutPanel tableLayoutPanel3;
@@ -315,5 +346,8 @@
         private Label labelBall;
         private Panel panelButSend;
         private yt_DesignUI.NewButton newButton3;
+        private Panel panelText;
+        private TableLayoutPanel tableLayoutPanel4;
+        private Label labelText;
     }
 }
