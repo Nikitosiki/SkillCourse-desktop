@@ -1,4 +1,5 @@
-﻿using SkillCourse.Forms;
+﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,17 +16,22 @@ namespace SkillCourse.PanelComponents
 {
     public partial class Component_Task : UserControl
     {
+        public Student handler = (Student)AccountHandler.Instance.UserLog;
+        public Task ThisTask { get; private set; }
+
         //Task
         public Component_Task(Task task, int id)
         {
             InitializeComponent();
             Dock = DockStyle.Top;
+            ThisTask = task;
 
-            labelBall.Visible = true;
             labelId.Text = "#" + id.ToString();
             labelText.Text = task.TextTask + "        ";
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
+
+            UpdateStateAnsverTask(task);
         }
 
         //Message
@@ -38,11 +44,29 @@ namespace SkillCourse.PanelComponents
             labelId.Text = "";
             labelId.Image = Properties.Resources.task_message;
 
-            panelButSend.Visible = false;
-            labelBall.Visible = false;
             labelText.Text = task.TextTask + "        ";
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
+
+            panelButSend.Visible = false;
+            labelBall.Visible = false;
+        }
+
+
+        private void UpdateStateAnsverTask(Task task)
+        {
+            if (handler.CheckCompletedOrBallTask(task))
+            {
+                panelButSend.Visible = false;
+                labelBall.Visible = true;
+
+                labelBall.Text = handler.GetBallToTask(task);
+            }
+            else
+            {
+                labelBall.Visible = false;
+                panelButSend.Visible = true;
+            }
         }
 
         private void labelText_TextChanged(object sender, EventArgs e)
@@ -73,7 +97,10 @@ namespace SkillCourse.PanelComponents
             if (result == DialogResult.OK)
             {
                 string returnText = answerForm.Text;
-                MessageBox.Show("Введенный текст: " + returnText);
+
+                handler.CompleteTask(ThisTask, returnText);
+                UpdateStateAnsverTask(ThisTask);
+                //MessageBox.Show("Введенный текст: " + returnText);
             }
         }
     }

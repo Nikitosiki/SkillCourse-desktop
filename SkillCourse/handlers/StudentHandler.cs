@@ -66,6 +66,33 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Users.Teathers().Find(cours => cours.IdUser == course.IdTeacher);
         }
 
+        public bool CheckCompletedOrBallTask(Task task)
+        {
+            return DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask
+            && ans.IdUser == this.IdUser && ans.State != StateTask.NotDone);
+        }
+
+        public string GetBallToTask(Task task)
+        {
+            if (CheckCompletedOrBallTask(task))
+            {
+                AnswerTask answer = DataBase.AnswerTasks.Find(ans => ans.IdTask == task.IdTask && ans.IdUser == this.IdUser);
+
+                if (answer.State == StateTask.Done)
+                    return $"Assigned";
+
+                if (answer.State == StateTask.Checked)
+                    return $"{answer.Grade} / 5";
+
+                return $"Send";  //Error
+            }
+            else
+            {
+                return $"Missing";
+            }
+
+        }
+
         public List<Course> FindAllCourses(string search)
         {
             string[] searchWords = search.Split(' '); // разбиваем на отдельные слова
@@ -100,7 +127,7 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
-        public bool CompleteTask(Task task)
+        public bool CompleteTask(Task task, string answerText)
         {
             try
             {
@@ -110,8 +137,8 @@ namespace SkillCourse.DataBaseStructure
                     // Проверяем, что нету ли такого ответа
                     if (!DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask))
                     {
-                        AnswerTask answer = new AnswerTask(StateTask.Done, null, task.IdTask, this.IdUser);
-                        DataBase.AnswerTasks.Update(answer);
+                        AnswerTask answer = new AnswerTask(StateTask.Done, null, answerText, task.IdTask, this.IdUser);
+                        DataBase.AnswerTasks.Add(answer);
 
                         return true;
 
@@ -122,6 +149,7 @@ namespace SkillCourse.DataBaseStructure
                     {
                         AnswerTask answer = DataBase.AnswerTasks.Where(ans => ans.IdTask == task.IdTask).Last();
                         answer.State = StateTask.Done;
+                        answer.Text = answerText;
                         DataBase.AnswerTasks.Update(answer);
 
                         return true;

@@ -232,44 +232,48 @@
             // labelBall
             // 
             labelBall.Dock = DockStyle.Fill;
-            labelBall.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelBall.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelBall.ForeColor = SystemColors.Control;
-            labelBall.Location = new Point(34, 59);
+            labelBall.Location = new Point(34, 61);
             labelBall.Name = "labelBall";
+            labelBall.Padding = new Padding(3, 0, 0, 0);
             labelBall.Size = new Size(118, 31);
             labelBall.TabIndex = 7;
             labelBall.Text = "0 / 5";
             labelBall.TextAlign = ContentAlignment.MiddleCenter;
+            labelBall.Visible = false;
             // 
             // panelButSend
             // 
             panelButSend.AutoSize = true;
             panelButSend.Controls.Add(newButtonSend);
             panelButSend.Dock = DockStyle.Fill;
-            panelButSend.Location = new Point(34, 25);
+            panelButSend.Location = new Point(34, 23);
             panelButSend.MinimumSize = new Size(118, 31);
             panelButSend.Name = "panelButSend";
-            panelButSend.Size = new Size(118, 31);
+            panelButSend.Size = new Size(118, 35);
             panelButSend.TabIndex = 10;
+            panelButSend.Visible = false;
             // 
             // newButtonSend
             // 
-            newButtonSend.BackColor = Color.Tomato;
+            newButtonSend.BackColor = Color.FromArgb(80, 175, 138);
             newButtonSend.BackColorAdditional = Color.Gray;
             newButtonSend.BackColorGradientEnabled = false;
             newButtonSend.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            newButtonSend.BorderColor = Color.Tomato;
+            newButtonSend.BorderColor = Color.FromArgb(80, 175, 138);
             newButtonSend.BorderColorEnabled = false;
-            newButtonSend.BorderColorOnHover = Color.Tomato;
+            newButtonSend.BorderColorOnHover = Color.FromArgb(80, 175, 138);
             newButtonSend.BorderColorOnHoverEnabled = false;
             newButtonSend.Dock = DockStyle.Top;
-            newButtonSend.Font = new Font("Segoe UI Emoji", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            newButtonSend.ForeColor = Color.White;
+            newButtonSend.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            newButtonSend.ForeColor = SystemColors.Control;
             newButtonSend.Location = new Point(0, 0);
             newButtonSend.Name = "newButtonSend";
             newButtonSend.RippleColor = Color.Black;
-            newButtonSend.RoundingEnable = false;
-            newButtonSend.Size = new Size(118, 29);
+            newButtonSend.Rounding = 20;
+            newButtonSend.RoundingEnable = true;
+            newButtonSend.Size = new Size(118, 35);
             newButtonSend.TabIndex = 6;
             newButtonSend.Text = "Send";
             newButtonSend.TextHover = null;

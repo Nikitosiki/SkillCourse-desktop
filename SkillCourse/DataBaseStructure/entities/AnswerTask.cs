@@ -21,28 +21,30 @@ namespace SkillCourse.DataBaseStructure
         private int idAnswerToTask;
         private StateTask state = StateTask.NotDone;
         private int? grade;
-        //private string? text;
+        private string? text;
 
         private int idTask;
         private int idUser;
 
 
-        public AnswerTask(StateTask state, int? grade, int idTask, int idUser)
+        public AnswerTask(StateTask state, int? grade, string? text, int idTask, int idUser)
         {
             IdAnswerToTask = ++idCounter;
             State = state;
             Grade = grade;
+            Text = text;
             IdTask = idTask;
             IdUser = idUser;
         }
 
         [JsonConstructor]
-        public AnswerTask(int idAnswerToTask, StateTask state, int? grade, int idTask, int idUser)
+        public AnswerTask(int idAnswerToTask, StateTask state, int? grade, string? text, int idTask, int idUser)
         {
             idCounter++;
             IdAnswerToTask = idAnswerToTask;
             State = state;
             Grade = grade;
+            Text = text;
             IdTask = idTask;
             IdUser = idUser;
         }
@@ -84,24 +86,24 @@ namespace SkillCourse.DataBaseStructure
             }
             set
             {
-                if (value < 0 || value > 100)
+                if (value < 0 || value > 5)
                     throw new ArgumentOutOfRangeException(nameof(grade));
                 grade = value;
             }
         }
 
-        //[DisplayName("Text")]
-        //public string? Text
-        //{
-        //    get
-        //    {
-        //        return text;
-        //    }
-        //    set
-        //    {
-        //        text = value;
-        //    }
-        //}
+        [DisplayName("Text")]
+        public string? Text
+        {
+            get
+            {
+                return text;
+            }
+            set
+            {
+                text = value;
+            }
+        }
 
         [DisplayName("Id Task")]
         public int IdTask
@@ -136,7 +138,7 @@ namespace SkillCourse.DataBaseStructure
 
         public object Clone()
         {
-            return new AnswerTask(IdAnswerToTask, State, Grade, IdTask, IdUser);
+            return new AnswerTask(IdAnswerToTask, State, Grade, Text, IdTask, IdUser);
         }
     }
 }
