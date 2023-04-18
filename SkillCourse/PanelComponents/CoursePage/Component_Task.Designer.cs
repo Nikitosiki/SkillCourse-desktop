@@ -44,7 +44,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             labelBall = new Label();
             panelButSend = new Panel();
-            newButton3 = new yt_DesignUI.NewButton();
+            newButtonSend = new yt_DesignUI.NewButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -244,7 +244,7 @@
             // panelButSend
             // 
             panelButSend.AutoSize = true;
-            panelButSend.Controls.Add(newButton3);
+            panelButSend.Controls.Add(newButtonSend);
             panelButSend.Dock = DockStyle.Fill;
             panelButSend.Location = new Point(34, 25);
             panelButSend.MinimumSize = new Size(118, 31);
@@ -252,33 +252,33 @@
             panelButSend.Size = new Size(118, 31);
             panelButSend.TabIndex = 10;
             // 
-            // newButton3
+            // newButtonSend
             // 
-            newButton3.BackColor = Color.Tomato;
-            newButton3.BackColorAdditional = Color.Gray;
-            newButton3.BackColorGradientEnabled = false;
-            newButton3.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            newButton3.BorderColor = Color.Tomato;
-            newButton3.BorderColorEnabled = false;
-            newButton3.BorderColorOnHover = Color.Tomato;
-            newButton3.BorderColorOnHoverEnabled = false;
-            newButton3.Dock = DockStyle.Top;
-            newButton3.Font = new Font("Segoe UI Emoji", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            newButton3.ForeColor = Color.White;
-            newButton3.Location = new Point(0, 0);
-            newButton3.Name = "newButton3";
-            newButton3.RippleColor = Color.Black;
-            newButton3.RoundingEnable = false;
-            newButton3.Size = new Size(118, 29);
-            newButton3.TabIndex = 6;
-            newButton3.Text = "Send";
-            newButton3.TextHover = null;
-            newButton3.UseDownPressEffectOnClick = false;
-            newButton3.UseMainGradientEffect = false;
-            newButton3.UseRippleEffect = true;
-            newButton3.UseVisualStyleBackColor = false;
-            newButton3.UseZoomEffectOnHover = false;
-            newButton3.Visible = false;
+            newButtonSend.BackColor = Color.Tomato;
+            newButtonSend.BackColorAdditional = Color.Gray;
+            newButtonSend.BackColorGradientEnabled = false;
+            newButtonSend.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            newButtonSend.BorderColor = Color.Tomato;
+            newButtonSend.BorderColorEnabled = false;
+            newButtonSend.BorderColorOnHover = Color.Tomato;
+            newButtonSend.BorderColorOnHoverEnabled = false;
+            newButtonSend.Dock = DockStyle.Top;
+            newButtonSend.Font = new Font("Segoe UI Emoji", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            newButtonSend.ForeColor = Color.White;
+            newButtonSend.Location = new Point(0, 0);
+            newButtonSend.Name = "newButtonSend";
+            newButtonSend.RippleColor = Color.Black;
+            newButtonSend.RoundingEnable = false;
+            newButtonSend.Size = new Size(118, 29);
+            newButtonSend.TabIndex = 6;
+            newButtonSend.Text = "Send";
+            newButtonSend.TextHover = null;
+            newButtonSend.UseDownPressEffectOnClick = false;
+            newButtonSend.UseMainGradientEffect = false;
+            newButtonSend.UseRippleEffect = true;
+            newButtonSend.UseVisualStyleBackColor = false;
+            newButtonSend.UseZoomEffectOnHover = false;
+            newButtonSend.Click += newButtonSend_Click;
             // 
             // Component_Task
             // 
@@ -325,7 +325,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelBall;
         private Panel panelButSend;
-        private yt_DesignUI.NewButton newButton3;
+        private yt_DesignUI.NewButton newButtonSend;
         private Panel panelText;
         private TableLayoutPanel tableLayoutPanel4;
         private Label labelText;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkillCourse.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +53,28 @@ namespace SkillCourse.PanelComponents
         private void ReSizeDescription()
         {
             panelText.Size = new System.Drawing.Size(labelText.Width, labelText.Height);
+        }
+
+        private void newButtonSend_Click(object sender, EventArgs e)
+        {
+            var thisParent = this.Parent;
+            while (true)
+            {
+                if (thisParent.Parent == null)
+                    break;
+
+                thisParent = thisParent.Parent;
+            }
+
+            AnswerToTask answerForm = new AnswerToTask(new Size(thisParent.ClientSize.Width, thisParent.ClientSize.Height));
+            answerForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
+            DialogResult result = answerForm.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                string returnText = answerForm.Text;
+                MessageBox.Show("Введенный текст: " + returnText);
+            }
         }
     }
 }

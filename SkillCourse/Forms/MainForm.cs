@@ -25,7 +25,6 @@ namespace SkillCourse
     {
         public DataBaseStructure.User? User { get; private set; }
 
-
         public MainForm()
         {
             InitializeComponent();
