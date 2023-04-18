@@ -74,6 +74,8 @@ namespace SkillCourse
             if (!PasswordEncryptor.CheckPassword(password, thisUser.Password))
                 throw new ArgumentException("Incorrect password.");
 
+            thisUser.LastLoginDate = DateTime.Now;
+            DataBase.Users.Update(thisUser);
             userLog = thisUser;
             OnChangeUser(thisUser);
 

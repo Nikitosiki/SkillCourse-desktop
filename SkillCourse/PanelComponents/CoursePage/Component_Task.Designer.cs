@@ -291,7 +291,6 @@
             AutoSize = true;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(panel1);
-            MaximumSize = new Size(1012, 1000);
             MinimumSize = new Size(0, 101);
             Name = "Component_Task";
             Size = new Size(1012, 112);

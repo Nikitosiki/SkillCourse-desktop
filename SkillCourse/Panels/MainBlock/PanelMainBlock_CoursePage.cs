@@ -2,6 +2,7 @@
 using SkillCourse.DataBaseStructure;
 using SkillCourse.PanelComponents;
 using SkillCourse.PanelComponents.CoursePage;
+using SkillCourse.PanelComponents.UsersPage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,14 +22,14 @@ namespace SkillCourse.Panels.MainBlock
         private List<Task> StreamTasks { get; set; }
         private List<Task> ClassworkTasks { get; set; }
         private List<Student> Students { get; set; }
-        private User Teacher { get; set; }
+        private User? TeacherThis { get; set; }
 
 
         public Student handler = (Student)AccountHandler.Instance.UserLog;
 
         private List<UserControl> ListPanelStreams { get; set; } = new List<UserControl>();
         private List<UserControl> ListPanelClasswork { get; set; } = new List<UserControl>();
-        //private List<UserControl> ListPanelPeople { get; set; } = new List<UserControl>();
+        private List<UserControl> ListPanelPeople { get; set; } = new List<UserControl>();
 
 
         public PanelMainBlock_CoursePage(Course course)
@@ -42,7 +43,6 @@ namespace SkillCourse.Panels.MainBlock
 
             UpdateThisList(course);
             AddStreamPanel();
-            panelTasks.Refresh();
         }
 
         private void UpdateThisList(Course course)
@@ -50,13 +50,15 @@ namespace SkillCourse.Panels.MainBlock
             StreamTasks = handler.GetAllTasks(course);
             ClassworkTasks = handler.GetOnlyTask(course);
             Students = handler.GetStudents(course);
-            Teacher = handler.GetTeacher(course);
+            TeacherThis = handler.GetTeacher(course);
 
             ListPanelStreams.Clear();
             ListPanelClasswork.Clear();
+            ListPanelPeople.Clear();
 
             FillListPanelStreams();
             FillListPanelClasswork();
+            FillListPanelPeople();
         }
 
         private void FillListPanelStreams()
@@ -85,8 +87,27 @@ namespace SkillCourse.Panels.MainBlock
             }
             ListPanelClasswork.Reverse();
 
-            if (ListPanelStreams == null || ListPanelStreams.Count == 0)
-                ListPanelStreams.Add(new Component_NotTaskMessage());
+            if (ListPanelClasswork == null || ListPanelClasswork.Count == 0)
+                ListPanelClasswork.Add(new Component_NotTaskMessage());
+        }
+
+        private void FillListPanelPeople()
+        {
+            //--- Учитель
+
+            ListPanelPeople.Add(new Component_UserTextHeader("Teacher"));
+            ListPanelPeople.Add(new Component_UserText(TeacherThis));
+
+
+            //--- Студенты
+
+            ListPanelPeople.Add(new Component_UserTextHeader("All Users", Students.Count));
+            foreach (Student stud in Students)
+            {
+                ListPanelPeople.Add(new Component_UserText(stud));
+            }
+
+            ListPanelPeople.Reverse();
         }
 
         private void ChangeButtonPanel(object sender)
@@ -140,10 +161,10 @@ namespace SkillCourse.Panels.MainBlock
 
         private void AddPeoplePanel()
         {
-            //foreach (UserControl item in ListPanelStreams)
-            //    panelTasks.Controls.Add(item);
+            foreach (UserControl item in ListPanelPeople)
+                panelTasks.Controls.Add(item);
 
-            //panelTasks.Refresh();
+            panelTasks.Refresh();
         }
 
         private void buttonPanelStream_Click(object sender, EventArgs e)
@@ -161,7 +182,7 @@ namespace SkillCourse.Panels.MainBlock
 
         private void buttonPanelClasswork_Click(object sender, EventArgs e)
         {
-            //если кнопка уже нажата, выъодим
+            //если кнопка уже нажата, выводим
             if (((Button)sender).ForeColor == SystemColors.ControlLight)
                 return;
 
@@ -174,12 +195,12 @@ namespace SkillCourse.Panels.MainBlock
 
         private void buttonPanelPeople_Click(object sender, EventArgs e)
         {
-            //если кнопка уже нажата, выъодим
+            //если кнопка уже нажата, выводим
             if (((Button)sender).ForeColor == SystemColors.ControlLight)
                 return;
 
             ChangeButtonPanel(sender);
-            ButSortTasksDefault();
+            ChangeStateButtonSort(false);
 
             ClearThisPanel();
             AddPeoplePanel();

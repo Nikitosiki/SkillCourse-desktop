@@ -40,6 +40,8 @@ namespace SkillCourse
 
 
             //Random();
+            //SubscriptionCourse sub = new SubscriptionCourse(3, 101);
+            //SkillCourseDB.Instance.Subscriptions.Add(sub);
             //DataBaseStructure.Task task = new DataBaseStructure.Task("Інструкція щодо виконання лабораторної роботи всередині.", 101, true);
             //SkillCourseDB.Instance.Tasks.Add(task);
             //Debug.WriteLine(PasswordEncryptor.Encrypt("12345678d"));
