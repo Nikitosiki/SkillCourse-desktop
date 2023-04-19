@@ -1,4 +1,5 @@
 ﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,7 @@ namespace SkillCourse.PanelComponents
             else
             {
                 button_SubCourse.Text = "Subscribe";
-                button_SubCourse.BackColor = Color.FromArgb(220, 50, 80);       //80, 175, 138
+                button_SubCourse.BackColor = Color.FromArgb(239, 80, 108);       //80, 175, 138 --- 220, 50, 80 --- 62, 114, 187
             }
             if (autoRefresh)
                 this.Refresh();
@@ -58,18 +59,42 @@ namespace SkillCourse.PanelComponents
         {
             if (button_SubCourse.Text == "Subscribe")
             {
-                //Добавить проверку на созданном модальном окне: "Все ваши записи будут удалены, Вы уверены что хотите отпсаться? 🤨"
-                if (true)
-                {
-                    clickOnUnsubscribe?.Invoke();
-                    defoultStateSubButton(autoUpdate);
-                }
+
+                clickOnUnsubscribe?.Invoke();
+                defoultStateSubButton(autoUpdate);
             }
             else
             {
-                clickOnSubscribe?.Invoke();
-                defoultStateSubButton(autoUpdate);
+                string textView = "All your entries will be deleted. Are you sure you want to unsubscribe? 🤨";
+                if (CheckerModalFormView(textView))
+                {
+                    clickOnSubscribe?.Invoke();
+                    defoultStateSubButton(autoUpdate);
+                }
             }
+        }
+
+        private bool CheckerModalFormView(string text)
+        {
+            var thisParent = this.Parent;
+            while (true)
+            {
+                if (thisParent.Parent == null)
+                    break;
+
+                thisParent = thisParent.Parent;
+            }
+
+            MessageYesNo modalForm = new MessageYesNo(text, new Size(thisParent.ClientSize.Width, thisParent.ClientSize.Height));
+            modalForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
+            DialogResult result = modalForm.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

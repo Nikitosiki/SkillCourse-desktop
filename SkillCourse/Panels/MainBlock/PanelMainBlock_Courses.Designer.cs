@@ -52,7 +52,7 @@
             label15.ForeColor = SystemColors.Control;
             label15.Location = new Point(0, 0);
             label15.Name = "label15";
-            label15.Size = new Size(85, 38);
+            label15.Size = new Size(85, 42);
             label15.TabIndex = 8;
             label15.Text = "Search";
             label15.TextAlign = ContentAlignment.MiddleCenter;
@@ -65,7 +65,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(20, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(979, 38);
+            panel1.Size = new Size(979, 42);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -74,7 +74,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(85, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(856, 38);
+            panel3.Size = new Size(860, 42);
             panel3.TabIndex = 10;
             // 
             // tableLayoutPanel2
@@ -93,7 +93,8 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 2F));
-            tableLayoutPanel2.Size = new Size(856, 38);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(860, 42);
             tableLayoutPanel2.TabIndex = 10;
             // 
             // textBoxSearcher
@@ -106,7 +107,7 @@
             textBoxSearcher.Dock = DockStyle.Fill;
             textBoxSearcher.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxSearcher.ForeColor = SystemColors.Control;
-            textBoxSearcher.Location = new Point(1, 3);
+            textBoxSearcher.Location = new Point(1, 7);
             textBoxSearcher.Margin = new Padding(0);
             textBoxSearcher.Multiline = false;
             textBoxSearcher.Name = "textBoxSearcher";
@@ -114,7 +115,7 @@
             textBoxSearcher.PasswordChar = false;
             textBoxSearcher.PlaceholderColor = Color.DarkGray;
             textBoxSearcher.PlaceholderText = "";
-            textBoxSearcher.Size = new Size(720, 33);
+            textBoxSearcher.Size = new Size(724, 33);
             textBoxSearcher.TabIndex = 0;
             textBoxSearcher.Texts = "";
             textBoxSearcher.UnderlinedStyle = false;
@@ -130,25 +131,25 @@
             customComboBox1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             customComboBox1.ForeColor = SystemColors.Control;
             customComboBox1.IconColor = SystemColors.Control;
-            customComboBox1.Items.AddRange(new object[] { "Name", "Subcrib" });
-            customComboBox1.ListBackColor = Color.FromArgb(230, 228, 245);
-            customComboBox1.ListTextColor = Color.DimGray;
-            customComboBox1.Location = new Point(728, 3);
+            customComboBox1.Items.AddRange(new object[] { " A -> W", "W -> A", "Last", "First", "Only Sub", "Only UnS" });
+            customComboBox1.ListBackColor = Color.FromArgb(40, 49, 60);
+            customComboBox1.ListTextColor = Color.Silver;
+            customComboBox1.Location = new Point(732, 7);
             customComboBox1.Margin = new Padding(7, 0, 0, 0);
             customComboBox1.MinimumSize = new Size(100, 20);
             customComboBox1.Name = "customComboBox1";
             customComboBox1.Padding = new Padding(1);
             customComboBox1.Size = new Size(127, 33);
             customComboBox1.TabIndex = 9;
-            customComboBox1.Texts = "Name";
+            customComboBox1.Texts = "First";
             customComboBox1.OnSelectedIndexChanged += customComboBox1_OnSelectedIndexChanged;
             // 
             // panel4
             // 
             panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(941, 0);
+            panel4.Location = new Point(945, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(38, 38);
+            panel4.Size = new Size(34, 42);
             panel4.TabIndex = 11;
             // 
             // panel2
@@ -157,7 +158,7 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(85, 38);
+            panel2.Size = new Size(85, 42);
             panel2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -173,7 +174,7 @@
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 5F));
             tableLayoutPanel1.Size = new Size(1012, 673);
@@ -183,9 +184,9 @@
             // 
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(20, 47);
+            flowLayoutPanel1.Location = new Point(20, 51);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(979, 618);
+            flowLayoutPanel1.Size = new Size(979, 614);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // PanelMainBlock_Courses

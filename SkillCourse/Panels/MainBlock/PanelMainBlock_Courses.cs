@@ -73,7 +73,18 @@ namespace SkillCourse.Panels.MainBlock
             if (VisibleButView)
                 return new Component_BriefСourse_View(course, () => openPageCourse(new PanelMainBlock_CoursePage(course)));
             if (VisibleButSub)
-                return new Component_BriefСourse_Subscription(course, true, () => openPageCourse(new PanelMainBlock_CoursePage(course)), null);
+                return new Component_BriefСourse_Subscription(course, true,
+                    () =>
+                    {
+                        openPageCourse(new PanelMainBlock_CoursePage(course));
+                        if (!handlerStud.SubscripToCourse(course))
+                            MessageBox.Show("Failed to subscribe, please try again later.");
+                    },
+                    () =>
+                    {
+                        if (!handlerStud.UnSubscripToCourse(course))
+                            MessageBox.Show("Failed to unsubscribe, please try again later.");
+                    });
             return new Component_BriefСourse_Base(course);
 
         }
@@ -119,6 +130,13 @@ namespace SkillCourse.Panels.MainBlock
 
         private void customComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            //A->W
+            //W->A
+            //Last
+            //First
+            //Only Sub
+            //Only UnSub
+
             switch (customComboBox1.SelectedIndex)
             {
                 case 0:     //Name

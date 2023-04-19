@@ -164,6 +164,25 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
+        public bool UnSubscripToCourse(Course course)
+        {
+            try
+            {
+                var subRemove = DataBase.Subscriptions.FindLast(sub => sub.IdCourse == course.IdCourse && sub.IdStudent == this.IdUser);
+                if (subRemove != null)
+                {
+                    DataBase.Subscriptions.Remove(subRemove);
+                    return true;
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool CompleteTask(Task task, string answerText)
         {
             try
