@@ -100,7 +100,7 @@ namespace SkillCourse.Panels.MainBlock
 
 
             //--- Студенты
-
+            if (Students.Any())
             ListPanelPeople.Add(new Component_UserTextHeader("All Users", Students.Count));
             foreach (Student stud in Students)
             {

@@ -75,7 +75,7 @@
             labelLast.AutoSize = true;
             labelLast.Dock = DockStyle.Bottom;
             labelLast.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelLast.ForeColor = SystemColors.Control;
+            labelLast.ForeColor = Color.Gainsboro;
             labelLast.Location = new Point(821, 21);
             labelLast.Name = "labelLast";
             labelLast.Size = new Size(123, 20);

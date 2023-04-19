@@ -18,42 +18,44 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_Courses : UserControl
     {
+        public Student handlerStud = (Student)AccountHandler.Instance.UserLog;
+
+        List<Course> thisCourses;
         private bool VisibleButView { get; set; }
         private bool VisibleButSub { get; set; }
 
-        public PanelMainBlock_Courses(bool buttonView, bool buttonSub)
+        public PanelMainBlock_Courses(ViewCourseState stateView, bool buttonView, bool buttonSub)
         {
             InitializeComponent();
-
             Dock = DockStyle.Fill;
+            thisCourses = stateView == ViewCourseState.My ? handlerStud.CoursesSubscribed : SkillCourseDB.Instance.Courses;
+
             VisibleButView = buttonView;
             VisibleButSub = buttonSub;
 
             string view = VisibleButView ? "View" : "";
             string sub = VisibleButSub ? "Sub" : "";
-            Name = $"{Name} {VisibleButView} {VisibleButSub}";
+
+            Name = $"{Name} {VisibleButView} {VisibleButSub} {ViewCourseState.My}";
+
+            //Если пользователь не авторизовался, сортировать список он не может
+            if (handlerStud == null)
+                customComboBox1.Visible = false;
         }
 
+
         #region LoadPage
-
-        //public bool AddCourseToFlowLayoutPanel(List<Course> Course)
-        //{
-        //    foreach (Course course in Course)
-        //    {
-        //        UserControl userControl = new Component_BriefСourse(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage()));
-        //        flowLayoutPanel1.Controls.Add(userControl);
-        //    }
-        //    return true;
-
-        //}
-
-
         private async void PanelMainBlock_Courses_Load(object sender, EventArgs e)
         {
             // Вызываем метод, который будет добавлять элементы в фоновом потоке
             await System.Threading.Tasks.Task.Run(() =>
             {
-                foreach (Course course in SkillCourseDB.Instance.Courses)
+                flowLayoutPanel1.Invoke((MethodInvoker)delegate
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                });
+
+                foreach (Course course in thisCourses)
                 {
                     UserControl userControl = CreateCourse(course);
 
@@ -69,9 +71,10 @@ namespace SkillCourse.Panels.MainBlock
         private UserControl CreateCourse(Course course)
         {
             if (VisibleButView)
-                return new Component_BriefСourse_View(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image, () => openPageCourse(new PanelMainBlock_CoursePage(course)));
-            else
-                return new Component_BriefСourse_Base(course.Name, course.Description, Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image);
+                return new Component_BriefСourse_View(course, () => openPageCourse(new PanelMainBlock_CoursePage(course)));
+            if (VisibleButSub)
+                return new Component_BriefСourse_Subscription(course, true, () => openPageCourse(new PanelMainBlock_CoursePage(course)), null);
+            return new Component_BriefСourse_Base(course);
 
         }
 
@@ -94,19 +97,10 @@ namespace SkillCourse.Panels.MainBlock
         #endregion
 
 
-        //public List<Course> FindAllCourses(string search)
-        //{
-        //    string[] searchWords = search.Split(' '); // разбиваем на отдельные слова
-        //    return DataBase.Courses
-        //        .Where(course => searchWords.Any(word =>
-        //            course.Name.Contains(word) || course.Description.Contains(word)))
-        //        .ToList();
-        //}
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //Востанавливаем все елементы после поиска
-            if (textBox1.Text.Trim() == "")
+            if (textBoxSearcher.Text.Trim() == "")
                 foreach (Control item in flowLayoutPanel1.Controls)
                 {
                     item.Visible = true;
@@ -118,9 +112,31 @@ namespace SkillCourse.Panels.MainBlock
                     continue;
 
                 // if (!((Component_BriefСourse)item).Dab.Contains(textBox1.Text))
-                if (!item.Name.Contains(textBox1.Text))
+                if (!item.Name.Contains(textBoxSearcher.Text))
                     item.Visible = false;
             }
+        }
+
+        private void customComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (customComboBox1.SelectedIndex)
+            {
+                case 0:     //Name
+                    handlerStud.SortCoursesByName(ref thisCourses);
+                    PanelMainBlock_Courses_Load(this, e);
+                    break;
+
+                case 1:     //Subcrib
+                    handlerStud.SortCoursesBySubscription(ref thisCourses);
+                    PanelMainBlock_Courses_Load(this, e);
+                    break;
+            }
+        }
+
+        public enum ViewCourseState
+        {
+            My,
+            All
         }
     }
 }

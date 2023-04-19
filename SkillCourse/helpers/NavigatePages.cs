@@ -12,7 +12,7 @@ namespace SkillCourse
         {
             if (thisPanel != null)
             {
-
+                // if (thisPanel.Controls.Count < 1 || thisPanel.Controls[thisPanel.Controls.Count - 1].Name != Content.Name)
                 if (thisPanel.Controls.Count < 1 || thisPanel.Controls[thisPanel.Controls.Count - 1].Name != Content.Name)
                 {
                     thisPanel.Controls.Clear();

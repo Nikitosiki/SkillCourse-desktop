@@ -66,6 +66,43 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Users.Teathers().Find(cours => cours.IdUser == course.IdTeacher);
         }
 
+        public void SortCoursesByName(ref List<Course> listCourse)
+        {
+            listCourse.Sort((c1, c2) => c1.Name.CompareTo(c2.Name));
+        }
+
+        public void SortCoursesBySubscription(ref List<Course> courses)
+        {
+            List<SubscriptionCourse> subscriptions = DataBase.Subscriptions.FindAll(s => s.IdStudent == this.IdUser);
+
+            // Используем метод List<T>.Sort() с передачей делегата сравнения для сортировки по наличию подписок
+            courses.Sort((c1, c2) =>
+            {
+                // Проверяем наличие подписки на курсы
+                bool c1HasSubscription = subscriptions.Any(s => s.IdCourse == c1.IdCourse);
+                bool c2HasSubscription = subscriptions.Any(s => s.IdCourse == c2.IdCourse);
+
+                // Сортируем курсы таким образом, чтобы сначала были курсы с подписками, а потом без подписок
+                if (c1HasSubscription && !c2HasSubscription)
+                {
+                    return -1; // c1 с подпиской, c2 без подписки - c1 меньше, должен быть раньше
+                }
+                else if (!c1HasSubscription && c2HasSubscription)
+                {
+                    return 1; // c1 без подписки, c2 с подпиской - c1 больше, должен быть позже
+                }
+                else
+                {
+                    return c1.Name.CompareTo(c2.Name); // Если подписки одинаковы или отсутствуют, сортируем по названию
+                }
+            });
+        }
+
+        public bool CheckSubscrib(Course course)
+        {          
+            return DataBase.Subscriptions.Any(sub => sub.IdStudent == this.IdUser && sub.IdCourse == course.IdCourse);
+        }
+
         public bool CheckCompletedOrBallTask(Task task)
         {
             return DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask

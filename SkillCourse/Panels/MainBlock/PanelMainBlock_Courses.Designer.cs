@@ -28,44 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
             label15 = new Label();
             panel1 = new Panel();
+            panel3 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            textBoxSearcher = new PanelComponents.CustomTextBox();
+            customComboBox1 = new PanelComponents.CustomComboBox();
+            panel4 = new Panel();
+            panel2 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            panel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.FromArgb(70, 82, 89);
-            textBox1.ForeColor = SystemColors.ControlLightLight;
-            textBox1.Location = new Point(74, 7);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(352, 27);
-            textBox1.TabIndex = 7;
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
             // label15
             // 
-            label15.AutoSize = true;
+            label15.Dock = DockStyle.Fill;
+            label15.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label15.ForeColor = SystemColors.Control;
-            label15.Location = new Point(15, 10);
+            label15.Location = new Point(0, 0);
             label15.Name = "label15";
-            label15.Size = new Size(53, 20);
+            label15.Size = new Size(85, 38);
             label15.TabIndex = 8;
             label15.Text = "Search";
+            label15.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
-            panel1.Controls.Add(label15);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(20, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(979, 38);
             panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(tableLayoutPanel2);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(85, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(856, 38);
+            panel3.TabIndex = 10;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 4;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 1F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 1F));
+            tableLayoutPanel2.Controls.Add(textBoxSearcher, 1, 1);
+            tableLayoutPanel2.Controls.Add(customComboBox1, 2, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 2F));
+            tableLayoutPanel2.Size = new Size(856, 38);
+            tableLayoutPanel2.TabIndex = 10;
+            // 
+            // textBoxSearcher
+            // 
+            textBoxSearcher.AutoScroll = true;
+            textBoxSearcher.BackColor = Color.FromArgb(40, 49, 60);
+            textBoxSearcher.BorderColor = Color.FromArgb(80, 175, 138);
+            textBoxSearcher.BorderRadius = 0;
+            textBoxSearcher.BorderSize = 1;
+            textBoxSearcher.Dock = DockStyle.Fill;
+            textBoxSearcher.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxSearcher.ForeColor = SystemColors.Control;
+            textBoxSearcher.Location = new Point(1, 3);
+            textBoxSearcher.Margin = new Padding(0);
+            textBoxSearcher.Multiline = false;
+            textBoxSearcher.Name = "textBoxSearcher";
+            textBoxSearcher.Padding = new Padding(8, 6, 8, 6);
+            textBoxSearcher.PasswordChar = false;
+            textBoxSearcher.PlaceholderColor = Color.DarkGray;
+            textBoxSearcher.PlaceholderText = "";
+            textBoxSearcher.Size = new Size(720, 33);
+            textBoxSearcher.TabIndex = 0;
+            textBoxSearcher.Texts = "";
+            textBoxSearcher.UnderlinedStyle = false;
+            // 
+            // customComboBox1
+            // 
+            customComboBox1.BackColor = Color.FromArgb(40, 49, 60);
+            customComboBox1.BorderColor = Color.FromArgb(80, 175, 138);
+            customComboBox1.BorderRadius = 0;
+            customComboBox1.BorderSize = 1;
+            customComboBox1.Dock = DockStyle.Fill;
+            customComboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+            customComboBox1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            customComboBox1.ForeColor = SystemColors.Control;
+            customComboBox1.IconColor = SystemColors.Control;
+            customComboBox1.Items.AddRange(new object[] { "Name", "Subcrib" });
+            customComboBox1.ListBackColor = Color.FromArgb(230, 228, 245);
+            customComboBox1.ListTextColor = Color.DimGray;
+            customComboBox1.Location = new Point(728, 3);
+            customComboBox1.Margin = new Padding(7, 0, 0, 0);
+            customComboBox1.MinimumSize = new Size(100, 20);
+            customComboBox1.Name = "customComboBox1";
+            customComboBox1.Padding = new Padding(1);
+            customComboBox1.Size = new Size(127, 33);
+            customComboBox1.TabIndex = 9;
+            customComboBox1.Texts = "Name";
+            customComboBox1.OnSelectedIndexChanged += customComboBox1_OnSelectedIndexChanged;
+            // 
+            // panel4
+            // 
+            panel4.Dock = DockStyle.Right;
+            panel4.Location = new Point(941, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(38, 38);
+            panel4.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label15);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(85, 38);
+            panel2.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -105,16 +198,23 @@
             Size = new Size(1012, 673);
             Load += PanelMainBlock_Courses_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private TextBox textBox1;
         private Label label15;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
+        private PanelComponents.CustomTextBox textBoxSearcher;
+        private Panel panel3;
+        private Panel panel4;
+        private Panel panel2;
+        private TableLayoutPanel tableLayoutPanel2;
+        private PanelComponents.CustomComboBox customComboBox1;
     }
 }

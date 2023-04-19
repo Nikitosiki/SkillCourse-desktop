@@ -15,7 +15,7 @@ namespace Tests.entities
         public void State_CanBeSetAndGet()
         {
             // Arrange
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
             StateTask newState = StateTask.Done;
 
             // Act
@@ -30,7 +30,7 @@ namespace Tests.entities
         public void Grade_IsNullOrInRange()
         {
             // Arrange
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
             int validValue = 75;
             int invalidValue = 150;
 
@@ -47,7 +47,7 @@ namespace Tests.entities
         public void IdTask_IsNonNegative()
         {
             // Arrange
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
             int negativeValue = -1;
 
             // Act + Assert
@@ -59,7 +59,7 @@ namespace Tests.entities
         public void IdUser_IsNonNegative()
         {
             // Arrange
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
             int negativeValue = -1;
 
             // Act + Assert
@@ -71,7 +71,7 @@ namespace Tests.entities
         public void Clone_ReturnsNewInstance()
         {
             // Arrange
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
 
             // Act
             var clonedInstance = answerTask.Clone();
@@ -91,7 +91,7 @@ namespace Tests.entities
             int expectedIdTask = 1;
             int expectedIdUser = 2;
 
-            AnswerTask answerTask = new AnswerTask(expectedState, expectedGrade, expectedIdTask, expectedIdUser);
+            AnswerTask answerTask = new AnswerTask(expectedState, expectedGrade, "", expectedIdTask, expectedIdUser);
             
             Assert.AreEqual(expectedState, answerTask.State);
             Assert.AreEqual(expectedGrade, answerTask.Grade);
@@ -103,7 +103,7 @@ namespace Tests.entities
         [TestMethod]
         public void TestIdAnswerToTaskGetter()
         {
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
             int expectedValue = answerTask.IdAnswerToTask;
             int actualValue = answerTask.IdAnswerToTask;
 
@@ -114,7 +114,7 @@ namespace Tests.entities
         [TestMethod]
         public void TestStateGetter()
         {
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
             StateTask expectedValue = StateTask.NotDone;
             StateTask actualValue = answerTask.State;
 
@@ -125,7 +125,7 @@ namespace Tests.entities
         [TestMethod]
         public void TestStateSetter()
         {
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, null, "", 1, 2);
             StateTask expectedValue = StateTask.Done;
             answerTask.State = expectedValue;
             StateTask actualValue = answerTask.State;
@@ -137,7 +137,7 @@ namespace Tests.entities
         [TestMethod]
         public void TestGradeGetter()
         {
-            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, 85, 1, 2);
+            AnswerTask answerTask = new AnswerTask(StateTask.NotDone, 85, "", 1, 2);
             int? expectedValue = 85;
             int? actualValue = answerTask.Grade;
 

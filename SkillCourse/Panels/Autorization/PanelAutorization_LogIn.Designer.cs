@@ -76,7 +76,7 @@
             newGoogleTextBox4.SelectionStart = 0;
             newGoogleTextBox4.Size = new Size(462, 44);
             newGoogleTextBox4.TabIndex = 14;
-            newGoogleTextBox4.TextInput = "";
+            newGoogleTextBox4.TextInput = "12369nik";
             newGoogleTextBox4.TextPreview = "Set A Password";
             newGoogleTextBox4.UseSystemPasswordChar = true;
             // 
@@ -93,7 +93,7 @@
             newGoogleTextBox3.SelectionStart = 0;
             newGoogleTextBox3.Size = new Size(462, 44);
             newGoogleTextBox3.TabIndex = 13;
-            newGoogleTextBox3.TextInput = "";
+            newGoogleTextBox3.TextInput = "nikita@dot.net";
             newGoogleTextBox3.TextPreview = "Email Address";
             newGoogleTextBox3.UseSystemPasswordChar = false;
             // 

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SkillCourse.Panels.MainBlock.PanelMainBlock_Courses;
 
 namespace SkillCourse.Panels.MainBlock.Navbar
 {
@@ -45,19 +46,19 @@ namespace SkillCourse.Panels.MainBlock.Navbar
         {
             if (userType == null)
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(false, false), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.All, false, false), PanelParent);
                 UpdateStateButtons("Courses");
             }
 
             if (userType == DataBaseStructure.types.UserType.Student)
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.My, true, false), PanelParent);
                 UpdateStateButtons("Courses", "Subscribed");
             }
 
             if (userType == DataBaseStructure.types.UserType.Teacher)
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.My, true, false), PanelParent);
                 UpdateStateButtons("Courses", "Created");
             }
         }
@@ -99,7 +100,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 true, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Courses(false, false), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.All, false, false), PanelParent);
                     UpdateStateButtons("Courses");
                 }, null));
 
@@ -137,21 +138,21 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultCourseDopButtons = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.My, true, false), PanelParent);
                 UpdateStateButtons("Courses", "Subscribed");
             };
 
-            Action All_CourseDopButtons = () =>
+            Action Public_CourseDopButtons = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
-                UpdateStateButtons("Courses", "All");
+                NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.All, false, true), PanelParent); ;
+                UpdateStateButtons("Courses", "Public");
             };
 
 
             List<Component_NavigationDopBut> CourseDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All", All_CourseDopButtons),
-                new Component_NavigationDopBut("Subscribed", defaultCourseDopButtons)
+                new Component_NavigationDopBut("Subscribed", defaultCourseDopButtons),
+                new Component_NavigationDopBut("Public", Public_CourseDopButtons)
             };
             CourseDopButtons.Reverse();
 
@@ -274,21 +275,21 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultCoursesDopButtonPage = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.My, true, false), PanelParent);
                 UpdateStateButtons("Courses", "Created");
             };
 
 
-            Action all_CoursesDopButtonPage = () =>
+            Action public_CoursesDopButtonPage = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Courses(true, false), PanelParent);
-                UpdateStateButtons("Courses", "All");
+                NavigatePages.openPage(new PanelMainBlock_Courses(ViewCourseState.All, true, false), PanelParent);
+                UpdateStateButtons("Courses", "Public");
             };
 
 
             List<Component_NavigationDopBut> CourseDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All", all_CoursesDopButtonPage),
+                new Component_NavigationDopBut("Public", public_CoursesDopButtonPage),
                 new Component_NavigationDopBut("Created", defaultCoursesDopButtonPage)
             };
             CourseDopButtons.Reverse();
