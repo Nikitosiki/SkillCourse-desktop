@@ -66,11 +66,13 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Users.Teathers().Find(cours => cours.IdUser == course.IdTeacher);
         }
 
+        //--- Does not work correctly
         public void SortCoursesByName(ref List<Course> listCourse)
         {
             listCourse.Sort((c1, c2) => c1.Name.CompareTo(c2.Name));
         }
 
+        //--- Does not work correctly
         public void SortCoursesBySubscription(ref List<Course> courses)
         {
             List<SubscriptionCourse> subscriptions = DataBase.Subscriptions.FindAll(s => s.IdStudent == this.IdUser);

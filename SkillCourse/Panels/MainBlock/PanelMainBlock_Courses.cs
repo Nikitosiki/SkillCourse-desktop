@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -9,6 +11,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Microsoft.VisualBasic.Devices;
 using SkillCourse.DataBaseStructure;
 using SkillCourse.PanelComponents;
@@ -20,7 +23,11 @@ namespace SkillCourse.Panels.MainBlock
     {
         public Student handlerStud = (Student)AccountHandler.Instance.UserLog;
 
-        List<Course> thisCourses;
+        private List<Course> thisCourses;
+        private List<UserControl> ListCoursePanels { get; set; } = new List<UserControl>();
+        private List<UserControl> ListCoursePanelsAfterSort { get; set; } = new List<UserControl>();
+
+
         private bool VisibleButView { get; set; }
         private bool VisibleButSub { get; set; }
 
@@ -38,26 +45,45 @@ namespace SkillCourse.Panels.MainBlock
 
             Name = $"{Name} {VisibleButView} {VisibleButSub} {ViewCourseState.My}";
 
-            //Если пользователь не авторизовался, сортировать список он не может
-            if (handlerStud == null)
-                customComboBox1.Visible = false;
+            TuneComboBox();
         }
 
+        private void TuneComboBox()
+        {
+            //Если пользователь не авторизовался, сортировать список он не может
+            if (handlerStud == null)
+            {
+                customComboBox1.Visible = false;
+                return;
+            }
+
+            //Если пользователь на странице всех кеурсов
+            if (VisibleButView)
+            {
+                customComboBox1.Items.Remove("Only Sub");
+                customComboBox1.Items.Remove("Only UnS");
+                return;
+            }
+
+            //Если пользователь на странице подписок
+            if (VisibleButSub)
+            {
+                return;
+            }
+        }
 
         #region LoadPage
         private async void PanelMainBlock_Courses_Load(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Controls.Clear();
+
             // Вызываем метод, который будет добавлять элементы в фоновом потоке
             await System.Threading.Tasks.Task.Run(() =>
             {
-                flowLayoutPanel1.Invoke((MethodInvoker)delegate
-                {
-                    flowLayoutPanel1.Controls.Clear();
-                });
-
                 foreach (Course course in thisCourses)
                 {
                     UserControl userControl = CreateCourse(course);
+                    ListCoursePanels.Add(userControl);
 
                     // Используем метод Invoke, чтобы добавить элемент в контексте потока пользовательского интерфейса
                     flowLayoutPanel1.Invoke((MethodInvoker)delegate
@@ -88,7 +114,9 @@ namespace SkillCourse.Panels.MainBlock
             return new Component_BriefСourse_Base(course);
 
         }
+        #endregion
 
+        #region Search/Sort
         private void openPageCourse(UserControl Content)
         {
             object? parent = this.Parent;
@@ -105,51 +133,110 @@ namespace SkillCourse.Panels.MainBlock
             }
         }
 
-        #endregion
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void ReplaceCoursesOnForm(FlowLayoutPanel mainPanel, Control[] controls)
         {
-            //Востанавливаем все елементы после поиска
-            if (textBoxSearcher.Text.Trim() == "")
-                foreach (Control item in flowLayoutPanel1.Controls)
+            //отключаем логику отрисовки формы
+            mainPanel.SuspendLayout();
+
+            try
+            {
+                while (mainPanel.Controls.Count != 0)
                 {
-                    item.Visible = true;
+                    mainPanel.Controls.RemoveAt(mainPanel.Controls.Count - 1);
                 }
 
-            foreach (Control item in flowLayoutPanel1.Controls)
-            {
-                if (item.Visible == false)
-                    continue;
-
-                // if (!((Component_BriefСourse)item).Dab.Contains(textBox1.Text))
-                if (!item.Name.Contains(textBoxSearcher.Text))
-                    item.Visible = false;
+                for (int i = 0; i < controls.Length; ++i)
+                {
+                    mainPanel.Controls.Add(controls[i]);
+                }
             }
+            finally
+            {
+                //включаем логику отрисовки формы
+                mainPanel.ResumeLayout(true);
+            }
+
         }
 
-        private void customComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        private void textBoxSearcher_TextChanged(object sender, EventArgs e)
         {
-            //A->W
-            //W->A
-            //Last
-            //First
-            //Only Sub
-            //Only UnSub
-
-            switch (customComboBox1.SelectedIndex)
+            if (textBoxSearcher.Texts.Trim() == "")
             {
-                case 0:     //Name
-                    handlerStud.SortCoursesByName(ref thisCourses);
-                    PanelMainBlock_Courses_Load(this, e);
-                    break;
+                ReplaceCoursesOnForm(flowLayoutPanel1, ListCoursePanelsAfterSort.ToArray());
+            }
+            else
+            {
+                ReplaceCoursesOnForm(flowLayoutPanel1, ListCoursePanelsAfterSort.FindAll(
+                    pan => pan.Name.Contains(textBoxSearcher.Texts)).ToArray());
 
-                case 1:     //Subcrib
-                    handlerStud.SortCoursesBySubscription(ref thisCourses);
-                    PanelMainBlock_Courses_Load(this, e);
-                    break;
             }
         }
+
+        private async void customComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListCoursePanelsAfterSort.Clear();
+            List<UserControl> thisCoursePanels = new List<UserControl>(ListCoursePanels);
+
+            // Вызываем метод, который будет добавлять элементы в фоновом потоке
+            int selectComboBox = customComboBox1.SelectedIndex;
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+
+                //A->W
+                //W->A
+                //Last
+                //First
+                //Only Sub
+                //Only UnS
+
+                switch (selectComboBox)
+                {
+                    case 0:     //A->W
+                        thisCoursePanels.Sort(delegate (UserControl x, UserControl y)
+                        {
+                            return x.Name.CompareTo(y.Name);
+                        });
+                        break;
+
+                    case 1:     //W->A
+                        thisCoursePanels.Sort(delegate (UserControl x, UserControl y)
+                        {
+                            // Возвращаем результат сравнения в обратном порядке
+                            return y.Name.CompareTo(x.Name);
+                        });
+                        break;
+
+                    case 2:     //Last
+                        thisCoursePanels.Reverse();
+                        break;
+
+                    case 3:     //First
+                        break;
+
+                    case 4:     //Only Sub
+                        thisCoursePanels.RemoveAll(component =>
+                        {
+                            Component_BriefСourse_Subscription briefCourse = component as Component_BriefСourse_Subscription;
+                            return briefCourse != null && !briefCourse.subscript;
+                        });
+                        break;
+
+                    case 5:     //Only UnS
+                        thisCoursePanels.RemoveAll(component =>
+                        {
+                            Component_BriefСourse_Subscription briefCourse = component as Component_BriefСourse_Subscription;
+                            return briefCourse != null && briefCourse.subscript;
+                        });
+                        break;
+                }
+            });
+            ListCoursePanelsAfterSort.AddRange(thisCoursePanels.ToArray());
+
+            //вызываем метод обновление списка графически
+            textBoxSearcher_TextChanged(sender, e);
+        }
+
+        #endregion
 
         public enum ViewCourseState
         {

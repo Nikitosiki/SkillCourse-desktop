@@ -18,6 +18,7 @@ namespace SkillCourse.PanelComponents
         private Action? clickOnSubscribe;
 
         private bool autoUpdate;
+        public bool subscript;
         private Course thisCourse;
         private Student handler = (Student)AccountHandler.Instance.UserLog;
 
@@ -43,11 +44,13 @@ namespace SkillCourse.PanelComponents
         {
             if (handler.CheckSubscrib(thisCourse))
             {
+                subscript = false;
                 button_SubCourse.Text = "Unsubscribe";
                 button_SubCourse.BackColor = Color.Gray;
             }
             else
             {
+                subscript = true;
                 button_SubCourse.Text = "Subscribe";
                 button_SubCourse.BackColor = Color.FromArgb(239, 80, 108);       //80, 175, 138 --- 220, 50, 80 --- 62, 114, 187
             }

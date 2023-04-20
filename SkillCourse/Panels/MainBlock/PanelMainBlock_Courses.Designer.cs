@@ -119,6 +119,7 @@
             textBoxSearcher.TabIndex = 0;
             textBoxSearcher.Texts = "";
             textBoxSearcher.UnderlinedStyle = false;
+            textBoxSearcher._TextChanged += textBoxSearcher_TextChanged;
             // 
             // customComboBox1
             // 
