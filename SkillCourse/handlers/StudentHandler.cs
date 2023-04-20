@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.AxHost;
 using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse.DataBaseStructure
@@ -42,6 +43,11 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
+        public Course? GetCourse(string name)
+        {
+            return DataBase.Courses.FindLast(course => course.Name == name);
+        }
+
         public List<Task> GetAllTasks(Course course)
         {
             return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse)
@@ -52,6 +58,37 @@ namespace SkillCourse.DataBaseStructure
         {
             return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse && task.TaskTypeMessage == false)
                 .OrderBy(task => task.TaskStartTime).ToList();
+        }
+
+        public List<Task> GetOnlyTask_Assigned(Course course)
+        {
+            return DataBase.Tasks
+                .Where(task => task.IdCourse == course.IdCourse &&
+                               task.TaskTypeMessage == false &&
+                               DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.State == StateTask.Done))
+                .OrderBy(task => task.TaskStartTime)
+                .ToList();
+        }
+
+        public List<Task> GetOnlyTask_Checked(Course course)
+        {
+            return DataBase.Tasks
+                .Where(task => task.IdCourse == course.IdCourse &&
+                               task.TaskTypeMessage == false &&
+                               DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.State == StateTask.Checked))
+                .OrderBy(task => task.TaskStartTime)
+                .ToList();
+        }
+
+        public List<Task> GetOnlyTask_Missing(Course course)
+        {
+            return DataBase.Tasks
+                .Where(task => task.IdCourse == course.IdCourse &&
+                               task.TaskTypeMessage == false &&
+                               (!DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask) ||
+                                DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.State == StateTask.NotDone)))
+                .OrderBy(task => task.TaskStartTime)
+                .ToList();
         }
 
         public List<Student> GetStudents(Course course)

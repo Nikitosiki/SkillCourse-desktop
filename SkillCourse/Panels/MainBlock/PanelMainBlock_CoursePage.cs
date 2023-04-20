@@ -25,7 +25,7 @@ namespace SkillCourse.Panels.MainBlock
         private User? TeacherThis { get; set; }
 
 
-        public Student handler = (Student)AccountHandler.Instance.UserLog;
+        private Student handler = (Student)AccountHandler.Instance.UserLog;
 
         private List<UserControl> ListPanelStreams { get; set; } = new List<UserControl>();
         private List<UserControl> ListPanelClasswork { get; set; } = new List<UserControl>();

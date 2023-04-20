@@ -18,6 +18,7 @@ namespace SkillCourse.PanelComponents
     {
         public Student handler = (Student)AccountHandler.Instance.UserLog;
         public Task ThisTask { get; private set; }
+        private Action clickOnSend;
 
         //Task
         public Component_Task(Task task, int id)
@@ -25,6 +26,21 @@ namespace SkillCourse.PanelComponents
             InitializeComponent();
             Dock = DockStyle.Top;
             ThisTask = task;
+
+            labelId.Text = "#" + id.ToString();
+            labelText.Text = task.TextTask + "        ";
+            ReSizeDescription();
+            labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
+
+            UpdateStateAnsverTask(task);
+        }
+
+        public Component_Task(Task task, int id, Action onClickButtonSend)
+        {
+            InitializeComponent();
+            Dock = DockStyle.Top;
+            ThisTask = task;
+            clickOnSend = onClickButtonSend;
 
             labelId.Text = "#" + id.ToString();
             labelText.Text = task.TextTask + "        ";
@@ -100,6 +116,7 @@ namespace SkillCourse.PanelComponents
 
                 handler.CompleteTask(ThisTask, returnText);
                 UpdateStateAnsverTask(ThisTask);
+                clickOnSend?.Invoke();
                 //MessageBox.Show("Введенный текст: " + returnText);
             }
         }

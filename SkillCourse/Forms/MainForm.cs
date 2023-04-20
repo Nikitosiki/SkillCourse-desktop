@@ -42,7 +42,7 @@ namespace SkillCourse
             //Random();
             //SubscriptionCourse sub = new SubscriptionCourse(4, 101);
             //SkillCourseDB.Instance.Subscriptions.Add(sub);
-            //DataBaseStructure.Task task = new DataBaseStructure.Task("Інструкція щодо виконання лабораторної роботи всередині.", 101, true);
+            //DataBaseStructure.Task task = new DataBaseStructure.Task("Вы маєте це зробити, скільки буде:\n8 + 4 = ?\nЯкий мій улюблений фільм?\nТи хто такий?}", 18, false);
             //SkillCourseDB.Instance.Tasks.Add(task);
             //Debug.WriteLine(PasswordEncryptor.Encrypt("12345678d"));
             //DataBaseStructure.User User1 = new DataBaseStructure.Student("Nikita", "Savenko", "nikita@dot.net", "12369nik", new DateTime(2003, 5, 17), GenderType.Male);

@@ -1,6 +1,7 @@
 ﻿using SkillCourse.DataBaseStructure;
 using SkillCourse.DataBaseStructure.types;
 using SkillCourse.PanelComponents;
+using SkillCourse.Panels.MainBlock.Tasks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SkillCourse.Panels.MainBlock.PanelMainBlock_Courses;
+using static SkillCourse.Panels.MainBlock.Tasks.PanelMainBlock_TaskAssigned;
 
 namespace SkillCourse.Panels.MainBlock.Navbar
 {
@@ -167,29 +169,29 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultTasksDopButtons = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
-                UpdateStateButtons("Tasks", "Assigned");
-            };
-
-
-            Action missing_TasksDopButtons = () =>
-            {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_TaskAssigned(TypeBlockTasks.Missing), PanelParent);
                 UpdateStateButtons("Tasks", "Missing");
             };
 
-            Action done_TasksDopButtons = () =>
+
+            Action assigned_TasksDopButtons = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
-                UpdateStateButtons("Tasks", "Done");
+                NavigatePages.openPage(new PanelMainBlock_TaskAssigned(TypeBlockTasks.Assigned), PanelParent);
+                UpdateStateButtons("Tasks", "Assigned");
+            };
+
+            Action сhecked_TasksDopButtons = () =>
+            {
+                NavigatePages.openPage(new PanelMainBlock_TaskAssigned(TypeBlockTasks.Checked), PanelParent);
+                UpdateStateButtons("Tasks", "Checked");
             };
 
 
             List<Component_NavigationDopBut> TaskDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("Assigned", defaultTasksDopButtons),
-                new Component_NavigationDopBut("Missing", missing_TasksDopButtons),
-                new Component_NavigationDopBut("Done", done_TasksDopButtons)
+                new Component_NavigationDopBut("Missing", defaultTasksDopButtons),
+                new Component_NavigationDopBut("Assigned", assigned_TasksDopButtons),
+                new Component_NavigationDopBut("Checked", сhecked_TasksDopButtons)
             };
             TaskDopButtons.Reverse();
 
@@ -202,14 +204,14 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             //------- Calendar
 
-            listControls.Add(
-                new Component_NavigationBut("Calendar",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
-                false, () =>
-                {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
-                    UpdateStateButtons("Calendar");
-                }, null));
+            //listControls.Add(
+            //    new Component_NavigationBut("Calendar",
+            //    Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+            //    false, () =>
+            //    {
+            //        NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+            //        UpdateStateButtons("Calendar");
+            //    }, null));
 
 
 
