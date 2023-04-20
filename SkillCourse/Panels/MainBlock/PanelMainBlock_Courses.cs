@@ -84,6 +84,7 @@ namespace SkillCourse.Panels.MainBlock
                 {
                     UserControl userControl = CreateCourse(course);
                     ListCoursePanels.Add(userControl);
+                    ListCoursePanelsAfterSort.Add(userControl);   //дефолтное заполнение, на случай если фильтрация отключина
 
                     // Используем метод Invoke, чтобы добавить элемент в контексте потока пользовательского интерфейса
                     flowLayoutPanel1.Invoke((MethodInvoker)delegate
