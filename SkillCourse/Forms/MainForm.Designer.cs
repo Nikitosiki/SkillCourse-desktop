@@ -54,7 +54,7 @@
             panelNavbar.Dock = DockStyle.Fill;
             panelNavbar.Location = new Point(3, 3);
             panelNavbar.Name = "panelNavbar";
-            panelNavbar.Size = new Size(244, 667);
+            panelNavbar.Size = new Size(244, 717);
             panelNavbar.TabIndex = 0;
             // 
             // groupBox2
@@ -64,7 +64,7 @@
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(0, 163);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(244, 504);
+            groupBox2.Size = new Size(244, 554);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             // 
@@ -73,14 +73,14 @@
             panelNavbarBut.Dock = DockStyle.Fill;
             panelNavbarBut.Location = new Point(3, 23);
             panelNavbarBut.Name = "panelNavbarBut";
-            panelNavbarBut.Size = new Size(238, 441);
+            panelNavbarBut.Size = new Size(238, 491);
             panelNavbarBut.TabIndex = 1;
             // 
             // panel1
             // 
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(3, 464);
+            panel1.Location = new Point(3, 514);
             panel1.Name = "panel1";
             panel1.Size = new Size(238, 37);
             panel1.TabIndex = 0;
@@ -172,7 +172,7 @@
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(253, 3);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1006, 667);
+            panelMain.Size = new Size(1006, 717);
             panelMain.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -189,7 +189,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1262, 673);
+            tableLayoutPanel1.Size = new Size(1262, 723);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // MainForm
@@ -197,7 +197,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
-            ClientSize = new Size(1262, 673);
+            ClientSize = new Size(1262, 723);
             Controls.Add(tableLayoutPanel1);
             MinimumSize = new Size(1280, 600);
             Name = "MainForm";

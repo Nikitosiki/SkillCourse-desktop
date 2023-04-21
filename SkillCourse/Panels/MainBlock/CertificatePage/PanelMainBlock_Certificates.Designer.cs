@@ -28,32 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // pictureBox1
+            // flowLayoutPanel1
             // 
-            pictureBox1.Location = new Point(70, 73);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(832, 437);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(45, 17);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(917, 638);
+            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.WrapContents = false;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(971, 609);
+            button1.Name = "button1";
+            button1.Size = new Size(38, 29);
+            button1.TabIndex = 1;
+            button1.Text = "p";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // PanelMainBlock_Certificates
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
-            Controls.Add(pictureBox1);
+            Controls.Add(button1);
+            Controls.Add(flowLayoutPanel1);
             Name = "PanelMainBlock_Certificates";
             Size = new Size(1012, 673);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button button1;
     }
 }
