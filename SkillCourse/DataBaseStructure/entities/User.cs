@@ -126,8 +126,6 @@ namespace SkillCourse.DataBaseStructure
                     return;
                 }
 
-                if (!Regex.IsMatch(value, @"^\+\d{1,3}-\d{3}-\d{3}-\d{4}$"))
-                    throw new FormatException($"Invalid format.\n{nameof(phoneNumber)}");
                 phoneNumber = value;
             }
         }

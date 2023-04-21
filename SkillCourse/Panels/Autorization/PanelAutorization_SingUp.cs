@@ -74,7 +74,7 @@ namespace SkillCourse.Panels
 
 
 
-        private static bool ValidityCheckName(NewGoogleTextBox thisTextBox, bool ifEmptiness)
+        public static bool ValidityCheckName(NewGoogleTextBox thisTextBox, bool ifEmptiness)
         {
             Regex regex = new Regex(@"^[\p{L}]+$", RegexOptions.Compiled);
 
@@ -95,7 +95,7 @@ namespace SkillCourse.Panels
             }
         }
 
-        private static bool ValidityCheckEmail(NewGoogleTextBox thisTextBox, bool ifEmptiness)
+        public static bool ValidityCheckEmail(NewGoogleTextBox thisTextBox, bool ifEmptiness)
         {
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
@@ -117,7 +117,7 @@ namespace SkillCourse.Panels
 
         }
 
-        private static bool ValidityCheckPassword(NewGoogleTextBox thisTextBox, bool ifEmptiness)
+        public static bool ValidityCheckPassword(NewGoogleTextBox thisTextBox, bool ifEmptiness)
         {
             Regex regex = new Regex(@"^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
 
@@ -138,7 +138,30 @@ namespace SkillCourse.Panels
             }
         }
 
-        private static void ValidityCheckDateBirth(DateTimePicker thisTimePicker, bool typeTeather)
+        public static bool ValidityCheckPhone(NewGoogleTextBox thisTextBox, bool ifEmptiness)
+        {
+            Regex regex = new Regex(@"^(\+38)?\s*\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{2}[\s.-]?\d{2}$");
+            //if (thisTextBox.Text == "" && ifEmptiness)
+            //    return true;
+
+            if ((thisTextBox.Text.Count() > 20 || !regex.IsMatch(thisTextBox.Text)) && (thisTextBox.Text != "" || !ifEmptiness))
+            {
+                if (!ifEmptiness)
+                    thisTextBox.BorderColorNotActive = Color.Brown;
+
+                thisTextBox.BorderColor = Color.Brown;
+                thisTextBox.Refresh();
+                return false;
+            }
+            else
+            {
+                thisTextBox.BorderColor = SystemColors.ControlDarkDark;
+                thisTextBox.Refresh();
+                return true;
+            }
+        }
+
+        public static void ValidityCheckDateBirth(DateTimePicker thisTimePicker, bool typeTeather)
         {
             if (typeTeather)
             {
@@ -154,7 +177,7 @@ namespace SkillCourse.Panels
             thisTimePicker.Refresh();
         }
 
-        private void ToUpperFirstLetter(object sender)
+        public static void ToUpperFirstLetter(object sender)
         {
             Control control = (Control)sender;
             string inputValue = control.Text;

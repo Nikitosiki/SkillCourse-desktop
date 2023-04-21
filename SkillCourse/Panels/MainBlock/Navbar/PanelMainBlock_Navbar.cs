@@ -115,7 +115,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 false, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                     UpdateStateButtons("Teachers");
                 }, null));
 
@@ -128,7 +128,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 false, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_FindCertificate(), PanelParent);
                     UpdateStateButtons("Certificates");
                 }, null));
         }
@@ -226,7 +226,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action check_CertificatesDopButtons = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_FindCertificate(), PanelParent);
                 UpdateStateButtons("Certificates", "Check");
             };
 
@@ -252,7 +252,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 false, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                     UpdateStateButtons("Teachers");
                 }, null));
 
@@ -310,7 +310,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 false, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                     UpdateStateButtons("Queue");
                 }, null));
 
@@ -320,19 +320,19 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultCertificatesDopButtonPage = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                 UpdateStateButtons("Certificates", "All");
             };
 
             Action waiting_CertificatesDopButtonPage = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                 UpdateStateButtons("Certificates", "Waiting");
             };
 
             Action check_CertificatesDopButtonPage = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                 UpdateStateButtons("Certificates", "Check");
             };
 
@@ -356,13 +356,13 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultStudentsDopButtonPage = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                 UpdateStateButtons("Students", "My");
             };
 
             Action all_StudentsDopButtonPage = () =>
             {
-                NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                 UpdateStateButtons("Students", "All");
             };
 
@@ -388,7 +388,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
                 false, () =>
                 {
-                    NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
+                    NavigatePages.openPage(new PanelMainBlock_NotImplemented(), PanelParent);
                     UpdateStateButtons("Statistics");
                 }, null));
 

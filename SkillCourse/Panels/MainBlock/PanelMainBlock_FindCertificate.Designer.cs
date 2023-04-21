@@ -1,6 +1,6 @@
 ﻿namespace SkillCourse.Panels.MainBlock
 {
-    partial class PanelMainBlock_Certificates
+    partial class PanelMainBlock_FindCertificate
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -30,12 +30,12 @@
         {
             SuspendLayout();
             // 
-            // PanelMainBlock_Certificates
+            // PanelMainBlock_FindCertificate
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
-            Name = "PanelMainBlock_Certificates";
+            Name = "PanelMainBlock_FindCertificate";
             Size = new Size(1012, 673);
             ResumeLayout(false);
         }

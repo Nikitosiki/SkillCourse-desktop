@@ -65,6 +65,12 @@ namespace SkillCourse
 
         private AccountHandler() { }
 
+        public void ChangedUserFields(User user)
+        {
+            DataBase.Users.Update(user);
+            OnChangeUser(user);
+        }
+
         public bool LogIn(string email, string password)
         {
             User? thisUser = null;

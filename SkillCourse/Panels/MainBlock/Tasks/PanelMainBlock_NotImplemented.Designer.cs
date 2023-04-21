@@ -1,6 +1,6 @@
-﻿namespace SkillCourse.Panels.MainBlock
+﻿namespace SkillCourse.Panels.MainBlock.Tasks
 {
-    partial class PanelMainBlock_Certificates
+    partial class PanelMainBlock_NotImplemented
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,18 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // PanelMainBlock_Certificates
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources._141560_loader_v25;
+            pictureBox1.Location = new Point(208, 151);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(570, 364);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // PanelMainBlock_NotImplemented
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
-            Name = "PanelMainBlock_Certificates";
+            Controls.Add(pictureBox1);
+            Name = "PanelMainBlock_NotImplemented";
             Size = new Size(1012, 673);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private PictureBox pictureBox1;
     }
 }

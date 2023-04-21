@@ -1,4 +1,5 @@
-﻿using SkillCourse.DataBaseStructure.types;
+﻿using MongoDB.Bson;
+using SkillCourse.DataBaseStructure.types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,7 @@ namespace SkillCourse.DataBaseStructure
     [Serializable]
     public class Certificate : ICloneable
     {
-        private static int idCounter = SkillCourseDB.Instance.Certificates.Any() ? SkillCourseDB.Instance.Certificates.Max(c => c.idCertificate) : 0;
-
-        private int idCertificate;
+        private string idCertificate;
         private string description;
         private DateTime presentationTime;
 
@@ -26,7 +25,7 @@ namespace SkillCourse.DataBaseStructure
 
         public Certificate(string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
         {
-            IdCertificate = ++idCounter;
+            IdCertificate = ObjectId.GenerateNewId().ToString();
             Description = description;
             PresentationTime = presentationTime;
             IdPresenterTeacher = idPresenterTeacher;
@@ -35,9 +34,8 @@ namespace SkillCourse.DataBaseStructure
         }
 
         [JsonConstructor]
-        public Certificate(int idCertificate, string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
+        public Certificate(string idCertificate, string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
         {
-            idCounter++;
             IdCertificate = idCertificate;
             Description = description;
             PresentationTime = presentationTime;
@@ -47,7 +45,7 @@ namespace SkillCourse.DataBaseStructure
         }
 
         [DisplayName("Id Certificate")]
-        public int IdCertificate
+        public string IdCertificate
         {
             get
             {
@@ -55,8 +53,8 @@ namespace SkillCourse.DataBaseStructure
             }
             private set
             {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException(nameof(idCertificate));
+                if (value == null)
+                    throw new ArgumentNullException(nameof(idCertificate));
                 idCertificate = value;
             }
         }
