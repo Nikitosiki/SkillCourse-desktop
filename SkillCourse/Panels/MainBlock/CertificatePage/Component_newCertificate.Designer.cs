@@ -35,6 +35,7 @@
             panelTeacher = new Panel();
             panelTextCourse = new Panel();
             labelText = new Label();
+            labelNumber = new Label();
             panelLabelOwner.SuspendLayout();
             panelTeacher.SuspendLayout();
             panelTextCourse.SuspendLayout();
@@ -113,12 +114,23 @@
             labelText.Text = "\"Обьектно ориентированное программирование\"\r\n\r\n\r\n";
             labelText.TextAlign = ContentAlignment.TopCenter;
             // 
+            // labelNumber
+            // 
+            labelNumber.AutoSize = true;
+            labelNumber.Font = new Font("Verdana", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelNumber.Location = new Point(169, 543);
+            labelNumber.Name = "labelNumber";
+            labelNumber.Size = new Size(267, 16);
+            labelNumber.TabIndex = 7;
+            labelNumber.Text = "№ ABC1-VN23-JG99-SDSA-78QA-MN0P";
+            // 
             // Component_newCertificate
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.CompressedCertificate_860x611;
+            Controls.Add(labelNumber);
             Controls.Add(panelTextCourse);
             Controls.Add(panelLabelOwner);
             Controls.Add(labelCEO);
@@ -141,5 +153,6 @@
         private Panel panelTeacher;
         private Panel panelTextCourse;
         private Label labelText;
+        private Label labelNumber;
     }
 }

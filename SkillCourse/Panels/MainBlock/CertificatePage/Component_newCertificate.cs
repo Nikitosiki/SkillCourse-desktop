@@ -17,13 +17,14 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
             InitializeComponent();
         }
 
-        public Component_newCertificate(string nameCourse, string owner, string teacher)
+        public Component_newCertificate(string nameCourse, string owner, string teacher, string number)
         {
             InitializeComponent();
 
             labelText.Text = $"\"{nameCourse}\"";
             labelOwner.Text = owner;
             labelTeacher.Text = teacher;
+            labelNumber.Text = "№ " + number.ToUpper();
         }
     }
 }
