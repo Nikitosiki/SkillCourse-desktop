@@ -93,6 +93,26 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendarDark {
+            get {
+                object obj = ResourceManager.GetObject("calendarDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendarWhite {
+            get {
+                object obj = ResourceManager.GetObject("calendarWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cursor_navbar_Blue {
             get {
                 object obj = ResourceManager.GetObject("cursor_navbar_Blue", resourceCulture);

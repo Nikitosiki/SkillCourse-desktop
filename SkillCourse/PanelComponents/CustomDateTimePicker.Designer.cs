@@ -1,6 +1,6 @@
-﻿namespace SkillCourse.Panels.MainBlock
+﻿namespace SkillCourse.PanelComponents
 {
-    partial class PanelMainBlock_Certificates
+    partial class CustomDateTimePicker
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,32 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(70, 73);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(832, 437);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // PanelMainBlock_Certificates
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(40, 49, 60);
-            Controls.Add(pictureBox1);
-            Name = "PanelMainBlock_Certificates";
-            Size = new Size(1012, 673);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ResumeLayout(false);
+            components = new System.ComponentModel.Container();
+            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
     }
 }

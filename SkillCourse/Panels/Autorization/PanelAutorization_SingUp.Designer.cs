@@ -41,6 +41,7 @@
             newRadioButtonS = new yt_DesignUI.NewRadioButton();
             labelMesError = new Label();
             label3 = new Label();
+            customDateTimePicker1 = new PanelComponents.CustomDateTimePicker();
             SuspendLayout();
             // 
             // DateTimeBirth
@@ -240,11 +241,25 @@
             label3.TabIndex = 29;
             label3.Text = "Date of Birth";
             // 
+            // customDateTimePicker1
+            // 
+            customDateTimePicker1.BorderColor = Color.PaleVioletRed;
+            customDateTimePicker1.BorderSize = 0;
+            customDateTimePicker1.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            customDateTimePicker1.Location = new Point(44, 49);
+            customDateTimePicker1.MinimumSize = new Size(0, 35);
+            customDateTimePicker1.Name = "customDateTimePicker1";
+            customDateTimePicker1.Size = new Size(429, 35);
+            customDateTimePicker1.SkinColor = Color.MediumSlateBlue;
+            customDateTimePicker1.TabIndex = 30;
+            customDateTimePicker1.TextColor = Color.White;
+            // 
             // PanelAutorization_SingUp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
+            Controls.Add(customDateTimePicker1);
             Controls.Add(labelMesError);
             Controls.Add(newRadioButtonS);
             Controls.Add(newRadioButtonT);
@@ -280,5 +295,6 @@
         private yt_DesignUI.NewRadioButton newRadioButtonS;
         private Label labelMesError;
         private Label label3;
+        private PanelComponents.CustomDateTimePicker customDateTimePicker1;
     }
 }
