@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
             panel1 = new Panel();
             textBoxLastName = new yt_DesignUI.NewGoogleTextBox();
             label7 = new Label();
@@ -58,6 +57,8 @@
             panel3 = new Panel();
             panel7 = new Panel();
             panel8 = new Panel();
+            dateTimePicker1 = new PanelComponents.CustomDateTimePicker();
+            label5 = new Label();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel9.SuspendLayout();
@@ -81,17 +82,6 @@
             label1.Size = new Size(125, 31);
             label1.TabIndex = 0;
             label1.Text = "Edit Profile";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CalendarForeColor = SystemColors.ActiveCaptionText;
-            dateTimePicker1.CalendarMonthBackground = Color.FromArgb(40, 49, 60);
-            dateTimePicker1.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Location = new Point(3, 19);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(456, 29);
-            dateTimePicker1.TabIndex = 29;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // panel1
             // 
@@ -165,6 +155,7 @@
             // panel9
             // 
             panel9.Controls.Add(dateTimePicker1);
+            panel9.Controls.Add(label5);
             panel9.Location = new Point(275, 401);
             panel9.Name = "panel9";
             panel9.Size = new Size(462, 64);
@@ -472,6 +463,32 @@
             panel8.Size = new Size(228, 66);
             panel8.TabIndex = 42;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.BorderColor = Color.FromArgb(83, 95, 100);
+            dateTimePicker1.BorderSize = 1;
+            dateTimePicker1.CalendarMonthBackground = Color.FromArgb(127, 140, 141);
+            dateTimePicker1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dateTimePicker1.Location = new Point(3, 19);
+            dateTimePicker1.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+            dateTimePicker1.MinimumSize = new Size(0, 35);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(456, 35);
+            dateTimePicker1.SkinColor = Color.FromArgb(40, 49, 60);
+            dateTimePicker1.TabIndex = 31;
+            dateTimePicker1.TextColor = Color.FromArgb(127, 140, 141);
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.LightGray;
+            label5.Location = new Point(0, -2);
+            label5.Name = "label5";
+            label5.Size = new Size(108, 23);
+            label5.TabIndex = 34;
+            label5.Text = "Date of Birth";
+            // 
             // PanelMainBlock_EditProfile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -487,6 +504,7 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel5.ResumeLayout(false);
@@ -508,7 +526,6 @@
         #endregion
 
         private Label label1;
-        private DateTimePicker dateTimePicker1;
         private yt_DesignUI.NewButton newButton6;
         private Panel panel1;
         private yt_DesignUI.NewGoogleTextBox textBoxLastName;
@@ -538,5 +555,7 @@
         private yt_DesignUI.NewRadioButton newRadioButtonFemale;
         private yt_DesignUI.NewRadioButton newRadioButtonOther;
         private Label label4;
+        private PanelComponents.CustomDateTimePicker dateTimePicker1;
+        private Label label5;
     }
 }

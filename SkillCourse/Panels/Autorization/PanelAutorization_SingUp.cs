@@ -15,7 +15,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using yt_DesignUI;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using User = SkillCourse.DataBaseStructure.User;
 
 namespace SkillCourse.Panels
@@ -37,20 +36,24 @@ namespace SkillCourse.Panels
             this.parentForm = parentForm;
             InitializeComponent();
 
-            ValidityCheckDateBirth(DateTimeBirth, false);
+            ValidityCheckDateBirth(DateTimeBirthD, false);
         }
 
         private void newButtonSingUp_Click(object sender, EventArgs e)
         {
             labelMesError.Visible = false;
 
+            bool checkReturn = false;
             if (!ValidityCheckName(TextBoxLastName, false))
-                return;
+                checkReturn = true;
             if (!ValidityCheckName(TextBoxFirstName, false))
-                return;
+                checkReturn = true;
             if (!ValidityCheckEmail(TextBoxEmail, false))
-                return;
+                checkReturn = true;
             if (!ValidityCheckPassword(TextBoxPassword, false))
+                checkReturn = true;
+
+            if (checkReturn)
                 return;
 
             try
@@ -59,7 +62,7 @@ namespace SkillCourse.Panels
                     TextBoxFirstName.Text,
                     TextBoxLastName.Text,
                     TextBoxEmail.Text.ToLower(),
-                    DateTimeBirth.Value,
+                    DateTimeBirthD.Value,
                     userType,
                     TextBoxPassword.Text);
 
@@ -207,18 +210,18 @@ namespace SkillCourse.Panels
         {
             ValidityCheckPassword(TextBoxPassword, true);
         }
-        private void DateTimeBirth_ValueChanged(object sender, EventArgs e)
+        private void DateTimeBirthD_ValueChanged(object sender, EventArgs e)
         {
             NewRadioButton newRadioButton = (NewRadioButton)sender;
             if (newRadioButton.Name == "newRadioButtonT")
             {
                 userType = UserType.Teacher;
-                ValidityCheckDateBirth(DateTimeBirth, true);
+                ValidityCheckDateBirth(DateTimeBirthD, true);
             }
             else
             {
                 userType = UserType.Student;
-                ValidityCheckDateBirth(DateTimeBirth, false);
+                ValidityCheckDateBirth(DateTimeBirthD, false);
             }
         }
     }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DateTimeBirth = new DateTimePicker();
             newButtonSingUp = new yt_DesignUI.NewButton();
             TextBoxPassword = new yt_DesignUI.NewGoogleTextBox();
             TextBoxEmail = new yt_DesignUI.NewGoogleTextBox();
@@ -41,19 +40,8 @@
             newRadioButtonS = new yt_DesignUI.NewRadioButton();
             labelMesError = new Label();
             label3 = new Label();
-            customDateTimePicker1 = new PanelComponents.CustomDateTimePicker();
+            DateTimeBirthD = new PanelComponents.CustomDateTimePicker();
             SuspendLayout();
-            // 
-            // DateTimeBirth
-            // 
-            DateTimeBirth.CalendarMonthBackground = Color.FromArgb(40, 49, 60);
-            DateTimeBirth.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            DateTimeBirth.Location = new Point(44, 302);
-            DateTimeBirth.MaxDate = new DateTime(2098, 12, 31, 0, 0, 0, 0);
-            DateTimeBirth.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-            DateTimeBirth.Name = "DateTimeBirth";
-            DateTimeBirth.Size = new Size(462, 29);
-            DateTimeBirth.TabIndex = 23;
             // 
             // newButtonSingUp
             // 
@@ -201,7 +189,7 @@
             newRadioButtonT.TabIndex = 26;
             newRadioButtonT.Text = " Teacher";
             newRadioButtonT.UseVisualStyleBackColor = false;
-            newRadioButtonT.CheckedChanged += DateTimeBirth_ValueChanged;
+            newRadioButtonT.CheckedChanged += DateTimeBirthD_ValueChanged;
             // 
             // newRadioButtonS
             // 
@@ -216,7 +204,7 @@
             newRadioButtonS.TabStop = true;
             newRadioButtonS.Text = " Student";
             newRadioButtonS.UseVisualStyleBackColor = false;
-            newRadioButtonS.CheckedChanged += DateTimeBirth_ValueChanged;
+            newRadioButtonS.CheckedChanged += DateTimeBirthD_ValueChanged;
             // 
             // labelMesError
             // 
@@ -241,31 +229,32 @@
             label3.TabIndex = 29;
             label3.Text = "Date of Birth";
             // 
-            // customDateTimePicker1
+            // DateTimeBirth
             // 
-            customDateTimePicker1.BorderColor = Color.PaleVioletRed;
-            customDateTimePicker1.BorderSize = 0;
-            customDateTimePicker1.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            customDateTimePicker1.Location = new Point(44, 49);
-            customDateTimePicker1.MinimumSize = new Size(0, 35);
-            customDateTimePicker1.Name = "customDateTimePicker1";
-            customDateTimePicker1.Size = new Size(429, 35);
-            customDateTimePicker1.SkinColor = Color.MediumSlateBlue;
-            customDateTimePicker1.TabIndex = 30;
-            customDateTimePicker1.TextColor = Color.White;
+            this.DateTimeBirthD.BorderColor = Color.FromArgb(83, 95, 100);
+            this.DateTimeBirthD.BorderSize = 1;
+            this.DateTimeBirthD.CalendarMonthBackground = Color.FromArgb(127, 140, 141);
+            this.DateTimeBirthD.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            this.DateTimeBirthD.Location = new Point(44, 302);
+            this.DateTimeBirthD.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DateTimeBirthD.MinimumSize = new Size(0, 35);
+            this.DateTimeBirthD.Name = "DateTimeBirth";
+            this.DateTimeBirthD.Size = new Size(462, 35);
+            this.DateTimeBirthD.SkinColor = Color.FromArgb(40, 49, 60);
+            this.DateTimeBirthD.TabIndex = 30;
+            this.DateTimeBirthD.TextColor = Color.FromArgb(127, 140, 141);
             // 
             // PanelAutorization_SingUp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
-            Controls.Add(customDateTimePicker1);
+            Controls.Add(DateTimeBirthD);
             Controls.Add(labelMesError);
             Controls.Add(newRadioButtonS);
             Controls.Add(newRadioButtonT);
             Controls.Add(label2);
             Controls.Add(linkLabel1);
-            Controls.Add(DateTimeBirth);
             Controls.Add(newButtonSingUp);
             Controls.Add(TextBoxPassword);
             Controls.Add(TextBoxEmail);
@@ -295,6 +284,6 @@
         private yt_DesignUI.NewRadioButton newRadioButtonS;
         private Label labelMesError;
         private Label label3;
-        private PanelComponents.CustomDateTimePicker customDateTimePicker1;
+        private PanelComponents.CustomDateTimePicker DateTimeBirthD;
     }
 }
