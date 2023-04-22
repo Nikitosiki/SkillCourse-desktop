@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             labelCEO = new Label();
             labelOwner = new Label();
             labelTeacher = new Label();
@@ -36,6 +37,8 @@
             panelTextCourse = new Panel();
             labelText = new Label();
             labelNumber = new Label();
+            buttonPrint = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
             panelLabelOwner.SuspendLayout();
             panelTeacher.SuspendLayout();
             panelTextCourse.SuspendLayout();
@@ -124,12 +127,25 @@
             labelNumber.TabIndex = 7;
             labelNumber.Text = "№ ABC1-VN23-JG99-SDSA-78QA-MN0P";
             // 
+            // buttonPrint
+            // 
+            buttonPrint.FlatStyle = FlatStyle.Flat;
+            buttonPrint.Location = new Point(732, 520);
+            buttonPrint.Name = "buttonPrint";
+            buttonPrint.Size = new Size(67, 29);
+            buttonPrint.TabIndex = 8;
+            buttonPrint.Text = "Print";
+            buttonPrint.UseVisualStyleBackColor = true;
+            buttonPrint.Visible = false;
+            buttonPrint.Click += buttonPrint_Click;
+            // 
             // Component_newCertificate
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.CompressedCertificate_860x611;
+            Controls.Add(buttonPrint);
             Controls.Add(labelNumber);
             Controls.Add(panelTextCourse);
             Controls.Add(panelLabelOwner);
@@ -137,6 +153,7 @@
             Controls.Add(panelTeacher);
             Name = "Component_newCertificate";
             Size = new Size(860, 611);
+            MouseMove += Component_newCertificate_MouseMove;
             panelLabelOwner.ResumeLayout(false);
             panelTeacher.ResumeLayout(false);
             panelTextCourse.ResumeLayout(false);
@@ -154,5 +171,7 @@
         private Panel panelTextCourse;
         private Label labelText;
         private Label labelNumber;
+        private Button buttonPrint;
+        private System.Windows.Forms.Timer timer1;
     }
 }
