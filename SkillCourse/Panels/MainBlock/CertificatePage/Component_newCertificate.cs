@@ -18,7 +18,7 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
             InitializeTimer();
         }
 
-        public Component_newCertificate(string nameCourse, string owner, string teacher, string number)
+        public Component_newCertificate(string nameCourse, string owner, string teacher, string number, DateTime presentationDate)
         {
             InitializeComponent();
             InitializeTimer();
@@ -26,19 +26,19 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
             labelText.Text = $"\"{nameCourse}\"";
             labelOwner.Text = owner;
             labelTeacher.Text = teacher;
-            labelNumber.Text = "№ " + number.ToUpper();
-
+            labelNumber.Text = "№ " + number.ToUpper() + " / " + presentationDate.ToString("d");
         }
 
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
+            buttonPrint.Visible = false;
             handlers.PrintHandler.ShowPrintPreview(this);
         }
 
         private void InitializeTimer()
         {
-            timer1.Interval = 1000;
+            timer1.Interval = 1500;
             timer1.Tick += new EventHandler(Timer_Tick);
             timer1.Start();
         }

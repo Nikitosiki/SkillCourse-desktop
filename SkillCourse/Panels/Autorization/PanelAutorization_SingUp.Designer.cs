@@ -229,20 +229,20 @@
             label3.TabIndex = 29;
             label3.Text = "Date of Birth";
             // 
-            // DateTimeBirth
+            // DateTimeBirthD
             // 
-            this.DateTimeBirthD.BorderColor = Color.FromArgb(83, 95, 100);
-            this.DateTimeBirthD.BorderSize = 1;
-            this.DateTimeBirthD.CalendarMonthBackground = Color.FromArgb(127, 140, 141);
-            this.DateTimeBirthD.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            this.DateTimeBirthD.Location = new Point(44, 302);
-            this.DateTimeBirthD.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.DateTimeBirthD.MinimumSize = new Size(0, 35);
-            this.DateTimeBirthD.Name = "DateTimeBirth";
-            this.DateTimeBirthD.Size = new Size(462, 35);
-            this.DateTimeBirthD.SkinColor = Color.FromArgb(40, 49, 60);
-            this.DateTimeBirthD.TabIndex = 30;
-            this.DateTimeBirthD.TextColor = Color.FromArgb(127, 140, 141);
+            DateTimeBirthD.BorderColor = Color.FromArgb(83, 95, 100);
+            DateTimeBirthD.BorderSize = 1;
+            DateTimeBirthD.CalendarMonthBackground = Color.FromArgb(127, 140, 141);
+            DateTimeBirthD.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            DateTimeBirthD.Location = new Point(44, 302);
+            DateTimeBirthD.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+            DateTimeBirthD.MinimumSize = new Size(0, 35);
+            DateTimeBirthD.Name = "DateTimeBirthD";
+            DateTimeBirthD.Size = new Size(462, 35);
+            DateTimeBirthD.SkinColor = Color.FromArgb(40, 49, 60);
+            DateTimeBirthD.TabIndex = 30;
+            DateTimeBirthD.TextColor = Color.FromArgb(127, 140, 141);
             // 
             // PanelAutorization_SingUp
             // 

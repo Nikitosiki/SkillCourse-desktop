@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Component_newCertificate));
             labelCEO = new Label();
             labelOwner = new Label();
             labelTeacher = new Label();
@@ -123,18 +124,18 @@
             labelNumber.Font = new Font("Verdana", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelNumber.Location = new Point(169, 543);
             labelNumber.Name = "labelNumber";
-            labelNumber.Size = new Size(267, 16);
+            labelNumber.Size = new Size(357, 16);
             labelNumber.TabIndex = 7;
-            labelNumber.Text = "№ ABC1-VN23-JG99-SDSA-78QA-MN0P";
+            labelNumber.Text = "№ ABC1-VN23-JG99-SDSA-78QA-MN0P / 12.12.2023\r\n";
             // 
             // buttonPrint
             // 
             buttonPrint.FlatStyle = FlatStyle.Flat;
-            buttonPrint.Location = new Point(732, 520);
+            buttonPrint.Image = (Image)resources.GetObject("buttonPrint.Image");
+            buttonPrint.Location = new Point(749, 507);
             buttonPrint.Name = "buttonPrint";
-            buttonPrint.Size = new Size(67, 29);
+            buttonPrint.Size = new Size(50, 43);
             buttonPrint.TabIndex = 8;
-            buttonPrint.Text = "Print";
             buttonPrint.UseVisualStyleBackColor = true;
             buttonPrint.Visible = false;
             buttonPrint.Click += buttonPrint_Click;

@@ -14,52 +14,96 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_Certificates : UserControl
     {
+        private int countControls = 0;
+        private int selectIndexControl = 0;
+
         public PanelMainBlock_Certificates()
         {
             InitializeComponent();
 
-            flowLayoutPanel1.Controls.Add(new Component_newCertificate());
-            flowLayoutPanel1.Controls.Add(new Component_newCertificate());
-            flowLayoutPanel1.Controls.Add(new Component_newCertificate());
+            panelThisCertificates.Controls.Add(new Component_newCertificate());
+            panelThisCertificates.Controls.Add(new Component_newCertificate());
+            panelThisCertificates.Controls.Add(new Component_newCertificate());
+
+            countControls = panelThisCertificates.Controls.Count;
         }
 
         private void buttonScrollRight_Click(object sender, EventArgs e)
         {
-            int scrollAmount = 865; // Заданное количество пикселей для прокрутки
-
-            int endPositionPanel = flowLayoutPanel1.HorizontalScroll.Value + scrollAmount;
-            if (endPositionPanel > flowLayoutPanel1.HorizontalScroll.Minimum &&
-                endPositionPanel < flowLayoutPanel1.HorizontalScroll.Maximum)
-                ScrollPanelAnimation(scrollAmount);
+            //if (selectIndexControl < countControls - 1)
+            //{
+            //    selectIndexControl++;
+            //    ScrollPanelAnimation(panelThisCertificates.Controls[selectIndexControl].Location.X, 30);
+            //}
+            ScrollMove(true);
         }
 
         private void buttonScrollLeft_Click(object sender, EventArgs e)
         {
-            int scrollAmount = -865; // Заданное количество пикселей для прокрутки
-
-            int endPositionPanel = flowLayoutPanel1.HorizontalScroll.Value + scrollAmount;
-            if (endPositionPanel > flowLayoutPanel1.HorizontalScroll.Minimum &&
-                endPositionPanel < flowLayoutPanel1.HorizontalScroll.Maximum)
-                ScrollPanelAnimation(scrollAmount);
+            //if (selectIndexControl > 0)
+            //{
+            //    selectIndexControl--;
+            //    ScrollPanelAnimation(panelThisCertificates.Controls[selectIndexControl].Location.X, 30);
+            //}
+            ScrollMove(false);
         }
 
-        private void ScrollPanelAnimation(int scrollAmount)
+        private void ScrollMove(bool right)
         {
-            int currentScrollPosition = flowLayoutPanel1.HorizontalScroll.Value;
-            int targetScrollPosition = currentScrollPosition + scrollAmount;
+            int stepSize = 40;
+            int sizeControl = 866;
+            int countControl = panelThisCertificates.Controls.Count;
+            int currentScrollPosition = panelThisCertificates.HorizontalScroll.Value;
+            float selectControl = (float)currentScrollPosition / (float)sizeControl;      //тот на котором мы сейчас находимся
+
+            if (right)
+            {
+                // от 0 .. 2 - selectControl
+                // от 1 .. 3 - countControl
+                if (selectControl + 1 < countControl)
+                {
+                    int sumSizeControl = (((int)selectControl + 1) * sizeControl);   // + 3
+                    ScrollPanelAnimation(sumSizeControl, stepSize);
+                }
+            }
+            else
+            {
+                if (selectControl > 0)
+                {
+                    int sumSizeControl = (((int)(selectControl - 0.000001)) * sizeControl);   // + 3
+                    ScrollPanelAnimation(sumSizeControl, stepSize);
+                }
+            }
+
+        }
+
+        private void ScrollPanelAnimation(int targetScrollPosition, int stepSize)
+        {
+            //int currentScrollPosition = panelThisCertificates.HorizontalScroll.Value;
+            //int targetScrollPosition = currentScrollPosition + scrollAmount;
 
             // Анимация прокрутки
             System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
             timer.Interval = 5; // Интервал обновления анимации (в миллисекундах)
             timer.Tick += (s, args) =>
             {
-                if (flowLayoutPanel1.HorizontalScroll.Value < targetScrollPosition)
+                if (panelThisCertificates.HorizontalScroll.Value < targetScrollPosition)
                 {
-                    flowLayoutPanel1.HorizontalScroll.Value += 5; // Шаг анимации
+                    if (panelThisCertificates.HorizontalScroll.Value <= targetScrollPosition - stepSize)
+                        panelThisCertificates.HorizontalScroll.Value += stepSize; // Шаг анимации
+                    else
+                    {
+                        panelThisCertificates.AutoScrollPosition = new Point(targetScrollPosition, 0);
+                    }
                 }
-                else if (flowLayoutPanel1.HorizontalScroll.Value > targetScrollPosition)
+                else if (panelThisCertificates.HorizontalScroll.Value > targetScrollPosition)
                 {
-                    flowLayoutPanel1.HorizontalScroll.Value -= 5; // Шаг анимации
+                    if (panelThisCertificates.HorizontalScroll.Value >= targetScrollPosition + stepSize)
+                        panelThisCertificates.HorizontalScroll.Value -= stepSize; // Шаг анимации
+                    else
+                    {
+                        panelThisCertificates.AutoScrollPosition = new Point(targetScrollPosition, 0);
+                    }
                 }
                 else
                 {
