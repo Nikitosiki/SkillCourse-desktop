@@ -38,6 +38,8 @@ namespace SkillCourse.Panels.MainBlock
 
             buttonScrollLeft.Visible = false;
             buttonScrollRight.Visible = false;
+
+            Name += "One";
         }
 
         private void FillCertificatePanel(List<Certificate> listCertificate)
