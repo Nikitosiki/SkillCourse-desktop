@@ -48,6 +48,25 @@ namespace SkillCourse.Panels.MainBlock
             TuneComboBox();
         }
 
+        public PanelMainBlock_Courses(Teather teacher, bool buttonView, bool buttonSub)
+        {
+            InitializeComponent();
+            Dock = DockStyle.Fill;
+            thisCourses = teacher.MyCourses;
+
+            VisibleButView = buttonView;
+            VisibleButSub = buttonSub;
+            textBoxSearcher.Texts = $"Teacher: {teacher.FirstName} {teacher.LastName}";
+            textBoxSearcher.Enabled = false;
+
+            string view = VisibleButView ? "View" : "";
+            string sub = VisibleButSub ? "Sub" : "";
+
+            Name = $"{Name} {VisibleButView} {VisibleButSub} {teacher}";
+
+            TuneComboBox();
+        }
+
         private void TuneComboBox()
         {
             //Если пользователь не авторизовался, сортировать список он не может

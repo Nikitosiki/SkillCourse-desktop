@@ -12,7 +12,7 @@ using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse.DataBaseStructure
 {
-    public class TeatherHandler : Teather
+    public partial class Teather
     {
         private static SkillCourseDB? instanceDB = null;
         private static SkillCourseDB DataBase
@@ -26,11 +26,6 @@ namespace SkillCourse.DataBaseStructure
                 return instanceDB;
             }
         }
-
-
-        public TeatherHandler(string firstName, string lastName, string email, string password, DateTime dateOfBirth, GenderType gender) :
-            base(firstName, lastName, email, password, dateOfBirth, gender) { }
-
 
 
         public List<Course> MyCourses
