@@ -1,5 +1,6 @@
 ﻿using SkillCourse.DataBaseStructure;
 using SkillCourse.Panels.MainBlock.CertificatePage;
+using SkillCourse.Panels.MainBlock.Tasks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,24 +16,58 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_Certificates : UserControl
     {
-        private int countControls = 0;
-        private int selectIndexControl = 0;
-
+        AccountHandler handlerUser = AccountHandler.Instance;
         public PanelMainBlock_Certificates()
         {
             InitializeComponent();
+            panelThisCertificates.MouseWheel += panelThisCertificates_Scroll;
+            Dock = DockStyle.Fill;
+            //panelThisCertificates.Controls.Add(new Component_newCertificate());
+            //panelThisCertificates.Controls.Add(new Component_newCertificate());
+            //panelThisCertificates.Controls.Add(new Component_newCertificate());
+            Student student = handlerUser.UserLog as Student;
 
-            panelThisCertificates.Controls.Add(new Component_newCertificate());
-            panelThisCertificates.Controls.Add(new Component_newCertificate());
-            panelThisCertificates.Controls.Add(new Component_newCertificate());
-
-            countControls = panelThisCertificates.Controls.Count;
+            FillCertificatePanel(student.MyCertificates);
         }
 
         public PanelMainBlock_Certificates(Certificate certificate)
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
+            AddCertificateToPanel(certificate);
 
+            buttonScrollLeft.Visible = false;
+            buttonScrollRight.Visible = false;
+        }
+
+        private void FillCertificatePanel(List<Certificate> listCertificate)
+        {
+            if (panelThisCertificates.Controls.Count > 0)
+                panelThisCertificates.Controls.Clear();
+
+            foreach (Certificate cert in listCertificate)
+            {
+                AddCertificateToPanel(cert);
+            }
+            labelNumber.Text = $"1 / {listCertificate.Count}";
+
+            if (listCertificate.Count == 1)
+            {
+                buttonScrollLeft.Visible = false;
+                buttonScrollRight.Visible = false;
+            }
+
+            if (listCertificate.Count == 0)
+            {
+                buttonScrollLeft.Visible = false;
+                buttonScrollRight.Visible = false;
+
+                panelThisCertificates.Controls.Add(new PanelMainBlock_NotImplemented());
+            }
+        }
+
+        private void AddCertificateToPanel(Certificate certificate)
+        {
             string nameCourse = SkillCourseDB.Instance.Courses.FindLast(cour => cour.IdCourse == certificate.IdCourse).Name;
             User owner = SkillCourseDB.Instance.Users.FindLast(user => user.IdUser == certificate.IdOwner);
             string nameOwner = owner.LastName + " " + owner.FirstName;
@@ -41,11 +76,7 @@ namespace SkillCourse.Panels.MainBlock
 
             panelThisCertificates.Controls.Add(new Component_newCertificate(nameCourse, certificate.Description,
                 nameOwner, nameTeacher, certificate.IdCertificate, certificate.PresentationTime));
-
-            buttonScrollLeft.Visible = false;
-            buttonScrollRight.Visible = false;
         }
-
 
         private void buttonScrollRight_Click(object sender, EventArgs e)
         {
@@ -71,16 +102,20 @@ namespace SkillCourse.Panels.MainBlock
                 // от 1 .. 3 - countControl
                 if (selectControl + 1 < countControl)
                 {
-                    int sumSizeControl = (((int)selectControl + 1) * sizeControl);   // + 3
+                    int newSelectControl = (int)selectControl + 1;
+                    int sumSizeControl = (newSelectControl * sizeControl);   // + 3
                     ScrollPanelAnimation(sumSizeControl, stepSize);
+                    labelNumber.Text = $"{newSelectControl + 1} / {countControl}";
                 }
             }
             else
             {
                 if (selectControl > 0)
                 {
-                    int sumSizeControl = (((int)(selectControl - 0.000001)) * sizeControl);   // + 3
+                    int newSelectControl = (int)(selectControl - 0.000001);
+                    int sumSizeControl = (newSelectControl * sizeControl);   // + 3
                     ScrollPanelAnimation(sumSizeControl, stepSize);
+                    labelNumber.Text = $"{newSelectControl + 1} / {countControl}";
                 }
             }
 
@@ -113,10 +148,24 @@ namespace SkillCourse.Panels.MainBlock
                 }
                 else
                 {
+                    UpdateLocationScroll();
                     timer.Stop(); // Останавливаем таймер после завершения анимации
                 }
             };
             timer.Start(); // Запускаем таймер для анимации
+        }
+
+        private void panelThisCertificates_Scroll(object? sender, MouseEventArgs e)
+        {
+            UpdateLocationScroll();
+        }
+
+        private void UpdateLocationScroll()
+        {
+            int sizeControl = 866;
+            int countControl = panelThisCertificates.Controls.Count;
+            int newSelectControl = (panelThisCertificates.HorizontalScroll.Value + (sizeControl / 2)) / sizeControl;
+            labelNumber.Text = $"{newSelectControl + 1} / {countControl}";
         }
     }
 }

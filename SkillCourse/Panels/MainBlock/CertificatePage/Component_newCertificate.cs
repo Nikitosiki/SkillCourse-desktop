@@ -26,9 +26,13 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
             labelText.Text = $"\"{nameCourse}\"\n{description}";
             labelOwner.Text = owner;
             labelTeacher.Text = teacher;
-            labelNumber.Text = "№ " + number.ToUpper() + " / " + presentationDate.ToString("d");
+            labelNumber.Text = "№ " + InsertDashEvery4thChar(number.ToUpper()) + " / " + presentationDate.ToString("d");
         }
 
+        string InsertDashEvery4thChar(string input)
+        {
+            return string.Concat(input.Select((c, i) => i > 0 && i % 4 == 0 ? $"-{c}" : c.ToString()));
+        }
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {

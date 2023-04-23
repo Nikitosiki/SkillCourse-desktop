@@ -40,8 +40,12 @@ namespace SkillCourse
 
 
             //Random();
-            //Certificate certificate = new Certificate("bla-bla-blaaaaa...", DateTime.Now, 5, 3, 101);
+            //Certificate certificate = new Certificate("По завершению долгожданного...", DateTime.Now, 1, 3, 99);
             //SkillCourseDB.Instance.Certificates.Add(certificate);
+            //Certificate certificate1 = new Certificate("Ты снова пришёл сюда?", DateTime.Now, 5, 3, 98);
+            //SkillCourseDB.Instance.Certificates.Add(certificate1);
+            //Certificate certificate2 = new Certificate("Я думал, мы это уже обговорили, проваливай", DateTime.Now, 1, 3, 17);
+            //SkillCourseDB.Instance.Certificates.Add(certificate2);
             //SubscriptionCourse sub = new SubscriptionCourse(4, 101);
             //SkillCourseDB.Instance.Subscriptions.Add(sub);
             //DataBaseStructure.Task task = new DataBaseStructure.Task("Вы маєте це зробити, скільки буде:\n8 + 4 = ?\nЯкий мій улюблений фільм?\nТи хто такий?}", 18, false);

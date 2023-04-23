@@ -29,43 +29,66 @@
         private void InitializeComponent()
         {
             panelBlockScroll = new Panel();
+            labelNumber = new Label();
             buttonScrollRight = new Button();
             buttonScrollLeft = new Button();
             panelThisCertificates = new FlowLayoutPanel();
+            panelBlockScroll.SuspendLayout();
             SuspendLayout();
             // 
             // panelBlockScroll
             // 
-            panelBlockScroll.Location = new Point(27, 646);
+            panelBlockScroll.Controls.Add(labelNumber);
+            panelBlockScroll.Location = new Point(46, 644);
             panelBlockScroll.Name = "panelBlockScroll";
-            panelBlockScroll.Size = new Size(936, 26);
+            panelBlockScroll.Size = new Size(914, 54);
             panelBlockScroll.TabIndex = 1;
+            // 
+            // labelNumber
+            // 
+            labelNumber.Dock = DockStyle.Fill;
+            labelNumber.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelNumber.ForeColor = SystemColors.Control;
+            labelNumber.Location = new Point(0, 0);
+            labelNumber.Margin = new Padding(0);
+            labelNumber.Name = "labelNumber";
+            labelNumber.Padding = new Padding(0, 10, 0, 0);
+            labelNumber.Size = new Size(914, 54);
+            labelNumber.TabIndex = 0;
+            labelNumber.Text = "1 / 1";
+            labelNumber.TextAlign = ContentAlignment.TopCenter;
             // 
             // buttonScrollRight
             // 
+            buttonScrollRight.Dock = DockStyle.Right;
             buttonScrollRight.FlatAppearance.BorderSize = 0;
             buttonScrollRight.FlatStyle = FlatStyle.Flat;
-            buttonScrollRight.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonScrollRight.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
             buttonScrollRight.ForeColor = SystemColors.Control;
-            buttonScrollRight.Location = new Point(963, 270);
+            buttonScrollRight.Location = new Point(966, 0);
             buttonScrollRight.Name = "buttonScrollRight";
-            buttonScrollRight.Size = new Size(46, 85);
+            buttonScrollRight.Padding = new Padding(0, 320, 0, 0);
+            buttonScrollRight.Size = new Size(46, 701);
             buttonScrollRight.TabIndex = 2;
             buttonScrollRight.Text = ">";
+            buttonScrollRight.TextAlign = ContentAlignment.TopCenter;
             buttonScrollRight.UseVisualStyleBackColor = true;
             buttonScrollRight.Click += buttonScrollRight_Click;
             // 
             // buttonScrollLeft
             // 
+            buttonScrollLeft.Dock = DockStyle.Left;
             buttonScrollLeft.FlatAppearance.BorderSize = 0;
             buttonScrollLeft.FlatStyle = FlatStyle.Flat;
-            buttonScrollLeft.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonScrollLeft.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
             buttonScrollLeft.ForeColor = SystemColors.Control;
-            buttonScrollLeft.Location = new Point(0, 270);
+            buttonScrollLeft.Location = new Point(0, 0);
             buttonScrollLeft.Name = "buttonScrollLeft";
-            buttonScrollLeft.Size = new Size(46, 85);
+            buttonScrollLeft.Padding = new Padding(0, 320, 0, 0);
+            buttonScrollLeft.Size = new Size(46, 701);
             buttonScrollLeft.TabIndex = 3;
             buttonScrollLeft.Text = "<";
+            buttonScrollLeft.TextAlign = ContentAlignment.TopCenter;
             buttonScrollLeft.UseVisualStyleBackColor = true;
             buttonScrollLeft.Click += buttonScrollLeft_Click;
             // 
@@ -82,13 +105,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(panelBlockScroll);
             Controls.Add(buttonScrollRight);
             Controls.Add(buttonScrollLeft);
             Controls.Add(panelThisCertificates);
             Name = "PanelMainBlock_Certificates";
-            Size = new Size(1012, 673);
+            Size = new Size(1012, 701);
+            panelBlockScroll.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -97,5 +122,6 @@
         private Button buttonScrollRight;
         private Button buttonScrollLeft;
         private FlowLayoutPanel panelThisCertificates;
+        private Label labelNumber;
     }
 }
