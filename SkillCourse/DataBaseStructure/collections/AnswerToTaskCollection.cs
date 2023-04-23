@@ -85,10 +85,6 @@ namespace SkillCourse.DataBaseStructure
             if (objectIndex == -1)
                 throw new ArgumentOutOfRangeException(nameof(objectIndex));
 
-            if (DataBase.AnswerTasks[objectIndex] == answer)
-                return;
-
-
             DataBase.AnswerTasks[objectIndex] = answer;
 
             if (!SerializeObject())

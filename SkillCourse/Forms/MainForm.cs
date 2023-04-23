@@ -34,6 +34,7 @@ namespace SkillCourse
 
             //panelMain.Controls.Add(new PanelMainBlock_Courses());
             panelNavbarBut.Controls.Add(new PanelMainBlock_Navbar((User != null ? User.UserType : null), panelMain));
+            NavigatePages.setMainPanel(panelMain);
             //AddButtonToNavbar();
 
             //--- endNavigateBar

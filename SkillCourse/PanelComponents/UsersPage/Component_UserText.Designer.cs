@@ -39,6 +39,7 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.BackColor = Color.Transparent;
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -73,6 +74,7 @@
             // labelLast
             // 
             labelLast.AutoSize = true;
+            labelLast.BackColor = Color.Transparent;
             labelLast.Dock = DockStyle.Bottom;
             labelLast.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             labelLast.ForeColor = Color.Gainsboro;
@@ -85,6 +87,7 @@
             // labelText
             // 
             labelText.AutoSize = true;
+            labelText.BackColor = Color.Transparent;
             labelText.Dock = DockStyle.Bottom;
             labelText.FlatStyle = FlatStyle.Flat;
             labelText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);

@@ -21,7 +21,7 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_Courses : UserControl
     {
-        public Student handlerStud = (Student)AccountHandler.Instance.UserLog;
+        public User handlerStud = AccountHandler.Instance.UserLog;
 
         private List<Course> thisCourses;
         private List<UserControl> ListCoursePanels { get; set; } = new List<UserControl>();
@@ -35,7 +35,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-            thisCourses = stateView == ViewCourseState.My ? handlerStud.CoursesSubscribed : SkillCourseDB.Instance.Courses;
+            thisCourses = stateView == ViewCourseState.My ? ((Student)handlerStud).CoursesSubscribed : SkillCourseDB.Instance.Courses;
 
             VisibleButView = buttonView;
             VisibleButSub = buttonSub;
@@ -98,18 +98,18 @@ namespace SkillCourse.Panels.MainBlock
         private UserControl CreateCourse(Course course)
         {
             if (VisibleButView)
-                return new Component_BriefСourse_View(course, () => openPageCourse(new PanelMainBlock_CoursePage(course)));
+                return new Component_BriefСourse_View(course, () => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent));
             if (VisibleButSub)
                 return new Component_BriefСourse_Subscription(course, true,
                     () =>
                     {
-                        openPageCourse(new PanelMainBlock_CoursePage(course));
-                        if (!handlerStud.SubscripToCourse(course))
+                        NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
+                        if (!((Student)handlerStud).SubscripToCourse(course))
                             MessageBox.Show("Failed to subscribe, please try again later.");
                     },
                     () =>
                     {
-                        if (!handlerStud.UnSubscripToCourse(course))
+                        if (!((Student)handlerStud).UnSubscripToCourse(course))
                             MessageBox.Show("Failed to unsubscribe, please try again later.");
                     });
             return new Component_BriefСourse_Base(course);
@@ -118,21 +118,6 @@ namespace SkillCourse.Panels.MainBlock
         #endregion
 
         #region Search/Sort
-        private void openPageCourse(UserControl Content)
-        {
-            object? parent = this.Parent;
-
-            if (parent != null)
-            {
-                Panel mainPanel = (Panel)parent;
-
-                if (mainPanel.Controls.Count < 1 || mainPanel.Controls[0] != Content)
-                {
-                    mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = false;
-                    mainPanel.Controls.Add(Content);
-                }
-            }
-        }
 
         private void ReplaceCoursesOnForm(FlowLayoutPanel mainPanel, Control[] controls)
         {
@@ -168,7 +153,7 @@ namespace SkillCourse.Panels.MainBlock
             else
             {
                 ReplaceCoursesOnForm(flowLayoutPanel1, ListCoursePanelsAfterSort.FindAll(
-                    pan => pan.Name.Contains(textBoxSearcher.Texts)).ToArray());
+                    pan => pan.Name.Contains(textBoxSearcher.Texts, StringComparison.OrdinalIgnoreCase)).ToArray());
 
             }
         }

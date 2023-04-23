@@ -25,7 +25,7 @@ namespace SkillCourse.DataBaseStructure
 
         public Certificate(string description, DateTime presentationTime, int idPresenterTeacher, int idOwner, int idCourse)
         {
-            IdCertificate = ObjectId.GenerateNewId().ToString();
+            IdCertificate = ObjectId.GenerateNewId(presentationTime).ToString();
             Description = description;
             PresentationTime = presentationTime;
             IdPresenterTeacher = idPresenterTeacher;

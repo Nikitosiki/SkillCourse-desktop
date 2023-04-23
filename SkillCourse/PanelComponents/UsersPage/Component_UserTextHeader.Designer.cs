@@ -91,7 +91,7 @@
             labelCount.AutoSize = true;
             labelCount.Dock = DockStyle.Bottom;
             labelCount.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            labelCount.ForeColor = SystemColors.ControlDark;
+            labelCount.ForeColor = SystemColors.ScrollBar;
             labelCount.Location = new Point(860, 21);
             labelCount.Name = "labelCount";
             labelCount.Size = new Size(94, 23);

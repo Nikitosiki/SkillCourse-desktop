@@ -84,10 +84,6 @@ namespace SkillCourse.DataBaseStructure
             if (objectIndex == -1)
                 throw new ArgumentOutOfRangeException(nameof(objectIndex));
 
-            if (DataBase.Subscriptions[objectIndex] == subCourse)
-                return;
-
-
             DataBase.Subscriptions[objectIndex] = subCourse;
 
 

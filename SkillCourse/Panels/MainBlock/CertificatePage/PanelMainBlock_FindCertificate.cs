@@ -36,7 +36,7 @@ namespace SkillCourse.Panels.MainBlock
                 return;
             }
 
-            NavigatePages.openPage(new PanelMainBlock_Certificates(certificate), (Panel)this.Parent);
+            NavigatePages.OpenNewPage(new PanelMainBlock_Certificates(certificate), (Panel)this.Parent);
         }
     }
 }

@@ -86,10 +86,6 @@ namespace SkillCourse.DataBaseStructure
             if (objectIndex == -1)
                 throw new ArgumentOutOfRangeException(nameof(objectIndex));
 
-            if (DataBase.Certificates[objectIndex] == certificate)
-                return;
-
-
             DataBase.Certificates[objectIndex] = certificate;
 
             if (!SerializeObject())

@@ -111,9 +111,6 @@ namespace SkillCourse.DataBaseStructure
             if (objectIndex == -1)
                 throw new ArgumentOutOfRangeException(nameof(objectIndex));
 
-            if (DataBase.Users[objectIndex] == user)
-                return;
-
 
             DataBase.Users[objectIndex] = user;
 
