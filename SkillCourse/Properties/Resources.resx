@@ -121,14 +121,20 @@
   <data name="view_cozy_FILL0_wght400_GRAD0_opsz32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\view_cozy_FILL0_wght400_GRAD0_opsz32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="outline_visibility_off_grey_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\outline_visibility_off_grey_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="task_message" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\PageCourse\task_message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CompressedCertificate_860x6111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Certificate\CompressedCertificate_860x611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="view_cozy_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\view_cozy_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="141560-loader-v25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\141560-loader-v25.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_notBackground_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\TayaPainter\icon_notBackground_64x64.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="outline_visibility_grey_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\outline_visibility_grey_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +160,11 @@
   <data name="CompressedCertificate_860x611" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Certificate\CompressedCertificate_860x611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="141560-loader-v25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\141560-loader-v25.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CompressedCertificate_860x6112" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Certificate\CompressedCertificate_860x611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendarWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\calendarWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CompressedCertificate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Certificate\CompressedCertificate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,10 +172,10 @@
   <data name="view_cozy_FILL0_wght400_GRAD0_opsz48-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\view_cozy_FILL0_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendarWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\calendarWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="outline_visibility_off_grey_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\outline_visibility_off_grey_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CompressedCertificate_860x6111" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Certificate\CompressedCertificate_860x611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_notBackground_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\TayaPainter\icon_notBackground_64x64.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

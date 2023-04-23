@@ -1,4 +1,5 @@
-﻿using SkillCourse.Panels.MainBlock.CertificatePage;
+﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.Panels.MainBlock.CertificatePage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,23 +29,31 @@ namespace SkillCourse.Panels.MainBlock
             countControls = panelThisCertificates.Controls.Count;
         }
 
+        public PanelMainBlock_Certificates(Certificate certificate)
+        {
+            InitializeComponent();
+
+            string nameCourse = SkillCourseDB.Instance.Courses.FindLast(cour => cour.IdCourse == certificate.IdCourse).Name;
+            User owner = SkillCourseDB.Instance.Users.FindLast(user => user.IdUser == certificate.IdOwner);
+            string nameOwner = owner.LastName + " " + owner.FirstName;
+            User teacher = SkillCourseDB.Instance.Users.FindLast(user => user.IdUser == certificate.IdPresenterTeacher);
+            string nameTeacher = teacher.LastName + " " + teacher.FirstName;
+
+            panelThisCertificates.Controls.Add(new Component_newCertificate(nameCourse, certificate.Description,
+                nameOwner, nameTeacher, certificate.IdCertificate, certificate.PresentationTime));
+
+            buttonScrollLeft.Visible = false;
+            buttonScrollRight.Visible = false;
+        }
+
+
         private void buttonScrollRight_Click(object sender, EventArgs e)
         {
-            //if (selectIndexControl < countControls - 1)
-            //{
-            //    selectIndexControl++;
-            //    ScrollPanelAnimation(panelThisCertificates.Controls[selectIndexControl].Location.X, 30);
-            //}
             ScrollMove(true);
         }
 
         private void buttonScrollLeft_Click(object sender, EventArgs e)
         {
-            //if (selectIndexControl > 0)
-            //{
-            //    selectIndexControl--;
-            //    ScrollPanelAnimation(panelThisCertificates.Controls[selectIndexControl].Location.X, 30);
-            //}
             ScrollMove(false);
         }
 
@@ -79,9 +88,6 @@ namespace SkillCourse.Panels.MainBlock
 
         private void ScrollPanelAnimation(int targetScrollPosition, int stepSize)
         {
-            //int currentScrollPosition = panelThisCertificates.HorizontalScroll.Value;
-            //int targetScrollPosition = currentScrollPosition + scrollAmount;
-
             // Анимация прокрутки
             System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
             timer.Interval = 5; // Интервал обновления анимации (в миллисекундах)

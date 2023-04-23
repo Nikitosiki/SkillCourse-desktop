@@ -143,9 +143,29 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CompressedCertificate_860x6112 {
+            get {
+                object obj = ResourceManager.GetObject("CompressedCertificate_860x6112", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cursor_navbar_Blue {
             get {
                 object obj = ResourceManager.GetObject("cursor_navbar_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_notBackground_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("icon_notBackground_64x64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

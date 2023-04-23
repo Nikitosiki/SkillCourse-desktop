@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panelNavbar = new Panel();
             groupBox2 = new GroupBox();
             panelNavbarBut = new Panel();
@@ -199,6 +200,7 @@
             BackColor = Color.FromArgb(40, 49, 60);
             ClientSize = new Size(1262, 723);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1280, 600);
             Name = "MainForm";
             Text = "SkillCourse";

@@ -145,7 +145,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            BackgroundImage = Properties.Resources.CompressedCertificate_860x611;
+            BackgroundImage = Properties.Resources.CompressedCertificate_860x6112;
             Controls.Add(buttonPrint);
             Controls.Add(labelNumber);
             Controls.Add(panelTextCourse);

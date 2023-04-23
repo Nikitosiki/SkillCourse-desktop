@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SkillCourse.Panels.MainBlock.PanelMainBlock_Courses;
 
 namespace SkillCourse.Panels.MainBlock
 {
@@ -35,7 +36,7 @@ namespace SkillCourse.Panels.MainBlock
                 return;
             }
 
-            MessageBox.Show($"There is a certificate with this number. \n{keyCertificate}");
+            NavigatePages.openPage(new PanelMainBlock_Certificates(certificate), (Panel)this.Parent);
         }
     }
 }

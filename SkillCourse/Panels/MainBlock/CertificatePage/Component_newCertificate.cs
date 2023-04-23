@@ -18,12 +18,12 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
             InitializeTimer();
         }
 
-        public Component_newCertificate(string nameCourse, string owner, string teacher, string number, DateTime presentationDate)
+        public Component_newCertificate(string nameCourse, string? description, string owner, string teacher, string number, DateTime presentationDate)
         {
             InitializeComponent();
             InitializeTimer();
 
-            labelText.Text = $"\"{nameCourse}\"";
+            labelText.Text = $"\"{nameCourse}\"\n{description}";
             labelOwner.Text = owner;
             labelTeacher.Text = teacher;
             labelNumber.Text = "№ " + number.ToUpper() + " / " + presentationDate.ToString("d");

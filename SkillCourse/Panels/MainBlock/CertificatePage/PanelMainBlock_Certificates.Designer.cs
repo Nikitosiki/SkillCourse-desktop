@@ -36,9 +36,9 @@
             // 
             // panelBlockScroll
             // 
-            panelBlockScroll.Location = new Point(27, 629);
+            panelBlockScroll.Location = new Point(27, 646);
             panelBlockScroll.Name = "panelBlockScroll";
-            panelBlockScroll.Size = new Size(936, 44);
+            panelBlockScroll.Size = new Size(936, 26);
             panelBlockScroll.TabIndex = 1;
             // 
             // buttonScrollRight
@@ -73,7 +73,7 @@
             // 
             panelThisCertificates.AutoScroll = true;
             panelThisCertificates.FlowDirection = FlowDirection.TopDown;
-            panelThisCertificates.Location = new Point(73, 17);
+            panelThisCertificates.Location = new Point(73, 34);
             panelThisCertificates.Name = "panelThisCertificates";
             panelThisCertificates.Size = new Size(866, 638);
             panelThisCertificates.TabIndex = 5;
