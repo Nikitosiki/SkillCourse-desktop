@@ -76,6 +76,12 @@ namespace SkillCourse.Panels.MainBlock
                 return;
             }
 
+            //Если пользователь на странице подписок, с возможностью зайти на курс
+            if (VisibleButSub && VisibleButView)
+            {
+                return;
+            }
+
             //Если пользователь на странице всех кеурсов
             if (VisibleButView)
             {
@@ -116,9 +122,33 @@ namespace SkillCourse.Panels.MainBlock
 
         private UserControl CreateCourse(Course course)
         {
+            if (handlerStud == null)
+            {
+                return new Component_BriefСourse_Base(course);
+            }
+
+            //Если пользователь на странице подписок, с возможностью зайти на курс
+            if (VisibleButView && VisibleButSub)
+            {
+                return new Component_BriefСourse_View_Sub(course, true,
+                    () => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course)),
+                    () =>
+                    {
+                        NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
+                        if (!((Student)handlerStud).SubscripToCourse(course))
+                            MessageBox.Show("Failed to subscribe, please try again later.");
+                    },
+                    () =>
+                    {
+                        if (!((Student)handlerStud).UnSubscripToCourse(course))
+                            MessageBox.Show("Failed to unsubscribe, please try again later.");
+                    });
+            }
+
             if (VisibleButView)
                 return new Component_BriefСourse_View(course, () => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent));
             if (VisibleButSub)
+            {
                 return new Component_BriefСourse_Subscription(course, true,
                     () =>
                     {
@@ -131,6 +161,7 @@ namespace SkillCourse.Panels.MainBlock
                         if (!((Student)handlerStud).UnSubscripToCourse(course))
                             MessageBox.Show("Failed to unsubscribe, please try again later.");
                     });
+            }
             return new Component_BriefСourse_Base(course);
 
         }
@@ -165,7 +196,7 @@ namespace SkillCourse.Panels.MainBlock
 
         private void textBoxSearcher_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxSearcher.Texts.Trim() == "")
+            if (textBoxSearcher.Texts.Trim() == "" || textBoxSearcher.Enabled == false)
             {
                 ReplaceCoursesOnForm(flowLayoutPanel1, ListCoursePanelsAfterSort.ToArray());
             }
@@ -221,16 +252,20 @@ namespace SkillCourse.Panels.MainBlock
                     case 4:     //Only Sub
                         thisCoursePanels.RemoveAll(component =>
                         {
-                            Component_BriefСourse_Subscription briefCourse = component as Component_BriefСourse_Subscription;
-                            return briefCourse != null && !briefCourse.subscript;
+                            Component_BriefСourse_Subscription briefCourse1 = component as Component_BriefСourse_Subscription;
+                            Component_BriefСourse_View_Sub briefCourse2 = component as Component_BriefСourse_View_Sub;
+
+                            return (briefCourse1 != null && !briefCourse1.subscript) || (briefCourse2 != null && !briefCourse2.subscript);
                         });
                         break;
 
                     case 5:     //Only UnS
                         thisCoursePanels.RemoveAll(component =>
                         {
-                            Component_BriefСourse_Subscription briefCourse = component as Component_BriefСourse_Subscription;
-                            return briefCourse != null && briefCourse.subscript;
+                            Component_BriefСourse_Subscription briefCourse1 = component as Component_BriefСourse_Subscription;
+                            Component_BriefСourse_View_Sub briefCourse2 = component as Component_BriefСourse_View_Sub;
+
+                            return (briefCourse1 != null && briefCourse1.subscript) || (briefCourse2 != null && briefCourse2.subscript);
                         });
                         break;
                 }

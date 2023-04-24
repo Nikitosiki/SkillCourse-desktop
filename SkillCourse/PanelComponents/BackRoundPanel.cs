@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SkillCourse.PanelComponents
 {
-    public partial class BackRoundPanel : UserControl
+    public partial class BackRoundPanel : Panel
     {
         private bool autofocus = false;
         private int focusBorderSize = 2;

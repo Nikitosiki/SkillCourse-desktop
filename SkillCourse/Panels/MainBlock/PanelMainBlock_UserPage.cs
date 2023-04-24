@@ -18,9 +18,25 @@ namespace SkillCourse.Panels.MainBlock
         public PanelMainBlock_UserPage(User user)
         {
             InitializeComponent();
-            if (user.UserType != UserType.Teacher)
-                throw new Exception("Selected user is not a teacher.");
 
+            switch (user.UserType)
+            {
+                case UserType.Teacher:
+                    OpenPageTeacher((Teather)user);
+                    break;
+
+                case UserType.Student:
+                    OpenPageStudent((Student)user);
+                    break;
+
+                default:
+                    throw new Exception("Selected user is not.");
+            }
+
+        }
+
+        private void OpenPageTeacher(Teather user)
+        {
             ThisTeather = (Teather)user;
             labelNameType.Text = user.UserType.ToString();
 
@@ -29,7 +45,10 @@ namespace SkillCourse.Panels.MainBlock
             labelDateBirth.Text = $"+{(int)((DateTime.Now - user.DateOfBirth).TotalDays / 365)} ({user.DateOfBirth.ToString("D")})";
         }
 
+        private void OpenPageStudent(Student user)
+        {
 
+        }
 
         private void newButton_Back_Click(object sender, EventArgs e)
         {
@@ -38,7 +57,7 @@ namespace SkillCourse.Panels.MainBlock
 
         private void newButton1_Click(object sender, EventArgs e)
         {
-            NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ThisTeather, true, false));
+            NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ThisTeather, true, true));
         }
     }
 }

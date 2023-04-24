@@ -30,15 +30,15 @@
         {
             groupBox1 = new GroupBox();
             panel1 = new Panel();
+            button_ViewCourse = new yt_DesignUI.NewButton();
+            picture_imageCourse = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             label_DescriptionCourse = new Label();
             label_NameCourse = new Label();
-            button_ViewCourse = new yt_DesignUI.NewButton();
-            picture_imageCourse = new PictureBox();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picture_imageCourse).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -60,44 +60,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(931, 68);
             panel1.TabIndex = 3;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(label_DescriptionCourse, 0, 1);
-            tableLayoutPanel1.Controls.Add(label_NameCourse, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(131, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(645, 68);
-            tableLayoutPanel1.TabIndex = 2;
-            // 
-            // label_DescriptionCourse
-            // 
-            label_DescriptionCourse.AutoSize = true;
-            label_DescriptionCourse.ForeColor = SystemColors.ControlDark;
-            label_DescriptionCourse.Location = new Point(3, 37);
-            label_DescriptionCourse.Margin = new Padding(3, 1, 3, 0);
-            label_DescriptionCourse.Name = "label_DescriptionCourse";
-            label_DescriptionCourse.Size = new Size(614, 20);
-            label_DescriptionCourse.TabIndex = 6;
-            label_DescriptionCourse.Text = "Мета вивчення: надати студентам можливості щодо самостійного розроблення прог...";
-            // 
-            // label_NameCourse
-            // 
-            label_NameCourse.AutoSize = true;
-            label_NameCourse.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label_NameCourse.ForeColor = SystemColors.Control;
-            label_NameCourse.Location = new Point(3, 5);
-            label_NameCourse.Margin = new Padding(3, 5, 3, 0);
-            label_NameCourse.Name = "label_NameCourse";
-            label_NameCourse.Size = new Size(459, 31);
-            label_NameCourse.TabIndex = 5;
-            label_NameCourse.Text = "Об'єктно-орієнтоване програмування (КР)";
             // 
             // button_ViewCourse
             // 
@@ -139,6 +101,48 @@
             picture_imageCourse.TabIndex = 1;
             picture_imageCourse.TabStop = false;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(label_DescriptionCourse, 0, 1);
+            tableLayoutPanel1.Controls.Add(label_NameCourse, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(131, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(645, 68);
+            tableLayoutPanel1.TabIndex = 3;
+            // 
+            // label_DescriptionCourse
+            // 
+            label_DescriptionCourse.AutoSize = true;
+            label_DescriptionCourse.Dock = DockStyle.Fill;
+            label_DescriptionCourse.ForeColor = SystemColors.ControlDark;
+            label_DescriptionCourse.Location = new Point(3, 37);
+            label_DescriptionCourse.Margin = new Padding(3, 1, 3, 0);
+            label_DescriptionCourse.Name = "label_DescriptionCourse";
+            label_DescriptionCourse.Padding = new Padding(0, 0, 5, 0);
+            label_DescriptionCourse.Size = new Size(639, 31);
+            label_DescriptionCourse.TabIndex = 6;
+            label_DescriptionCourse.Text = "Мета вивчення: надати студентам можливості щодо самостійного розроблення прог...";
+            // 
+            // label_NameCourse
+            // 
+            label_NameCourse.AutoSize = true;
+            label_NameCourse.Dock = DockStyle.Fill;
+            label_NameCourse.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label_NameCourse.ForeColor = SystemColors.Control;
+            label_NameCourse.Location = new Point(3, 5);
+            label_NameCourse.Margin = new Padding(3, 5, 3, 0);
+            label_NameCourse.Name = "label_NameCourse";
+            label_NameCourse.Padding = new Padding(0, 0, 5, 0);
+            label_NameCourse.Size = new Size(639, 31);
+            label_NameCourse.TabIndex = 5;
+            label_NameCourse.Text = "Об'єктно-орієнтоване програмування (КР)";
+            // 
             // Component_BriefСourse_View
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -151,9 +155,9 @@
             Size = new Size(935, 81);
             groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).EndInit();
             ResumeLayout(false);
         }
 
@@ -161,10 +165,10 @@
 
         private GroupBox groupBox1;
         private Panel panel1;
+        private PictureBox picture_imageCourse;
+        private yt_DesignUI.NewButton button_ViewCourse;
         private TableLayoutPanel tableLayoutPanel1;
         private Label label_DescriptionCourse;
         private Label label_NameCourse;
-        private PictureBox picture_imageCourse;
-        private yt_DesignUI.NewButton button_ViewCourse;
     }
 }

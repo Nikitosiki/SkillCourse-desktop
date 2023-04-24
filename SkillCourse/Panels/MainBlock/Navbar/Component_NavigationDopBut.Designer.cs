@@ -28,28 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             panel2 = new Panel();
             buttonThis = new Button();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(48, 58, 72);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(39, 32);
-            panel1.TabIndex = 0;
-            // 
             // panel2
             // 
             panel2.Controls.Add(buttonThis);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(39, 0);
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(172, 32);
+            panel2.Size = new Size(211, 32);
             panel2.TabIndex = 1;
             // 
             // buttonThis
@@ -62,7 +52,8 @@
             buttonThis.ImageAlign = ContentAlignment.MiddleLeft;
             buttonThis.Location = new Point(0, 0);
             buttonThis.Name = "buttonThis";
-            buttonThis.Size = new Size(172, 32);
+            buttonThis.Padding = new Padding(45, 0, 0, 0);
+            buttonThis.Size = new Size(211, 32);
             buttonThis.TabIndex = 2;
             buttonThis.Text = "All";
             buttonThis.TextAlign = ContentAlignment.MiddleLeft;
@@ -76,7 +67,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(48, 58, 72);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             Name = "Component_NavigationDopBut";
             Size = new Size(211, 32);
             panel2.ResumeLayout(false);
@@ -84,8 +74,6 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private Panel panel2;
         protected Button buttonThis;
     }

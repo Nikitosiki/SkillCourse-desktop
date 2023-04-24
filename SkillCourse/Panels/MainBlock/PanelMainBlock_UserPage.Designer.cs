@@ -37,14 +37,17 @@
             panel2 = new Panel();
             newButton1 = new yt_DesignUI.NewButton();
             backRoundPanel1 = new PanelComponents.BackRoundPanel();
+            pictureBoxIcon = new PictureBox();
             panel6 = new Panel();
-            labelName = new Label();
-            labelEmail = new Label();
             labelDateBirth = new Label();
+            labelEmail = new Label();
+            labelName = new Label();
             panel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            backRoundPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxIcon).BeginInit();
             panel6.SuspendLayout();
             SuspendLayout();
             // 
@@ -122,9 +125,9 @@
             // 
             // newButton1
             // 
-            newButton1.BackColor = Color.FromArgb(40, 49, 60);
+            newButton1.BackColor = Color.FromArgb(62, 72, 79);
             newButton1.BackColorAdditional = Color.FromArgb(80, 175, 138);
-            newButton1.BackColorGradientEnabled = true;
+            newButton1.BackColorGradientEnabled = false;
             newButton1.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             newButton1.BorderColor = Color.FromArgb(80, 175, 138);
             newButton1.BorderColorEnabled = false;
@@ -153,11 +156,11 @@
             backRoundPanel1.Autofocus = false;
             backRoundPanel1.BackColor = Color.FromArgb(40, 49, 60);
             backRoundPanel1.BackgroundColor = Color.FromArgb(40, 49, 60);
-            backRoundPanel1.BackgroundImage = (Image)resources.GetObject("backRoundPanel1.BackgroundImage");
             backRoundPanel1.BackgroundImageLayout = ImageLayout.Zoom;
             backRoundPanel1.BorderColor = Color.PaleVioletRed;
             backRoundPanel1.BorderRadius = 20;
             backRoundPanel1.BorderSize = 0;
+            backRoundPanel1.Controls.Add(pictureBoxIcon);
             backRoundPanel1.Dock = DockStyle.Top;
             backRoundPanel1.FocusBorderColor = Color.Gray;
             backRoundPanel1.FocusBorderSize = 2;
@@ -167,6 +170,17 @@
             backRoundPanel1.Size = new Size(294, 398);
             backRoundPanel1.TabIndex = 0;
             backRoundPanel1.TextColor = Color.White;
+            // 
+            // pictureBoxIcon
+            // 
+            pictureBoxIcon.Dock = DockStyle.Fill;
+            pictureBoxIcon.Image = (Image)resources.GetObject("pictureBoxIcon.Image");
+            pictureBoxIcon.Location = new Point(0, 0);
+            pictureBoxIcon.Name = "pictureBoxIcon";
+            pictureBoxIcon.Size = new Size(294, 398);
+            pictureBoxIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxIcon.TabIndex = 3;
+            pictureBoxIcon.TabStop = false;
             // 
             // panel6
             // 
@@ -179,16 +193,16 @@
             panel6.Size = new Size(616, 584);
             panel6.TabIndex = 2;
             // 
-            // labelName
+            // labelDateBirth
             // 
-            labelName.AutoSize = true;
-            labelName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            labelName.ForeColor = SystemColors.Control;
-            labelName.Location = new Point(16, 40);
-            labelName.Name = "labelName";
-            labelName.Size = new Size(55, 23);
-            labelName.TabIndex = 0;
-            labelName.Text = "label1";
+            labelDateBirth.AutoSize = true;
+            labelDateBirth.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelDateBirth.ForeColor = SystemColors.Control;
+            labelDateBirth.Location = new Point(16, 124);
+            labelDateBirth.Name = "labelDateBirth";
+            labelDateBirth.Size = new Size(55, 23);
+            labelDateBirth.TabIndex = 2;
+            labelDateBirth.Text = "label1";
             // 
             // labelEmail
             // 
@@ -201,16 +215,16 @@
             labelEmail.TabIndex = 1;
             labelEmail.Text = "label1";
             // 
-            // labelDateBirth
+            // labelName
             // 
-            labelDateBirth.AutoSize = true;
-            labelDateBirth.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            labelDateBirth.ForeColor = SystemColors.Control;
-            labelDateBirth.Location = new Point(16, 124);
-            labelDateBirth.Name = "labelDateBirth";
-            labelDateBirth.Size = new Size(55, 23);
-            labelDateBirth.TabIndex = 2;
-            labelDateBirth.Text = "label1";
+            labelName.AutoSize = true;
+            labelName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelName.ForeColor = SystemColors.Control;
+            labelName.Location = new Point(16, 40);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(55, 23);
+            labelName.TabIndex = 0;
+            labelName.Text = "label1";
             // 
             // PanelMainBlock_UserPage
             // 
@@ -226,6 +240,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            backRoundPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxIcon).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ResumeLayout(false);
@@ -247,5 +263,6 @@
         private Label labelDateBirth;
         private Label labelEmail;
         private Label labelName;
+        private PictureBox pictureBoxIcon;
     }
 }
