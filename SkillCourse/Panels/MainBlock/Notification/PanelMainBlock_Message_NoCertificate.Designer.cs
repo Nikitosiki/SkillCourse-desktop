@@ -1,6 +1,6 @@
 ﻿namespace SkillCourse.Panels.MainBlock
 {
-    partial class PanelMainBlock_Message_NoCourses
+    partial class PanelMainBlock_Message_NoCertificate
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -30,7 +30,7 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
-            buttonAdd = new Button();
+            label1 = new Label();
             pictureBox1 = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -52,38 +52,35 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(935, 461);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Size = new Size(847, 469);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
-            panel1.Controls.Add(buttonAdd);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(217, 108);
+            panel1.Location = new Point(173, 116);
             panel1.Name = "panel1";
             panel1.Size = new Size(500, 350);
             panel1.TabIndex = 0;
             // 
-            // buttonAdd
+            // label1
             // 
-            buttonAdd.Dock = DockStyle.Fill;
-            buttonAdd.FlatAppearance.BorderSize = 0;
-            buttonAdd.FlatStyle = FlatStyle.Flat;
-            buttonAdd.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAdd.ForeColor = SystemColors.ControlLight;
-            buttonAdd.Location = new Point(0, 279);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(500, 71);
-            buttonAdd.TabIndex = 0;
-            buttonAdd.Text = "To get started, add a course.";
-            buttonAdd.UseVisualStyleBackColor = true;
-            buttonAdd.Click += buttonAdd_Click;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ControlLight;
+            label1.Location = new Point(0, 279);
+            label1.Name = "label1";
+            label1.Size = new Size(500, 71);
+            label1.TabIndex = 2;
+            label1.Text = "I don't think there's anything here";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Top;
-            pictureBox1.Image = Properties.Resources.pan_NoCourses_compress;
+            pictureBox1.Image = Properties.Resources.pan_NoCertificate_котику__v2;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(500, 279);
@@ -91,14 +88,14 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // PanelMainBlock_Message_NoCourses
+            // PanelMainBlock_Message_NoCertificate
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(tableLayoutPanel1);
-            Name = "PanelMainBlock_Message_NoCourses";
-            Size = new Size(935, 461);
+            Name = "PanelMainBlock_Message_NoCertificate";
+            Size = new Size(847, 469);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -110,7 +107,7 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
-        private Button buttonAdd;
         private PictureBox pictureBox1;
+        private Label label1;
     }
 }

@@ -63,8 +63,9 @@ namespace SkillCourse.Panels.MainBlock
             {
                 buttonScrollLeft.Visible = false;
                 buttonScrollRight.Visible = false;
+                labelNumber.Visible = false;
 
-                panelThisCertificates.Controls.Add(new PanelMainBlock_NotImplemented());
+                panelThisCertificates.Controls.Add(new PanelMainBlock_Message_NoCertificate());
             }
         }
 

@@ -213,6 +213,26 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pan_NoCertificate_котику__v2 {
+            get {
+                object obj = ResourceManager.GetObject("pan_NoCertificate(котику)_v2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pan_NoCourses_compress {
+            get {
+                object obj = ResourceManager.GetObject("pan_NoCourses_compress", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap task_message {
             get {
                 object obj = ResourceManager.GetObject("task_message", resourceCulture);
