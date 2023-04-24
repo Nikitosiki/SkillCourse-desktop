@@ -30,13 +30,14 @@ namespace SkillCourse.Panels.MainBlock
 
         private bool VisibleButView { get; set; }
         private bool VisibleButSub { get; set; }
+        private bool myCoursePage = false;
 
         public PanelMainBlock_Courses(ViewCourseState stateView, bool buttonView, bool buttonSub)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-            thisCourses = stateView == ViewCourseState.My ? ((Student)handlerStud).CoursesSubscribed : SkillCourseDB.Instance.Courses;
-
+            if (stateView == ViewCourseState.My) myCoursePage = true;
+            thisCourses = myCoursePage ? ((Student)handlerStud).CoursesSubscribed : SkillCourseDB.Instance.Courses;
             VisibleButView = buttonView;
             VisibleButSub = buttonSub;
 
@@ -101,6 +102,17 @@ namespace SkillCourse.Panels.MainBlock
         private async void PanelMainBlock_Courses_Load(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
+
+            //Если нету курсов, то мы присваеваем дефолтную панель
+            if (myCoursePage && thisCourses.Count < 1)
+            {
+                UserControl newPanel = new PanelMainBlock_Message_NoCourses();
+                flowLayoutPanel1.Controls.Add(newPanel);
+                ListCoursePanels.Add(newPanel);
+                ListCoursePanelsAfterSort.Add(newPanel);
+                textBoxSearcher.Enabled = false;
+                return;
+            }
 
             // Вызываем метод, который будет добавлять элементы в фоновом потоке
             await System.Threading.Tasks.Task.Run(() =>

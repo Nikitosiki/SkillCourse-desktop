@@ -40,7 +40,7 @@ namespace SkillCourse.Panels.MainBlock
             ThisTeather = (Teather)user;
             labelNameType.Text = user.UserType.ToString();
 
-            labelName.Text = $"{user.FirstName} {user.LastName}";
+            labelFLName.Text = $"{user.FirstName} {user.LastName}";
             labelEmail.Text = user.Email;
             labelDateBirth.Text = $"+{(int)((DateTime.Now - user.DateOfBirth).TotalDays / 365)} ({user.DateOfBirth.ToString("D")})";
         }

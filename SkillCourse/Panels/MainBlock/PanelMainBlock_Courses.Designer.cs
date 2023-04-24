@@ -128,7 +128,7 @@
             customComboBox1.BorderRadius = 0;
             customComboBox1.BorderSize = 1;
             customComboBox1.Dock = DockStyle.Fill;
-            customComboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+            customComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             customComboBox1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             customComboBox1.ForeColor = SystemColors.Control;
             customComboBox1.IconColor = SystemColors.Control;
