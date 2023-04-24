@@ -42,6 +42,9 @@ namespace SkillCourse.PanelComponents
 
         private void defoultStateSubButton(bool autoRefresh)
         {
+            if (handler == null)
+                return;
+
             if (handler.CheckSubscrib(thisCourse))
             {
                 subscript = false;

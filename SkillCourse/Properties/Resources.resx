@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="view_cozy_FILL0_wght400_GRAD0_opsz32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\view_cozy_FILL0_wght400_GRAD0_opsz32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="outline_visibility_off_grey_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\outline_visibility_off_grey_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,9 +129,6 @@
   </data>
   <data name="CompressedCertificate_860x6111" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Certificate\CompressedCertificate_860x611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="view_cozy_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\view_cozy_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="outline_visibility_grey_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\outline_visibility_grey_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,9 +163,6 @@
   <data name="CompressedCertificate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Certificate\CompressedCertificate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="view_cozy_FILL0_wght400_GRAD0_opsz48-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\view_cozy_FILL0_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="arrow-up-341-svgrepo-com-down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\PageCourse\arrow-up-341-svgrepo-com-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,5 +171,23 @@
   </data>
   <data name="pan_NoCertificate(котику)_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\TayaPainter\pan_NoCertificate(котику)_v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checklist_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\checklist_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="view_cozy_FILL0_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\view_cozy_FILL0_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="certificate_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\certificate_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="courses_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\courses_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="peoples_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\peoples_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -113,6 +113,26 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap certificate_wght400_GRAD0_opsz48_32 {
+            get {
+                object obj = ResourceManager.GetObject("certificate_wght400_GRAD0_opsz48_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checklist_wght400_GRAD0_opsz48_32 {
+            get {
+                object obj = ResourceManager.GetObject("checklist_wght400_GRAD0_opsz48_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CompressedCertificate {
             get {
                 object obj = ResourceManager.GetObject("CompressedCertificate", resourceCulture);
@@ -153,9 +173,29 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap courses_wght400_GRAD0_opsz48_32 {
+            get {
+                object obj = ResourceManager.GetObject("courses_wght400_GRAD0_opsz48_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cursor_navbar_Blue {
             get {
                 object obj = ResourceManager.GetObject("cursor_navbar_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48_32 {
+            get {
+                object obj = ResourceManager.GetObject("edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +273,16 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap peoples_wght400_GRAD0_opsz48_32 {
+            get {
+                object obj = ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap task_message {
             get {
                 object obj = ResourceManager.GetObject("task_message", resourceCulture);
@@ -243,29 +293,9 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap view_cozy_FILL0_wght400_GRAD0_opsz32 {
-            get {
-                object obj = ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap view_cozy_FILL0_wght400_GRAD0_opsz48 {
-            get {
-                object obj = ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap view_cozy_FILL0_wght400_GRAD0_opsz48_32 {
             get {
-                object obj = ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32", resourceCulture);
+                object obj = ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

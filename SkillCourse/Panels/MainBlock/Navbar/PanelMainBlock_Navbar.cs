@@ -99,7 +99,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Courses",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("courses_wght400_GRAD0_opsz48_32") as Image,
                 true, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, false, false), PanelParent);
@@ -112,7 +112,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Teachers",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32") as Image,
                 false, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_Teachers(), PanelParent);
@@ -125,7 +125,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Certificates",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("certificate_wght400_GRAD0_opsz48_32") as Image,
                 false, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_FindCertificate(), PanelParent);
@@ -160,7 +160,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Courses",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("courses_wght400_GRAD0_opsz48_32") as Image,
                 true, defaultCourseDopButtons, CourseDopButtons));
 
 
@@ -197,7 +197,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Tasks",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("checklist_wght400_GRAD0_opsz48_32") as Image,
                 false, defaultTasksDopButtons, TaskDopButtons));
 
 
@@ -206,7 +206,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             //listControls.Add(
             //    new Component_NavigationBut("Calendar",
-            //    Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+            //    Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32") as Image,
             //    false, () =>
             //    {
             //        NavigatePages.openPage(new PanelMainBlock_Certificates(), PanelParent);
@@ -240,7 +240,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Certificates",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("certificate_wght400_GRAD0_opsz48_32") as Image,
                 false, defaultCertificatesDopButtons, CertificatesDopButtons));
 
 
@@ -249,7 +249,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Teachers",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32") as Image,
                 false, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_Teachers(), PanelParent);
@@ -262,7 +262,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Edit profile",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48_32") as Image,
                 false, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_EditProfile(), PanelParent);
@@ -298,7 +298,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Courses",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("courses_wght400_GRAD0_opsz48_32") as Image,
                 true, defaultCoursesDopButtonPage, CourseDopButtons));
 
 
@@ -307,7 +307,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Queue",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32") as Image,
                 false, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), PanelParent);
@@ -347,7 +347,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Certificates",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32") as Image,
                 false, defaultCertificatesDopButtonPage, CertificatesDopButtons));
 
 
@@ -376,7 +376,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Students",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32") as Image,
                 false, defaultStudentsDopButtonPage, StudentsDopButtons));
 
 
@@ -385,7 +385,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Statistics",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32") as Image,
                 false, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), PanelParent);
@@ -398,7 +398,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Edit profile",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32.png") as Image,
+                Properties.Resources.ResourceManager.GetObject("edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48_32") as Image,
                 false, () =>
                 {
                     NavigatePages.OpenNewPage(new PanelMainBlock_EditProfile(), PanelParent);

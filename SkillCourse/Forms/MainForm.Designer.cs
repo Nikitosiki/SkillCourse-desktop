@@ -91,11 +91,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ControlDark;
-            label2.Location = new Point(42, 11);
+            label2.Location = new Point(39, 11);
             label2.Name = "label2";
-            label2.Size = new Size(184, 20);
+            label2.Size = new Size(193, 20);
             label2.TabIndex = 0;
-            label2.Text = "SkillCourse  Apr 9 Version";
+            label2.Text = "SkillCourse  Apr 24 Version";
             // 
             // groupBox1
             // 

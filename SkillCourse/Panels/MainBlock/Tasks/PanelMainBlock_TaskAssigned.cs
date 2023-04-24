@@ -1,5 +1,6 @@
 ﻿using SkillCourse.DataBaseStructure;
 using SkillCourse.PanelComponents;
+using SkillCourse.Panels.MainBlock.Notification;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -77,6 +78,12 @@ namespace SkillCourse.Panels.MainBlock.Tasks
         {
             panelMain.Controls.Clear();
             panelMain.Controls.AddRange(ListTasks.ToArray());
+
+            if (panelMain.Controls.Count < 1)
+            {
+                panelMain.Controls.Add(new PanelMainBlock_MessageText("There is nothing here."));
+                panelMain.Controls[0].Dock = DockStyle.Fill;
+            }
         }
 
         private void customComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
