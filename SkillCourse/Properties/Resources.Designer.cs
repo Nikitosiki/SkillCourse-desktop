@@ -193,6 +193,16 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap default_v1_1 {
+            get {
+                object obj = ResourceManager.GetObject("default_v1.1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48_32 {
             get {
                 object obj = ResourceManager.GetObject("edit_prifile_cozy_FILL0_wght400_GRAD0_opsz48_32", resourceCulture);

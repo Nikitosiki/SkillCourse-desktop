@@ -38,16 +38,24 @@
             newButton1 = new yt_DesignUI.NewButton();
             backRoundPanel1 = new PanelComponents.BackRoundPanel();
             pictureBoxIcon = new PictureBox();
+            panel7 = new Panel();
             panel6 = new Panel();
+            backRoundPanel3 = new PanelComponents.BackRoundPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label5 = new Label();
-            label6 = new Label();
+            labelStudents = new Label();
             label7 = new Label();
             label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
+            labelCourses = new Label();
+            labelTasks = new Label();
             label4 = new Label();
+            panel4 = new Panel();
+            backRoundPanel2 = new PanelComponents.BackRoundPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            labelLastLoginDate = new Label();
+            label12 = new Label();
+            labelGender = new Label();
+            label11 = new Label();
             label3 = new Label();
             labelPhone = new Label();
             label2 = new Label();
@@ -57,9 +65,6 @@
             labelContactInfo = new Label();
             panelFLName = new Panel();
             labelFLName = new Label();
-            backRoundPanel2 = new PanelComponents.BackRoundPanel();
-            backRoundPanel3 = new PanelComponents.BackRoundPanel();
-            panel4 = new Panel();
             panel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -67,11 +72,11 @@
             backRoundPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxIcon).BeginInit();
             panel6.SuspendLayout();
+            backRoundPanel3.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            backRoundPanel2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panelFLName.SuspendLayout();
-            backRoundPanel2.SuspendLayout();
-            backRoundPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -131,6 +136,7 @@
             // 
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(backRoundPanel1);
+            panel1.Controls.Add(panel7);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(38, 3);
             panel1.Name = "panel1";
@@ -141,9 +147,9 @@
             // 
             panel2.Controls.Add(newButton1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 398);
+            panel2.Location = new Point(0, 408);
             panel2.Name = "panel2";
-            panel2.Size = new Size(294, 176);
+            panel2.Size = new Size(294, 166);
             panel2.TabIndex = 1;
             // 
             // newButton1
@@ -158,7 +164,7 @@
             newButton1.BorderColorOnHoverEnabled = false;
             newButton1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             newButton1.ForeColor = Color.White;
-            newButton1.Location = new Point(13, 15);
+            newButton1.Location = new Point(13, 24);
             newButton1.Name = "newButton1";
             newButton1.RippleColor = Color.Black;
             newButton1.Rounding = 30;
@@ -188,7 +194,7 @@
             backRoundPanel1.FocusBorderColor = Color.Gray;
             backRoundPanel1.FocusBorderSize = 2;
             backRoundPanel1.ForeColor = Color.White;
-            backRoundPanel1.Location = new Point(0, 0);
+            backRoundPanel1.Location = new Point(0, 10);
             backRoundPanel1.Name = "backRoundPanel1";
             backRoundPanel1.Size = new Size(294, 398);
             backRoundPanel1.TabIndex = 0;
@@ -196,14 +202,23 @@
             // 
             // pictureBoxIcon
             // 
+            pictureBoxIcon.BackColor = Color.FromArgb(50, 60, 69);
             pictureBoxIcon.Dock = DockStyle.Fill;
-            pictureBoxIcon.Image = (Image)resources.GetObject("pictureBoxIcon.Image");
+            pictureBoxIcon.Image = Properties.Resources.default_v1_1;
             pictureBoxIcon.Location = new Point(0, 0);
             pictureBoxIcon.Name = "pictureBoxIcon";
             pictureBoxIcon.Size = new Size(294, 398);
             pictureBoxIcon.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxIcon.TabIndex = 3;
             pictureBoxIcon.TabStop = false;
+            // 
+            // panel7
+            // 
+            panel7.Dock = DockStyle.Top;
+            panel7.Location = new Point(0, 0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(294, 10);
+            panel7.TabIndex = 1;
             // 
             // panel6
             // 
@@ -218,17 +233,38 @@
             panel6.Size = new Size(626, 574);
             panel6.TabIndex = 2;
             // 
+            // backRoundPanel3
+            // 
+            backRoundPanel3.Autofocus = false;
+            backRoundPanel3.BackColor = Color.FromArgb(50, 60, 69);
+            backRoundPanel3.BackgroundColor = Color.FromArgb(50, 60, 69);
+            backRoundPanel3.BorderColor = Color.PaleVioletRed;
+            backRoundPanel3.BorderRadius = 5;
+            backRoundPanel3.BorderSize = 0;
+            backRoundPanel3.Controls.Add(tableLayoutPanel3);
+            backRoundPanel3.Controls.Add(label4);
+            backRoundPanel3.Dock = DockStyle.Top;
+            backRoundPanel3.FocusBorderColor = Color.Gray;
+            backRoundPanel3.FocusBorderSize = 2;
+            backRoundPanel3.ForeColor = Color.White;
+            backRoundPanel3.Location = new Point(20, 320);
+            backRoundPanel3.Name = "backRoundPanel3";
+            backRoundPanel3.Size = new Size(606, 150);
+            backRoundPanel3.TabIndex = 10;
+            backRoundPanel3.TextColor = Color.White;
+            // 
             // tableLayoutPanel3
             // 
+            tableLayoutPanel3.BackColor = Color.FromArgb(50, 60, 69);
             tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.Controls.Add(label5, 0, 2);
-            tableLayoutPanel3.Controls.Add(label6, 1, 1);
+            tableLayoutPanel3.Controls.Add(labelStudents, 1, 1);
             tableLayoutPanel3.Controls.Add(label7, 0, 1);
             tableLayoutPanel3.Controls.Add(label8, 0, 0);
-            tableLayoutPanel3.Controls.Add(label9, 1, 0);
-            tableLayoutPanel3.Controls.Add(label10, 1, 2);
+            tableLayoutPanel3.Controls.Add(labelCourses, 1, 0);
+            tableLayoutPanel3.Controls.Add(labelTasks, 1, 2);
             tableLayoutPanel3.Dock = DockStyle.Top;
             tableLayoutPanel3.Location = new Point(0, 29);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -256,17 +292,17 @@
             label5.Text = "Tasks:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // labelStudents
             // 
-            label6.Dock = DockStyle.Fill;
-            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(203, 40);
-            label6.Name = "label6";
-            label6.Size = new Size(400, 40);
-            label6.TabIndex = 4;
-            label6.Text = "45";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
+            labelStudents.Dock = DockStyle.Fill;
+            labelStudents.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStudents.ForeColor = SystemColors.Control;
+            labelStudents.Location = new Point(203, 40);
+            labelStudents.Name = "labelStudents";
+            labelStudents.Size = new Size(400, 40);
+            labelStudents.TabIndex = 4;
+            labelStudents.Text = "45";
+            labelStudents.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -296,29 +332,29 @@
             label8.Text = "All Course:";
             label8.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // labelCourses
             // 
-            label9.Dock = DockStyle.Fill;
-            label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.ForeColor = SystemColors.Control;
-            label9.Location = new Point(203, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(400, 40);
-            label9.TabIndex = 1;
-            label9.Text = "2";
-            label9.TextAlign = ContentAlignment.MiddleLeft;
+            labelCourses.Dock = DockStyle.Fill;
+            labelCourses.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCourses.ForeColor = SystemColors.Control;
+            labelCourses.Location = new Point(203, 0);
+            labelCourses.Name = "labelCourses";
+            labelCourses.Size = new Size(400, 40);
+            labelCourses.TabIndex = 1;
+            labelCourses.Text = "2";
+            labelCourses.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label10
+            // labelTasks
             // 
-            label10.Dock = DockStyle.Fill;
-            label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.ForeColor = SystemColors.Control;
-            label10.Location = new Point(203, 80);
-            label10.Name = "label10";
-            label10.Size = new Size(400, 40);
-            label10.TabIndex = 2;
-            label10.Text = "8";
-            label10.TextAlign = ContentAlignment.MiddleLeft;
+            labelTasks.Dock = DockStyle.Fill;
+            labelTasks.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTasks.ForeColor = SystemColors.Control;
+            labelTasks.Location = new Point(203, 80);
+            labelTasks.Name = "labelTasks";
+            labelTasks.Size = new Size(400, 40);
+            labelTasks.TabIndex = 2;
+            labelTasks.Text = "8";
+            labelTasks.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -333,11 +369,44 @@
             label4.Text = "STATISTIC";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // panel4
+            // 
+            panel4.Dock = DockStyle.Top;
+            panel4.Location = new Point(20, 286);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(606, 34);
+            panel4.TabIndex = 11;
+            // 
+            // backRoundPanel2
+            // 
+            backRoundPanel2.Autofocus = false;
+            backRoundPanel2.BackColor = Color.FromArgb(50, 60, 69);
+            backRoundPanel2.BackgroundColor = Color.FromArgb(50, 60, 69);
+            backRoundPanel2.BorderColor = Color.PaleVioletRed;
+            backRoundPanel2.BorderRadius = 5;
+            backRoundPanel2.BorderSize = 0;
+            backRoundPanel2.Controls.Add(tableLayoutPanel2);
+            backRoundPanel2.Controls.Add(labelContactInfo);
+            backRoundPanel2.Dock = DockStyle.Top;
+            backRoundPanel2.FocusBorderColor = Color.Gray;
+            backRoundPanel2.FocusBorderSize = 2;
+            backRoundPanel2.ForeColor = Color.White;
+            backRoundPanel2.Location = new Point(20, 56);
+            backRoundPanel2.Margin = new Padding(3, 3, 3, 10);
+            backRoundPanel2.Name = "backRoundPanel2";
+            backRoundPanel2.Size = new Size(606, 230);
+            backRoundPanel2.TabIndex = 9;
+            backRoundPanel2.TextColor = Color.White;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(labelLastLoginDate, 1, 4);
+            tableLayoutPanel2.Controls.Add(label12, 0, 4);
+            tableLayoutPanel2.Controls.Add(labelGender, 1, 3);
+            tableLayoutPanel2.Controls.Add(label11, 0, 3);
             tableLayoutPanel2.Controls.Add(label3, 0, 2);
             tableLayoutPanel2.Controls.Add(labelPhone, 1, 1);
             tableLayoutPanel2.Controls.Add(label2, 0, 1);
@@ -354,8 +423,60 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(606, 121);
+            tableLayoutPanel2.Size = new Size(606, 201);
             tableLayoutPanel2.TabIndex = 3;
+            // 
+            // labelLastLoginDate
+            // 
+            labelLastLoginDate.Dock = DockStyle.Fill;
+            labelLastLoginDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelLastLoginDate.ForeColor = SystemColors.Control;
+            labelLastLoginDate.Location = new Point(203, 160);
+            labelLastLoginDate.Name = "labelLastLoginDate";
+            labelLastLoginDate.Size = new Size(400, 40);
+            labelLastLoginDate.TabIndex = 9;
+            labelLastLoginDate.Text = "label1";
+            labelLastLoginDate.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Dock = DockStyle.Fill;
+            label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = SystemColors.Control;
+            label12.Location = new Point(3, 160);
+            label12.Name = "label12";
+            label12.Padding = new Padding(10, 0, 0, 0);
+            label12.Size = new Size(194, 40);
+            label12.TabIndex = 8;
+            label12.Text = "Last seen:";
+            label12.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // labelGender
+            // 
+            labelGender.Dock = DockStyle.Fill;
+            labelGender.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelGender.ForeColor = SystemColors.Control;
+            labelGender.Location = new Point(203, 120);
+            labelGender.Name = "labelGender";
+            labelGender.Size = new Size(400, 40);
+            labelGender.TabIndex = 7;
+            labelGender.Text = "label1";
+            labelGender.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Dock = DockStyle.Fill;
+            label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = SystemColors.Control;
+            label11.Location = new Point(3, 120);
+            label11.Name = "label11";
+            label11.Padding = new Padding(10, 0, 0, 0);
+            label11.Size = new Size(194, 40);
+            label11.TabIndex = 6;
+            label11.Text = "Gender:";
+            label11.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -450,6 +571,7 @@
             // 
             // panelFLName
             // 
+            panelFLName.BackColor = Color.FromArgb(51, 61, 70);
             panelFLName.Controls.Add(labelFLName);
             panelFLName.Dock = DockStyle.Top;
             panelFLName.Location = new Point(20, 0);
@@ -459,6 +581,7 @@
             // 
             // labelFLName
             // 
+            labelFLName.BackColor = Color.FromArgb(40, 49, 60);
             labelFLName.Dock = DockStyle.Fill;
             labelFLName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelFLName.ForeColor = SystemColors.Control;
@@ -469,55 +592,6 @@
             labelFLName.TabIndex = 1;
             labelFLName.Text = "Nikita Savenko";
             labelFLName.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // backRoundPanel2
-            // 
-            backRoundPanel2.Autofocus = false;
-            backRoundPanel2.BackColor = Color.FromArgb(62, 72, 79);
-            backRoundPanel2.BackgroundColor = Color.FromArgb(62, 72, 79);
-            backRoundPanel2.BorderColor = Color.PaleVioletRed;
-            backRoundPanel2.BorderRadius = 0;
-            backRoundPanel2.BorderSize = 0;
-            backRoundPanel2.Controls.Add(tableLayoutPanel2);
-            backRoundPanel2.Controls.Add(labelContactInfo);
-            backRoundPanel2.Dock = DockStyle.Top;
-            backRoundPanel2.FocusBorderColor = Color.Gray;
-            backRoundPanel2.FocusBorderSize = 2;
-            backRoundPanel2.ForeColor = Color.White;
-            backRoundPanel2.Location = new Point(20, 56);
-            backRoundPanel2.Margin = new Padding(3, 3, 3, 10);
-            backRoundPanel2.Name = "backRoundPanel2";
-            backRoundPanel2.Size = new Size(606, 150);
-            backRoundPanel2.TabIndex = 9;
-            backRoundPanel2.TextColor = Color.White;
-            // 
-            // backRoundPanel3
-            // 
-            backRoundPanel3.Autofocus = false;
-            backRoundPanel3.BackColor = Color.FromArgb(62, 72, 79);
-            backRoundPanel3.BackgroundColor = Color.FromArgb(62, 72, 79);
-            backRoundPanel3.BorderColor = Color.PaleVioletRed;
-            backRoundPanel3.BorderRadius = 0;
-            backRoundPanel3.BorderSize = 0;
-            backRoundPanel3.Controls.Add(tableLayoutPanel3);
-            backRoundPanel3.Controls.Add(label4);
-            backRoundPanel3.Dock = DockStyle.Top;
-            backRoundPanel3.FocusBorderColor = Color.Gray;
-            backRoundPanel3.FocusBorderSize = 2;
-            backRoundPanel3.ForeColor = Color.White;
-            backRoundPanel3.Location = new Point(20, 240);
-            backRoundPanel3.Name = "backRoundPanel3";
-            backRoundPanel3.Size = new Size(606, 169);
-            backRoundPanel3.TabIndex = 10;
-            backRoundPanel3.TextColor = Color.White;
-            // 
-            // panel4
-            // 
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(20, 206);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(606, 34);
-            panel4.TabIndex = 11;
             // 
             // PanelMainBlock_UserPage
             // 
@@ -536,13 +610,13 @@
             backRoundPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxIcon).EndInit();
             panel6.ResumeLayout(false);
+            backRoundPanel3.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            backRoundPanel2.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panelFLName.ResumeLayout(false);
-            backRoundPanel2.ResumeLayout(false);
-            backRoundPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -571,14 +645,19 @@
         private Label label3;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label5;
-        private Label label6;
+        private Label labelStudents;
         private Label label7;
         private Label label8;
-        private Label label9;
-        private Label label10;
+        private Label labelCourses;
+        private Label labelTasks;
         private Label label4;
         private PanelComponents.BackRoundPanel backRoundPanel3;
         private Panel panel4;
         private PanelComponents.BackRoundPanel backRoundPanel2;
+        private Label labelGender;
+        private Label label11;
+        private Label labelLastLoginDate;
+        private Label label12;
+        private Panel panel7;
     }
 }

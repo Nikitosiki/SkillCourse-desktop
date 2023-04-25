@@ -41,9 +41,20 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse).ToList();
         }
 
+        public List<Task> GetAllMyTasks()
+        {
+            return DataBase.Tasks.Where(task => MyCourses.Any(course => course.IdCourse == task.IdCourse)).ToList();
+        }
+
         public List<Student> GetStudents(Course course)
         {
             IEnumerable<int> subscriptionIds = DataBase.Subscriptions.Where(sub => sub.IdCourse == course.IdCourse).Select(sub => sub.IdStudent);
+            return DataBase.Users.Students().Where(user => subscriptionIds.Contains(user.IdUser)).ToList();
+        }
+
+        public List<Student> GetAllStudents()
+        {
+            IEnumerable<int> subscriptionIds = DataBase.Subscriptions.Where(sub => MyCourses.Any(course => course.IdCourse == sub.IdCourse)).Select(sub => sub.IdStudent);
             return DataBase.Users.Students().Where(user => subscriptionIds.Contains(user.IdUser)).ToList();
         }
 

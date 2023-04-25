@@ -103,5 +103,17 @@ namespace SkillCourse.DataBaseStructure.serialize {
                 return ((string)(this["TeatherCollectionSerializationPath"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("./image/Users")]
+        public string UserImages {
+            get {
+                return ((string)(this["UserImages"]));
+            }
+            set {
+                this["UserImages"] = value;
+            }
+        }
     }
 }

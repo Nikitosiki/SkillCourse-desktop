@@ -1,4 +1,5 @@
 ﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.handlers;
 using SkillCourse.Panels.MainBlock;
 using SkillCourse.Panels.MainBlock.Tasks;
 using System;
@@ -32,7 +33,8 @@ namespace SkillCourse.PanelComponents.UsersPage
             if (user.Equals(AccountHandler.Instance.UserLog))
                 labelLast.Text = "Online";
             else
-                labelLast.Text = $"Last: {user.LastLoginDate.ToString("HH:mm d MMMM yyyy 'г.'")}";
+                labelLast.Text = DateHandler.GetTimeDifferenceString(user.LastLoginDate);
+                //labelLast.Text = $"Last: {user.LastLoginDate.ToString("HH:mm d MMMM yyyy 'г.'")}";
 
             AddMouseHandlers(this);
         }
