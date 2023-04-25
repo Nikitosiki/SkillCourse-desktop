@@ -230,7 +230,7 @@ namespace SkillCourse.DataBaseStructure
                 if (DataBase.Tasks.Any(tas => tas.IdTask == task.IdTask))
                 {
                     // Проверяем, что нету ли такого ответа
-                    if (!DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask))
+                    if (!DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask && ans.IdUser == this.IdUser))
                     {
                         AnswerTask answer = new AnswerTask(StateTask.Done, null, answerText, task.IdTask, this.IdUser);
                         DataBase.AnswerTasks.Add(answer);
@@ -240,7 +240,7 @@ namespace SkillCourse.DataBaseStructure
                     }
 
                     // Проверяем, если есть такой ответ, может он NotDone, и его можно сдать
-                    if (DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask && ans.State == StateTask.NotDone))
+                    if (DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask && ans.IdUser == this.IdUser && ans.State == StateTask.NotDone))
                     {
                         AnswerTask answer = DataBase.AnswerTasks.Where(ans => ans.IdTask == task.IdTask).Last();
                         answer.State = StateTask.Done;
