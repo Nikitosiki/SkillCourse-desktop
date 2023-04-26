@@ -134,10 +134,9 @@ namespace SkillCourse.Panels.MainBlock
 
         private UserControl CreateCourse(Course course)
         {
+            // не зарег пользователь не имеет подписок, и не может попасть на страницу подписок
             if (handlerStud == null)
-            {
-                return new Component_BriefСourse_Base(course);
-            }
+                VisibleButSub = false;
 
             //Если пользователь на странице подписок, с возможностью зайти на курс
             if (VisibleButView && VisibleButSub)

@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using SkillCourse.DataBaseStructure;
+using SkillCourse.DataBaseStructure.types;
 using SkillCourse.PanelComponents;
 using SkillCourse.PanelComponents.CoursePage;
 using SkillCourse.PanelComponents.UsersPage;
+using SkillCourse.Panels.MainBlock.Notification;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +27,7 @@ namespace SkillCourse.Panels.MainBlock
         private User? TeacherThis { get; set; }
 
 
-        private Student handler = (Student)AccountHandler.Instance.UserLog;
+        private User user = AccountHandler.Instance.UserLog;
 
         private List<UserControl> ListPanelStreams { get; set; } = new List<UserControl>();
         private List<UserControl> ListPanelClasswork { get; set; } = new List<UserControl>();
@@ -41,12 +43,31 @@ namespace SkillCourse.Panels.MainBlock
             textBoxDescription.Text = course.Description;
             pictureBoxImage.Image = Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image;
 
-            UpdateThisList(course);
-            AddStreamPanel();
+            LoatPageForUserType(course);
+        }
+
+        private void LoatPageForUserType(Course course)
+        {
+            if (user != null && user.UserType == UserType.Student)
+            {
+                UpdateThisList(course);
+                AddStreamPanel();
+                return;
+            }
+            else
+            {
+                tableLayoutPanel5.Visible = false;
+
+                UserControl message = new PanelMainBlock_MessageText("You are not a participant in the course!");
+                message.Dock = DockStyle.Fill;
+                this.panelTasks.Controls.Add(message);
+            }
         }
 
         private void UpdateThisList(Course course)
         {
+            Student handler = (Student)user;
+
             StreamTasks = handler.GetAllTasks(course);
             ClassworkTasks = handler.GetOnlyTask(course);
             Students = handler.GetStudents(course);
@@ -101,7 +122,7 @@ namespace SkillCourse.Panels.MainBlock
 
             //--- Студенты
             if (Students.Any())
-            ListPanelPeople.Add(new Component_UserTextHeader("All Users", Students.Count));
+                ListPanelPeople.Add(new Component_UserTextHeader("All Users", Students.Count));
             foreach (Student stud in Students)
             {
                 ListPanelPeople.Add(new Component_UserText(stud));

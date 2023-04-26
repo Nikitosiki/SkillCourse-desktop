@@ -48,7 +48,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
         {
             if (userType == null)
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, false, false), PanelParent);
+                NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, true, false), PanelParent);
                 UpdateStateButtons("Courses");
             }
 
@@ -102,7 +102,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("courses_wght400_GRAD0_opsz48_32") as Image,
                 true, () =>
                 {
-                    NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, false, false), PanelParent);
+                    NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, true, false), PanelParent);
                     UpdateStateButtons("Courses");
                 }, null));
 
