@@ -10,6 +10,16 @@ namespace SkillCourse
     {
         public static Panel MainParentPanel { get; private set; }
 
+        public static void clearPanel(Panel panel)
+        {
+            panel.Controls.Clear();
+        }
+
+        public static void clearPanel()
+        {
+            clearPanel(MainParentPanel);
+        }
+
         public static void setMainPanel(Panel panel)
         {
             if (MainParentPanel == null)

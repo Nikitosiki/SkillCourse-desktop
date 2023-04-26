@@ -115,7 +115,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32") as Image,
                 false, () =>
                 {
-                    NavigatePages.OpenNewPage(new PanelMainBlock_Teachers(), PanelParent);
+                    NavigatePages.OpenNewPage(new PanelMainBlock_AllUsers(DataBaseStructure.types.UserType.Teacher), PanelParent);
                     UpdateStateButtons("Teachers");
                 }, null));
 
@@ -252,7 +252,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
                 Properties.Resources.ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32") as Image,
                 false, () =>
                 {
-                    NavigatePages.OpenNewPage(new PanelMainBlock_Teachers(), PanelParent);
+                    NavigatePages.OpenNewPage(new PanelMainBlock_AllUsers(DataBaseStructure.types.UserType.Teacher), PanelParent);
                     UpdateStateButtons("Teachers");
                 }, null));
 
@@ -277,8 +277,14 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultCoursesDopButtonPage = () =>
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, true, false), PanelParent);
-                UpdateStateButtons("Courses", "Created");
+                NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented());
+                UpdateStateButtons("Courses", "My");
+            };
+
+            Action сreate_CoursesDopButtonPage = () =>
+            {
+                NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented());
+                UpdateStateButtons("Courses", "Create");
             };
 
 
@@ -291,8 +297,9 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             List<Component_NavigationDopBut> CourseDopButtons = new List<Component_NavigationDopBut>()
             {
+                new Component_NavigationDopBut("My", defaultCoursesDopButtonPage),
                 new Component_NavigationDopBut("Public", public_CoursesDopButtonPage),
-                new Component_NavigationDopBut("Created", defaultCoursesDopButtonPage)
+                new Component_NavigationDopBut("Create", сreate_CoursesDopButtonPage)
             };
             CourseDopButtons.Reverse();
 
@@ -321,7 +328,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
             Action defaultCertificatesDopButtonPage = () =>
             {
                 NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), PanelParent);
-                UpdateStateButtons("Certificates", "All");
+                UpdateStateButtons("Certificates", "Issued");
             };
 
             Action waiting_CertificatesDopButtonPage = () =>
@@ -332,14 +339,14 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action check_CertificatesDopButtonPage = () =>
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), PanelParent);
+                NavigatePages.OpenNewPage(new PanelMainBlock_FindCertificate(), PanelParent);
                 UpdateStateButtons("Certificates", "Check");
             };
 
 
             List<Component_NavigationDopBut> CertificatesDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All", defaultCertificatesDopButtonPage),
+                new Component_NavigationDopBut("Issued", defaultCertificatesDopButtonPage),
                 new Component_NavigationDopBut("Waiting", waiting_CertificatesDopButtonPage),
                 new Component_NavigationDopBut("Check", check_CertificatesDopButtonPage)
             };
@@ -356,21 +363,22 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultStudentsDopButtonPage = () =>
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), PanelParent);
+                Teather handler = (Teather)AccountHandler.Instance.UserLog;
+                NavigatePages.OpenNewPage(new PanelMainBlock_AllUsers(handler.GetAllStudents()), PanelParent);
                 UpdateStateButtons("Students", "My");
             };
 
             Action all_StudentsDopButtonPage = () =>
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), PanelParent);
+                NavigatePages.OpenNewPage(new PanelMainBlock_AllUsers(DataBaseStructure.types.UserType.Student), PanelParent);
                 UpdateStateButtons("Students", "All");
             };
 
 
             List<Component_NavigationDopBut> StudentsDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("All", all_StudentsDopButtonPage),
-                new Component_NavigationDopBut("My", defaultStudentsDopButtonPage)
+                new Component_NavigationDopBut("My", defaultStudentsDopButtonPage),
+                new Component_NavigationDopBut("All", all_StudentsDopButtonPage)
             };
             StudentsDopButtons.Reverse();
 

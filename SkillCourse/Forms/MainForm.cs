@@ -84,6 +84,7 @@ namespace SkillCourse
 
         public void updateUser(DataBaseStructure.User? user)
         {
+            NavigatePages.clearPanel();
             if (user == null)
             {
                 //Все настройки для Не авторизированного пользователя

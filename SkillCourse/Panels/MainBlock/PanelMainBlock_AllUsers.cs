@@ -1,4 +1,5 @@
 ﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.DataBaseStructure.types;
 using SkillCourse.PanelComponents.UsersPage;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,36 @@ using System.Windows.Forms;
 
 namespace SkillCourse.Panels.MainBlock
 {
-    public partial class PanelMainBlock_Teachers : UserControl
+    public partial class PanelMainBlock_AllUsers : UserControl
     {
-        private List<User> allTeachers;
-        private List<UserControl> ListTeacherPanels { get; set; } = new List<UserControl>();
-        public PanelMainBlock_Teachers()
+        private List<User> allUsers;
+        private List<UserControl> ListUserPanels { get; set; } = new List<UserControl>();
+        public PanelMainBlock_AllUsers(UserType userType)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            Name += userType.ToString();
 
-            allTeachers = SkillCourseDB.Instance.Users.FindAll(user => user.UserType == DataBaseStructure.types.UserType.Teacher);
+            if (userType == UserType.Teacher)
+                allUsers = SkillCourseDB.Instance.Users.FindAll(user => user.UserType == DataBaseStructure.types.UserType.Teacher);
+            else
+                allUsers = SkillCourseDB.Instance.Users.FindAll(user => user.UserType == DataBaseStructure.types.UserType.Student);
         }
+
+        public PanelMainBlock_AllUsers(List<User> allUsers)
+        {
+            InitializeComponent();
+            Dock = DockStyle.Fill;
+            Name += allUsers.Count.ToString();
+
+            this.allUsers = allUsers;
+        }
+
+        public PanelMainBlock_AllUsers(List<Student> allUsers) : this(allUsers.Cast<User>().ToList())
+        { }
+
+        public PanelMainBlock_AllUsers(List<Teather> allUsers) : this(allUsers.Cast<User>().ToList())
+        { }
 
         private async void PanelMainBlock_Teachers_Load(object sender, EventArgs e)
         {
@@ -31,11 +51,11 @@ namespace SkillCourse.Panels.MainBlock
             // Вызываем метод, который будет добавлять элементы в фоновом потоке
             await System.Threading.Tasks.Task.Run(() =>
             {
-                foreach (User teacher in allTeachers)
+                foreach (User teacher in allUsers)
                 {
                     UserControl userControl = new Component_UserText(teacher);
                     userControl.Dock = DockStyle.Top;
-                    ListTeacherPanels.Add(userControl);
+                    ListUserPanels.Add(userControl);
 
                     // Используем метод Invoke, чтобы добавить элемент в контексте потока пользовательского интерфейса
                     panelMainTeachers.Invoke((MethodInvoker)delegate
@@ -50,11 +70,11 @@ namespace SkillCourse.Panels.MainBlock
         {
             if (textBoxSearcher.Texts.Trim() == "")
             {
-                ReplaceCoursesOnForm(panelMainTeachers, ListTeacherPanels.ToArray());
+                ReplaceCoursesOnForm(panelMainTeachers, ListUserPanels.ToArray());
             }
             else
             {
-                ReplaceCoursesOnForm(panelMainTeachers, ListTeacherPanels.FindAll(
+                ReplaceCoursesOnForm(panelMainTeachers, ListUserPanels.FindAll(
                     pan => pan.Name.Contains(textBoxSearcher.Texts, StringComparison.OrdinalIgnoreCase)).ToArray());
 
             }

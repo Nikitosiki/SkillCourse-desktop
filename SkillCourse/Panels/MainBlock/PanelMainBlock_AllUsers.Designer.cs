@@ -1,6 +1,6 @@
 ﻿namespace SkillCourse.Panels.MainBlock
 {
-    partial class PanelMainBlock_Teachers
+    partial class PanelMainBlock_AllUsers
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
