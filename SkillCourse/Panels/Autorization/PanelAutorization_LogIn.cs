@@ -23,17 +23,14 @@ namespace SkillCourse.Panels
 
         public PanelAutorization_LogIn(Form parentForm)
         {
+            Dock = DockStyle.Fill;
             this.parentForm = parentForm;
             InitializeComponent();
             ResetLabelErrorMes();
         }
 
-        public PanelAutorization_LogIn(Form parentForm, string userEmail)
+        public PanelAutorization_LogIn(Form parentForm, string userEmail) : this(parentForm)
         {
-            this.parentForm = parentForm;
-            InitializeComponent();
-            ResetLabelErrorMes();
-
             newGoogleTextBox3.Text = userEmail;
 
             // Установить курсор в конец поля ввода

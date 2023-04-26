@@ -30,41 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authorization));
             panel_Header = new Panel();
-            newButton_LogIn = new yt_DesignUI.NewButton();
+            tableLayoutPanel1 = new TableLayoutPanel();
             newButton_SingUp = new yt_DesignUI.NewButton();
+            newButton_LogIn = new yt_DesignUI.NewButton();
             panel_Main = new Panel();
+            panel1 = new Panel();
+            buttonExit = new Button();
             panel_Header.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel_Header
             // 
-            panel_Header.Controls.Add(newButton_LogIn);
-            panel_Header.Controls.Add(newButton_SingUp);
+            panel_Header.Controls.Add(tableLayoutPanel1);
             resources.ApplyResources(panel_Header, "panel_Header");
             panel_Header.Name = "panel_Header";
             // 
-            // newButton_LogIn
+            // tableLayoutPanel1
             // 
-            newButton_LogIn.BackColor = Color.FromArgb(80, 175, 138);
-            newButton_LogIn.BackColorAdditional = Color.Gray;
-            newButton_LogIn.BackColorGradientEnabled = false;
-            newButton_LogIn.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            newButton_LogIn.BorderColor = Color.FromArgb(80, 175, 138);
-            newButton_LogIn.BorderColorEnabled = false;
-            newButton_LogIn.BorderColorOnHover = Color.FromArgb(80, 175, 138);
-            newButton_LogIn.BorderColorOnHoverEnabled = false;
-            resources.ApplyResources(newButton_LogIn, "newButton_LogIn");
-            newButton_LogIn.ForeColor = Color.White;
-            newButton_LogIn.Name = "newButton_LogIn";
-            newButton_LogIn.RippleColor = Color.Black;
-            newButton_LogIn.RoundingEnable = false;
-            newButton_LogIn.TextHover = null;
-            newButton_LogIn.UseDownPressEffectOnClick = false;
-            newButton_LogIn.UseMainGradientEffect = false;
-            newButton_LogIn.UseRippleEffect = true;
-            newButton_LogIn.UseVisualStyleBackColor = false;
-            newButton_LogIn.UseZoomEffectOnHover = false;
-            newButton_LogIn.Click += newButton_LogIn_Click;
+            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
+            tableLayoutPanel1.Controls.Add(newButton_SingUp, 3, 1);
+            tableLayoutPanel1.Controls.Add(newButton_LogIn, 1, 1);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // newButton_SingUp
             // 
@@ -89,10 +77,47 @@
             newButton_SingUp.UseZoomEffectOnHover = false;
             newButton_SingUp.Click += newButton_SingUp_Click;
             // 
+            // newButton_LogIn
+            // 
+            newButton_LogIn.BackColor = Color.FromArgb(80, 175, 138);
+            newButton_LogIn.BackColorAdditional = Color.Gray;
+            newButton_LogIn.BackColorGradientEnabled = false;
+            newButton_LogIn.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            newButton_LogIn.BorderColor = Color.FromArgb(80, 175, 138);
+            newButton_LogIn.BorderColorEnabled = false;
+            newButton_LogIn.BorderColorOnHover = Color.FromArgb(80, 175, 138);
+            newButton_LogIn.BorderColorOnHoverEnabled = false;
+            resources.ApplyResources(newButton_LogIn, "newButton_LogIn");
+            newButton_LogIn.ForeColor = Color.White;
+            newButton_LogIn.Name = "newButton_LogIn";
+            newButton_LogIn.RippleColor = Color.Black;
+            newButton_LogIn.RoundingEnable = false;
+            newButton_LogIn.TextHover = null;
+            newButton_LogIn.UseDownPressEffectOnClick = false;
+            newButton_LogIn.UseMainGradientEffect = false;
+            newButton_LogIn.UseRippleEffect = true;
+            newButton_LogIn.UseVisualStyleBackColor = false;
+            newButton_LogIn.UseZoomEffectOnHover = false;
+            newButton_LogIn.Click += newButton_LogIn_Click;
+            // 
             // panel_Main
             // 
             resources.ApplyResources(panel_Main, "panel_Main");
             panel_Main.Name = "panel_Main";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(buttonExit);
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
+            // 
+            // buttonExit
+            // 
+            buttonExit.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(buttonExit, "buttonExit");
+            buttonExit.Name = "buttonExit";
+            buttonExit.UseVisualStyleBackColor = true;
+            buttonExit.Click += buttonExit_Click;
             // 
             // Authorization
             // 
@@ -101,10 +126,13 @@
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(panel_Main);
             Controls.Add(panel_Header);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Authorization";
             TopMost = true;
             panel_Header.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -114,5 +142,8 @@
         private Panel panel_Main;
         private yt_DesignUI.NewButton newButton_SingUp;
         private yt_DesignUI.NewButton newButton_LogIn;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
+        private Button buttonExit;
     }
 }

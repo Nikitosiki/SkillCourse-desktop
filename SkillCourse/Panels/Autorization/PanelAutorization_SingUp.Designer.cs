@@ -41,6 +41,10 @@
             labelMesError = new Label();
             label3 = new Label();
             DateTimeBirthD = new PanelComponents.CustomDateTimePicker();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // newButtonSingUp
@@ -55,7 +59,7 @@
             newButtonSingUp.BorderColorOnHoverEnabled = false;
             newButtonSingUp.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
             newButtonSingUp.ForeColor = Color.White;
-            newButtonSingUp.Location = new Point(44, 417);
+            newButtonSingUp.Location = new Point(42, 408);
             newButtonSingUp.Name = "newButtonSingUp";
             newButtonSingUp.RippleColor = Color.Black;
             newButtonSingUp.RoundingEnable = false;
@@ -78,7 +82,7 @@
             TextBoxPassword.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxPassword.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxPassword.ForeColor = SystemColors.ControlLight;
-            TextBoxPassword.Location = new Point(44, 224);
+            TextBoxPassword.Location = new Point(0, 211);
             TextBoxPassword.Name = "TextBoxPassword";
             TextBoxPassword.SelectionStart = 0;
             TextBoxPassword.Size = new Size(462, 44);
@@ -96,7 +100,7 @@
             TextBoxEmail.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxEmail.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxEmail.ForeColor = SystemColors.ControlLight;
-            TextBoxEmail.Location = new Point(44, 165);
+            TextBoxEmail.Location = new Point(0, 152);
             TextBoxEmail.Name = "TextBoxEmail";
             TextBoxEmail.SelectionStart = 0;
             TextBoxEmail.Size = new Size(462, 44);
@@ -114,7 +118,7 @@
             TextBoxLastName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxLastName.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxLastName.ForeColor = SystemColors.ControlLight;
-            TextBoxLastName.Location = new Point(287, 90);
+            TextBoxLastName.Location = new Point(243, 85);
             TextBoxLastName.Name = "TextBoxLastName";
             TextBoxLastName.SelectionStart = 0;
             TextBoxLastName.Size = new Size(219, 50);
@@ -132,7 +136,7 @@
             TextBoxFirstName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxFirstName.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxFirstName.ForeColor = SystemColors.ControlLight;
-            TextBoxFirstName.Location = new Point(44, 90);
+            TextBoxFirstName.Location = new Point(0, 85);
             TextBoxFirstName.Name = "TextBoxFirstName";
             TextBoxFirstName.SelectionStart = 0;
             TextBoxFirstName.Size = new Size(218, 50);
@@ -147,7 +151,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(214, 26);
+            label1.Location = new Point(174, 21);
             label1.Name = "label1";
             label1.Size = new Size(114, 38);
             label1.TabIndex = 17;
@@ -158,7 +162,7 @@
             linkLabel1.ActiveLinkColor = Color.FromArgb(102, 104, 197);
             linkLabel1.AutoSize = true;
             linkLabel1.LinkColor = Color.FromArgb(102, 104, 197);
-            linkLabel1.Location = new Point(364, 394);
+            linkLabel1.Location = new Point(320, 381);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(142, 20);
             linkLabel1.TabIndex = 24;
@@ -172,7 +176,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(127, 140, 141);
-            label2.Location = new Point(55, 359);
+            label2.Location = new Point(11, 346);
             label2.Name = "label2";
             label2.Size = new Size(167, 23);
             label2.TabIndex = 25;
@@ -183,7 +187,7 @@
             newRadioButtonT.BackColor = Color.White;
             newRadioButtonT.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
             newRadioButtonT.ForeColor = SystemColors.ControlLight;
-            newRadioButtonT.Location = new Point(240, 359);
+            newRadioButtonT.Location = new Point(196, 346);
             newRadioButtonT.Name = "newRadioButtonT";
             newRadioButtonT.Size = new Size(103, 23);
             newRadioButtonT.TabIndex = 26;
@@ -197,7 +201,7 @@
             newRadioButtonS.Checked = true;
             newRadioButtonS.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
             newRadioButtonS.ForeColor = SystemColors.ControlLight;
-            newRadioButtonS.Location = new Point(355, 359);
+            newRadioButtonS.Location = new Point(311, 346);
             newRadioButtonS.Name = "newRadioButtonS";
             newRadioButtonS.Size = new Size(103, 23);
             newRadioButtonS.TabIndex = 27;
@@ -211,7 +215,7 @@
             labelMesError.AutoSize = true;
             labelMesError.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelMesError.ForeColor = Color.Brown;
-            labelMesError.Location = new Point(55, 394);
+            labelMesError.Location = new Point(11, 381);
             labelMesError.Name = "labelMesError";
             labelMesError.Size = new Size(75, 18);
             labelMesError.TabIndex = 28;
@@ -223,7 +227,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(127, 140, 141);
-            label3.Location = new Point(44, 281);
+            label3.Location = new Point(0, 268);
             label3.Name = "label3";
             label3.Size = new Size(100, 20);
             label3.TabIndex = 29;
@@ -235,7 +239,7 @@
             DateTimeBirthD.BorderSize = 1;
             DateTimeBirthD.CalendarMonthBackground = Color.FromArgb(127, 140, 141);
             DateTimeBirthD.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            DateTimeBirthD.Location = new Point(44, 302);
+            DateTimeBirthD.Location = new Point(0, 289);
             DateTimeBirthD.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             DateTimeBirthD.MinimumSize = new Size(0, 35);
             DateTimeBirthD.Name = "DateTimeBirthD";
@@ -244,29 +248,61 @@
             DateTimeBirthD.TabIndex = 30;
             DateTimeBirthD.TextColor = Color.FromArgb(127, 140, 141);
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel1.Controls.Add(newButtonSingUp, 1, 2);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.Size = new Size(550, 500);
+            tableLayoutPanel1.TabIndex = 31;
+            // 
+            // panel1
+            // 
+            panel1.AutoSize = true;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(DateTimeBirthD);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(labelMesError);
+            panel1.Controls.Add(TextBoxFirstName);
+            panel1.Controls.Add(newRadioButtonS);
+            panel1.Controls.Add(TextBoxLastName);
+            panel1.Controls.Add(newRadioButtonT);
+            panel1.Controls.Add(TextBoxEmail);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(TextBoxPassword);
+            panel1.Controls.Add(linkLabel1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(42, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(465, 401);
+            panel1.TabIndex = 0;
+            // 
             // PanelAutorization_SingUp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.FromArgb(40, 49, 60);
-            Controls.Add(DateTimeBirthD);
-            Controls.Add(labelMesError);
-            Controls.Add(newRadioButtonS);
-            Controls.Add(newRadioButtonT);
-            Controls.Add(label2);
-            Controls.Add(linkLabel1);
-            Controls.Add(newButtonSingUp);
-            Controls.Add(TextBoxPassword);
-            Controls.Add(TextBoxEmail);
-            Controls.Add(TextBoxLastName);
-            Controls.Add(TextBoxFirstName);
-            Controls.Add(label1);
-            Controls.Add(label3);
+            Controls.Add(tableLayoutPanel1);
             DoubleBuffered = true;
             Name = "PanelAutorization_SingUp";
             Size = new Size(550, 500);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -285,5 +321,7 @@
         private Label labelMesError;
         private Label label3;
         private PanelComponents.CustomDateTimePicker DateTimeBirthD;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
     }
 }

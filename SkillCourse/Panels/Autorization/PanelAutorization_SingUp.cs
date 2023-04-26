@@ -33,6 +33,7 @@ namespace SkillCourse.Panels
 
         public PanelAutorization_SingUp(Form parentForm)
         {
+            Dock = DockStyle.Fill;
             this.parentForm = parentForm;
             InitializeComponent();
 

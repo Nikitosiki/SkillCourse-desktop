@@ -15,7 +15,7 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_EditProfile : UserControl
     {
-        private Student handler = (Student)AccountHandler.Instance.UserLog;
+        private User handler = AccountHandler.Instance.UserLog;
 
         public PanelMainBlock_EditProfile()
         {

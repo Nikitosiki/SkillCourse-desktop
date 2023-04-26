@@ -86,5 +86,10 @@ namespace SkillCourse
                     break;
             }
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
