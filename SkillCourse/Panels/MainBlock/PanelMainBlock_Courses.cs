@@ -21,7 +21,7 @@ namespace SkillCourse.Panels.MainBlock
 {
     public partial class PanelMainBlock_Courses : UserControl
     {
-        public User handlerStud = AccountHandler.Instance.UserLog;
+        public User handlerUser = AccountHandler.Instance.UserLog;
 
         private List<Course> thisCourses;
         private List<UserControl> ListCoursePanels { get; set; } = new List<UserControl>();
@@ -37,15 +37,15 @@ namespace SkillCourse.Panels.MainBlock
             InitializeComponent();
             Dock = DockStyle.Fill;
             if (stateView == ViewCourseState.My) myCoursePage = true;
-            thisCourses = myCoursePage ? ((Student)handlerStud).CoursesSubscribed : SkillCourseDB.Instance.Courses;
             VisibleButView = buttonView;
             VisibleButSub = buttonSub;
 
             string view = VisibleButView ? "View" : "";
             string sub = VisibleButSub ? "Sub" : "";
 
-            Name = $"{Name} {VisibleButView} {VisibleButSub} {ViewCourseState.My}";
+            Name = NameThisPage() + stateView.ToString();
 
+            thisCourses = CustomizationForRole();
             TuneComboBox();
         }
 
@@ -63,15 +63,35 @@ namespace SkillCourse.Panels.MainBlock
             string view = VisibleButView ? "View" : "";
             string sub = VisibleButSub ? "Sub" : "";
 
-            Name = $"{Name} {VisibleButView} {VisibleButSub} {teacher}";
+            Name = NameThisPage() + teacher.FirstName + teacher.LastName;
 
             TuneComboBox();
+        }
+
+        private string NameThisPage()
+        {
+            if (handlerUser == null)
+                return $"{Name} {VisibleButView} {VisibleButSub} null";
+            else
+                return $"{Name} {VisibleButView} {VisibleButSub} {handlerUser.UserType}";
+        }
+
+        private List<Course> CustomizationForRole()
+        {
+            //Настраиваем курсы для разных ролей
+            if (handlerUser == null)
+                return SkillCourseDB.Instance.Courses;
+
+            if (handlerUser.UserType == DataBaseStructure.types.UserType.Student)
+                return myCoursePage ? ((Student)handlerUser).CoursesSubscribed : SkillCourseDB.Instance.Courses;
+            else
+                return myCoursePage ? ((Teather)handlerUser).MyCourses : SkillCourseDB.Instance.Courses;
         }
 
         private void TuneComboBox()
         {
             //Если пользователь не авторизовался, сортировать список он не может
-            if (handlerStud == null)
+            if (handlerUser == null)
             {
                 customComboBox1.Visible = false;
                 return;
@@ -135,9 +155,24 @@ namespace SkillCourse.Panels.MainBlock
         private UserControl CreateCourse(Course course)
         {
             // не зарег пользователь не имеет подписок, и не может попасть на страницу подписок
-            if (handlerStud == null)
-                VisibleButSub = false;
+            if (handlerUser == null)
+                return CreateCourseForGuest(course);
 
+            if (handlerUser.UserType == DataBaseStructure.types.UserType.Student)
+            {
+                return CreateCourseForStudent(course);
+            }
+
+            if (handlerUser.UserType == DataBaseStructure.types.UserType.Teacher)
+            {
+                return CreateCourseForTeacher(course);
+            }
+
+            return new Component_BriefСourse_Base(course);
+        }
+
+        private UserControl CreateCourseForStudent(Course course)
+        {
             //Если пользователь на странице подписок, с возможностью зайти на курс
             if (VisibleButView && VisibleButSub)
             {
@@ -146,12 +181,12 @@ namespace SkillCourse.Panels.MainBlock
                     () =>
                     {
                         NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
-                        if (!((Student)handlerStud).SubscripToCourse(course))
+                        if (!((Student)handlerUser).SubscripToCourse(course))
                             MessageBox.Show("Failed to subscribe, please try again later.");
                     },
                     () =>
                     {
-                        if (!((Student)handlerStud).UnSubscripToCourse(course))
+                        if (!((Student)handlerUser).UnSubscripToCourse(course))
                             MessageBox.Show("Failed to unsubscribe, please try again later.");
                     });
             }
@@ -164,18 +199,34 @@ namespace SkillCourse.Panels.MainBlock
                     () =>
                     {
                         NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
-                        if (!((Student)handlerStud).SubscripToCourse(course))
+                        if (!((Student)handlerUser).SubscripToCourse(course))
                             MessageBox.Show("Failed to subscribe, please try again later.");
                     },
                     () =>
                     {
-                        if (!((Student)handlerStud).UnSubscripToCourse(course))
+                        if (!((Student)handlerUser).UnSubscripToCourse(course))
                             MessageBox.Show("Failed to unsubscribe, please try again later.");
                     });
             }
             return new Component_BriefСourse_Base(course);
-
         }
+
+        private UserControl CreateCourseForTeacher(Course course)
+        {
+            if (VisibleButView)
+                return new Component_BriefСourse_View(course, () => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent));
+            else
+                return new Component_BriefСourse_Base(course);
+        }
+
+        private UserControl CreateCourseForGuest(Course course)
+        {
+            if (VisibleButView)
+                return new Component_BriefСourse_View(course, () => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent));
+            else
+                return new Component_BriefСourse_Base(course);
+        }
+
         #endregion
 
         #region Search/Sort

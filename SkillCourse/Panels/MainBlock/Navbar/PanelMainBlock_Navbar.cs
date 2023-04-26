@@ -60,8 +60,8 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             if (userType == DataBaseStructure.types.UserType.Teacher)
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, true, false), PanelParent);
-                UpdateStateButtons("Courses", "Created");
+                NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.My, true, false), PanelParent);
+                UpdateStateButtons("Courses", "My");
             }
         }
 
@@ -277,7 +277,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action defaultCoursesDopButtonPage = () =>
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented());
+                NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.My, true, false), PanelParent);
                 UpdateStateButtons("Courses", "My");
             };
 
