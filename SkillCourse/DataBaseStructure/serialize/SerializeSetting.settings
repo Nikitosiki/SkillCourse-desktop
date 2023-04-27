@@ -30,7 +30,16 @@
       <Value Profile="(Default)">./serializations/collectionTeather</Value>
     </Setting>
     <Setting Name="UserImages" Type="System.String" Scope="User">
-      <Value Profile="(Default)">./image/Users</Value>
+      <Value Profile="(Default)">./image/Users/</Value>
+    </Setting>
+    <Setting Name="CourseImage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">./image/Courses/</Value>
+    </Setting>
+    <Setting Name="UserImagesDefault" Type="System.String" Scope="User">
+      <Value Profile="(Default)">./image/Users/default_v1.1.png</Value>
+    </Setting>
+    <Setting Name="CourseImageDefault" Type="System.String" Scope="User">
+      <Value Profile="(Default)">./image/Courses/default_563x391.png</Value>
     </Setting>
   </Settings>
 </SettingsFile>

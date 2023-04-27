@@ -283,7 +283,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             Action сreate_CoursesDopButtonPage = () =>
             {
-                NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented());
+                NavigatePages.OpenNewPage(new PanelMainBlock_CreateCourse());
                 UpdateStateButtons("Courses", "Create");
             };
 

@@ -127,7 +127,7 @@
             pictureBoxImage.Location = new Point(0, 0);
             pictureBoxImage.Name = "pictureBoxImage";
             pictureBoxImage.Size = new Size(318, 221);
-            pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
             // 

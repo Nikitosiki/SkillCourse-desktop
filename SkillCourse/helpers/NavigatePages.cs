@@ -37,6 +37,8 @@ namespace SkillCourse
                     ParentPanel.Controls.Add(Content);
                 }
             }
+            
+            GC.Collect();
         }
 
         public static void OpenNewPage(UserControl Content)

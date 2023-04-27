@@ -48,20 +48,29 @@ namespace SkillCourse.Panels.MainBlock
 
         private void LoatPageForUserType(Course course)
         {
-            if (user != null && user.UserType == UserType.Student)
+            if (user != null)
             {
-                UpdateThisList(course);
-                AddStreamPanel();
-                return;
-            }
-            else
-            {
-                tableLayoutPanel5.Visible = false;
+                if (user.UserType == UserType.Student && ((Student)user).CoursesSubscribed.Any(c => c.Name == course.Name))
+                {
+                    UpdateThisList(course);
+                    AddStreamPanel();
+                    return;
+                }
 
-                UserControl message = new PanelMainBlock_MessageText("You are not a participant in the course!");
-                message.Dock = DockStyle.Fill;
-                this.panelTasks.Controls.Add(message);
+                if (user.UserType == UserType.Teacher && ((Teather)user).MyCourses.Any(c => c.Name == course.Name))
+                {
+                    //UpdateThisList(course);
+                    //AddStreamPanel();
+                    return;
+                }
             }
+
+            //Происходит если у нас гость, или студент который не подписан на этот курс, или учитель но это не его курс
+            tableLayoutPanel5.Visible = false;
+
+            UserControl message = new PanelMainBlock_MessageText("You are not a participant in the course!");
+            message.Dock = DockStyle.Fill;
+            this.panelTasks.Controls.Add(message);
         }
 
         private void UpdateThisList(Course course)

@@ -106,13 +106,49 @@ namespace SkillCourse.DataBaseStructure.serialize {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("./image/Users")]
+        [global::System.Configuration.DefaultSettingValueAttribute("./image/Users/")]
         public string UserImages {
             get {
                 return ((string)(this["UserImages"]));
             }
             set {
                 this["UserImages"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("./image/Courses/")]
+        public string CourseImage {
+            get {
+                return ((string)(this["CourseImage"]));
+            }
+            set {
+                this["CourseImage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("./image/Users/default_v1.1.png")]
+        public string UserImagesDefault {
+            get {
+                return ((string)(this["UserImagesDefault"]));
+            }
+            set {
+                this["UserImagesDefault"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("./image/Courses/default_563x391.png")]
+        public string CourseImageDefault {
+            get {
+                return ((string)(this["CourseImageDefault"]));
+            }
+            set {
+                this["CourseImageDefault"] = value;
             }
         }
     }
