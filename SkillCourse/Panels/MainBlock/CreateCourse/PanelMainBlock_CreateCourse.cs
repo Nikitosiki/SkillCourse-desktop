@@ -1,4 +1,5 @@
-﻿using SkillCourse.Panels.MainBlock.CreateCourse;
+﻿using MongoDB.Bson.Serialization.Serializers;
+using SkillCourse.Panels.MainBlock.CreateCourse;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,8 @@ namespace SkillCourse.Panels.MainBlock
             {
                 case 1:
                     panelMainBlock.Controls.Add(new Component_CreateCourse_Naming());
+                    labelStepName.Text = "Naming";
+                    labelStemNumber.Text = $"Step {Step} / 4";
                     break;
                 case 2:
 
@@ -61,15 +64,15 @@ namespace SkillCourse.Panels.MainBlock
                     break;
 
                 case 2:
-
+                    labelStepName.Text = "Changing the Image";
                     break;
 
                 case 3:
-
+                    labelStepName.Text = "Adding Task";
                     break;
 
                 case 4:
-
+                    labelStepName.Text = "Signing up students";
                     break;
             }
 

@@ -29,23 +29,26 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
-            panelMainBlock = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            backRoundPanel1 = new PanelComponents.BackRoundPanel();
             panel4 = new Panel();
+            newButtonBack = new yt_DesignUI.NewButton();
             newButtonNext = new yt_DesignUI.NewButton();
+            panelMainBlock = new Panel();
+            labelStepName = new Label();
             panel3 = new Panel();
             labelNameType = new Label();
-            newButtonBack = new yt_DesignUI.NewButton();
+            labelStemNumber = new Label();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            backRoundPanel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(tableLayoutPanel1);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -53,32 +56,85 @@
             panel1.Size = new Size(1012, 673);
             panel1.TabIndex = 0;
             // 
-            // panel2
+            // tableLayoutPanel1
             // 
-            panel2.Controls.Add(panelMainBlock);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 73);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1012, 519);
-            panel2.TabIndex = 11;
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(backRoundPanel1, 1, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 73);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1012, 600);
+            tableLayoutPanel1.TabIndex = 49;
             // 
-            // panelMainBlock
+            // backRoundPanel1
             // 
-            panelMainBlock.Dock = DockStyle.Fill;
-            panelMainBlock.Location = new Point(0, 0);
-            panelMainBlock.Name = "panelMainBlock";
-            panelMainBlock.Size = new Size(1012, 519);
-            panelMainBlock.TabIndex = 14;
+            backRoundPanel1.Autofocus = false;
+            backRoundPanel1.BackColor = Color.FromArgb(50, 60, 69);
+            backRoundPanel1.BackgroundColor = Color.FromArgb(50, 60, 69);
+            backRoundPanel1.BorderColor = Color.PaleVioletRed;
+            backRoundPanel1.BorderRadius = 5;
+            backRoundPanel1.BorderSize = 0;
+            backRoundPanel1.Controls.Add(panelMainBlock);
+            backRoundPanel1.Controls.Add(panel4);
+            backRoundPanel1.Controls.Add(labelStepName);
+            backRoundPanel1.Dock = DockStyle.Fill;
+            backRoundPanel1.FocusBorderColor = Color.Gray;
+            backRoundPanel1.FocusBorderSize = 2;
+            backRoundPanel1.ForeColor = Color.White;
+            backRoundPanel1.Location = new Point(206, 80);
+            backRoundPanel1.Name = "backRoundPanel1";
+            backRoundPanel1.Size = new Size(600, 440);
+            backRoundPanel1.TabIndex = 15;
+            backRoundPanel1.TextColor = Color.White;
             // 
             // panel4
             // 
+            panel4.Controls.Add(labelStemNumber);
             panel4.Controls.Add(newButtonBack);
             panel4.Controls.Add(newButtonNext);
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 592);
+            panel4.Location = new Point(0, 384);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1012, 81);
+            panel4.Padding = new Padding(10);
+            panel4.Size = new Size(600, 56);
             panel4.TabIndex = 48;
+            // 
+            // newButtonBack
+            // 
+            newButtonBack.BackColor = Color.FromArgb(50, 60, 69);
+            newButtonBack.BackColorAdditional = Color.Gray;
+            newButtonBack.BackColorGradientEnabled = false;
+            newButtonBack.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            newButtonBack.BorderColor = Color.FromArgb(33, 44, 54);
+            newButtonBack.BorderColorEnabled = false;
+            newButtonBack.BorderColorOnHover = Color.FromArgb(35, 42, 50);
+            newButtonBack.BorderColorOnHoverEnabled = false;
+            newButtonBack.Dock = DockStyle.Left;
+            newButtonBack.FlatAppearance.BorderColor = Color.FromArgb(35, 42, 50);
+            newButtonBack.FlatAppearance.BorderSize = 4;
+            newButtonBack.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            newButtonBack.ForeColor = SystemColors.ControlDark;
+            newButtonBack.Location = new Point(10, 10);
+            newButtonBack.Name = "newButtonBack";
+            newButtonBack.RippleColor = Color.Black;
+            newButtonBack.Rounding = 30;
+            newButtonBack.RoundingEnable = true;
+            newButtonBack.Size = new Size(125, 36);
+            newButtonBack.TabIndex = 10;
+            newButtonBack.Text = "Back";
+            newButtonBack.TextHover = null;
+            newButtonBack.UseDownPressEffectOnClick = false;
+            newButtonBack.UseMainGradientEffect = false;
+            newButtonBack.UseRippleEffect = true;
+            newButtonBack.UseVisualStyleBackColor = false;
+            newButtonBack.UseZoomEffectOnHover = false;
             // 
             // newButtonNext
             // 
@@ -90,16 +146,17 @@
             newButtonNext.BorderColorEnabled = false;
             newButtonNext.BorderColorOnHover = Color.FromArgb(35, 42, 50);
             newButtonNext.BorderColorOnHoverEnabled = false;
+            newButtonNext.Dock = DockStyle.Right;
             newButtonNext.FlatAppearance.BorderColor = Color.FromArgb(35, 42, 50);
             newButtonNext.FlatAppearance.BorderSize = 4;
             newButtonNext.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newButtonNext.ForeColor = SystemColors.ControlLight;
-            newButtonNext.Location = new Point(847, 21);
+            newButtonNext.Location = new Point(465, 10);
             newButtonNext.Name = "newButtonNext";
             newButtonNext.RippleColor = Color.Black;
             newButtonNext.Rounding = 30;
             newButtonNext.RoundingEnable = true;
-            newButtonNext.Size = new Size(125, 40);
+            newButtonNext.Size = new Size(125, 36);
             newButtonNext.TabIndex = 9;
             newButtonNext.Text = "Next";
             newButtonNext.TextHover = null;
@@ -109,6 +166,29 @@
             newButtonNext.UseVisualStyleBackColor = false;
             newButtonNext.UseZoomEffectOnHover = false;
             newButtonNext.Click += newButtonNext_Click;
+            // 
+            // panelMainBlock
+            // 
+            panelMainBlock.AutoSize = true;
+            panelMainBlock.Dock = DockStyle.Fill;
+            panelMainBlock.Location = new Point(0, 40);
+            panelMainBlock.Name = "panelMainBlock";
+            panelMainBlock.Padding = new Padding(10, 0, 10, 10);
+            panelMainBlock.Size = new Size(600, 344);
+            panelMainBlock.TabIndex = 16;
+            // 
+            // labelStepName
+            // 
+            labelStepName.Dock = DockStyle.Top;
+            labelStepName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStepName.ForeColor = SystemColors.Control;
+            labelStepName.Location = new Point(0, 0);
+            labelStepName.Name = "labelStepName";
+            labelStepName.Padding = new Padding(0, 0, 0, 5);
+            labelStepName.Size = new Size(600, 40);
+            labelStepName.TabIndex = 16;
+            labelStepName.Text = "Step 1";
+            labelStepName.TextAlign = ContentAlignment.BottomCenter;
             // 
             // panel3
             // 
@@ -124,40 +204,24 @@
             labelNameType.AutoSize = true;
             labelNameType.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelNameType.ForeColor = SystemColors.Control;
-            labelNameType.Location = new Point(61, 22);
+            labelNameType.Location = new Point(29, 28);
             labelNameType.Name = "labelNameType";
             labelNameType.Size = new Size(156, 31);
             labelNameType.TabIndex = 2;
             labelNameType.Text = "Create Course";
             // 
-            // newButtonBack
+            // labelStemNumber
             // 
-            newButtonBack.BackColor = Color.FromArgb(51, 58, 68);
-            newButtonBack.BackColorAdditional = Color.Gray;
-            newButtonBack.BackColorGradientEnabled = false;
-            newButtonBack.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            newButtonBack.BorderColor = Color.FromArgb(33, 44, 54);
-            newButtonBack.BorderColorEnabled = false;
-            newButtonBack.BorderColorOnHover = Color.FromArgb(35, 42, 50);
-            newButtonBack.BorderColorOnHoverEnabled = false;
-            newButtonBack.FlatAppearance.BorderColor = Color.FromArgb(35, 42, 50);
-            newButtonBack.FlatAppearance.BorderSize = 4;
-            newButtonBack.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            newButtonBack.ForeColor = SystemColors.ControlDark;
-            newButtonBack.Location = new Point(42, 21);
-            newButtonBack.Name = "newButtonBack";
-            newButtonBack.RippleColor = Color.Black;
-            newButtonBack.Rounding = 30;
-            newButtonBack.RoundingEnable = true;
-            newButtonBack.Size = new Size(125, 40);
-            newButtonBack.TabIndex = 10;
-            newButtonBack.Text = "Back";
-            newButtonBack.TextHover = null;
-            newButtonBack.UseDownPressEffectOnClick = false;
-            newButtonBack.UseMainGradientEffect = false;
-            newButtonBack.UseRippleEffect = true;
-            newButtonBack.UseVisualStyleBackColor = false;
-            newButtonBack.UseZoomEffectOnHover = false;
+            labelStemNumber.Dock = DockStyle.Fill;
+            labelStemNumber.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStemNumber.ForeColor = SystemColors.ControlDark;
+            labelStemNumber.Location = new Point(135, 10);
+            labelStemNumber.Name = "labelStemNumber";
+            labelStemNumber.Padding = new Padding(0, 0, 0, 5);
+            labelStemNumber.Size = new Size(330, 36);
+            labelStemNumber.TabIndex = 17;
+            labelStemNumber.Text = "Step 1 / 4";
+            labelStemNumber.TextAlign = ContentAlignment.BottomCenter;
             // 
             // PanelMainBlock_CreateCourse
             // 
@@ -168,7 +232,9 @@
             Name = "PanelMainBlock_CreateCourse";
             Size = new Size(1012, 673);
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            backRoundPanel1.ResumeLayout(false);
+            backRoundPanel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -179,11 +245,14 @@
 
         private Panel panel1;
         private yt_DesignUI.NewButton newButtonNext;
-        private Panel panel2;
         private Panel panel4;
         private Panel panel3;
         private Label labelNameType;
-        private Panel panelMainBlock;
         private yt_DesignUI.NewButton newButtonBack;
+        private PanelComponents.BackRoundPanel backRoundPanel1;
+        private Panel panelMainBlock;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label labelStepName;
+        private Label labelStemNumber;
     }
 }

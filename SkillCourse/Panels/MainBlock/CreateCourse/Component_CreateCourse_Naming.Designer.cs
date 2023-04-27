@@ -44,6 +44,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(50, 60, 69);
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
@@ -74,7 +75,7 @@
             // 
             // textBoxDescription
             // 
-            textBoxDescription.BackColor = Color.FromArgb(40, 49, 60);
+            textBoxDescription.BackColor = Color.FromArgb(50, 60, 69);
             textBoxDescription.BorderStyle = BorderStyle.FixedSingle;
             textBoxDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxDescription.ForeColor = SystemColors.ControlLight;
@@ -120,7 +121,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.BackColor = Color.FromArgb(40, 49, 60);
+            textBoxName.BackColor = Color.FromArgb(50, 60, 69);
             textBoxName.BorderStyle = BorderStyle.FixedSingle;
             textBoxName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxName.ForeColor = SystemColors.ControlLight;
