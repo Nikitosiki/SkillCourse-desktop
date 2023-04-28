@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using SkillCourse.DataBaseStructure;
+using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.types;
+using SkillCourse.helpers;
 using SkillCourse.PanelComponents;
 using SkillCourse.PanelComponents.CoursePage;
 using SkillCourse.PanelComponents.UsersPage;
@@ -10,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -41,7 +44,8 @@ namespace SkillCourse.Panels.MainBlock
 
             labelName.Text = course.Name;
             textBoxDescription.Text = course.Description;
-            pictureBoxImage.Image = Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image;
+            string path = SerializeSetting.Default.CourseImages + course.ImagePath;
+            pictureBoxImage.Image = ImageSaveHelper.LoadCourseImageFromFile(path);
 
             LoatPageForUserType(course);
         }

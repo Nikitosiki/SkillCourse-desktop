@@ -1,4 +1,6 @@
 ﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.DataBaseStructure.serialize;
+using SkillCourse.helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +26,8 @@ namespace SkillCourse.PanelComponents
 
             label_NameCourse.Text = course.Name;
             label_DescriptionCourse.Text = course.Description;
-            picture_imageCourse.Image = Properties.Resources.ResourceManager.GetObject(course.ImagePath) as Image;
+            string path = SerializeSetting.Default.CourseImages + course.ImagePath;
+            picture_imageCourse.Image = ImageSaveHelper.LoadCourseImageFromFile(path);
 
             clickOnCourse = buttonCoutse;
         }

@@ -1,6 +1,7 @@
 ﻿using SkillCourse.DataBaseStructure.serialize;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,6 +64,8 @@ namespace SkillCourse.helpers
         public static string SaveImageToFile(TypeImage typeImage, string nameNewFile, Image image)
         {
             string destinationPath = string.Empty;
+            string fileName = "Course_" + nameNewFile + ".png";
+
             switch (typeImage)
             {
                 case TypeImage.Course:
@@ -72,8 +75,7 @@ namespace SkillCourse.helpers
                     destinationPath = SerializeSetting.Default.UserImages;
                     break;
             }
-            destinationPath += "Course_" + nameNewFile + ".png";
-
+            destinationPath += fileName;
             //Удаляем если уже есть
             if (File.Exists(destinationPath))
             {
@@ -86,7 +88,12 @@ namespace SkillCourse.helpers
                 image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Png);
             }
             
-            return destinationPath;
+            return fileName;
+        }
+
+        public static Image? LoadCourseImageFromFile(string filePath)
+        {
+            return LoadImageFromFile(filePath) ?? LoadImageFromFile(SerializeSetting.Default.CourseImageDefault);
         }
 
         public static Image? LoadImageFromFile(string filePath)
@@ -102,7 +109,8 @@ namespace SkillCourse.helpers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Debug.WriteLine(ex.Message);
+                //MessageBox.Show(ex.Message);
                 // Обработка ошибки, если не удалось загрузить изображение
                 // Например, можно вывести сообщение об ошибке
             }
