@@ -35,6 +35,7 @@ namespace SkillCourse.Panels.MainBlock
         private void OpenPage(int step)
         {
             labelStemNumber.Text = $"Step {Step} / 4";
+            panelMainBlock.Controls.Clear();
 
             switch (step)
             {
@@ -65,19 +66,21 @@ namespace SkillCourse.Panels.MainBlock
             }
         }
 
-        private void NextStepClick()
+        private void NextStepClick(bool next)
         {
             switch (Step)  //Текущий
             {
                 case 1:
                     Component_CreateCourse_Naming thisPage1 = (Component_CreateCourse_Naming)panelMainBlock.Controls[panelMainBlock.Controls.Count - 1];
-                    NameCourse = thisPage1.NameCourse;
-                    DescriptionCourse = thisPage1.DescriptionCourse;
+                    this.NameCourse = thisPage1.NameCourse;
+                    this.DescriptionCourse = thisPage1.DescriptionCourse;
+                    if (this.NameCourse == "" || this.NameCourse == null || this.DescriptionCourse == "" || this.DescriptionCourse == null)
+                        return;
                     break;
 
                 case 2:
                     Component_CreateCourse_ChangingImage thisPage2 = (Component_CreateCourse_ChangingImage)panelMainBlock.Controls[panelMainBlock.Controls.Count - 1];
-                    ImageCourse = thisPage2.ImageCourse;
+                    this.ImageCourse = thisPage2.ImageCourse;
                     break;
 
                 case 3:
@@ -89,20 +92,19 @@ namespace SkillCourse.Panels.MainBlock
                     break;
             }
 
-            Step += 1;
+            if (next) Step += 1; else Step -= 1;
             OpenPage(Step);
         }
 
 
         private void newButtonNext_Click(object sender, EventArgs e)
         {
-            NextStepClick();
+            NextStepClick(true);
         }
 
         private void newButtonBack_Click(object sender, EventArgs e)
         {
-            Step -= 1;
-            OpenPage(Step);
+            NextStepClick(false);
         }
     }
 }

@@ -40,9 +40,30 @@ namespace SkillCourse.helpers
                     File.Delete(destinationPath);
                 }
                 File.Copy(dialog.FileName, destinationPath);
-                return Image.FromFile(destinationPath);
+                return LoadImageFromFile(destinationPath);
             }
             return null;
+        }
+
+        public static Image? LoadImageFromFile(string filePath)
+        {
+            Image? image = null;
+
+            try
+            {
+                using (FileStream stream = new FileStream(filePath, FileMode.Open))
+                {
+                    image = Image.FromStream(stream);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                // Обработка ошибки, если не удалось загрузить изображение
+                // Например, можно вывести сообщение об ошибке
+            }
+
+            return image;
         }
     }
 }
