@@ -2,6 +2,7 @@
 using SkillCourse.DataBaseStructure;
 using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.types;
+using SkillCourse.handlers;
 using SkillCourse.helpers;
 using SkillCourse.PanelComponents;
 using SkillCourse.PanelComponents.CoursePage;
@@ -63,8 +64,8 @@ namespace SkillCourse.Panels.MainBlock
 
                 if (user.UserType == UserType.Teacher && ((Teather)user).MyCourses.Any(c => c.Name == course.Name))
                 {
-                    //UpdateThisList(course);
-                    //AddStreamPanel();
+                    UpdateThisList(course);
+                    AddStreamPanel();
                     return;
                 }
             }
@@ -79,12 +80,10 @@ namespace SkillCourse.Panels.MainBlock
 
         private void UpdateThisList(Course course)
         {
-            Student handler = (Student)user;
-
-            StreamTasks = handler.GetAllTasks(course);
-            ClassworkTasks = handler.GetOnlyTask(course);
-            Students = handler.GetStudents(course);
-            TeacherThis = handler.GetTeacher(course);
+            StreamTasks = UserHandler.GetAllTasks(course);
+            ClassworkTasks = UserHandler.GetOnlyTask(course);
+            Students = UserHandler.GetStudents(course);
+            TeacherThis = UserHandler.GetTeacher(course);
 
             ListPanelStreams.Clear();
             ListPanelClasswork.Clear();
@@ -101,9 +100,9 @@ namespace SkillCourse.Panels.MainBlock
             foreach (Task task in StreamTasks)
             {
                 if (task.TaskTypeMessage)
-                    ListPanelStreams.Add(new Component_Task(task));
+                    ListPanelStreams.Add(user.UserType == UserType.Student ? new Component_Task(task) : new Component_TaskForTeacher(task));
                 else
-                    ListPanelStreams.Add(new Component_Task(task, ++i));
+                    ListPanelStreams.Add(user.UserType == UserType.Student ? new Component_Task(task, ++i) : new Component_TaskForTeacher(task, ++i));
             }
             ListPanelStreams.Reverse();
 
@@ -117,7 +116,7 @@ namespace SkillCourse.Panels.MainBlock
             foreach (Task task in ClassworkTasks)
             {
                 if (!task.TaskTypeMessage)
-                    ListPanelClasswork.Add(new Component_Task(task, ++i));
+                    ListPanelClasswork.Add(user.UserType == UserType.Student ? new Component_Task(task, ++i) : new Component_TaskForTeacher(task, ++i));
             }
             ListPanelClasswork.Reverse();
 

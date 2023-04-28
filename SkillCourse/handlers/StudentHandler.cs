@@ -53,18 +53,6 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Courses.FindLast(course => course.Name == name);
         }
 
-        public List<Task> GetAllTasks(Course course)
-        {
-            return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse)
-                .OrderBy(task => task.TaskStartTime).ToList();
-        }
-
-        public List<Task> GetOnlyTask(Course course)
-        {
-            return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse && task.TaskTypeMessage == false)
-                .OrderBy(task => task.TaskStartTime).ToList();
-        }
-
         public List<Task> GetOnlyTask_Assigned(Course course)
         {
             return DataBase.Tasks
@@ -94,18 +82,6 @@ namespace SkillCourse.DataBaseStructure
                                 DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.State == StateTask.NotDone)))
                 .OrderBy(task => task.TaskStartTime)
                 .ToList();
-        }
-
-        public List<Student> GetStudents(Course course)
-        {
-            IEnumerable<int> subscriptionIds = DataBase.Subscriptions.Where(sub => sub.IdCourse == course.IdCourse).Select(sub => sub.IdStudent);
-            return DataBase.Users.Students().Where(user => subscriptionIds.Contains(user.IdUser))
-                .OrderBy(user => user.LastName).ToList();
-        }
-
-        public Teather? GetTeacher(Course course)
-        {
-            return DataBase.Users.Teathers().Find(cours => cours.IdUser == course.IdTeacher);
         }
 
         //--- Does not work correctly
