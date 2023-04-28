@@ -21,9 +21,9 @@ namespace SkillCourse.Panels.MainBlock
         // Add Student
 
 
-        private string NameCourse { get; set; }
-        private string DescriptionCourse { get; set; }
-        //private string ImageCourse { get; set; }
+        private string NameCourse { get; set; } = string.Empty;
+        private string DescriptionCourse { get; set; } = string.Empty;
+        private Image? ImageCourse { get; set; }
 
         public PanelMainBlock_CreateCourse()
         {
@@ -34,21 +34,33 @@ namespace SkillCourse.Panels.MainBlock
 
         private void OpenPage(int step)
         {
+            labelStemNumber.Text = $"Step {Step} / 4";
+
             switch (step)
             {
                 case 1:
-                    panelMainBlock.Controls.Add(new Component_CreateCourse_Naming());
+                    panelMainBlock.Controls.Add(new Component_CreateCourse_Naming(NameCourse, DescriptionCourse));
+                    newButtonNext.Text = "Next";
                     labelStepName.Text = "Naming";
-                    labelStemNumber.Text = $"Step {Step} / 4";
+                    newButtonBack.Visible = false;
                     break;
                 case 2:
-
+                    panelMainBlock.Controls.Add(new Component_CreateCourse_ChangingImage(NameCourse, ImageCourse));
+                    newButtonNext.Text = "Next";
+                    labelStepName.Text = "Changing the Image";
+                    newButtonBack.Visible = true;
                     break;
                 case 3:
 
+                    newButtonNext.Text = "Next";
+                    labelStepName.Text = "Adding Task";
+                    newButtonBack.Visible = true;
                     break;
                 case 4:
 
+                    newButtonNext.Text = "Public";
+                    labelStepName.Text = "Signing up students";
+                    newButtonBack.Visible = true;
                     break;
             }
         }
@@ -58,31 +70,39 @@ namespace SkillCourse.Panels.MainBlock
             switch (Step)  //Текущий
             {
                 case 1:
-                    Component_CreateCourse_Naming thisPage = (Component_CreateCourse_Naming)panelMainBlock.Controls[panelMainBlock.Controls.Count - 1];
-                    NameCourse = thisPage.NameCourse;
-                    DescriptionCourse = thisPage.DescriptionCourse;
+                    Component_CreateCourse_Naming thisPage1 = (Component_CreateCourse_Naming)panelMainBlock.Controls[panelMainBlock.Controls.Count - 1];
+                    NameCourse = thisPage1.NameCourse;
+                    DescriptionCourse = thisPage1.DescriptionCourse;
                     break;
 
                 case 2:
-                    labelStepName.Text = "Changing the Image";
+                    Component_CreateCourse_ChangingImage thisPage2 = (Component_CreateCourse_ChangingImage)panelMainBlock.Controls[panelMainBlock.Controls.Count - 1];
+                    ImageCourse = thisPage2.ImageCourse;
                     break;
 
                 case 3:
-                    labelStepName.Text = "Adding Task";
+
                     break;
 
                 case 4:
-                    labelStepName.Text = "Signing up students";
+
                     break;
             }
 
-            OpenPage(++Step);
+            Step += 1;
+            OpenPage(Step);
         }
 
 
         private void newButtonNext_Click(object sender, EventArgs e)
         {
             NextStepClick();
+        }
+
+        private void newButtonBack_Click(object sender, EventArgs e)
+        {
+            Step -= 1;
+            OpenPage(Step);
         }
     }
 }

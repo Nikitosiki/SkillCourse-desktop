@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static System.Windows.Forms.AxHost;
 using Task = SkillCourse.DataBaseStructure.Task;
@@ -13,7 +14,9 @@ namespace SkillCourse.DataBaseStructure
 {
     public partial class Student
     {
+        [JsonIgnore]
         private static SkillCourseDB? instanceDB = null;
+        [JsonIgnore]
         private static SkillCourseDB DataBase
         {
             get
@@ -24,8 +27,9 @@ namespace SkillCourse.DataBaseStructure
                 }
                 return instanceDB;
             }
-        }        
+        }
 
+        [JsonIgnore]
         public List<Course> CoursesSubscribed
         {
             get
@@ -35,6 +39,7 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
+        [JsonIgnore]
         public List<Certificate> MyCertificates
         {
             get

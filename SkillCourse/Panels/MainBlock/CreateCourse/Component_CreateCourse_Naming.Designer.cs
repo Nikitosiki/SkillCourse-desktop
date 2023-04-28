@@ -44,22 +44,22 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(50, 60, 69);
+            tableLayoutPanel1.BackColor = Color.FromArgb(38, 45, 52);
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(panel2, 1, 3);
+            tableLayoutPanel1.Controls.Add(panel2, 1, 2);
             tableLayoutPanel1.Controls.Add(panel1, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 5;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new Size(1012, 519);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -68,18 +68,18 @@
             panel2.Controls.Add(textBoxDescription);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label4);
-            panel2.Location = new Point(214, 230);
+            panel2.Location = new Point(276, 223);
             panel2.Name = "panel2";
-            panel2.Size = new Size(583, 175);
+            panel2.Size = new Size(460, 196);
             panel2.TabIndex = 13;
             // 
             // textBoxDescription
             // 
-            textBoxDescription.BackColor = Color.FromArgb(50, 60, 69);
+            textBoxDescription.BackColor = Color.FromArgb(38, 45, 52);
             textBoxDescription.BorderStyle = BorderStyle.FixedSingle;
             textBoxDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxDescription.ForeColor = SystemColors.ControlLight;
-            textBoxDescription.Location = new Point(158, 12);
+            textBoxDescription.Location = new Point(24, 29);
             textBoxDescription.MaxLength = 500;
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
@@ -90,11 +90,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(12, 14);
+            label3.Location = new Point(24, -2);
             label3.Name = "label3";
-            label3.Size = new Size(131, 31);
+            label3.Size = new Size(112, 28);
             label3.TabIndex = 11;
             label3.Text = "Description";
             // 
@@ -103,7 +103,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ButtonShadow;
-            label4.Location = new Point(509, 147);
+            label4.Location = new Point(372, 162);
             label4.Name = "label4";
             label4.Size = new Size(63, 23);
             label4.TabIndex = 8;
@@ -114,18 +114,18 @@
             panel1.Controls.Add(textBoxName);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(214, 114);
+            panel1.Location = new Point(276, 100);
             panel1.Name = "panel1";
-            panel1.Size = new Size(583, 90);
+            panel1.Size = new Size(460, 117);
             panel1.TabIndex = 12;
             // 
             // textBoxName
             // 
-            textBoxName.BackColor = Color.FromArgb(50, 60, 69);
+            textBoxName.BackColor = Color.FromArgb(38, 45, 52);
             textBoxName.BorderStyle = BorderStyle.FixedSingle;
             textBoxName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxName.ForeColor = SystemColors.ControlLight;
-            textBoxName.Location = new Point(158, 12);
+            textBoxName.Location = new Point(24, 47);
             textBoxName.MaxLength = 80;
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(414, 34);
@@ -135,11 +135,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(12, 14);
+            label1.Location = new Point(24, 16);
             label1.Name = "label1";
-            label1.Size = new Size(75, 31);
+            label1.Size = new Size(64, 28);
             label1.TabIndex = 11;
             label1.Text = "Name";
             // 
@@ -148,7 +148,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ButtonShadow;
-            label2.Location = new Point(509, 62);
+            label2.Location = new Point(381, 97);
             label2.Name = "label2";
             label2.Size = new Size(54, 23);
             label2.TabIndex = 8;

@@ -48,7 +48,7 @@ namespace SkillCourse.Panels.MainBlock
             labelGender.Text = user.Gender.ToString();
             labelLastLoginDate.Text =
                 AccountHandler.Instance.UserLog == null || AccountHandler.Instance.UserLog.IdUser != user.IdUser
-                ? $"{DateHandler.GetTimeDifferenceString(user.LastLoginDate)} ({user.LastLoginDate})" : "Online";
+                ? $"{DateHelper.GetTimeDifferenceString(user.LastLoginDate)} ({user.LastLoginDate})" : "Online";
 
             if (user.ImagePath != null)
             {

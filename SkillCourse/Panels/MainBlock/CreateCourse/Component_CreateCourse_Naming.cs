@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SkillCourse.Panels.MainBlock.CreateCourse
 {
@@ -18,6 +19,7 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
             {
                 return textBoxName.Text;
             }
+            set { textBoxName.Text = value; }
         }
         public string DescriptionCourse
         {
@@ -25,14 +27,18 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
             {
                 return textBoxDescription.Text;
             }
+            set { textBoxDescription.Text = value; }
         }
 
 
 
-        public Component_CreateCourse_Naming()
+        public Component_CreateCourse_Naming(string? textName, string? textDescription)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+
+            NameCourse = textName ?? string.Empty;
+            DescriptionCourse = textDescription ?? string.Empty;
         }
 
         private void textBoxName_TextChanged(object sender, EventArgs e)

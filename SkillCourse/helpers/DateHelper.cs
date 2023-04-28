@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkillCourse.handlers
 {
-    public static class DateHandler
+    public static class DateHelper
     {
         public static string GetTimeDifferenceString(DateTime lastLogin)
         {

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Web;
 using System.Xml.Linq;
@@ -14,7 +15,9 @@ namespace SkillCourse.DataBaseStructure
 {
     public partial class Teather
     {
+        [JsonIgnore]
         private static SkillCourseDB? instanceDB = null;
+        [JsonIgnore]
         private static SkillCourseDB DataBase
         {
             get
@@ -27,7 +30,7 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
-
+        [JsonIgnore]
         public List<Course> MyCourses
         {
             get

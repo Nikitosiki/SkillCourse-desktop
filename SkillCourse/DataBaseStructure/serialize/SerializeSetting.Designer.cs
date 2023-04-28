@@ -119,12 +119,12 @@ namespace SkillCourse.DataBaseStructure.serialize {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("./image/Courses/")]
-        public string CourseImage {
+        public string CourseImages {
             get {
-                return ((string)(this["CourseImage"]));
+                return ((string)(this["CourseImages"]));
             }
             set {
-                this["CourseImage"] = value;
+                this["CourseImages"] = value;
             }
         }
         

@@ -32,7 +32,7 @@
     <Setting Name="UserImages" Type="System.String" Scope="User">
       <Value Profile="(Default)">./image/Users/</Value>
     </Setting>
-    <Setting Name="CourseImage" Type="System.String" Scope="User">
+    <Setting Name="CourseImages" Type="System.String" Scope="User">
       <Value Profile="(Default)">./image/Courses/</Value>
     </Setting>
     <Setting Name="UserImagesDefault" Type="System.String" Scope="User">

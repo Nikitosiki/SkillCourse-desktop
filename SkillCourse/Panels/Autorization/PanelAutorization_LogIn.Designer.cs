@@ -37,9 +37,11 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            panel2 = new Panel();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // newButton2
@@ -119,12 +121,12 @@
             // 
             // labelMesError
             // 
-            labelMesError.AutoSize = true;
+            labelMesError.Dock = DockStyle.Fill;
             labelMesError.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelMesError.ForeColor = Color.Brown;
-            labelMesError.Location = new Point(0, 123);
+            labelMesError.Location = new Point(0, 0);
             labelMesError.Name = "labelMesError";
-            labelMesError.Size = new Size(217, 18);
+            labelMesError.Size = new Size(465, 125);
             labelMesError.TabIndex = 16;
             labelMesError.Text = "Incorrect password or email";
             labelMesError.Visible = false;
@@ -148,13 +150,15 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(panel2, 1, 1);
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 87);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(553, 147);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(553, 251);
             tableLayoutPanel1.TabIndex = 18;
             // 
             // panel1
@@ -163,10 +167,9 @@
             panel1.Controls.Add(newGoogleTextBox3);
             panel1.Controls.Add(buttonHidePassword);
             panel1.Controls.Add(newGoogleTextBox4);
-            panel1.Controls.Add(labelMesError);
             panel1.Location = new Point(44, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(465, 141);
+            panel1.Size = new Size(465, 114);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -186,6 +189,15 @@
             tableLayoutPanel2.Size = new Size(553, 95);
             tableLayoutPanel2.TabIndex = 19;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(labelMesError);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(44, 123);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(465, 125);
+            panel2.TabIndex = 20;
+            // 
             // PanelAutorization_LogIn
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -201,8 +213,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -217,5 +229,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel2;
+        private Panel panel2;
     }
 }
