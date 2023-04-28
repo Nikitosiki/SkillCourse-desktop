@@ -46,9 +46,10 @@
             panel2.Controls.Add(backRoundPanel1);
             panel2.Controls.Add(newButtonSelectImage);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(276, 103);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(284, 103);
             panel2.Name = "panel2";
-            panel2.Size = new Size(460, 313);
+            panel2.Size = new Size(481, 313);
             panel2.TabIndex = 0;
             // 
             // backRoundPanel1
@@ -92,7 +93,7 @@
             newButtonSelectImage.BorderColorOnHoverEnabled = false;
             newButtonSelectImage.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             newButtonSelectImage.ForeColor = Color.White;
-            newButtonSelectImage.Location = new Point(289, 159);
+            newButtonSelectImage.Location = new Point(297, 159);
             newButtonSelectImage.Name = "newButtonSelectImage";
             newButtonSelectImage.RippleColor = Color.Black;
             newButtonSelectImage.Rounding = 30;
@@ -113,7 +114,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(264, 83);
+            label1.Location = new Point(272, 83);
             label1.Name = "label1";
             label1.Size = new Size(201, 56);
             label1.TabIndex = 50;
@@ -133,8 +134,8 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1012, 519);
-            tableLayoutPanel1.TabIndex = 14;
+            tableLayoutPanel1.Size = new Size(1009, 519);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // Component_CreateCourse_ChangingImage
             // 
@@ -143,7 +144,7 @@
             BackColor = Color.FromArgb(38, 45, 52);
             Controls.Add(tableLayoutPanel1);
             Name = "Component_CreateCourse_ChangingImage";
-            Size = new Size(1012, 519);
+            Size = new Size(1009, 519);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             backRoundPanel1.ResumeLayout(false);
@@ -154,10 +155,10 @@
 
         #endregion
         private Panel panel2;
-        private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBoxImage;
         private Label label1;
         private yt_DesignUI.NewButton newButtonSelectImage;
         private PanelComponents.BackRoundPanel backRoundPanel1;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

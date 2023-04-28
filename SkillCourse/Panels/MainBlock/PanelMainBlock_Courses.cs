@@ -180,9 +180,9 @@ namespace SkillCourse.Panels.MainBlock
                     () => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course)),
                     () =>
                     {
-                        NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
                         if (!((Student)handlerUser).SubscripToCourse(course))
                             MessageBox.Show("Failed to subscribe, please try again later.");
+                        NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
                     },
                     () =>
                     {
@@ -198,9 +198,9 @@ namespace SkillCourse.Panels.MainBlock
                 return new Component_BriefСourse_Subscription(course, true,
                     () =>
                     {
-                        NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
                         if (!((Student)handlerUser).SubscripToCourse(course))
                             MessageBox.Show("Failed to subscribe, please try again later.");
+                        NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course), this.Parent);
                     },
                     () =>
                     {

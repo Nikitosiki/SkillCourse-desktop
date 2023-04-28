@@ -38,5 +38,10 @@ namespace SkillCourse.Panels.MainBlock
 
             NavigatePages.OpenNewPage(new PanelMainBlock_Certificates(certificate), (Panel)this.Parent);
         }
+
+        private void maskedTextBoxInputKey_Click(object sender, EventArgs e)
+        {
+            maskedTextBoxInputKey.Select(0, 0);
+        }
     }
 }

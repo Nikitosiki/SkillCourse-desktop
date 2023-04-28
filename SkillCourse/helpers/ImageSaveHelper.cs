@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SkillCourse.helpers.ImageSaveHelper;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace SkillCourse.helpers
 {
@@ -15,7 +17,7 @@ namespace SkillCourse.helpers
             User
         }
 
-        public static Image? SelectImage(TypeImage typeImage, string nameNewFile)
+        public static Image? SelectDialogAndSaveImage(TypeImage typeImage, string nameNewFile)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "PNG Files (*.png)|*.png";
@@ -43,6 +45,48 @@ namespace SkillCourse.helpers
                 return LoadImageFromFile(destinationPath);
             }
             return null;
+        }
+
+        public static Image? SelectDialogImage()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "PNG Files (*.png)|*.png";
+            dialog.Title = "Select an image";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                return LoadImageFromFile(dialog.FileName);
+            }
+            return null;
+        }
+
+        public static string SaveImageToFile(TypeImage typeImage, string nameNewFile, Image image)
+        {
+            string destinationPath = string.Empty;
+            switch (typeImage)
+            {
+                case TypeImage.Course:
+                    destinationPath = SerializeSetting.Default.CourseImages;
+                    break;
+                case TypeImage.User:
+                    destinationPath = SerializeSetting.Default.UserImages;
+                    break;
+            }
+            destinationPath += "Course_" + nameNewFile + ".png";
+
+            //Удаляем если уже есть
+            if (File.Exists(destinationPath))
+            {
+                File.Delete(destinationPath);
+            }
+
+            //Создаем факл-картинку
+            using (FileStream fileStream = new FileStream(destinationPath, FileMode.Create))
+            {
+                image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Png);
+            }
+            
+            return destinationPath;
         }
 
         public static Image? LoadImageFromFile(string filePath)

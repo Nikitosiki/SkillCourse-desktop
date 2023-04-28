@@ -87,6 +87,19 @@ namespace SkillCourse.DataBaseStructure
                 .ToList();
         }
 
+        public Course? CreateCourse(Course newCourse)
+        {
+            try
+            {
+                DataBase.Courses.Add(newCourse);
+                return newCourse;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public Course? CreateCourse(string name, string description)
         {
             try
@@ -173,14 +186,14 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
-        public bool AddTaskToCourse(Course course, string textTask)
+        public bool AddTaskToCourse(Course course, string textTask, bool taskTypeMessage)
         {
             try
             {
                 // Проверяем, что такой курс существует
                 if (DataBase.Courses.Any(cou => cou.IdCourse == course.IdCourse))
                 {
-                    Task task = new Task(textTask, course.IdCourse);
+                    Task task = new Task(textTask, course.IdCourse, taskTypeMessage);
                     DataBase.Tasks.Add(task);
 
                     return true;

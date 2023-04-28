@@ -81,6 +81,7 @@
             maskedTextBoxInputKey.Size = new Size(585, 31);
             maskedTextBoxInputKey.TabIndex = 12;
             maskedTextBoxInputKey.TextAlign = HorizontalAlignment.Center;
+            maskedTextBoxInputKey.Click += maskedTextBoxInputKey_Click;
             maskedTextBoxInputKey.TextChanged += maskedTextBoxInputKey_TextChanged;
             // 
             // tableLayoutPanel1

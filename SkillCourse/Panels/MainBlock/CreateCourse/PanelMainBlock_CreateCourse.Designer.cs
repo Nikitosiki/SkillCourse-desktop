@@ -105,7 +105,7 @@
             panelMainBlock.Location = new Point(0, 49);
             panelMainBlock.Name = "panelMainBlock";
             panelMainBlock.Padding = new Padding(10, 0, 10, 10);
-            panelMainBlock.Size = new Size(600, 335);
+            panelMainBlock.Size = new Size(600, 325);
             panelMainBlock.TabIndex = 16;
             // 
             // panel4
@@ -114,10 +114,10 @@
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(panel2);
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 384);
+            panel4.Location = new Point(0, 374);
             panel4.Name = "panel4";
-            panel4.Padding = new Padding(10);
-            panel4.Size = new Size(600, 56);
+            panel4.Padding = new Padding(15, 10, 15, 10);
+            panel4.Size = new Size(600, 66);
             panel4.TabIndex = 48;
             // 
             // labelStemNumber
@@ -125,10 +125,10 @@
             labelStemNumber.Dock = DockStyle.Fill;
             labelStemNumber.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelStemNumber.ForeColor = SystemColors.ControlDark;
-            labelStemNumber.Location = new Point(142, 10);
+            labelStemNumber.Location = new Point(147, 10);
             labelStemNumber.Name = "labelStemNumber";
             labelStemNumber.Padding = new Padding(0, 0, 0, 5);
-            labelStemNumber.Size = new Size(316, 36);
+            labelStemNumber.Size = new Size(306, 46);
             labelStemNumber.TabIndex = 17;
             labelStemNumber.Text = "Step 1 / 4";
             labelStemNumber.TextAlign = ContentAlignment.BottomCenter;
@@ -137,9 +137,9 @@
             // 
             panel5.Controls.Add(newButtonNext);
             panel5.Dock = DockStyle.Right;
-            panel5.Location = new Point(458, 10);
+            panel5.Location = new Point(453, 10);
             panel5.Name = "panel5";
-            panel5.Size = new Size(132, 36);
+            panel5.Size = new Size(132, 46);
             panel5.TabIndex = 19;
             // 
             // newButtonNext
@@ -162,7 +162,7 @@
             newButtonNext.RippleColor = Color.Black;
             newButtonNext.Rounding = 30;
             newButtonNext.RoundingEnable = true;
-            newButtonNext.Size = new Size(132, 36);
+            newButtonNext.Size = new Size(132, 46);
             newButtonNext.TabIndex = 9;
             newButtonNext.Text = "Next";
             newButtonNext.TextHover = null;
@@ -177,9 +177,9 @@
             // 
             panel2.Controls.Add(newButtonBack);
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(10, 10);
+            panel2.Location = new Point(15, 10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(132, 36);
+            panel2.Size = new Size(132, 46);
             panel2.TabIndex = 18;
             // 
             // newButtonBack
@@ -202,7 +202,7 @@
             newButtonBack.RippleColor = Color.Black;
             newButtonBack.Rounding = 30;
             newButtonBack.RoundingEnable = true;
-            newButtonBack.Size = new Size(132, 36);
+            newButtonBack.Size = new Size(132, 46);
             newButtonBack.TabIndex = 10;
             newButtonBack.Text = "Back";
             newButtonBack.TextHover = null;
