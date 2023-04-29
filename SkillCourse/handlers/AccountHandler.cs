@@ -80,8 +80,7 @@ namespace SkillCourse
             if (!PasswordEncryptor.CheckPassword(password, thisUser.Password))
                 throw new ArgumentException("Incorrect password.");
 
-            thisUser.LastLoginDate = DateTime.Now;
-            DataBase.Users.Update(thisUser);
+            UpdateLastVisitUser(thisUser);
             userLog = thisUser;
             OnChangeUser(thisUser);
 
@@ -122,12 +121,18 @@ namespace SkillCourse
             return true;
         }
 
-        public bool FindUser(ref User ?AuthorizationUser, string email)
+        public bool FindUser(ref User? AuthorizationUser, string email)
         {
             AuthorizationUser = DataBase.Users.Find(user => user.Email == email);
             if (AuthorizationUser == null)
                 return false;
             return true;
+        }
+
+        public void UpdateLastVisitUser(User user)
+        {
+            user.LastLoginDate = DateTime.Now;
+            DataBase.Users.Update(user);
         }
     }
 }

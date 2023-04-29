@@ -95,7 +95,7 @@ namespace SkillCourse.Panels.MainBlock
 
         private void newButton_Back_Click(object sender, EventArgs e)
         {
-            NavigatePages.BackLactPage();
+            NavigatePages.BackLastPage();
         }
 
         private void newButton1_Click(object sender, EventArgs e)

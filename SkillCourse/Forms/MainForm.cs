@@ -23,11 +23,14 @@ namespace SkillCourse
 {
     public partial class MainForm : Form
     {
+        private System.Windows.Forms.Timer TUpdateTimeLastVisit = new System.Windows.Forms.Timer();
         public DataBaseStructure.User? User { get; private set; }
 
         public MainForm()
         {
             InitializeComponent();
+            TUpdateTimeLastVisit.Interval = 60000;
+            TUpdateTimeLastVisit.Tick += TUpdateTimeLastVisit_Tick;
             AccountHandler.Instance.subscribeOnChange(updateUser);
 
             //--- NavigateBar
@@ -68,6 +71,12 @@ namespace SkillCourse
             //SkillCourseDB.Instance.Tasks.Add(task1);
         }
 
+        private void TUpdateTimeLastVisit_Tick(object? sender, EventArgs e)
+        {
+            if (User != null)
+                AccountHandler.Instance.UpdateLastVisitUser(User);
+        }
+
         private void newButtonAuthorization_Click(object sender, EventArgs e)
         {
             if (((Button)sender).Text == "LogIn / RegIn")
@@ -88,7 +97,7 @@ namespace SkillCourse
             if (user == null)
             {
                 //Все настройки для Не авторизированного пользователя
-
+                TUpdateTimeLastVisit.Stop();
 
                 User = null;
                 labelAuthorization.Location = new Point(labelAuthorization.Location.X, labelAuthorization.Location.Y + 25);
@@ -101,7 +110,7 @@ namespace SkillCourse
             }
             else
             {
-
+                TUpdateTimeLastVisit.Start();
                 if (user.UserType == UserType.Teacher)
                 {
                     //Все настройки для авторизированного учителя

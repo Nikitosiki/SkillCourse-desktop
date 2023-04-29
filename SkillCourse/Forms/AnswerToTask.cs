@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SkillCourse.Forms
 {
@@ -19,6 +20,16 @@ namespace SkillCourse.Forms
         {
             InitializeComponent();
             this.Size = size;
+        }
+
+        public AnswerToTask(Size size, string text, int maxTextLenght) : this(size)
+        {
+            richTextBox1.MaxLength = maxTextLenght;
+            richTextBox1.Text = text;
+            labelCounter.Text = $"{text.Length} / {maxTextLenght}";
+            int countRows = (maxTextLenght / 40) + 1;
+            int heightThisControl = 145 + (countRows * richTextBox1.Font.Height);
+            tableLayoutPanel2.Size = new Size(tableLayoutPanel2.Size.Width, heightThisControl);
         }
 
         private void newButton1_Click(object sender, EventArgs e)

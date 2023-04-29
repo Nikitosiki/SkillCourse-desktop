@@ -24,7 +24,7 @@ namespace SkillCourse.helpers
             dialog.Filter = "PNG Files (*.png)|*.png";
             dialog.Title = "Select an image";
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.FileName))
             {
                 string destinationPath = string.Empty;
                 switch (typeImage)
@@ -36,7 +36,7 @@ namespace SkillCourse.helpers
                         destinationPath = SerializeSetting.Default.UserImages;
                         break;
                 }
-                destinationPath += nameNewFile + ".png";
+                destinationPath += nameNewFile;
 
                 if (File.Exists(destinationPath))
                 {
@@ -54,7 +54,7 @@ namespace SkillCourse.helpers
             dialog.Filter = "PNG Files (*.png)|*.png";
             dialog.Title = "Select an image";
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.FileName))
             {
                 return LoadImageFromFile(dialog.FileName);
             }

@@ -30,13 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainBlock_CoursePage));
             panel3 = new Panel();
+            panelNaming = new Panel();
+            labelName = new Label();
+            panelEditName = new Panel();
+            roundedButtonEditName = new CPProject.components.ui.CustomRoundedButton();
+            panelButtonSetting = new Panel();
+            roundedButtonSetting = new CPProject.components.ui.CustomRoundedButton();
             newButton_Back = new Button();
             panel4 = new Panel();
+            roundedButtonEditDescription = new CPProject.components.ui.CustomRoundedButton();
             textBoxDescription = new TextBox();
             panel5 = new Panel();
             panel1 = new Panel();
+            roundedButtonEditImage = new CPProject.components.ui.CustomRoundedButton();
             pictureBoxImage = new PictureBox();
-            labelName = new Label();
             panelTasks = new Panel();
             label3 = new Label();
             panel15 = new Panel();
@@ -46,6 +53,9 @@
             buttonPanelClasswork = new Button();
             buttonSortTasks = new Button();
             panel3.SuspendLayout();
+            panelNaming.SuspendLayout();
+            panelEditName.SuspendLayout();
+            panelButtonSetting.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
@@ -55,15 +65,113 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(panelNaming);
+            panel3.Controls.Add(panelButtonSetting);
             panel3.Controls.Add(newButton_Back);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(panel1);
-            panel3.Controls.Add(labelName);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(1012, 221);
             panel3.TabIndex = 45;
+            // 
+            // panelNaming
+            // 
+            panelNaming.Controls.Add(labelName);
+            panelNaming.Controls.Add(panelEditName);
+            panelNaming.Dock = DockStyle.Fill;
+            panelNaming.Location = new Point(52, 0);
+            panelNaming.Name = "panelNaming";
+            panelNaming.Size = new Size(436, 63);
+            panelNaming.TabIndex = 51;
+            // 
+            // labelName
+            // 
+            labelName.Dock = DockStyle.Fill;
+            labelName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelName.ForeColor = SystemColors.Control;
+            labelName.ImageAlign = ContentAlignment.MiddleLeft;
+            labelName.Location = new Point(0, 0);
+            labelName.Margin = new Padding(3, 3, 3, 0);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(378, 63);
+            labelName.TabIndex = 2;
+            labelName.Text = "Об'єктно-орієнтоване програмування (КР)\r\n\r\n\r\n";
+            labelName.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panelEditName
+            // 
+            panelEditName.Controls.Add(roundedButtonEditName);
+            panelEditName.Dock = DockStyle.Right;
+            panelEditName.Location = new Point(378, 0);
+            panelEditName.Name = "panelEditName";
+            panelEditName.Size = new Size(58, 63);
+            panelEditName.TabIndex = 0;
+            panelEditName.Visible = false;
+            // 
+            // roundedButtonEditName
+            // 
+            roundedButtonEditName.Autofocus = false;
+            roundedButtonEditName.BackColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEditName.BackgroundColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEditName.BorderColor = Color.PaleVioletRed;
+            roundedButtonEditName.BorderRadius = 10;
+            roundedButtonEditName.BorderSize = 0;
+            roundedButtonEditName.FlatAppearance.BorderSize = 0;
+            roundedButtonEditName.FlatStyle = FlatStyle.Flat;
+            roundedButtonEditName.FocusBorderColor = Color.Gray;
+            roundedButtonEditName.FocusBorderSize = 2;
+            roundedButtonEditName.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonEditName.ForeColor = SystemColors.Control;
+            roundedButtonEditName.Image = Properties.Resources.outline_edit_white_24dp;
+            roundedButtonEditName.Location = new Point(9, 11);
+            roundedButtonEditName.Margin = new Padding(0, 0, 10, 5);
+            roundedButtonEditName.Name = "roundedButtonEditName";
+            roundedButtonEditName.Size = new Size(40, 40);
+            roundedButtonEditName.TabIndex = 3;
+            roundedButtonEditName.TextColor = SystemColors.Control;
+            roundedButtonEditName.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonEditName.UseVisualStyleBackColor = false;
+            roundedButtonEditName.Visible = false;
+            roundedButtonEditName.Click += roundedButtonEditName_Click;
+            // 
+            // panelButtonSetting
+            // 
+            panelButtonSetting.Controls.Add(roundedButtonSetting);
+            panelButtonSetting.Dock = DockStyle.Right;
+            panelButtonSetting.Location = new Point(488, 0);
+            panelButtonSetting.Name = "panelButtonSetting";
+            panelButtonSetting.Size = new Size(206, 63);
+            panelButtonSetting.TabIndex = 50;
+            panelButtonSetting.Visible = false;
+            // 
+            // roundedButtonSetting
+            // 
+            roundedButtonSetting.Autofocus = false;
+            roundedButtonSetting.BackColor = Color.FromArgb(50, 65, 80);
+            roundedButtonSetting.BackgroundColor = Color.FromArgb(50, 65, 80);
+            roundedButtonSetting.BorderColor = Color.PaleVioletRed;
+            roundedButtonSetting.BorderRadius = 10;
+            roundedButtonSetting.BorderSize = 0;
+            roundedButtonSetting.FlatAppearance.BorderSize = 0;
+            roundedButtonSetting.FlatStyle = FlatStyle.Flat;
+            roundedButtonSetting.FocusBorderColor = Color.Gray;
+            roundedButtonSetting.FocusBorderSize = 2;
+            roundedButtonSetting.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonSetting.ForeColor = SystemColors.Control;
+            roundedButtonSetting.Image = Properties.Resources.outline_settings_white_24dp;
+            roundedButtonSetting.ImageAlign = ContentAlignment.MiddleLeft;
+            roundedButtonSetting.Location = new Point(2, 11);
+            roundedButtonSetting.Margin = new Padding(0, 0, 10, 5);
+            roundedButtonSetting.Name = "roundedButtonSetting";
+            roundedButtonSetting.Size = new Size(192, 40);
+            roundedButtonSetting.TabIndex = 1;
+            roundedButtonSetting.Text = "Course Settings";
+            roundedButtonSetting.TextColor = SystemColors.Control;
+            roundedButtonSetting.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonSetting.UseVisualStyleBackColor = false;
+            roundedButtonSetting.Click += roundedButtonSetting_Click;
             // 
             // newButton_Back
             // 
@@ -73,7 +181,7 @@
             newButton_Back.Image = (Image)resources.GetObject("newButton_Back.Image");
             newButton_Back.Location = new Point(0, 0);
             newButton_Back.Name = "newButton_Back";
-            newButton_Back.Padding = new Padding(0, 12, 0, 0);
+            newButton_Back.Padding = new Padding(0, 4, 0, 0);
             newButton_Back.Size = new Size(52, 63);
             newButton_Back.TabIndex = 0;
             newButton_Back.UseVisualStyleBackColor = true;
@@ -81,6 +189,7 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(roundedButtonEditDescription);
             panel4.Controls.Add(textBoxDescription);
             panel4.Controls.Add(panel5);
             panel4.Dock = DockStyle.Bottom;
@@ -88,6 +197,32 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(694, 158);
             panel4.TabIndex = 49;
+            // 
+            // roundedButtonEditDescription
+            // 
+            roundedButtonEditDescription.Autofocus = false;
+            roundedButtonEditDescription.BackColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEditDescription.BackgroundColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEditDescription.BorderColor = Color.PaleVioletRed;
+            roundedButtonEditDescription.BorderRadius = 10;
+            roundedButtonEditDescription.BorderSize = 0;
+            roundedButtonEditDescription.FlatAppearance.BorderSize = 0;
+            roundedButtonEditDescription.FlatStyle = FlatStyle.Flat;
+            roundedButtonEditDescription.FocusBorderColor = Color.Gray;
+            roundedButtonEditDescription.FocusBorderSize = 2;
+            roundedButtonEditDescription.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonEditDescription.ForeColor = SystemColors.Control;
+            roundedButtonEditDescription.Image = Properties.Resources.outline_edit_white_24dp;
+            roundedButtonEditDescription.Location = new Point(642, 110);
+            roundedButtonEditDescription.Margin = new Padding(0, 0, 10, 5);
+            roundedButtonEditDescription.Name = "roundedButtonEditDescription";
+            roundedButtonEditDescription.Size = new Size(40, 40);
+            roundedButtonEditDescription.TabIndex = 2;
+            roundedButtonEditDescription.TextColor = SystemColors.Control;
+            roundedButtonEditDescription.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonEditDescription.UseVisualStyleBackColor = false;
+            roundedButtonEditDescription.Visible = false;
+            roundedButtonEditDescription.Click += roundedButtonEditDescription_Click;
             // 
             // textBoxDescription
             // 
@@ -113,12 +248,39 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(roundedButtonEditImage);
             panel1.Controls.Add(pictureBoxImage);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(694, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 221);
             panel1.TabIndex = 48;
+            // 
+            // roundedButtonEditImage
+            // 
+            roundedButtonEditImage.Autofocus = false;
+            roundedButtonEditImage.BackColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEditImage.BackgroundColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEditImage.BorderColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEditImage.BorderRadius = 9;
+            roundedButtonEditImage.BorderSize = 1;
+            roundedButtonEditImage.FlatAppearance.BorderSize = 0;
+            roundedButtonEditImage.FlatStyle = FlatStyle.Flat;
+            roundedButtonEditImage.FocusBorderColor = Color.Gray;
+            roundedButtonEditImage.FocusBorderSize = 0;
+            roundedButtonEditImage.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonEditImage.ForeColor = SystemColors.Control;
+            roundedButtonEditImage.Image = Properties.Resources.outline_brush_white_24dp;
+            roundedButtonEditImage.Location = new Point(268, 13);
+            roundedButtonEditImage.Margin = new Padding(0, 0, 10, 5);
+            roundedButtonEditImage.Name = "roundedButtonEditImage";
+            roundedButtonEditImage.Size = new Size(40, 40);
+            roundedButtonEditImage.TabIndex = 3;
+            roundedButtonEditImage.TextColor = SystemColors.Control;
+            roundedButtonEditImage.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonEditImage.UseVisualStyleBackColor = false;
+            roundedButtonEditImage.Visible = false;
+            roundedButtonEditImage.Click += roundedButtonEditImage_Click;
             // 
             // pictureBoxImage
             // 
@@ -130,17 +292,6 @@
             pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
-            // 
-            // labelName
-            // 
-            labelName.AutoSize = true;
-            labelName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelName.ForeColor = SystemColors.Control;
-            labelName.Location = new Point(61, 22);
-            labelName.Name = "labelName";
-            labelName.Size = new Size(459, 31);
-            labelName.TabIndex = 2;
-            labelName.Text = "Об'єктно-орієнтоване програмування (КР)";
             // 
             // panelTasks
             // 
@@ -263,8 +414,11 @@
             Controls.Add(panel3);
             Name = "PanelMainBlock_CoursePage";
             Size = new Size(1012, 673);
+            VisibleChanged += PanelMainBlock_CoursePage_VisibleChanged;
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            panelNaming.ResumeLayout(false);
+            panelEditName.ResumeLayout(false);
+            panelButtonSetting.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel1.ResumeLayout(false);
@@ -292,5 +446,12 @@
         private TableLayoutPanel tableLayoutPanel5;
         private Button buttonSortTasks;
         private Button newButton_Back;
+        private CPProject.components.ui.CustomRoundedButton roundedButtonSetting;
+        private Panel panelButtonSetting;
+        private Panel panelNaming;
+        private CPProject.components.ui.CustomRoundedButton roundedButtonEditDescription;
+        private Panel panelEditName;
+        private CPProject.components.ui.CustomRoundedButton roundedButtonEditName;
+        private CPProject.components.ui.CustomRoundedButton roundedButtonEditImage;
     }
 }

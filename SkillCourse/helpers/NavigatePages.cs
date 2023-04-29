@@ -73,7 +73,7 @@ namespace SkillCourse
 
         public static void BackPage(Control RemoveContent, Control? ParentPanel)
         {
-            if (ParentPanel != null && ParentPanel.Controls.Count > 0)
+            if (ParentPanel != null && ParentPanel.Controls.Count > 1)
             {
                 Panel mainPanel = (Panel)ParentPanel;
                 mainPanel.Controls.Remove(RemoveContent);
@@ -84,7 +84,7 @@ namespace SkillCourse
 
         public static void BackPage(List<Control> RemoveContent, Control? ParentPanel)
         {
-            if (ParentPanel != null && ParentPanel.Controls.Count > 0)
+            if (ParentPanel != null && ParentPanel.Controls.Count > RemoveContent.Count)
             {
                 Panel mainPanel = (Panel)ParentPanel;
                 foreach (var item in RemoveContent)
@@ -101,7 +101,15 @@ namespace SkillCourse
             BackPage(RemoveContent, MainParentPanel);
         }
 
-        public static void BackLactPage()
+        public static void ReLoadBackPage()
+        {
+            if (MainParentPanel != null && MainParentPanel.Controls.Count > 1)
+            {
+                MainParentPanel.Controls[MainParentPanel.Controls.Count - 2].Invalidate();
+            }
+        }
+
+        public static void BackLastPage()
         {
             BackPage(MainParentPanel.Controls[MainParentPanel.Controls.Count - 1]);
         }

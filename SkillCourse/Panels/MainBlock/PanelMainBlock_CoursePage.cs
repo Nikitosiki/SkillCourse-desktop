@@ -2,6 +2,7 @@
 using SkillCourse.DataBaseStructure;
 using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.types;
+using SkillCourse.Forms;
 using SkillCourse.handlers;
 using SkillCourse.helpers;
 using SkillCourse.PanelComponents;
@@ -16,6 +17,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +31,7 @@ namespace SkillCourse.Panels.MainBlock
         private List<Task> ClassworkTasks { get; set; }
         private List<Student> Students { get; set; }
         private User? TeacherThis { get; set; }
+        private Course CourseThis { get; set; }
 
 
         private User user = AccountHandler.Instance.UserLog;
@@ -43,12 +46,13 @@ namespace SkillCourse.Panels.MainBlock
             InitializeComponent();
             Dock = DockStyle.Fill;
 
-            labelName.Text = course.Name;
-            textBoxDescription.Text = course.Description;
-            string path = SerializeSetting.Default.CourseImages + course.ImagePath;
+            CourseThis = course;
+            labelName.Text = CourseThis.Name;
+            textBoxDescription.Text = CourseThis.Description;
+            string path = SerializeSetting.Default.CourseImages + CourseThis.ImagePath;
             pictureBoxImage.Image = ImageSaveHelper.LoadCourseImageFromFile(path);
 
-            LoatPageForUserType(course);
+            LoatPageForUserType(CourseThis);
         }
 
         private void LoatPageForUserType(Course course)
@@ -66,6 +70,7 @@ namespace SkillCourse.Panels.MainBlock
                 {
                     UpdateThisList(course);
                     AddStreamPanel();
+                    AddAdministratorView();
                     return;
                 }
             }
@@ -77,6 +82,111 @@ namespace SkillCourse.Panels.MainBlock
             message.Dock = DockStyle.Fill;
             this.panelTasks.Controls.Add(message);
         }
+
+        #region AdministratorView
+
+        private readonly int maxLenghtName = 80;
+        private readonly int maxLenghtDescription = 500;
+        SkillCourseDB DataBase = SkillCourseDB.Instance;
+
+        private void AddAdministratorView()
+        {
+            panelButtonSetting.Visible = true;
+        }
+
+        private void ResetAdministratorSettings()
+        {
+            panelButtonSetting.Visible = true;
+
+            panelEditName.Visible = false;
+            roundedButtonEditDescription.Visible = false;
+            roundedButtonEditImage.Visible = false;
+            roundedButtonEditName.Visible = false;
+        }
+
+        private void roundedButtonSetting_Click(object sender, EventArgs e)
+        {
+            panelButtonSetting.Visible = false;
+
+            panelEditName.Visible = true;
+            roundedButtonEditDescription.Visible = true;
+            roundedButtonEditImage.Visible = true;
+            roundedButtonEditName.Visible = true;
+        }
+
+        private void PanelMainBlock_CoursePage_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+                ResetAdministratorSettings();
+        }
+
+        private void roundedButtonEditName_Click(object sender, EventArgs e)
+        {
+            Control oldMainParent = SetBaseParent();
+            AnswerToTask answerForm = new AnswerToTask(new Size(oldMainParent.ClientSize.Width, oldMainParent.ClientSize.Height),
+                labelName.Text, maxLenghtName);
+            answerForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
+            DialogResult result = answerForm.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                string returnText = answerForm.Text;
+                labelName.Text = returnText;
+                CourseThis.Name = returnText;
+                DataBase.Courses.Update(CourseThis);
+            }
+        }
+
+        private void roundedButtonEditDescription_Click(object sender, EventArgs e)
+        {
+            Control oldMainParent = SetBaseParent();
+            AnswerToTask answerForm = new AnswerToTask(new Size(oldMainParent.ClientSize.Width, oldMainParent.ClientSize.Height),
+                textBoxDescription.Text, maxLenghtDescription);
+            answerForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
+            DialogResult result = answerForm.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                string returnText = answerForm.Text;
+                textBoxDescription.Text = returnText;
+                CourseThis.Description = returnText;
+                DataBase.Courses.Update(CourseThis);
+            }
+        }
+
+        private void roundedButtonEditImage_Click(object sender, EventArgs e)
+        {
+            string imagePath = "";
+            if (CourseThis.ImagePath == "" || CourseThis.ImagePath == null)
+            {
+                imagePath = CourseThis.Name.Replace(" ", "_") + ".png";
+                CourseThis.ImagePath = imagePath;
+                DataBase.Courses.Update(CourseThis);
+            }
+            else
+            {
+                imagePath = CourseThis.ImagePath;
+            }
+            
+            Image? image = ImageSaveHelper.SelectDialogAndSaveImage(ImageSaveHelper.TypeImage.Course, imagePath);
+            if (image != null)
+                pictureBoxImage.Image = image;
+        }
+
+        private Control SetBaseParent()
+        {
+            var thisParent = this.Parent;
+            while (true)
+            {
+                if (thisParent.Parent == null)
+                    break;
+
+                thisParent = thisParent.Parent;
+            }
+            return thisParent;
+        }
+
+        #endregion AdministratorView
 
         private void UpdateThisList(Course course)
         {

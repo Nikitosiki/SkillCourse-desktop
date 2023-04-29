@@ -28,44 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            newButtonApply = new yt_DesignUI.NewButton();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            panel3 = new Panel();
+            labelCounter = new Label();
             newButton1 = new yt_DesignUI.NewButton();
+            newButtonApply = new yt_DesignUI.NewButton();
             backRoundPanel1 = new PanelComponents.BackRoundPanel();
             richTextBox1 = new RichTextBox();
-            labelCounter = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            panel2 = new Panel();
+            tableLayoutPanel2.SuspendLayout();
+            panel3.SuspendLayout();
+            backRoundPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // newButtonApply
+            // tableLayoutPanel2
             // 
-            newButtonApply.BackColor = Color.FromArgb(80, 175, 138);
-            newButtonApply.BackColorAdditional = Color.Gray;
-            newButtonApply.BackColorGradientEnabled = false;
-            newButtonApply.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            newButtonApply.BorderColor = Color.FromArgb(80, 175, 138);
-            newButtonApply.BorderColorEnabled = false;
-            newButtonApply.BorderColorOnHover = Color.FromArgb(80, 175, 138);
-            newButtonApply.BorderColorOnHoverEnabled = false;
-            newButtonApply.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            newButtonApply.ForeColor = Color.White;
-            newButtonApply.Location = new Point(555, 380);
-            newButtonApply.Name = "newButtonApply";
-            newButtonApply.RippleColor = Color.Black;
-            newButtonApply.Rounding = 70;
-            newButtonApply.RoundingEnable = true;
-            newButtonApply.Size = new Size(125, 39);
-            newButtonApply.TabIndex = 2;
-            newButtonApply.Text = "Apply";
-            newButtonApply.TextHover = null;
-            newButtonApply.UseDownPressEffectOnClick = false;
-            newButtonApply.UseMainGradientEffect = false;
-            newButtonApply.UseRippleEffect = true;
-            newButtonApply.UseVisualStyleBackColor = false;
-            newButtonApply.UseZoomEffectOnHover = false;
-            newButtonApply.Click += newButtonApply_Click;
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.Controls.Add(panel3, 1, 2);
+            tableLayoutPanel2.Controls.Add(backRoundPanel1, 1, 1);
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            tableLayoutPanel2.Size = new Size(711, 432);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(labelCounter);
+            panel3.Controls.Add(newButton1);
+            panel3.Controls.Add(newButtonApply);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(25, 360);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(661, 69);
+            panel3.TabIndex = 7;
+            // 
+            // labelCounter
+            // 
+            labelCounter.AutoSize = true;
+            labelCounter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCounter.ForeColor = SystemColors.ButtonShadow;
+            labelCounter.Location = new Point(23, 0);
+            labelCounter.Name = "labelCounter";
+            labelCounter.Size = new Size(72, 23);
+            labelCounter.TabIndex = 6;
+            labelCounter.Text = "0 / 2000";
             // 
             // newButton1
             // 
@@ -79,7 +93,7 @@
             newButton1.BorderColorOnHoverEnabled = false;
             newButton1.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             newButton1.ForeColor = Color.White;
-            newButton1.Location = new Point(406, 380);
+            newButton1.Location = new Point(382, 16);
             newButton1.Name = "newButton1";
             newButton1.RippleColor = Color.Black;
             newButton1.Rounding = 70;
@@ -95,21 +109,53 @@
             newButton1.UseZoomEffectOnHover = false;
             newButton1.Click += newButton1_Click;
             // 
+            // newButtonApply
+            // 
+            newButtonApply.BackColor = Color.FromArgb(80, 175, 138);
+            newButtonApply.BackColorAdditional = Color.Gray;
+            newButtonApply.BackColorGradientEnabled = false;
+            newButtonApply.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            newButtonApply.BorderColor = Color.FromArgb(80, 175, 138);
+            newButtonApply.BorderColorEnabled = false;
+            newButtonApply.BorderColorOnHover = Color.FromArgb(80, 175, 138);
+            newButtonApply.BorderColorOnHoverEnabled = false;
+            newButtonApply.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            newButtonApply.ForeColor = Color.White;
+            newButtonApply.Location = new Point(530, 16);
+            newButtonApply.Name = "newButtonApply";
+            newButtonApply.RippleColor = Color.Black;
+            newButtonApply.Rounding = 70;
+            newButtonApply.RoundingEnable = true;
+            newButtonApply.Size = new Size(125, 39);
+            newButtonApply.TabIndex = 2;
+            newButtonApply.Text = "Apply";
+            newButtonApply.TextHover = null;
+            newButtonApply.UseDownPressEffectOnClick = false;
+            newButtonApply.UseMainGradientEffect = false;
+            newButtonApply.UseRippleEffect = true;
+            newButtonApply.UseVisualStyleBackColor = false;
+            newButtonApply.UseZoomEffectOnHover = false;
+            newButtonApply.Click += newButtonApply_Click;
+            // 
             // backRoundPanel1
             // 
             backRoundPanel1.Autofocus = false;
+            backRoundPanel1.AutoSize = true;
             backRoundPanel1.BackColor = Color.FromArgb(30, 35, 40);
             backRoundPanel1.BackgroundColor = Color.FromArgb(30, 35, 40);
             backRoundPanel1.BorderColor = Color.PaleVioletRed;
-            backRoundPanel1.BorderRadius = 20;
+            backRoundPanel1.BorderRadius = 15;
             backRoundPanel1.BorderSize = 0;
+            backRoundPanel1.Controls.Add(richTextBox1);
+            backRoundPanel1.Dock = DockStyle.Fill;
             backRoundPanel1.FocusBorderColor = Color.Gray;
             backRoundPanel1.FocusBorderSize = 2;
             backRoundPanel1.ForeColor = Color.White;
-            backRoundPanel1.Location = new Point(22, 22);
+            backRoundPanel1.Location = new Point(25, 26);
             backRoundPanel1.Margin = new Padding(3, 4, 3, 4);
             backRoundPanel1.Name = "backRoundPanel1";
-            backRoundPanel1.Size = new Size(668, 338);
+            backRoundPanel1.Padding = new Padding(20);
+            backRoundPanel1.Size = new Size(661, 327);
             backRoundPanel1.TabIndex = 4;
             backRoundPanel1.TextColor = Color.White;
             // 
@@ -117,26 +163,16 @@
             // 
             richTextBox1.BackColor = Color.FromArgb(30, 35, 40);
             richTextBox1.BorderStyle = BorderStyle.None;
+            richTextBox1.Dock = DockStyle.Fill;
             richTextBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             richTextBox1.ForeColor = SystemColors.Control;
-            richTextBox1.Location = new Point(45, 36);
+            richTextBox1.Location = new Point(20, 20);
             richTextBox1.MaxLength = 2000;
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(620, 306);
+            richTextBox1.Size = new Size(621, 287);
             richTextBox1.TabIndex = 5;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
-            // 
-            // labelCounter
-            // 
-            labelCounter.AutoSize = true;
-            labelCounter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            labelCounter.ForeColor = SystemColors.ButtonShadow;
-            labelCounter.Location = new Point(45, 364);
-            labelCounter.Name = "labelCounter";
-            labelCounter.Size = new Size(72, 23);
-            labelCounter.TabIndex = 6;
-            labelCounter.Text = "0 / 2000";
             // 
             // tableLayoutPanel1
             // 
@@ -144,7 +180,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(panel2, 1, 1);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -152,52 +188,42 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(711, 435);
-            tableLayoutPanel1.TabIndex = 7;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(richTextBox1);
-            panel2.Controls.Add(backRoundPanel1);
-            panel2.Controls.Add(labelCounter);
-            panel2.Controls.Add(newButtonApply);
-            panel2.Controls.Add(newButton1);
-            panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(711, 435);
-            panel2.TabIndex = 8;
+            tableLayoutPanel1.Size = new Size(711, 432);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // AnswerToTask
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
-            ClientSize = new Size(711, 435);
+            ClientSize = new Size(711, 432);
             Controls.Add(tableLayoutPanel1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            MinimumSize = new Size(711, 435);
+            MinimumSize = new Size(711, 235);
             Name = "AnswerToTask";
             Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterParent;
             Text = "AnswerToTask";
             Load += AnswerToTask_Load;
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            backRoundPanel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private yt_DesignUI.NewButton newButtonApply;
-        private yt_DesignUI.NewButton newButton1;
         private PanelComponents.BackRoundPanel panel1;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Panel panel3;
+        private Label labelCounter;
+        private yt_DesignUI.NewButton newButton1;
+        private yt_DesignUI.NewButton newButtonApply;
         private PanelComponents.BackRoundPanel backRoundPanel1;
         private RichTextBox richTextBox1;
-        private Label labelCounter;
         private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel2;
     }
 }

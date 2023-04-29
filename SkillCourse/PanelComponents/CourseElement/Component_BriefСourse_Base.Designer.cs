@@ -30,18 +30,21 @@
         {
             groupBox1 = new GroupBox();
             panel1 = new Panel();
-            picture_imageCourse = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             label_DescriptionCourse = new Label();
             label_NameCourse = new Label();
+            panel2 = new Panel();
+            picture_imageCourse = new PictureBox();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(panel2);
             groupBox1.Controls.Add(panel1);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
@@ -53,22 +56,10 @@
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Controls.Add(picture_imageCourse);
-            panel1.Location = new Point(3, 11);
+            panel1.Location = new Point(105, 11);
             panel1.Name = "panel1";
-            panel1.Size = new Size(931, 68);
+            panel1.Size = new Size(829, 68);
             panel1.TabIndex = 0;
-            // 
-            // picture_imageCourse
-            // 
-            picture_imageCourse.Dock = DockStyle.Left;
-            picture_imageCourse.Image = Properties.Resources.image008;
-            picture_imageCourse.Location = new Point(0, 0);
-            picture_imageCourse.Name = "picture_imageCourse";
-            picture_imageCourse.Size = new Size(131, 68);
-            picture_imageCourse.SizeMode = PictureBoxSizeMode.Zoom;
-            picture_imageCourse.TabIndex = 1;
-            picture_imageCourse.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -77,12 +68,12 @@
             tableLayoutPanel1.Controls.Add(label_DescriptionCourse, 0, 1);
             tableLayoutPanel1.Controls.Add(label_NameCourse, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(131, 0);
+            tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(800, 68);
+            tableLayoutPanel1.Size = new Size(829, 68);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // label_DescriptionCourse
@@ -94,7 +85,7 @@
             label_DescriptionCourse.Margin = new Padding(3, 1, 3, 0);
             label_DescriptionCourse.Name = "label_DescriptionCourse";
             label_DescriptionCourse.Padding = new Padding(0, 0, 5, 0);
-            label_DescriptionCourse.Size = new Size(794, 31);
+            label_DescriptionCourse.Size = new Size(823, 31);
             label_DescriptionCourse.TabIndex = 6;
             label_DescriptionCourse.Text = "Мета вивчення: надати студентам можливості щодо самостійного розроблення прог...";
             // 
@@ -108,9 +99,29 @@
             label_NameCourse.Margin = new Padding(3, 5, 3, 0);
             label_NameCourse.Name = "label_NameCourse";
             label_NameCourse.Padding = new Padding(0, 0, 5, 0);
-            label_NameCourse.Size = new Size(794, 31);
+            label_NameCourse.Size = new Size(823, 31);
             label_NameCourse.TabIndex = 5;
             label_NameCourse.Text = "Об'єктно-орієнтоване програмування (КР)";
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(picture_imageCourse);
+            panel2.Location = new Point(1, 11);
+            panel2.Margin = new Padding(0);
+            panel2.Name = "panel2";
+            panel2.Padding = new Padding(0, 0, 20, 0);
+            panel2.Size = new Size(103, 67);
+            panel2.TabIndex = 5;
+            // 
+            // picture_imageCourse
+            // 
+            picture_imageCourse.Image = Properties.Resources.image008;
+            picture_imageCourse.Location = new Point(0, 0);
+            picture_imageCourse.Name = "picture_imageCourse";
+            picture_imageCourse.Size = new Size(98, 68);
+            picture_imageCourse.SizeMode = PictureBoxSizeMode.Zoom;
+            picture_imageCourse.TabIndex = 1;
+            picture_imageCourse.TabStop = false;
             // 
             // Component_BriefСourse_Base
             // 
@@ -124,9 +135,10 @@
             Size = new Size(935, 81);
             groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).EndInit();
             ResumeLayout(false);
         }
 
@@ -134,9 +146,10 @@
 
         private GroupBox groupBox1;
         private Panel panel1;
-        private PictureBox picture_imageCourse;
         private TableLayoutPanel tableLayoutPanel1;
         private Label label_DescriptionCourse;
         private Label label_NameCourse;
+        private Panel panel2;
+        private PictureBox picture_imageCourse;
     }
 }

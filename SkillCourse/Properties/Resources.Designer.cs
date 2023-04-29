@@ -243,6 +243,36 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap outline_brush_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_brush_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_edit_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_edit_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_settings_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_settings_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap outline_visibility_grey_24dp {
             get {
                 object obj = ResourceManager.GetObject("outline_visibility_grey_24dp", resourceCulture);
