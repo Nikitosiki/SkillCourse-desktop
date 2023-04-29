@@ -1,4 +1,6 @@
-﻿namespace SkillCourse.Panels.MainBlock
+﻿using SkillCourse.PanelComponents;
+
+namespace SkillCourse.Panels.MainBlock
 {
     partial class PanelMainBlock_CoursePage
     {
@@ -41,7 +43,7 @@
             roundedButtonEditDescription = new CPProject.components.ui.CustomRoundedButton();
             textBoxDescription = new TextBox();
             panel5 = new Panel();
-            panel1 = new Panel();
+            panel1 = new BackRoundPanel();
             roundedButtonEditImage = new CPProject.components.ui.CustomRoundedButton();
             pictureBoxImage = new PictureBox();
             panelTasks = new Panel();
@@ -248,13 +250,23 @@
             // 
             // panel1
             // 
+            panel1.Autofocus = false;
+            panel1.BackColor = Color.FromArgb(40, 49, 60);
+            panel1.BackgroundColor = Color.FromArgb(40, 49, 60);
+            panel1.BorderColor = Color.FromArgb(40, 49, 60);
+            panel1.BorderRadius = 10;
+            panel1.BorderSize = 0;
             panel1.Controls.Add(roundedButtonEditImage);
             panel1.Controls.Add(pictureBoxImage);
             panel1.Dock = DockStyle.Right;
+            panel1.FocusBorderColor = Color.Gray;
+            panel1.FocusBorderSize = 2;
+            panel1.ForeColor = Color.White;
             panel1.Location = new Point(694, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 221);
             panel1.TabIndex = 48;
+            panel1.TextColor = Color.White;
             // 
             // roundedButtonEditImage
             // 
@@ -289,7 +301,7 @@
             pictureBoxImage.Location = new Point(0, 0);
             pictureBoxImage.Name = "pictureBoxImage";
             pictureBoxImage.Size = new Size(318, 221);
-            pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
             // 
@@ -436,7 +448,7 @@
         private TextBox textBoxDescription;
         private Panel panel4;
         private Panel panel5;
-        private Panel panel1;
+        private BackRoundPanel panel1;
         private PictureBox pictureBoxImage;
         private Label label3;
         private Panel panel15;

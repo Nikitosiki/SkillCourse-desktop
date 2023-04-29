@@ -10,6 +10,7 @@ using SkillCourse.PanelComponents.CoursePage;
 using SkillCourse.PanelComponents.UsersPage;
 using SkillCourse.Panels.MainBlock.Notification;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -102,6 +103,21 @@ namespace SkillCourse.Panels.MainBlock
             roundedButtonEditDescription.Visible = false;
             roundedButtonEditImage.Visible = false;
             roundedButtonEditName.Visible = false;
+
+            foreach (UserControl item in ListPanelStreams)
+            {
+                if (item is Component_AddTask addtask)
+                    addtask.Visible = false;
+                if (item is Component_TaskForTeacher task)
+                    task.AdminView(false);
+            }
+            foreach (UserControl item in ListPanelClasswork)
+            {
+                if (item is Component_AddTask addtask)
+                    addtask.Visible = false;
+                if (item is Component_TaskForTeacher task)
+                    task.AdminView(false);
+            }
         }
 
         private void roundedButtonSetting_Click(object sender, EventArgs e)
@@ -112,6 +128,21 @@ namespace SkillCourse.Panels.MainBlock
             roundedButtonEditDescription.Visible = true;
             roundedButtonEditImage.Visible = true;
             roundedButtonEditName.Visible = true;
+
+            foreach (UserControl item in ListPanelStreams)
+            {
+                if (item is Component_AddTask addtask)
+                    addtask.Visible = true;
+                if (item is Component_TaskForTeacher task)
+                    task.AdminView(true);
+            }
+            foreach (UserControl item in ListPanelClasswork)
+            {
+                if (item is Component_AddTask addtask)
+                    addtask.Visible = true;
+                if (item is Component_TaskForTeacher task)
+                    task.AdminView(true);
+            }
         }
 
         private void PanelMainBlock_CoursePage_VisibleChanged(object sender, EventArgs e)
@@ -134,6 +165,7 @@ namespace SkillCourse.Panels.MainBlock
                 labelName.Text = returnText;
                 CourseThis.Name = returnText;
                 DataBase.Courses.Update(CourseThis);
+                UpdateBackCoursesPage();
             }
         }
 
@@ -151,6 +183,7 @@ namespace SkillCourse.Panels.MainBlock
                 textBoxDescription.Text = returnText;
                 CourseThis.Description = returnText;
                 DataBase.Courses.Update(CourseThis);
+                UpdateBackCoursesPage();
             }
         }
 
@@ -167,10 +200,19 @@ namespace SkillCourse.Panels.MainBlock
             {
                 imagePath = CourseThis.ImagePath;
             }
-            
+
             Image? image = ImageSaveHelper.SelectDialogAndSaveImage(ImageSaveHelper.TypeImage.Course, imagePath);
             if (image != null)
+            {
                 pictureBoxImage.Image = image;
+                UpdateBackCoursesPage();
+            }
+        }
+
+        private void UpdateBackCoursesPage()
+        {
+            if (NavigatePages.OnlyGetBackPage() is PanelMainBlock_Courses backPage)
+                backPage.Invalidate();
         }
 
         private Control SetBaseParent()
@@ -206,6 +248,9 @@ namespace SkillCourse.Panels.MainBlock
 
         private void FillListPanelStreams()
         {
+            if (user.UserType == UserType.Teacher)
+                ListPanelStreams.Add(new Component_AddTask());
+
             int i = 0;
             foreach (Task task in StreamTasks)
             {
@@ -222,6 +267,9 @@ namespace SkillCourse.Panels.MainBlock
 
         private void FillListPanelClasswork()
         {
+            if (user.UserType == UserType.Teacher)
+                ListPanelClasswork.Add(new Component_AddTask());
+
             int i = 0;
             foreach (Task task in ClassworkTasks)
             {

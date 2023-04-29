@@ -29,13 +29,13 @@ namespace SkillCourse.handlers
             if (days > 0)
             {
                 result = $"{days} {(days == 1 ? "day" : "days")} ";
-                result += $"{hours} {(hours == 1 ? "hour" : "hours")} ";
+                if (hours > 0) result += $"{hours} {(hours == 1 ? "hour" : "hours")} ";
                 return result;
             }
             if (hours > 0)
             {
                 result = $"{hours} {(hours == 1 ? "hour" : "hours")} ";
-                result += $"{minutes} {(minutes == 1 ? "minute" : "minutes")} ";
+                if (minutes > 0) result += $"{minutes} {(minutes == 1 ? "minute" : "minutes")} ";
                 return result;
             }
             if (minutes > 5)

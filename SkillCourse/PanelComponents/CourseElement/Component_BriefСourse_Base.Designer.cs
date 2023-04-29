@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            panel2 = new Panel();
+            picture_imageCourse = new PictureBox();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             label_DescriptionCourse = new Label();
             label_NameCourse = new Label();
-            panel2 = new Panel();
-            picture_imageCourse = new PictureBox();
             groupBox1.SuspendLayout();
-            panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picture_imageCourse).BeginInit();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -52,6 +52,26 @@
             groupBox1.Size = new Size(935, 81);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(picture_imageCourse);
+            panel2.Location = new Point(1, 11);
+            panel2.Margin = new Padding(0);
+            panel2.Name = "panel2";
+            panel2.Padding = new Padding(0, 0, 20, 0);
+            panel2.Size = new Size(103, 67);
+            panel2.TabIndex = 5;
+            // 
+            // picture_imageCourse
+            // 
+            picture_imageCourse.Image = Properties.Resources.image008;
+            picture_imageCourse.Location = new Point(0, 0);
+            picture_imageCourse.Name = "picture_imageCourse";
+            picture_imageCourse.Size = new Size(98, 68);
+            picture_imageCourse.SizeMode = PictureBoxSizeMode.StretchImage;
+            picture_imageCourse.TabIndex = 1;
+            picture_imageCourse.TabStop = false;
             // 
             // panel1
             // 
@@ -103,26 +123,6 @@
             label_NameCourse.TabIndex = 5;
             label_NameCourse.Text = "Об'єктно-орієнтоване програмування (КР)";
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(picture_imageCourse);
-            panel2.Location = new Point(1, 11);
-            panel2.Margin = new Padding(0);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(0, 0, 20, 0);
-            panel2.Size = new Size(103, 67);
-            panel2.TabIndex = 5;
-            // 
-            // picture_imageCourse
-            // 
-            picture_imageCourse.Image = Properties.Resources.image008;
-            picture_imageCourse.Location = new Point(0, 0);
-            picture_imageCourse.Name = "picture_imageCourse";
-            picture_imageCourse.Size = new Size(98, 68);
-            picture_imageCourse.SizeMode = PictureBoxSizeMode.Zoom;
-            picture_imageCourse.TabIndex = 1;
-            picture_imageCourse.TabStop = false;
-            // 
             // Component_BriefСourse_Base
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -134,11 +134,11 @@
             Name = "Component_BriefСourse_Base";
             Size = new Size(935, 81);
             groupBox1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).EndInit();
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picture_imageCourse).EndInit();
             ResumeLayout(false);
         }
 

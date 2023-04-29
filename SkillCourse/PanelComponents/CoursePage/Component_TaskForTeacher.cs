@@ -39,14 +39,24 @@ namespace SkillCourse.PanelComponents.CoursePage
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
         }
 
-        private void ReSizeDescription()
+        public void AdminView(bool admin)
         {
-            panelText.Size = new System.Drawing.Size(labelText.Width, labelText.Height);
+            tableLayoutPanelAdmin.Visible = admin;
         }
 
         private void labelText_TextChanged(object sender, EventArgs e)
         {
             ReSizeDescription();
         }
+
+        private void tableLayoutPanel3_Resize(object sender, EventArgs e)
+        {
+            ReSizeDescription();
+        }
+        private void ReSizeDescription()
+        {
+            panelText.Size = new System.Drawing.Size(labelText.Width, labelText.Height);
+        }
+
     }
 }

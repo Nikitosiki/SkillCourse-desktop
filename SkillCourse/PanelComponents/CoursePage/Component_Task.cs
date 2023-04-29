@@ -90,6 +90,11 @@ namespace SkillCourse.PanelComponents
             ReSizeDescription();
         }
 
+        private void tableLayoutPanel3_Resize(object sender, EventArgs e)
+        {
+            ReSizeDescription();
+        }
+
         private void ReSizeDescription()
         {
             panelText.Size = new System.Drawing.Size(labelText.Width, labelText.Height);

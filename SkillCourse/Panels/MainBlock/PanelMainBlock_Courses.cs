@@ -45,7 +45,6 @@ namespace SkillCourse.Panels.MainBlock
 
             Name = NameThisPage() + stateView.ToString();
 
-            thisCourses = CustomizationForRole();
             TuneComboBox();
         }
 
@@ -121,6 +120,8 @@ namespace SkillCourse.Panels.MainBlock
         #region LoadPage
         private async void PanelMainBlock_Courses_Load(object sender, EventArgs e)
         {
+            thisCourses = CustomizationForRole();
+
             flowLayoutPanel1.Controls.Clear();
 
             //Если нету курсов, то мы присваеваем дефолтную панель
@@ -339,6 +340,12 @@ namespace SkillCourse.Panels.MainBlock
         }
 
         #endregion
+
+        public new void Invalidate()
+        {
+            this.OnLoad(EventArgs.Empty);
+            base.Invalidate();
+        }
 
         public enum ViewCourseState
         {

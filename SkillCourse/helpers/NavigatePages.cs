@@ -101,17 +101,26 @@ namespace SkillCourse
             BackPage(RemoveContent, MainParentPanel);
         }
 
-        public static void ReLoadBackPage()
+        public static Control? OnlyGetBackPage()
         {
             if (MainParentPanel != null && MainParentPanel.Controls.Count > 1)
             {
-                MainParentPanel.Controls[MainParentPanel.Controls.Count - 2].Invalidate();
+                return MainParentPanel.Controls[MainParentPanel.Controls.Count - 2];
             }
+            return null;
         }
 
         public static void BackLastPage()
         {
             BackPage(MainParentPanel.Controls[MainParentPanel.Controls.Count - 1]);
         }
+
+        //public static void UpdateBackPage()
+        //{
+        //    if (MainParentPanel != null && MainParentPanel.Controls.Count > 1)
+        //    {
+        //        MainParentPanel.Controls[MainParentPanel.Controls.Count - 2].Invalidate();
+        //    }
+        //}
     }
 }

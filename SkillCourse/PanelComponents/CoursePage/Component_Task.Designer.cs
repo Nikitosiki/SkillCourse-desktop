@@ -132,6 +132,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel3.Size = new Size(743, 112);
             tableLayoutPanel3.TabIndex = 10;
+            tableLayoutPanel3.Resize += tableLayoutPanel3_Resize;
             // 
             // labelDate
             // 

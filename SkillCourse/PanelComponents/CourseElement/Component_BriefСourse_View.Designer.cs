@@ -70,7 +70,7 @@
             picture_imageCourse.Location = new Point(0, 0);
             picture_imageCourse.Name = "picture_imageCourse";
             picture_imageCourse.Size = new Size(98, 68);
-            picture_imageCourse.SizeMode = PictureBoxSizeMode.Zoom;
+            picture_imageCourse.SizeMode = PictureBoxSizeMode.StretchImage;
             picture_imageCourse.TabIndex = 1;
             picture_imageCourse.TabStop = false;
             // 
