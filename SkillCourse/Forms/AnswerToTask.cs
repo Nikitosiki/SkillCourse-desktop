@@ -53,6 +53,9 @@ namespace SkillCourse.Forms
         {
             if (richTextBox1.ForeColor == SystemColors.Control)
             {
+                if (richTextBox1.Text == null || richTextBox1.Text == "")
+                    return;
+
                 Text = richTextBox1.Text;
                 this.DialogResult = DialogResult.OK;
                 this.Close();

@@ -104,6 +104,9 @@ namespace SkillCourse.DataBaseStructure
         {
             try
             {
+                if (name == null || name == "" || description == null || description == "")
+                    return null;
+
                 Course newCourse = new Course(name, description, "imageDefaultCourse", this.IdUser);
                 DataBase.Courses.Add(newCourse);
                 return newCourse;
@@ -111,27 +114,6 @@ namespace SkillCourse.DataBaseStructure
             catch (Exception)
             {
                 return null;
-            }
-        }
-
-        public bool ChangeImageToCourse(Course course)
-        {
-            try
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.InitialDirectory = Application.StartupPath + "\\Resources";
-                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif";
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    course.ImagePath = openFileDialog.SafeFileName;
-                    DataBase.Courses.Update(course);
-                }
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
             }
         }
 
@@ -193,6 +175,9 @@ namespace SkillCourse.DataBaseStructure
                 // Проверяем, что такой курс существует
                 if (DataBase.Courses.Any(cou => cou.IdCourse == course.IdCourse))
                 {
+                    if (textTask == null || textTask == "")
+                        return false;
+
                     Task task = new Task(textTask, course.IdCourse, taskTypeMessage);
                     DataBase.Tasks.Add(task);
 

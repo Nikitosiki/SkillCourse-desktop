@@ -76,7 +76,6 @@ namespace SkillCourse.PanelComponents.CoursePage
         private void roundedButtonDelete_Click(object sender, EventArgs e)
         {
             string text = "Are you sure that you want to delete this task? 🤨";
-
             Control oldMainParent = SetBaseParent();
             MessageYesNo modalForm = new MessageYesNo(text, new Size(oldMainParent.ClientSize.Width, oldMainParent.ClientSize.Height));
             modalForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);

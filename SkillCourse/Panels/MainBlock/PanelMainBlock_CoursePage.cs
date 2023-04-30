@@ -131,15 +131,29 @@ namespace SkillCourse.Panels.MainBlock
             panelAdminButtonAddTask.Visible = true;
         }
 
-        private void AddTaskOrUserClick()
-        {
-
-        }
-
         private void PanelMainBlock_CoursePage_VisibleChanged(object sender, EventArgs e)
         {
             if (this.Visible == true)
                 ResetAdministratorSettings();
+        }
+
+        private void AddTaskOrUserClick()
+        {
+            Control oldMainParent = SetBaseParent();
+            CreateTask createTask = new CreateTask(new Size(oldMainParent.ClientSize.Width, oldMainParent.ClientSize.Height),
+                UserTextSize.Task.maxLenghtName);
+            createTask.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
+            DialogResult result = createTask.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                if (user is Teather teacherHandler)
+                    teacherHandler.AddTaskToCourse(CourseThis, createTask.TextTask, createTask.MessType);
+
+                UpdateThisList(CourseThis);
+                roundedButtonSetting_Click(this, EventArgs.Empty);
+                ReLoadThisPanel();
+            }
         }
 
         private void roundedButtonEditName_Click(object sender, EventArgs e)

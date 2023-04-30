@@ -184,8 +184,8 @@ namespace SkillCourse.DataBaseStructure
 
         #endregion
 
-        private new void AddRange(IEnumerable<Course> collection) { throw new NotImplementedException(); }
-        private new void Insert(int index, Course item) { throw new NotImplementedException(); }
-        private new void InsertRange(int index, IEnumerable<Course> collection) { throw new NotImplementedException(); }
+        private new void AddRange(IEnumerable<Task> collection) { throw new NotImplementedException(); }
+        private new void Insert(int index, Task item) { throw new NotImplementedException(); }
+        private new void InsertRange(int index, IEnumerable<Task> collection) { throw new NotImplementedException(); }
     }
 }

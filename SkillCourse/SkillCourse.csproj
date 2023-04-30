@@ -18,6 +18,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SerializeSetting.settings</DependentUpon>
     </Compile>
+    <Compile Update="Forms\CreateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\MessageYesNo.cs">
       <SubType>Form</SubType>
     </Compile>

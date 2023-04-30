@@ -4,6 +4,7 @@ using SkillCourse.DataBaseStructure.serialize.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -180,8 +181,8 @@ namespace SkillCourse.DataBaseStructure
 
         #endregion
 
-        private new void AddRange(IEnumerable<Course> collection) { throw new NotImplementedException(); }
-        private new void Insert(int index, Course item) { throw new NotImplementedException(); }
-        private new void InsertRange(int index, IEnumerable<Course> collection) { throw new NotImplementedException(); }
+        private new void AddRange(IEnumerable<AnswerTask> collection) { throw new NotImplementedException(); }
+        private new void Insert(int index, AnswerTask item) { throw new NotImplementedException(); }
+        private new void InsertRange(int index, IEnumerable<AnswerTask> collection) { throw new NotImplementedException(); }
     }
 }
