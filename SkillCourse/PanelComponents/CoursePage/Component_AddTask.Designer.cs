@@ -55,6 +55,7 @@
             customRoundedButton1.Text = "Create Task";
             customRoundedButton1.TextColor = SystemColors.Control;
             customRoundedButton1.UseVisualStyleBackColor = false;
+            customRoundedButton1.Click += customRoundedButton1_Click;
             // 
             // panel1
             // 

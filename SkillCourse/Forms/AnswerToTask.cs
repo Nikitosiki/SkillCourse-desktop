@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,20 +17,30 @@ namespace SkillCourse.Forms
         public string Text { get; set; }
         public int LoatLocationY { get; set; }
 
+        private readonly int maxHeightContent = 550;
+
         public AnswerToTask(Size size)
         {
             InitializeComponent();
             this.Size = size;
         }
 
-        public AnswerToTask(Size size, string text, int maxTextLenght) : this(size)
+        public AnswerToTask(Size size, string text, int maxTextLenght) : this(size, text, maxTextLenght, true)
+        { }
+
+        public AnswerToTask(Size size, string text, int maxTextLenght, bool autoSizeForText) : this(size)
         {
             richTextBox1.MaxLength = maxTextLenght;
             richTextBox1.Text = text;
             labelCounter.Text = $"{text.Length} / {maxTextLenght}";
-            int countRows = (maxTextLenght / 40) + 1;
-            int heightThisControl = 145 + (countRows * richTextBox1.Font.Height);
-            tableLayoutPanel2.Size = new Size(tableLayoutPanel2.Size.Width, heightThisControl);
+
+            if (autoSizeForText)
+            {
+                int countRows = (maxTextLenght / 40) + 1;
+                int heightThisControl = 145 + (countRows * richTextBox1.Font.Height);
+                if (heightThisControl > maxHeightContent) heightThisControl = maxHeightContent;
+                tableLayoutPanel2.Size = new Size(tableLayoutPanel2.Size.Width, heightThisControl);
+            }
         }
 
         private void newButton1_Click(object sender, EventArgs e)

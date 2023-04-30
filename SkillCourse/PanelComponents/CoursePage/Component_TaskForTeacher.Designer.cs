@@ -36,8 +36,8 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             labelText = new Label();
             tableLayoutPanelAdmin = new TableLayoutPanel();
-            roundedButtonEditDescription = new CPProject.components.ui.CustomRoundedButton();
-            customRoundedButton1 = new CPProject.components.ui.CustomRoundedButton();
+            roundedButtonEdit = new CPProject.components.ui.CustomRoundedButton();
+            roundedButtonDelete = new CPProject.components.ui.CustomRoundedButton();
             tableLayoutPanel1 = new TableLayoutPanel();
             labelBall = new Label();
             panelButSend = new Panel();
@@ -58,7 +58,7 @@
             panelIndex.Dock = DockStyle.Left;
             panelIndex.Location = new Point(0, 0);
             panelIndex.Name = "panelIndex";
-            panelIndex.Size = new Size(83, 112);
+            panelIndex.Size = new Size(83, 116);
             panelIndex.TabIndex = 9;
             // 
             // labelId
@@ -91,7 +91,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(743, 112);
+            tableLayoutPanel3.Size = new Size(743, 116);
             tableLayoutPanel3.TabIndex = 11;
             tableLayoutPanel3.Resize += tableLayoutPanel3_Resize;
             // 
@@ -100,7 +100,7 @@
             labelDate.AutoSize = true;
             labelDate.Font = new Font("Segoe UI Variable Display", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelDate.ForeColor = SystemColors.ControlDark;
-            labelDate.Location = new Point(5, 70);
+            labelDate.Location = new Point(5, 74);
             labelDate.Margin = new Padding(5, 0, 3, 0);
             labelDate.Name = "labelDate";
             labelDate.Padding = new Padding(21, 0, 0, 0);
@@ -114,7 +114,7 @@
             panelText.Dock = DockStyle.Top;
             panelText.Location = new Point(3, 23);
             panelText.Name = "panelText";
-            panelText.Size = new Size(737, 44);
+            panelText.Size = new Size(737, 48);
             panelText.TabIndex = 10;
             // 
             // tableLayoutPanel4
@@ -154,8 +154,8 @@
             tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanelAdmin.Controls.Add(roundedButtonEditDescription, 1, 1);
-            tableLayoutPanelAdmin.Controls.Add(customRoundedButton1, 3, 1);
+            tableLayoutPanelAdmin.Controls.Add(roundedButtonEdit, 1, 1);
+            tableLayoutPanelAdmin.Controls.Add(roundedButtonDelete, 3, 1);
             tableLayoutPanelAdmin.Dock = DockStyle.Right;
             tableLayoutPanelAdmin.Location = new Point(826, 0);
             tableLayoutPanelAdmin.MinimumSize = new Size(186, 101);
@@ -164,57 +164,59 @@
             tableLayoutPanelAdmin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanelAdmin.RowStyles.Add(new RowStyle());
             tableLayoutPanelAdmin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanelAdmin.Size = new Size(186, 112);
+            tableLayoutPanelAdmin.Size = new Size(186, 116);
             tableLayoutPanelAdmin.TabIndex = 12;
             tableLayoutPanelAdmin.Visible = false;
             // 
-            // roundedButtonEditDescription
+            // roundedButtonEdit
             // 
-            roundedButtonEditDescription.Autofocus = false;
-            roundedButtonEditDescription.BackColor = Color.FromArgb(50, 65, 80);
-            roundedButtonEditDescription.BackgroundColor = Color.FromArgb(50, 65, 80);
-            roundedButtonEditDescription.BorderColor = Color.PaleVioletRed;
-            roundedButtonEditDescription.BorderRadius = 10;
-            roundedButtonEditDescription.BorderSize = 0;
-            roundedButtonEditDescription.FlatAppearance.BorderSize = 0;
-            roundedButtonEditDescription.FlatStyle = FlatStyle.Flat;
-            roundedButtonEditDescription.FocusBorderColor = Color.Gray;
-            roundedButtonEditDescription.FocusBorderSize = 2;
-            roundedButtonEditDescription.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            roundedButtonEditDescription.ForeColor = SystemColors.Control;
-            roundedButtonEditDescription.Image = Properties.Resources.outline_edit_white_24dp;
-            roundedButtonEditDescription.Location = new Point(43, 36);
-            roundedButtonEditDescription.Margin = new Padding(0);
-            roundedButtonEditDescription.Name = "roundedButtonEditDescription";
-            roundedButtonEditDescription.Size = new Size(40, 40);
-            roundedButtonEditDescription.TabIndex = 3;
-            roundedButtonEditDescription.TextColor = SystemColors.Control;
-            roundedButtonEditDescription.TextImageRelation = TextImageRelation.TextBeforeImage;
-            roundedButtonEditDescription.UseVisualStyleBackColor = false;
+            roundedButtonEdit.Autofocus = false;
+            roundedButtonEdit.BackColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEdit.BackgroundColor = Color.FromArgb(50, 65, 80);
+            roundedButtonEdit.BorderColor = Color.PaleVioletRed;
+            roundedButtonEdit.BorderRadius = 10;
+            roundedButtonEdit.BorderSize = 0;
+            roundedButtonEdit.FlatAppearance.BorderSize = 0;
+            roundedButtonEdit.FlatStyle = FlatStyle.Flat;
+            roundedButtonEdit.FocusBorderColor = Color.Gray;
+            roundedButtonEdit.FocusBorderSize = 2;
+            roundedButtonEdit.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonEdit.ForeColor = SystemColors.Control;
+            roundedButtonEdit.Image = Properties.Resources.outline_edit_white_24dp;
+            roundedButtonEdit.Location = new Point(43, 38);
+            roundedButtonEdit.Margin = new Padding(0);
+            roundedButtonEdit.Name = "roundedButtonEdit";
+            roundedButtonEdit.Size = new Size(40, 40);
+            roundedButtonEdit.TabIndex = 3;
+            roundedButtonEdit.TextColor = SystemColors.Control;
+            roundedButtonEdit.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonEdit.UseVisualStyleBackColor = false;
+            roundedButtonEdit.Click += roundedButtonEdit_Click;
             // 
-            // customRoundedButton1
+            // roundedButtonDelete
             // 
-            customRoundedButton1.Autofocus = false;
-            customRoundedButton1.BackColor = Color.FromArgb(220, 50, 80);
-            customRoundedButton1.BackgroundColor = Color.FromArgb(220, 50, 80);
-            customRoundedButton1.BorderColor = Color.PaleVioletRed;
-            customRoundedButton1.BorderRadius = 10;
-            customRoundedButton1.BorderSize = 0;
-            customRoundedButton1.FlatAppearance.BorderSize = 0;
-            customRoundedButton1.FlatStyle = FlatStyle.Flat;
-            customRoundedButton1.FocusBorderColor = Color.Gray;
-            customRoundedButton1.FocusBorderSize = 2;
-            customRoundedButton1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            customRoundedButton1.ForeColor = SystemColors.Control;
-            customRoundedButton1.Image = Properties.Resources.close_white_24dp;
-            customRoundedButton1.Location = new Point(103, 36);
-            customRoundedButton1.Margin = new Padding(0);
-            customRoundedButton1.Name = "customRoundedButton1";
-            customRoundedButton1.Size = new Size(40, 40);
-            customRoundedButton1.TabIndex = 4;
-            customRoundedButton1.TextColor = SystemColors.Control;
-            customRoundedButton1.TextImageRelation = TextImageRelation.TextBeforeImage;
-            customRoundedButton1.UseVisualStyleBackColor = false;
+            roundedButtonDelete.Autofocus = false;
+            roundedButtonDelete.BackColor = Color.FromArgb(220, 50, 80);
+            roundedButtonDelete.BackgroundColor = Color.FromArgb(220, 50, 80);
+            roundedButtonDelete.BorderColor = Color.PaleVioletRed;
+            roundedButtonDelete.BorderRadius = 10;
+            roundedButtonDelete.BorderSize = 0;
+            roundedButtonDelete.FlatAppearance.BorderSize = 0;
+            roundedButtonDelete.FlatStyle = FlatStyle.Flat;
+            roundedButtonDelete.FocusBorderColor = Color.Gray;
+            roundedButtonDelete.FocusBorderSize = 2;
+            roundedButtonDelete.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonDelete.ForeColor = SystemColors.Control;
+            roundedButtonDelete.Image = Properties.Resources.close_white_24dp;
+            roundedButtonDelete.Location = new Point(103, 38);
+            roundedButtonDelete.Margin = new Padding(0);
+            roundedButtonDelete.Name = "roundedButtonDelete";
+            roundedButtonDelete.Size = new Size(40, 40);
+            roundedButtonDelete.TabIndex = 4;
+            roundedButtonDelete.TextColor = SystemColors.Control;
+            roundedButtonDelete.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonDelete.UseVisualStyleBackColor = false;
+            roundedButtonDelete.Click += roundedButtonDelete_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -294,12 +296,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(tableLayoutPanel3);
             Controls.Add(tableLayoutPanelAdmin);
             Controls.Add(panelIndex);
             Name = "Component_TaskForTeacher";
-            Size = new Size(1012, 112);
+            Size = new Size(1012, 116);
             panelIndex.ResumeLayout(false);
             panelIndex.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -329,7 +332,7 @@
         private Label labelBall;
         private Panel panelButSend;
         private yt_DesignUI.NewButton newButtonSend;
-        private CPProject.components.ui.CustomRoundedButton roundedButtonEditDescription;
-        private CPProject.components.ui.CustomRoundedButton customRoundedButton1;
+        private CPProject.components.ui.CustomRoundedButton roundedButtonEdit;
+        private CPProject.components.ui.CustomRoundedButton roundedButtonDelete;
     }
 }

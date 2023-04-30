@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkillCourse.helperConfig;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +35,10 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
             Dock = DockStyle.Fill;
 
             panel3.Visible = false;
+
+            int maxLenghtText = UserTextSize.Task.maxLenghtName;
+            textBoxText.MaxLength = maxLenghtText;
+            label3.Text = "0 / " + maxLenghtText;
         }
 
         private void newButtonNext_Click(object sender, EventArgs e)
@@ -44,7 +49,8 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            label3.Text = textBoxText.Text.Length + " / 300";
+            int maxLenghtText = UserTextSize.Task.maxLenghtName;
+            label3.Text = textBoxText.Text.Length + " / " + maxLenghtText;
             ResizeDescriptionTextbox(textBoxText);
         }
 

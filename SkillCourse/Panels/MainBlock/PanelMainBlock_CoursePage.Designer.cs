@@ -54,6 +54,8 @@ namespace SkillCourse.Panels.MainBlock
             buttonPanelStream = new Button();
             buttonPanelClasswork = new Button();
             buttonSortTasks = new Button();
+            panelAdminButtonAddTask = new Panel();
+            component_AddTask1 = new PanelComponents.CoursePage.Component_AddTask();
             panel3.SuspendLayout();
             panelNaming.SuspendLayout();
             panelEditName.SuspendLayout();
@@ -63,6 +65,7 @@ namespace SkillCourse.Panels.MainBlock
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
             panel15.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            panelAdminButtonAddTask.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -309,9 +312,9 @@ namespace SkillCourse.Panels.MainBlock
             // 
             panelTasks.AutoScroll = true;
             panelTasks.Dock = DockStyle.Fill;
-            panelTasks.Location = new Point(0, 276);
+            panelTasks.Location = new Point(0, 326);
             panelTasks.Name = "panelTasks";
-            panelTasks.Size = new Size(1012, 397);
+            panelTasks.Size = new Size(1012, 347);
             panelTasks.TabIndex = 48;
             // 
             // label3
@@ -416,16 +419,42 @@ namespace SkillCourse.Panels.MainBlock
             buttonSortTasks.UseVisualStyleBackColor = true;
             buttonSortTasks.Click += buttonSortTasks_Click;
             // 
+            // panelAdminButtonAddTask
+            // 
+            panelAdminButtonAddTask.AutoSize = true;
+            panelAdminButtonAddTask.Controls.Add(component_AddTask1);
+            panelAdminButtonAddTask.Dock = DockStyle.Top;
+            panelAdminButtonAddTask.Location = new Point(0, 276);
+            panelAdminButtonAddTask.Name = "panelAdminButtonAddTask";
+            panelAdminButtonAddTask.Size = new Size(1012, 50);
+            panelAdminButtonAddTask.TabIndex = 50;
+            panelAdminButtonAddTask.Visible = false;
+            // 
+            // component_AddTask1
+            // 
+            component_AddTask1.AddButtonClick = null;
+            component_AddTask1.AutoSize = true;
+            component_AddTask1.BackColor = Color.FromArgb(40, 49, 60);
+            component_AddTask1.Dock = DockStyle.Fill;
+            component_AddTask1.Location = new Point(0, 0);
+            component_AddTask1.MinimumSize = new Size(0, 50);
+            component_AddTask1.Name = "component_AddTask1";
+            component_AddTask1.Size = new Size(1012, 50);
+            component_AddTask1.TabIndex = 0;
+            component_AddTask1.textButton = "Create Task";
+            // 
             // PanelMainBlock_CoursePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(panelTasks);
+            Controls.Add(panelAdminButtonAddTask);
             Controls.Add(panel15);
             Controls.Add(panel3);
             Name = "PanelMainBlock_CoursePage";
             Size = new Size(1012, 673);
+            Load += PanelMainBlock_CoursePage_Load;
             VisibleChanged += PanelMainBlock_CoursePage_VisibleChanged;
             panel3.ResumeLayout(false);
             panelNaming.ResumeLayout(false);
@@ -438,7 +467,10 @@ namespace SkillCourse.Panels.MainBlock
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
+            panelAdminButtonAddTask.ResumeLayout(false);
+            panelAdminButtonAddTask.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -465,5 +497,7 @@ namespace SkillCourse.Panels.MainBlock
         private Panel panelEditName;
         private CPProject.components.ui.CustomRoundedButton roundedButtonEditName;
         private CPProject.components.ui.CustomRoundedButton roundedButtonEditImage;
+        private Panel panelAdminButtonAddTask;
+        private PanelComponents.CoursePage.Component_AddTask component_AddTask1;
     }
 }

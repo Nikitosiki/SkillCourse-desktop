@@ -2,15 +2,6 @@
 using SkillCourse.DataBaseStructure.types;
 using SkillCourse.PanelComponents;
 using SkillCourse.Panels.MainBlock.Tasks;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using static SkillCourse.Panels.MainBlock.PanelMainBlock_Courses;
 using static SkillCourse.Panels.MainBlock.Tasks.PanelMainBlock_TaskAssigned;
 

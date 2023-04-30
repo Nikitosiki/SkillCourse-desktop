@@ -4,6 +4,7 @@ using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.types;
 using SkillCourse.Forms;
 using SkillCourse.handlers;
+using SkillCourse.helperConfig;
 using SkillCourse.helpers;
 using SkillCourse.PanelComponents;
 using SkillCourse.PanelComponents.CoursePage;
@@ -29,7 +30,6 @@ namespace SkillCourse.Panels.MainBlock
     public partial class PanelMainBlock_CoursePage : UserControl
     {
         private List<Task> StreamTasks { get; set; }
-        private List<Task> ClassworkTasks { get; set; }
         private List<Student> Students { get; set; }
         private User? TeacherThis { get; set; }
         private Course CourseThis { get; set; }
@@ -37,9 +37,8 @@ namespace SkillCourse.Panels.MainBlock
 
         private User user = AccountHandler.Instance.UserLog;
 
-        private List<UserControl> ListPanelStreams { get; set; } = new List<UserControl>();
-        private List<UserControl> ListPanelClasswork { get; set; } = new List<UserControl>();
-        private List<UserControl> ListPanelPeople { get; set; } = new List<UserControl>();
+        public List<UserControl> ListPanelStreams { get; set; } = new List<UserControl>();
+        public List<UserControl> ListPanelPeople { get; set; } = new List<UserControl>();
 
 
         public PanelMainBlock_CoursePage(Course course)
@@ -52,24 +51,22 @@ namespace SkillCourse.Panels.MainBlock
             textBoxDescription.Text = CourseThis.Description;
             string path = SerializeSetting.Default.CourseImages + CourseThis.ImagePath;
             pictureBoxImage.Image = ImageSaveHelper.LoadCourseImageFromFile(path);
-
-            LoatPageForUserType(CourseThis);
         }
 
-        private void LoatPageForUserType(Course course)
+        private void PanelMainBlock_CoursePage_Load(object sender, EventArgs e)
         {
             if (user != null)
             {
-                if (user.UserType == UserType.Student && ((Student)user).CoursesSubscribed.Any(c => c.Name == course.Name))
+                if (user.UserType == UserType.Student && ((Student)user).CoursesSubscribed.Any(c => c.Name == CourseThis.Name))
                 {
-                    UpdateThisList(course);
+                    UpdateThisList(CourseThis);
                     AddStreamPanel();
                     return;
                 }
 
-                if (user.UserType == UserType.Teacher && ((Teather)user).MyCourses.Any(c => c.Name == course.Name))
+                if (user.UserType == UserType.Teacher && ((Teather)user).MyCourses.Any(c => c.Name == CourseThis.Name))
                 {
-                    UpdateThisList(course);
+                    UpdateThisList(CourseThis);
                     AddStreamPanel();
                     AddAdministratorView();
                     return;
@@ -86,13 +83,14 @@ namespace SkillCourse.Panels.MainBlock
 
         #region AdministratorView
 
-        private readonly int maxLenghtName = 80;
-        private readonly int maxLenghtDescription = 500;
         SkillCourseDB DataBase = SkillCourseDB.Instance;
 
         private void AddAdministratorView()
         {
             panelButtonSetting.Visible = true;
+
+            if (panelAdminButtonAddTask.Controls[0] is Component_AddTask addComponent)
+                addComponent.AddButtonClick += AddTaskOrUserClick;
         }
 
         private void ResetAdministratorSettings()
@@ -106,18 +104,11 @@ namespace SkillCourse.Panels.MainBlock
 
             foreach (UserControl item in ListPanelStreams)
             {
-                if (item is Component_AddTask addtask)
-                    addtask.Visible = false;
                 if (item is Component_TaskForTeacher task)
                     task.AdminView(false);
             }
-            foreach (UserControl item in ListPanelClasswork)
-            {
-                if (item is Component_AddTask addtask)
-                    addtask.Visible = false;
-                if (item is Component_TaskForTeacher task)
-                    task.AdminView(false);
-            }
+
+            panelAdminButtonAddTask.Visible = false;
         }
 
         private void roundedButtonSetting_Click(object sender, EventArgs e)
@@ -136,13 +127,13 @@ namespace SkillCourse.Panels.MainBlock
                 if (item is Component_TaskForTeacher task)
                     task.AdminView(true);
             }
-            foreach (UserControl item in ListPanelClasswork)
-            {
-                if (item is Component_AddTask addtask)
-                    addtask.Visible = true;
-                if (item is Component_TaskForTeacher task)
-                    task.AdminView(true);
-            }
+
+            panelAdminButtonAddTask.Visible = true;
+        }
+
+        private void AddTaskOrUserClick()
+        {
+
         }
 
         private void PanelMainBlock_CoursePage_VisibleChanged(object sender, EventArgs e)
@@ -155,7 +146,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             Control oldMainParent = SetBaseParent();
             AnswerToTask answerForm = new AnswerToTask(new Size(oldMainParent.ClientSize.Width, oldMainParent.ClientSize.Height),
-                labelName.Text, maxLenghtName);
+                labelName.Text, UserTextSize.Course.maxLenghtName);
             answerForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
             DialogResult result = answerForm.ShowDialog(this);
 
@@ -173,7 +164,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             Control oldMainParent = SetBaseParent();
             AnswerToTask answerForm = new AnswerToTask(new Size(oldMainParent.ClientSize.Width, oldMainParent.ClientSize.Height),
-                textBoxDescription.Text, maxLenghtDescription);
+                textBoxDescription.Text, UserTextSize.Course.maxLenghtDescription);
             answerForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
             DialogResult result = answerForm.ShowDialog(this);
 
@@ -233,24 +224,18 @@ namespace SkillCourse.Panels.MainBlock
         private void UpdateThisList(Course course)
         {
             StreamTasks = UserHandler.GetAllTasks(course);
-            ClassworkTasks = UserHandler.GetOnlyTask(course);
             Students = UserHandler.GetStudents(course);
             TeacherThis = UserHandler.GetTeacher(course);
 
             ListPanelStreams.Clear();
-            ListPanelClasswork.Clear();
             ListPanelPeople.Clear();
 
             FillListPanelStreams();
-            FillListPanelClasswork();
             FillListPanelPeople();
         }
 
         private void FillListPanelStreams()
         {
-            if (user.UserType == UserType.Teacher)
-                ListPanelStreams.Add(new Component_AddTask());
-
             int i = 0;
             foreach (Task task in StreamTasks)
             {
@@ -263,23 +248,6 @@ namespace SkillCourse.Panels.MainBlock
 
             if (ListPanelStreams == null || ListPanelStreams.Count == 0)
                 ListPanelStreams.Add(new Component_NotTaskMessage());
-        }
-
-        private void FillListPanelClasswork()
-        {
-            if (user.UserType == UserType.Teacher)
-                ListPanelClasswork.Add(new Component_AddTask());
-
-            int i = 0;
-            foreach (Task task in ClassworkTasks)
-            {
-                if (!task.TaskTypeMessage)
-                    ListPanelClasswork.Add(user.UserType == UserType.Student ? new Component_Task(task, ++i) : new Component_TaskForTeacher(task, ++i));
-            }
-            ListPanelClasswork.Reverse();
-
-            if (ListPanelClasswork == null || ListPanelClasswork.Count == 0)
-                ListPanelClasswork.Add(new Component_NotTaskMessage());
         }
 
         private void FillListPanelPeople()
@@ -342,8 +310,9 @@ namespace SkillCourse.Panels.MainBlock
 
         private void AddClassworkPanel()
         {
-            foreach (UserControl item in ListPanelClasswork)
-                panelTasks.Controls.Add(item);
+            foreach (UserControl item in ListPanelStreams)
+                if (item.Tag != "Message")
+                    panelTasks.Controls.Add(item);
 
             ChangeStateButtonSort(panelTasks.Controls.Count <= 1 ? false : true);
 
@@ -365,10 +334,7 @@ namespace SkillCourse.Panels.MainBlock
                 return;
 
             ChangeButtonPanel(sender);
-            ButSortTasksDefault();
-
-            ClearThisPanel();
-            AddStreamPanel();
+            ReLoadThisPanel();
         }
 
         private void buttonPanelClasswork_Click(object sender, EventArgs e)
@@ -378,10 +344,7 @@ namespace SkillCourse.Panels.MainBlock
                 return;
 
             ChangeButtonPanel(sender);
-            ButSortTasksDefault();
-
-            ClearThisPanel();
-            AddClassworkPanel();
+            ReLoadThisPanel();
         }
 
         private void buttonPanelPeople_Click(object sender, EventArgs e)
@@ -391,33 +354,43 @@ namespace SkillCourse.Panels.MainBlock
                 return;
 
             ChangeButtonPanel(sender);
-            ChangeStateButtonSort(false);
-
-            ClearThisPanel();
-            AddPeoplePanel();
+            ReLoadThisPanel();
         }
 
-
+        public void ReLoadThisPanel()
+        {
+            if (buttonPanelStream.ForeColor == SystemColors.ControlLight)
+            {
+                ButSortTasksDefault();
+                ClearThisPanel();
+                AddStreamPanel();
+                return;
+            }
+            if (buttonPanelClasswork.ForeColor == SystemColors.ControlLight)
+            {
+                ButSortTasksDefault();
+                ClearThisPanel();
+                AddClassworkPanel();
+                return;
+            }
+            if (buttonPanelPeople.ForeColor == SystemColors.ControlLight)
+            {
+                ChangeStateButtonSort(false);
+                ClearThisPanel();
+                AddPeoplePanel();
+                return;
+            }
+        }
 
         private void newButton_Back_Click(object sender, EventArgs e)
         {
             object? parent = this.Parent;
-            //UserControl control = new PanelMainBlock_Courses();
 
             if (parent != null)
             {
                 Panel mainPanel = (Panel)parent;
                 mainPanel.Controls.Remove(this);
                 mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = true;
-
-                //Panel mainPanel = (Panel)parent;
-                //string text = mainPanel.Name;
-
-                //if (mainPanel.Controls.Count < 1 || mainPanel.Controls[0] != control)
-                //{
-                //    mainPanel.Controls.Clear();
-                //    mainPanel.Controls.Add(control);
-                //}
             }
         }
 

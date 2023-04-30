@@ -1,5 +1,6 @@
 ﻿using SkillCourse.DataBaseStructure;
 using SkillCourse.Forms;
+using SkillCourse.helperConfig;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace SkillCourse.PanelComponents
             ThisTask = task;
 
             labelId.Text = "#" + id.ToString();
-            labelText.Text = task.TextTask + "        ";
+            labelText.Text = task.TextTask;
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
 
@@ -43,7 +44,7 @@ namespace SkillCourse.PanelComponents
             clickOnSend = onClickButtonSend;
 
             labelId.Text = "#" + id.ToString();
-            labelText.Text = task.TextTask + "        ";
+            labelText.Text = task.TextTask;
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
 
@@ -60,12 +61,13 @@ namespace SkillCourse.PanelComponents
             labelId.Text = "";
             labelId.Image = Properties.Resources.task_message;
 
-            labelText.Text = task.TextTask + "        ";
+            labelText.Text = task.TextTask;
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
 
             panelButSend.Visible = false;
             labelBall.Visible = false;
+            Tag = "Message";
         }
 
 
@@ -97,7 +99,13 @@ namespace SkillCourse.PanelComponents
 
         private void ReSizeDescription()
         {
-            panelText.Size = new System.Drawing.Size(labelText.Width, labelText.Height);
+            System.Windows.Forms.Label thisLabel = labelText;
+            System.Windows.Forms.Panel thispanel = panelText;
+
+            Size textSize = TextRenderer.MeasureText(thisLabel.Text, thisLabel.Font,
+                new Size(thisLabel.Size.Width - thisLabel.Padding.Horizontal, thisLabel.Size.Height),
+                TextFormatFlags.WordBreak);
+            thispanel.Size = new System.Drawing.Size(thisLabel.Width, textSize.Height);
         }
 
         private void newButtonSend_Click(object sender, EventArgs e)
@@ -111,7 +119,8 @@ namespace SkillCourse.PanelComponents
                 thisParent = thisParent.Parent;
             }
 
-            AnswerToTask answerForm = new AnswerToTask(new Size(thisParent.ClientSize.Width, thisParent.ClientSize.Height));
+            AnswerToTask answerForm = new AnswerToTask(new Size(thisParent.ClientSize.Width, thisParent.ClientSize.Height),
+                String.Empty, UserTextSize.AnswerTask.maxLenghtName, false);
             answerForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
             DialogResult result = answerForm.ShowDialog(this);
 

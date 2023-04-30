@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkillCourse.helperConfig;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,12 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
             InitializeComponent();
             Dock = DockStyle.Fill;
 
+            int maxLenghtName = UserTextSize.Course.maxLenghtName;
+            int maxLenghtDescription = UserTextSize.Course.maxLenghtName;
+            textBoxName.MaxLength = maxLenghtName;
+            textBoxDescription.MaxLength = maxLenghtDescription;
+            label2.Text = "0 / " + maxLenghtName;
+            label4.Text = "0 / " + maxLenghtDescription;
             //NameCourse = textName ?? string.Empty;
             //DescriptionCourse = textDescription ?? string.Empty;
         }
@@ -45,13 +52,15 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             ValidityCheckName(textBoxName);
-            label2.Text = textBoxName.Text.Length.ToString() + " / 80";
+            int maxLenghtName = UserTextSize.Course.maxLenghtName;
+            label2.Text = textBoxName.Text.Length.ToString() + " / " + maxLenghtName;
         }
 
         private void textBoxDescription_TextChanged(object sender, EventArgs e)
         {
             ValidityCheckName(textBoxDescription);
-            label4.Text = textBoxDescription.Text.Length.ToString() + " / 500";
+            int maxLenghtDescription = UserTextSize.Course.maxLenghtName;
+            label4.Text = textBoxDescription.Text.Length.ToString() + " / " + maxLenghtDescription;
         }
 
         private void ValidityCheckName(TextBox thisTextBox)
