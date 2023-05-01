@@ -117,7 +117,26 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
-        public bool AddStudentToCourse(Course course, Student student)
+        public bool UnSubscripStudentToCourse(Course course, Student student)
+        {
+            try
+            {
+                var subRemove = DataBase.Subscriptions.FindLast(sub => sub.IdCourse == course.IdCourse && sub.IdStudent == student.IdUser);
+                if (subRemove != null)
+                {
+                    DataBase.Subscriptions.Remove(subRemove);
+                    return true;
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool SubscripStudentToCourse(Course course, Student student)
         {
             try
             {
@@ -142,7 +161,7 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
-        public bool AddStudentToCourse(Course course, List<Student> students)
+        public bool SubscripStudentToCourse(Course course, List<Student> students)
         {
             try
             {

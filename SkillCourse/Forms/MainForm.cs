@@ -44,6 +44,10 @@ namespace SkillCourse
 
 
             //Random();
+            //SubscriptionCourse sub = new SubscriptionCourse(3, 101);
+            //SkillCourseDB.Instance.Subscriptions.Add(sub);
+            //SubscriptionCourse sub2 = new SubscriptionCourse(2, 101);
+            //SkillCourseDB.Instance.Subscriptions.Add(sub2);
             //Certificate certificate = new Certificate("По завершению долгожданного...", DateTime.Now, 1, 3, 99);
             //SkillCourseDB.Instance.Certificates.Add(certificate);
             //Certificate certificate1 = new Certificate("Ты снова пришёл сюда?", DateTime.Now, 5, 3, 98);

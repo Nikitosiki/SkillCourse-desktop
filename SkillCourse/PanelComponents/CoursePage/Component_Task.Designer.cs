@@ -102,7 +102,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1012, 112);
+            panel1.Size = new Size(1157, 145);
             panel1.TabIndex = 3;
             // 
             // panel2
@@ -112,7 +112,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(83, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(743, 112);
+            panel2.Size = new Size(888, 145);
             panel2.TabIndex = 9;
             // 
             // tableLayoutPanel3
@@ -130,7 +130,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(743, 112);
+            tableLayoutPanel3.Size = new Size(888, 145);
             tableLayoutPanel3.TabIndex = 10;
             tableLayoutPanel3.Resize += tableLayoutPanel3_Resize;
             // 
@@ -153,7 +153,7 @@
             panelText.Dock = DockStyle.Top;
             panelText.Location = new Point(3, 23);
             panelText.Name = "panelText";
-            panelText.Size = new Size(737, 44);
+            panelText.Size = new Size(882, 44);
             panelText.TabIndex = 10;
             // 
             // tableLayoutPanel4
@@ -167,7 +167,7 @@
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(737, 31);
+            tableLayoutPanel4.Size = new Size(882, 31);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // labelText
@@ -179,7 +179,7 @@
             labelText.Location = new Point(3, 0);
             labelText.Name = "labelText";
             labelText.Padding = new Padding(18, 0, 0, 0);
-            labelText.Size = new Size(731, 31);
+            labelText.Size = new Size(876, 31);
             labelText.TabIndex = 10;
             labelText.Text = "Пояснювальна записка до курсової роботи";
             labelText.TextChanged += labelText_TextChanged;
@@ -191,7 +191,7 @@
             panelIndex.Dock = DockStyle.Left;
             panelIndex.Location = new Point(0, 0);
             panelIndex.Name = "panelIndex";
-            panelIndex.Size = new Size(83, 112);
+            panelIndex.Size = new Size(83, 145);
             panelIndex.TabIndex = 8;
             // 
             // labelId
@@ -203,8 +203,8 @@
             labelId.Location = new Point(0, 0);
             labelId.MinimumSize = new Size(83, 0);
             labelId.Name = "labelId";
-            labelId.Padding = new Padding(0, 30, 0, 0);
-            labelId.Size = new Size(83, 71);
+            labelId.Padding = new Padding(0, 29, 0, 0);
+            labelId.Size = new Size(83, 70);
             labelId.TabIndex = 4;
             labelId.Text = "#1";
             labelId.TextAlign = ContentAlignment.MiddleCenter;
@@ -219,7 +219,7 @@
             tableLayoutPanel1.Controls.Add(labelBall, 1, 2);
             tableLayoutPanel1.Controls.Add(panelButSend, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Right;
-            tableLayoutPanel1.Location = new Point(826, 0);
+            tableLayoutPanel1.Location = new Point(971, 0);
             tableLayoutPanel1.MinimumSize = new Size(186, 101);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -227,7 +227,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(186, 112);
+            tableLayoutPanel1.Size = new Size(186, 145);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // labelBall
@@ -235,7 +235,7 @@
             labelBall.Dock = DockStyle.Fill;
             labelBall.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelBall.ForeColor = SystemColors.Control;
-            labelBall.Location = new Point(34, 61);
+            labelBall.Location = new Point(34, 77);
             labelBall.Name = "labelBall";
             labelBall.Padding = new Padding(3, 0, 0, 0);
             labelBall.Size = new Size(118, 31);
@@ -249,7 +249,7 @@
             panelButSend.AutoSize = true;
             panelButSend.Controls.Add(newButtonSend);
             panelButSend.Dock = DockStyle.Fill;
-            panelButSend.Location = new Point(34, 23);
+            panelButSend.Location = new Point(34, 39);
             panelButSend.MinimumSize = new Size(118, 31);
             panelButSend.Name = "panelButSend";
             panelButSend.Size = new Size(118, 35);
@@ -294,7 +294,7 @@
             Controls.Add(panel1);
             MinimumSize = new Size(0, 101);
             Name = "Component_Task";
-            Size = new Size(1012, 112);
+            Size = new Size(1157, 145);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

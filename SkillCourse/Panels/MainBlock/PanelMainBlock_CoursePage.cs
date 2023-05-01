@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.Devices;
-using SkillCourse.DataBaseStructure;
+﻿using SkillCourse.DataBaseStructure;
 using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.types;
 using SkillCourse.Forms;
@@ -10,19 +9,6 @@ using SkillCourse.PanelComponents;
 using SkillCourse.PanelComponents.CoursePage;
 using SkillCourse.PanelComponents.UsersPage;
 using SkillCourse.Panels.MainBlock.Notification;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse.Panels.MainBlock
@@ -93,6 +79,23 @@ namespace SkillCourse.Panels.MainBlock
                 addComponent.AddButtonClick += AddTaskOrUserClick;
         }
 
+        private bool AdminView { get { return !panelButtonSetting.Visible; } }
+        private bool CorrectPanel { get; set; } = true;
+
+        private void ViewButtonAddTask(bool correctPanel)
+        {
+            CorrectPanel = correctPanel;
+            ViewButtonAddTask();
+        }
+
+        private void ViewButtonAddTask()
+        {
+            if (AdminView && CorrectPanel)
+                panelAdminButtonAddTask.Visible = true;
+            else
+                panelAdminButtonAddTask.Visible = false;
+        }
+
         private void ResetAdministratorSettings()
         {
             panelButtonSetting.Visible = true;
@@ -100,15 +103,22 @@ namespace SkillCourse.Panels.MainBlock
             panelEditName.Visible = false;
             roundedButtonEditDescription.Visible = false;
             roundedButtonEditImage.Visible = false;
-            roundedButtonEditName.Visible = false;
 
             foreach (UserControl item in ListPanelStreams)
             {
                 if (item is Component_TaskForTeacher task)
                     task.AdminView(false);
             }
+            foreach (UserControl item in ListPanelPeople)
+            {
+                if (item is Component_UserTextForTeacher task)
+                    task.AdminView(false);
 
-            panelAdminButtonAddTask.Visible = false;
+                if (item.Tag is string tag && tag == "Out")
+                    item.Visible = false;
+            }
+
+            ViewButtonAddTask();
         }
 
         private void roundedButtonSetting_Click(object sender, EventArgs e)
@@ -118,17 +128,22 @@ namespace SkillCourse.Panels.MainBlock
             panelEditName.Visible = true;
             roundedButtonEditDescription.Visible = true;
             roundedButtonEditImage.Visible = true;
-            roundedButtonEditName.Visible = true;
 
             foreach (UserControl item in ListPanelStreams)
             {
-                if (item is Component_AddTask addtask)
-                    addtask.Visible = true;
                 if (item is Component_TaskForTeacher task)
                     task.AdminView(true);
             }
+            foreach (UserControl item in ListPanelPeople)
+            {
+                if (item is Component_UserTextForTeacher task)
+                    task.AdminView(true);
 
-            panelAdminButtonAddTask.Visible = true;
+                if (item.Tag is string tag && tag == "Out")
+                    item.Visible = true;
+            }
+
+            ViewButtonAddTask();
         }
 
         private void PanelMainBlock_CoursePage_VisibleChanged(object sender, EventArgs e)
@@ -214,6 +229,22 @@ namespace SkillCourse.Panels.MainBlock
             }
         }
 
+        private void roundedButtonDeleteCourse_Click(object sender, EventArgs e)
+        {
+            string text = "Are you sure you want to delete this entire course and its assignments and students' answers? 😨";
+            Control oldMainParent = SetBaseParent();
+            MessageYesNo modalForm = new MessageYesNo(text, new Size(oldMainParent.ClientSize.Width, oldMainParent.ClientSize.Height));
+            modalForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
+            DialogResult result = modalForm.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                DataBase.Courses.Remove(CourseThis);
+                UpdateBackCoursesPage();
+                NavigatePages.BackLastPage();
+            }
+        }
+
         private void UpdateBackCoursesPage()
         {
             if (NavigatePages.OnlyGetBackPage() is PanelMainBlock_Courses backPage)
@@ -277,7 +308,16 @@ namespace SkillCourse.Panels.MainBlock
                 ListPanelPeople.Add(new Component_UserTextHeader("All Users", Students.Count));
             foreach (Student stud in Students)
             {
-                ListPanelPeople.Add(new Component_UserText(stud));
+                ListPanelPeople.Add(user.UserType == UserType.Student ? new Component_UserText(stud) : new Component_UserTextForTeacher(stud, CourseThis, true));
+            }
+
+            //--- Добавляем студентов невидимок (которых нету на курсе)
+            foreach (Student stud in UserHandler.GetStudentsOut(CourseThis))
+            {
+                UserControl controlStudOut = user.UserType == UserType.Student ? new Component_UserText(stud) : new Component_UserTextForTeacher(stud, CourseThis, false);
+                controlStudOut.Tag = "Out";
+                controlStudOut.Visible = false;
+                ListPanelPeople.Add(controlStudOut);
             }
 
             ListPanelPeople.Reverse();
@@ -349,6 +389,8 @@ namespace SkillCourse.Panels.MainBlock
 
             ChangeButtonPanel(sender);
             ReLoadThisPanel();
+
+            ViewButtonAddTask(true); //AdminView
         }
 
         private void buttonPanelClasswork_Click(object sender, EventArgs e)
@@ -359,6 +401,8 @@ namespace SkillCourse.Panels.MainBlock
 
             ChangeButtonPanel(sender);
             ReLoadThisPanel();
+
+            ViewButtonAddTask(true); //AdminView
         }
 
         private void buttonPanelPeople_Click(object sender, EventArgs e)
@@ -369,6 +413,8 @@ namespace SkillCourse.Panels.MainBlock
 
             ChangeButtonPanel(sender);
             ReLoadThisPanel();
+
+            ViewButtonAddTask(false); //AdminView
         }
 
         public void ReLoadThisPanel()
@@ -398,14 +444,7 @@ namespace SkillCourse.Panels.MainBlock
 
         private void newButton_Back_Click(object sender, EventArgs e)
         {
-            object? parent = this.Parent;
-
-            if (parent != null)
-            {
-                Panel mainPanel = (Panel)parent;
-                mainPanel.Controls.Remove(this);
-                mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = true;
-            }
+            NavigatePages.BackLastPage();
         }
 
         private bool upSortTasks = true;

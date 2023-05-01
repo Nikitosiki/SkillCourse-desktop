@@ -32,6 +32,12 @@ namespace SkillCourse.handlers
                 .OrderBy(user => user.LastName).ToList();
         }
 
+        public static List<Student> GetStudentsOut(Course course)
+        {
+            
+            return DataBase.Users.Students().Except(GetStudents(course)).ToList();
+        }
+
         public static Teather? GetTeacher(Course course)
         {
             return DataBase.Users.Teathers().Find(cours => cours.IdUser == course.IdTeacher);

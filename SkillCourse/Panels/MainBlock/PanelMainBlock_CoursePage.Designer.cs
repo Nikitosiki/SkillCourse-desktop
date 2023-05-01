@@ -34,6 +34,8 @@ namespace SkillCourse.Panels.MainBlock
             panel3 = new Panel();
             panelNaming = new Panel();
             labelName = new Label();
+            panelDeleteCourse = new Panel();
+            roundedButtonDeleteCourse = new CPProject.components.ui.CustomRoundedButton();
             panelEditName = new Panel();
             roundedButtonEditName = new CPProject.components.ui.CustomRoundedButton();
             panelButtonSetting = new Panel();
@@ -58,6 +60,7 @@ namespace SkillCourse.Panels.MainBlock
             component_AddTask1 = new PanelComponents.CoursePage.Component_AddTask();
             panel3.SuspendLayout();
             panelNaming.SuspendLayout();
+            panelDeleteCourse.SuspendLayout();
             panelEditName.SuspendLayout();
             panelButtonSetting.SuspendLayout();
             panel4.SuspendLayout();
@@ -85,6 +88,7 @@ namespace SkillCourse.Panels.MainBlock
             // 
             panelNaming.Controls.Add(labelName);
             panelNaming.Controls.Add(panelEditName);
+            panelNaming.Controls.Add(panelDeleteCourse);
             panelNaming.Dock = DockStyle.Fill;
             panelNaming.Location = new Point(52, 0);
             panelNaming.Name = "panelNaming";
@@ -100,16 +104,50 @@ namespace SkillCourse.Panels.MainBlock
             labelName.Location = new Point(0, 0);
             labelName.Margin = new Padding(3, 3, 3, 0);
             labelName.Name = "labelName";
-            labelName.Size = new Size(378, 63);
+            labelName.Size = new Size(320, 63);
             labelName.TabIndex = 2;
             labelName.Text = "Об'єктно-орієнтоване програмування (КР)\r\n\r\n\r\n";
             labelName.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panelDeleteCourse
+            // 
+            panelDeleteCourse.Controls.Add(roundedButtonDeleteCourse);
+            panelDeleteCourse.Dock = DockStyle.Right;
+            panelDeleteCourse.Location = new Point(378, 0);
+            panelDeleteCourse.Name = "panelDeleteCourse";
+            panelDeleteCourse.Size = new Size(58, 63);
+            panelDeleteCourse.TabIndex = 3;
+            // 
+            // roundedButtonDeleteCourse
+            // 
+            roundedButtonDeleteCourse.Autofocus = false;
+            roundedButtonDeleteCourse.BackColor = Color.FromArgb(220, 50, 80);
+            roundedButtonDeleteCourse.BackgroundColor = Color.FromArgb(220, 50, 80);
+            roundedButtonDeleteCourse.BorderColor = Color.PaleVioletRed;
+            roundedButtonDeleteCourse.BorderRadius = 10;
+            roundedButtonDeleteCourse.BorderSize = 0;
+            roundedButtonDeleteCourse.FlatAppearance.BorderSize = 0;
+            roundedButtonDeleteCourse.FlatStyle = FlatStyle.Flat;
+            roundedButtonDeleteCourse.FocusBorderColor = Color.Gray;
+            roundedButtonDeleteCourse.FocusBorderSize = 2;
+            roundedButtonDeleteCourse.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonDeleteCourse.ForeColor = SystemColors.Control;
+            roundedButtonDeleteCourse.Image = Properties.Resources.outline_delete_white_24dp;
+            roundedButtonDeleteCourse.Location = new Point(9, 11);
+            roundedButtonDeleteCourse.Margin = new Padding(0, 0, 10, 5);
+            roundedButtonDeleteCourse.Name = "roundedButtonDeleteCourse";
+            roundedButtonDeleteCourse.Size = new Size(40, 40);
+            roundedButtonDeleteCourse.TabIndex = 3;
+            roundedButtonDeleteCourse.TextColor = SystemColors.Control;
+            roundedButtonDeleteCourse.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonDeleteCourse.UseVisualStyleBackColor = false;
+            roundedButtonDeleteCourse.Click += roundedButtonDeleteCourse_Click;
             // 
             // panelEditName
             // 
             panelEditName.Controls.Add(roundedButtonEditName);
             panelEditName.Dock = DockStyle.Right;
-            panelEditName.Location = new Point(378, 0);
+            panelEditName.Location = new Point(320, 0);
             panelEditName.Name = "panelEditName";
             panelEditName.Size = new Size(58, 63);
             panelEditName.TabIndex = 0;
@@ -138,7 +176,6 @@ namespace SkillCourse.Panels.MainBlock
             roundedButtonEditName.TextColor = SystemColors.Control;
             roundedButtonEditName.TextImageRelation = TextImageRelation.TextBeforeImage;
             roundedButtonEditName.UseVisualStyleBackColor = false;
-            roundedButtonEditName.Visible = false;
             roundedButtonEditName.Click += roundedButtonEditName_Click;
             // 
             // panelButtonSetting
@@ -458,6 +495,7 @@ namespace SkillCourse.Panels.MainBlock
             VisibleChanged += PanelMainBlock_CoursePage_VisibleChanged;
             panel3.ResumeLayout(false);
             panelNaming.ResumeLayout(false);
+            panelDeleteCourse.ResumeLayout(false);
             panelEditName.ResumeLayout(false);
             panelButtonSetting.ResumeLayout(false);
             panel4.ResumeLayout(false);
@@ -499,5 +537,7 @@ namespace SkillCourse.Panels.MainBlock
         private CPProject.components.ui.CustomRoundedButton roundedButtonEditImage;
         private Panel panelAdminButtonAddTask;
         private PanelComponents.CoursePage.Component_AddTask component_AddTask1;
+        private Panel panelDeleteCourse;
+        private CPProject.components.ui.CustomRoundedButton roundedButtonDeleteCourse;
     }
 }

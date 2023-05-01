@@ -58,7 +58,7 @@
             panelIndex.Dock = DockStyle.Left;
             panelIndex.Location = new Point(0, 0);
             panelIndex.Name = "panelIndex";
-            panelIndex.Size = new Size(83, 116);
+            panelIndex.Size = new Size(83, 123);
             panelIndex.TabIndex = 9;
             // 
             // labelId
@@ -70,8 +70,8 @@
             labelId.Location = new Point(0, 0);
             labelId.MinimumSize = new Size(83, 0);
             labelId.Name = "labelId";
-            labelId.Padding = new Padding(0, 30, 0, 0);
-            labelId.Size = new Size(83, 71);
+            labelId.Padding = new Padding(0, 29, 0, 0);
+            labelId.Size = new Size(83, 70);
             labelId.TabIndex = 4;
             labelId.Text = "#1";
             labelId.TextAlign = ContentAlignment.MiddleCenter;
@@ -91,7 +91,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(743, 116);
+            tableLayoutPanel3.Size = new Size(747, 123);
             tableLayoutPanel3.TabIndex = 11;
             tableLayoutPanel3.Resize += tableLayoutPanel3_Resize;
             // 
@@ -114,7 +114,7 @@
             panelText.Dock = DockStyle.Top;
             panelText.Location = new Point(3, 23);
             panelText.Name = "panelText";
-            panelText.Size = new Size(737, 48);
+            panelText.Size = new Size(741, 48);
             panelText.TabIndex = 10;
             // 
             // tableLayoutPanel4
@@ -128,7 +128,7 @@
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(737, 31);
+            tableLayoutPanel4.Size = new Size(741, 31);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // labelText
@@ -140,7 +140,7 @@
             labelText.Location = new Point(3, 0);
             labelText.Name = "labelText";
             labelText.Padding = new Padding(18, 0, 0, 0);
-            labelText.Size = new Size(731, 31);
+            labelText.Size = new Size(735, 31);
             labelText.TabIndex = 10;
             labelText.Text = "Пояснювальна записка до курсової роботи\r\n";
             labelText.TextChanged += labelText_TextChanged;
@@ -151,20 +151,20 @@
             tableLayoutPanelAdmin.ColumnCount = 5;
             tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 21F));
             tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanelAdmin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanelAdmin.Controls.Add(roundedButtonEdit, 1, 1);
             tableLayoutPanelAdmin.Controls.Add(roundedButtonDelete, 3, 1);
             tableLayoutPanelAdmin.Dock = DockStyle.Right;
-            tableLayoutPanelAdmin.Location = new Point(826, 0);
+            tableLayoutPanelAdmin.Location = new Point(830, 0);
             tableLayoutPanelAdmin.MinimumSize = new Size(186, 101);
             tableLayoutPanelAdmin.Name = "tableLayoutPanelAdmin";
             tableLayoutPanelAdmin.RowCount = 3;
             tableLayoutPanelAdmin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanelAdmin.RowStyles.Add(new RowStyle());
             tableLayoutPanelAdmin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanelAdmin.Size = new Size(186, 116);
+            tableLayoutPanelAdmin.Size = new Size(186, 123);
             tableLayoutPanelAdmin.TabIndex = 12;
             tableLayoutPanelAdmin.Visible = false;
             // 
@@ -183,7 +183,7 @@
             roundedButtonEdit.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             roundedButtonEdit.ForeColor = SystemColors.Control;
             roundedButtonEdit.Image = Properties.Resources.outline_edit_white_24dp;
-            roundedButtonEdit.Location = new Point(43, 38);
+            roundedButtonEdit.Location = new Point(42, 41);
             roundedButtonEdit.Margin = new Padding(0);
             roundedButtonEdit.Name = "roundedButtonEdit";
             roundedButtonEdit.Size = new Size(40, 40);
@@ -208,7 +208,7 @@
             roundedButtonDelete.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             roundedButtonDelete.ForeColor = SystemColors.Control;
             roundedButtonDelete.Image = Properties.Resources.close_white_24dp;
-            roundedButtonDelete.Location = new Point(103, 38);
+            roundedButtonDelete.Location = new Point(103, 41);
             roundedButtonDelete.Margin = new Padding(0);
             roundedButtonDelete.Name = "roundedButtonDelete";
             roundedButtonDelete.Size = new Size(40, 40);
@@ -302,7 +302,7 @@
             Controls.Add(tableLayoutPanelAdmin);
             Controls.Add(panelIndex);
             Name = "Component_TaskForTeacher";
-            Size = new Size(1012, 116);
+            Size = new Size(1016, 123);
             panelIndex.ResumeLayout(false);
             panelIndex.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
