@@ -23,6 +23,7 @@ namespace SkillCourse.Panels.MainBlock
     {
         public User handlerUser = AccountHandler.Instance.UserLog;
 
+        private Teather? coursesForThisTeacher;
         private List<Course> thisCourses;
         private List<UserControl> ListCoursePanels { get; set; } = new List<UserControl>();
         private List<UserControl> ListCoursePanelsAfterSort { get; set; } = new List<UserControl>();
@@ -52,7 +53,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-            thisCourses = teacher.MyCourses;
+            coursesForThisTeacher = teacher;
 
             VisibleButView = buttonView;
             VisibleButSub = buttonSub;
@@ -120,7 +121,10 @@ namespace SkillCourse.Panels.MainBlock
         #region LoadPage
         private async void PanelMainBlock_Courses_Load(object sender, EventArgs e)
         {
-            thisCourses = CustomizationForRole();
+            if (coursesForThisTeacher != null)
+                thisCourses = coursesForThisTeacher.MyCourses;
+            else
+                thisCourses = CustomizationForRole();
 
             flowLayoutPanel1.Controls.Clear();
 

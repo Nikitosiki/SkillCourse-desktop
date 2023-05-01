@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SkillCourse.helperConfig.UserTextSize;
 
 namespace SkillCourse.DataBaseStructure
 {
@@ -95,9 +96,10 @@ namespace SkillCourse.DataBaseStructure
 
         public new void Clear()
         {
-            foreach (Task task in DataBase.Tasks)
+            for (int i = 0; i < this.Count; i++)
             {
-                this.RemoveNonSerialized(task);
+                this.RemoveNonSerialized(this[i]);
+                i--;
             }
 
             if (!SerializeObject())
@@ -116,10 +118,13 @@ namespace SkillCourse.DataBaseStructure
 
         public void RemoveAllNonSerialized(Predicate<Task> match)
         {
-            foreach (Task task in DataBase.Tasks)
+            for (int i = 0; i < this.Count; i++)
             {
-                if (match(task))
-                    this.RemoveNonSerialized(task);
+                if (match(this[i]))
+                {
+                    this.RemoveNonSerialized(this[i]);
+                    i--;
+                }
             }
         }
 

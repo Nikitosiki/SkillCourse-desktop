@@ -120,9 +120,10 @@ namespace SkillCourse.DataBaseStructure
 
         public new void Clear()
         {
-            foreach (User user in DataBase.Users)
+            for (int i = 0; i < this.Count; i++)
             {
-                this.RemoveNonSerialized(user);
+                this.RemoveNonSerialized(this[i]);
+                i--;
             }
 
             if (!SerializeObject())
@@ -165,10 +166,13 @@ namespace SkillCourse.DataBaseStructure
 
         public void RemoveAllNonSerialized(Predicate<User> match)
         {
-            foreach (User user in DataBase.Users)
+            for (int i = 0; i < this.Count; i++)
             {
-                if (match(user))
-                    this.RemoveNonSerialized(user);
+                if (match(this[i]))
+                {
+                    this.RemoveNonSerialized(this[i]);
+                    i--;
+                }
             }
         }
 

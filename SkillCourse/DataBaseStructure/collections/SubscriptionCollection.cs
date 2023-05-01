@@ -93,9 +93,10 @@ namespace SkillCourse.DataBaseStructure
 
         public new void Clear()
         {
-            foreach (SubscriptionCourse subCourse in DataBase.Subscriptions)
+            for (int i = 0; i < this.Count; i++)
             {
-                this.RemoveNonSerialized(subCourse);
+                this.RemoveNonSerialized(this[i]);
+                i--;
             }
 
             if (!SerializeObject())
@@ -112,10 +113,13 @@ namespace SkillCourse.DataBaseStructure
 
         public void RemoveAllNonSerialized(Predicate<SubscriptionCourse> match)
         {
-            foreach (SubscriptionCourse subCourse in DataBase.Subscriptions)
+            for (int i = 0; i < this.Count; i++)
             {
-                if (match(subCourse))
-                    this.RemoveNonSerialized(subCourse);
+                if (match(this[i]))
+                {
+                    this.RemoveNonSerialized(this[i]);
+                    i--;
+                }
             }
         }
 

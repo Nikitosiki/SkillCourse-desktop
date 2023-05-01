@@ -94,9 +94,10 @@ namespace SkillCourse.DataBaseStructure
 
         public new void Clear()
         {
-            foreach (Certificate certificate in DataBase.Certificates)
+            for (int i = 0; i < this.Count; i++)
             {
-                this.RemoveNonSerialized(certificate);
+                this.RemoveNonSerialized(this[i]);
+                i--;
             }
 
             if (!SerializeObject())
@@ -113,10 +114,13 @@ namespace SkillCourse.DataBaseStructure
 
         public void RemoveAllNonSerialized(Predicate<Certificate> match)
         {
-            foreach (Certificate certificate in DataBase.Certificates)
+            for (int i = 0; i < this.Count; i++)
             {
-                if (match(certificate))
-                    this.RemoveNonSerialized(certificate);
+                if (match(this[i]))
+                {
+                    this.RemoveNonSerialized(this[i]);
+                    i--;
+                }
             }
         }
 

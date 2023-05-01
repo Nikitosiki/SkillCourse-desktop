@@ -57,8 +57,8 @@ namespace SkillCourse.DataBaseStructure
                 throw new ArgumentException("Uncorrect Deserialize: " + nameof(AnswerTasks));
             if (!Subscriptions.DeserializeObject())
                 throw new ArgumentException("Uncorrect Deserialize: " + nameof(Subscriptions));
-            //if (!Certificates.DeserializeObject())
-            //    throw new ArgumentException("Uncorrect Deserialize: " + nameof(Certificates));
+            if (!Certificates.DeserializeObject())
+                throw new ArgumentException("Uncorrect Deserialize: " + nameof(Certificates));
 
             return true;
         }

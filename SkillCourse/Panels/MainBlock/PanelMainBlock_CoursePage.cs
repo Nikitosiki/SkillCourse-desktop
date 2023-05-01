@@ -74,12 +74,13 @@ namespace SkillCourse.Panels.MainBlock
         private void AddAdministratorView()
         {
             panelButtonSetting.Visible = true;
+            panelDeleteCourse.Visible = true;
 
             if (panelAdminButtonAddTask.Controls[0] is Component_AddTask addComponent)
                 addComponent.AddButtonClick += AddTaskOrUserClick;
         }
 
-        private bool AdminView { get { return !panelButtonSetting.Visible; } }
+        private bool AdminView { get; set; } = false;
         private bool CorrectPanel { get; set; } = true;
 
         private void ViewButtonAddTask(bool correctPanel)
@@ -100,6 +101,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             panelButtonSetting.Visible = true;
 
+            AdminView = false;
             panelEditName.Visible = false;
             roundedButtonEditDescription.Visible = false;
             roundedButtonEditImage.Visible = false;
@@ -125,6 +127,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             panelButtonSetting.Visible = false;
 
+            AdminView = true;
             panelEditName.Visible = true;
             roundedButtonEditDescription.Visible = true;
             roundedButtonEditImage.Visible = true;

@@ -34,10 +34,10 @@ namespace SkillCourse.Panels.MainBlock
             panel3 = new Panel();
             panelNaming = new Panel();
             labelName = new Label();
-            panelDeleteCourse = new Panel();
-            roundedButtonDeleteCourse = new CPProject.components.ui.CustomRoundedButton();
             panelEditName = new Panel();
             roundedButtonEditName = new CPProject.components.ui.CustomRoundedButton();
+            panelDeleteCourse = new Panel();
+            roundedButtonDeleteCourse = new CPProject.components.ui.CustomRoundedButton();
             panelButtonSetting = new Panel();
             roundedButtonSetting = new CPProject.components.ui.CustomRoundedButton();
             newButton_Back = new Button();
@@ -60,8 +60,8 @@ namespace SkillCourse.Panels.MainBlock
             component_AddTask1 = new PanelComponents.CoursePage.Component_AddTask();
             panel3.SuspendLayout();
             panelNaming.SuspendLayout();
-            panelDeleteCourse.SuspendLayout();
             panelEditName.SuspendLayout();
+            panelDeleteCourse.SuspendLayout();
             panelButtonSetting.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -109,40 +109,6 @@ namespace SkillCourse.Panels.MainBlock
             labelName.Text = "Об'єктно-орієнтоване програмування (КР)\r\n\r\n\r\n";
             labelName.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panelDeleteCourse
-            // 
-            panelDeleteCourse.Controls.Add(roundedButtonDeleteCourse);
-            panelDeleteCourse.Dock = DockStyle.Right;
-            panelDeleteCourse.Location = new Point(378, 0);
-            panelDeleteCourse.Name = "panelDeleteCourse";
-            panelDeleteCourse.Size = new Size(58, 63);
-            panelDeleteCourse.TabIndex = 3;
-            // 
-            // roundedButtonDeleteCourse
-            // 
-            roundedButtonDeleteCourse.Autofocus = false;
-            roundedButtonDeleteCourse.BackColor = Color.FromArgb(220, 50, 80);
-            roundedButtonDeleteCourse.BackgroundColor = Color.FromArgb(220, 50, 80);
-            roundedButtonDeleteCourse.BorderColor = Color.PaleVioletRed;
-            roundedButtonDeleteCourse.BorderRadius = 10;
-            roundedButtonDeleteCourse.BorderSize = 0;
-            roundedButtonDeleteCourse.FlatAppearance.BorderSize = 0;
-            roundedButtonDeleteCourse.FlatStyle = FlatStyle.Flat;
-            roundedButtonDeleteCourse.FocusBorderColor = Color.Gray;
-            roundedButtonDeleteCourse.FocusBorderSize = 2;
-            roundedButtonDeleteCourse.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            roundedButtonDeleteCourse.ForeColor = SystemColors.Control;
-            roundedButtonDeleteCourse.Image = Properties.Resources.outline_delete_white_24dp;
-            roundedButtonDeleteCourse.Location = new Point(9, 11);
-            roundedButtonDeleteCourse.Margin = new Padding(0, 0, 10, 5);
-            roundedButtonDeleteCourse.Name = "roundedButtonDeleteCourse";
-            roundedButtonDeleteCourse.Size = new Size(40, 40);
-            roundedButtonDeleteCourse.TabIndex = 3;
-            roundedButtonDeleteCourse.TextColor = SystemColors.Control;
-            roundedButtonDeleteCourse.TextImageRelation = TextImageRelation.TextBeforeImage;
-            roundedButtonDeleteCourse.UseVisualStyleBackColor = false;
-            roundedButtonDeleteCourse.Click += roundedButtonDeleteCourse_Click;
-            // 
             // panelEditName
             // 
             panelEditName.Controls.Add(roundedButtonEditName);
@@ -177,6 +143,41 @@ namespace SkillCourse.Panels.MainBlock
             roundedButtonEditName.TextImageRelation = TextImageRelation.TextBeforeImage;
             roundedButtonEditName.UseVisualStyleBackColor = false;
             roundedButtonEditName.Click += roundedButtonEditName_Click;
+            // 
+            // panelDeleteCourse
+            // 
+            panelDeleteCourse.Controls.Add(roundedButtonDeleteCourse);
+            panelDeleteCourse.Dock = DockStyle.Right;
+            panelDeleteCourse.Location = new Point(378, 0);
+            panelDeleteCourse.Name = "panelDeleteCourse";
+            panelDeleteCourse.Size = new Size(58, 63);
+            panelDeleteCourse.TabIndex = 3;
+            panelDeleteCourse.Visible = false;
+            // 
+            // roundedButtonDeleteCourse
+            // 
+            roundedButtonDeleteCourse.Autofocus = false;
+            roundedButtonDeleteCourse.BackColor = Color.FromArgb(220, 50, 80);
+            roundedButtonDeleteCourse.BackgroundColor = Color.FromArgb(220, 50, 80);
+            roundedButtonDeleteCourse.BorderColor = Color.PaleVioletRed;
+            roundedButtonDeleteCourse.BorderRadius = 10;
+            roundedButtonDeleteCourse.BorderSize = 0;
+            roundedButtonDeleteCourse.FlatAppearance.BorderSize = 0;
+            roundedButtonDeleteCourse.FlatStyle = FlatStyle.Flat;
+            roundedButtonDeleteCourse.FocusBorderColor = Color.Gray;
+            roundedButtonDeleteCourse.FocusBorderSize = 2;
+            roundedButtonDeleteCourse.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            roundedButtonDeleteCourse.ForeColor = SystemColors.Control;
+            roundedButtonDeleteCourse.Image = Properties.Resources.outline_delete_white_24dp;
+            roundedButtonDeleteCourse.Location = new Point(9, 11);
+            roundedButtonDeleteCourse.Margin = new Padding(0, 0, 10, 5);
+            roundedButtonDeleteCourse.Name = "roundedButtonDeleteCourse";
+            roundedButtonDeleteCourse.Size = new Size(40, 40);
+            roundedButtonDeleteCourse.TabIndex = 3;
+            roundedButtonDeleteCourse.TextColor = SystemColors.Control;
+            roundedButtonDeleteCourse.TextImageRelation = TextImageRelation.TextBeforeImage;
+            roundedButtonDeleteCourse.UseVisualStyleBackColor = false;
+            roundedButtonDeleteCourse.Click += roundedButtonDeleteCourse_Click;
             // 
             // panelButtonSetting
             // 
@@ -495,8 +496,8 @@ namespace SkillCourse.Panels.MainBlock
             VisibleChanged += PanelMainBlock_CoursePage_VisibleChanged;
             panel3.ResumeLayout(false);
             panelNaming.ResumeLayout(false);
-            panelDeleteCourse.ResumeLayout(false);
             panelEditName.ResumeLayout(false);
+            panelDeleteCourse.ResumeLayout(false);
             panelButtonSetting.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();

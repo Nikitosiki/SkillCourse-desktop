@@ -97,15 +97,20 @@ namespace SkillCourse.PanelComponents
             ReSizeDescription();
         }
 
+        //private void ReSizeDescription()
+        //{
+        //    System.Windows.Forms.Label thisLabel = labelText;
+        //    System.Windows.Forms.Panel thispanel = panelText;
+
+        //    Size textSize = TextRenderer.MeasureText(thisLabel.Text, thisLabel.Font,
+        //        new Size(thisLabel.Size.Width - thisLabel.Padding.Horizontal, thisLabel.Size.Height),
+        //        TextFormatFlags.WordBreak);
+        //    thispanel.Size = new System.Drawing.Size(thisLabel.Width, textSize.Height);
+        //}
+
         private void ReSizeDescription()
         {
-            System.Windows.Forms.Label thisLabel = labelText;
-            System.Windows.Forms.Panel thispanel = panelText;
-
-            Size textSize = TextRenderer.MeasureText(thisLabel.Text, thisLabel.Font,
-                new Size(thisLabel.Size.Width - thisLabel.Padding.Horizontal, thisLabel.Size.Height),
-                TextFormatFlags.WordBreak);
-            thispanel.Size = new System.Drawing.Size(thisLabel.Width, textSize.Height);
+            panelText.Size = new System.Drawing.Size(labelText.Width - labelText.Padding.Horizontal, labelText.Height);
         }
 
         private void newButtonSend_Click(object sender, EventArgs e)
