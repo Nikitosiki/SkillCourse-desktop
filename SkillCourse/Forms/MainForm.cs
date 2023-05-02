@@ -29,6 +29,7 @@ namespace SkillCourse
         public MainForm()
         {
             InitializeComponent();
+            LoadLabelVersions();
             TUpdateTimeLastVisit.Interval = 60000;
             TUpdateTimeLastVisit.Tick += TUpdateTimeLastVisit_Tick;
             AccountHandler.Instance.subscribeOnChange(updateUser);
@@ -73,6 +74,18 @@ namespace SkillCourse
             //SkillCourseDB.Instance.Tasks.Add(task);
             //DataBaseStructure.Task task1 = new DataBaseStructure.Task("Пояснювальна записка до курсової роботи.", course.IdCourse);
             //SkillCourseDB.Instance.Tasks.Add(task1);
+        }
+
+        private void LoadLabelVersions()
+        {
+            // Получить текущую сборку (т.е. эту программу)
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+
+            // Получить дату и время компиляции сборки
+            var buildDate = new DateTimeOffset(2000, 1, 1, 0, 0, 0, TimeSpan.Zero)
+                .AddSeconds(Convert.ToDouble(assembly.GetName().Version.Build));
+
+            labelVersions.Text = $"SkillCourse  {buildDate.ToString("MMM dd")} Version";
         }
 
         private void TUpdateTimeLastVisit_Tick(object? sender, EventArgs e)

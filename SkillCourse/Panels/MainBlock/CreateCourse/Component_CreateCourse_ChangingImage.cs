@@ -29,8 +29,13 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
 
         private void newButtonSelectImage_Click(object sender, EventArgs e)
         {
-            ImageCourse = ImageSaveHelper.SelectDialogImage() ?? pictureBoxImage.Image;
-            pictureBoxImage.Image = ImageCourse;
+            if (ImageSaveHelper.SelectDialogImage() is Image image)
+            {
+                if (pictureBoxImage.Image != null)
+                    pictureBoxImage.Image.Dispose();
+                pictureBoxImage.Image = image;
+                ImageCourse = image;
+            }
         }
     }
 }

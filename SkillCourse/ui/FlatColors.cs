@@ -1,14 +1,14 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
 
 namespace NikitosikSUI
 {
     public static class FlatColors
-    {        
+    {
         public static Color ProjectDarkFont = Color.FromArgb(40, 49, 60);
         public static Color ProjectMintGreen = Color.FromArgb(80, 175, 138);
         public static Color ProjectGrey = Color.FromArgb(70, 82, 89);
         public static Color ProjectBlueGreyButton = Color.FromArgb(142, 173, 212);
-
         public static Color ProjectDarkBlueLink = Color.FromArgb(102, 104, 197);
 
 

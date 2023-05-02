@@ -133,9 +133,6 @@
   <data name="calendarDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\calendarDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CompressedCertificate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Certificate\CompressedCertificate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="arrow-up-341-svgrepo-com-up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\PageCourse\arrow-up-341-svgrepo-com-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,8 +142,8 @@
   <data name="CompressedCertificate_860x611" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Certificate\CompressedCertificate_860x611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="task_message" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\PageCourse\task_message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CompressedCertificate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Certificate\CompressedCertificate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="peoples_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\NavBar\peoples_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +151,14 @@
   <data name="pan_NoCourses_compress" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\TayaPainter\pan_NoCourses_compress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="outline_add_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\outline_add_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CompressedCertificate_860x6112" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Certificate\CompressedCertificate_860x611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="outline_delete_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\outline_delete_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="outline_brush_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\outline_brush_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -165,6 +168,9 @@
   </data>
   <data name="imageDefaultCourse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\imageDefaultCourse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\close_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checklist_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\NavBar\checklist_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,6 +190,9 @@
   <data name="certificate_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\NavBar\certificate_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="task_message" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\PageCourse\task_message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="outline_edit_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\outline_edit_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,13 +211,7 @@
   <data name="outline_settings_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\outline_settings_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\close_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="outline_add_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\outline_add_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="outline_delete_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icon\outline_delete_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

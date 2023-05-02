@@ -227,6 +227,8 @@ namespace SkillCourse.Panels.MainBlock
             Image? image = ImageSaveHelper.SelectDialogAndSaveImage(ImageSaveHelper.TypeImage.Course, imagePath);
             if (image != null)
             {
+                if (pictureBoxImage.Image != null)
+                    pictureBoxImage.Image.Dispose();
                 pictureBoxImage.Image = image;
                 UpdateBackCoursesPage();
             }

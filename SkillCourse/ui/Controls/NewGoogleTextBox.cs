@@ -14,6 +14,17 @@ namespace yt_DesignUI
     {
         #region -- Свойства --
 
+        [Description("Включает центрирование текста относительн TextPreview")]
+        public bool EnabledTextPreview
+        {
+            get => enabledTextPreview;
+            set
+            {
+                enabledTextPreview = value;
+                SizeAndLocationTextBox();
+            }
+        }
+
         public string TextPreview { get; set; } = "Input text";
 
         private Font fontTextPreview = new Font("Arial", 8, FontStyle.Bold);
@@ -102,6 +113,7 @@ namespace yt_DesignUI
 
         Animation LocationTextPreviewAnim = new Animation();
         Animation FontSizeTextPreviewAnim = new Animation();
+        private bool enabledTextPreview = true;
 
         #endregion
 
@@ -144,12 +156,18 @@ namespace yt_DesignUI
             tbInput.Font = Font;
             tbInput.Visible = false;
 
-            int offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height / 2;
-            tbInput.Location = new Point(5, Height / 2 - offset);
-            tbInput.Size = new Size(Width - 10, tbInput.Height);
+            SizeAndLocationTextBox();
+
 
             tbInput.LostFocus += TbInput_LostFocus;
             tbInput.GotFocus += TbInput_GotFocus;
+        }
+
+        private void SizeAndLocationTextBox()
+        {
+            int offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height / 2;
+            tbInput.Location = new Point(5, EnabledTextPreview ? Height / 2 - offset : 5);
+            tbInput.Size = new Size(Width - 10, tbInput.Height);
         }
 
         private void TbInput_GotFocus(object sender, EventArgs e)

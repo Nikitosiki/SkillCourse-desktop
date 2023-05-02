@@ -1,7 +1,5 @@
 ﻿using SkillCourse.DataBaseStructure;
-using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.types;
-using SkillCourse.helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +13,11 @@ using System.Windows.Forms;
 
 namespace SkillCourse.Panels.MainBlock
 {
-    public partial class PanelMainBlock_EditProfile : UserControl
+    public partial class PanelMainBlock_EditProfile_Old : UserControl
     {
         private User handler = AccountHandler.Instance.UserLog;
-        private Image? NewImageUser { get; set; }
 
-        public PanelMainBlock_EditProfile()
+        public PanelMainBlock_EditProfile_Old()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
@@ -30,8 +27,6 @@ namespace SkillCourse.Panels.MainBlock
             textBoxPhone.Text = handler.PhoneNumber;
             textBoxEmail.Text = handler.Email;
             dateTimePicker1.Value = handler.DateOfBirth;
-            string path = SerializeSetting.Default.UserImages + handler.ImagePath;
-            pictureBoxIcon.Image = ImageSaveHelper.LoadUserImageFromFile(path);
 
             switch (handler.Gender)
             {
@@ -72,9 +67,8 @@ namespace SkillCourse.Panels.MainBlock
                 return;
             if (!PanelAutorization_SingUp.ValidityCheckPhone(textBoxPhone, true))
                 return;
-            if (buttonChangePassword.Visible == false)
-                if (!PanelAutorization_SingUp.ValidityCheckPassword(textBoxPassword, false))
-                    return;
+            if (!PanelAutorization_SingUp.ValidityCheckPassword(textBoxPassword, true))
+                return;
 
             try
             {
@@ -84,10 +78,7 @@ namespace SkillCourse.Panels.MainBlock
 
                 if (CheckChangedFields(ref thisChengeUser))
                 {
-                    if (buttonChangePassword.Visible == true)
-                        AccountHandler.Instance.ChangedUserFields(thisChengeUser);
-                    else
-                        AccountHandler.Instance.ChangedUserFields(thisChengeUser, textBoxPassword.Text);
+                    AccountHandler.Instance.ChangedUserFields(thisChengeUser);
                 }
             }
             catch (Exception ex)
@@ -97,21 +88,10 @@ namespace SkillCourse.Panels.MainBlock
             }
         }
 
-        private void customRoundedButton1_Click(object sender, EventArgs e)
-        {
-            buttonChangePassword.Hide();
-            textBoxPassword.Show();
-        }
-
         private bool CheckChangedFields(ref User user)
         {
             bool change = false;
 
-            if (NewImageUser != null)
-            {
-                ChangeUserImageFile(user);
-                change = true;
-            }
             if (textBoxFirstName.Text != user.FirstName)
             {
                 user.FirstName = textBoxFirstName.Text;
@@ -127,18 +107,15 @@ namespace SkillCourse.Panels.MainBlock
                 user.Email = textBoxEmail.Text;
                 change = true;
             }
-            if (buttonChangePassword.Visible == false && textBoxPassword.Text != "")
+            if (textBoxPassword.Text != user.Password)
             {
-                //user.Password = textBoxPassword.Text;
+                user.Password = textBoxPassword.Text;
                 change = true;
             }
-            if (!(user.PhoneNumber == null || user.PhoneNumber == "") && !(textBoxPhone.Text == null || textBoxPhone.Text == ""))
+            if (textBoxPhone.Text != user.PhoneNumber)
             {
-                if (user.PhoneNumber != textBoxPhone.Text)
-                {
-                    user.PhoneNumber = textBoxPhone.Text;
-                    change = true;
-                }
+                user.PhoneNumber = textBoxPhone.Text;
+                change = true;
             }
             if (dateTimePicker1.Value != user.DateOfBirth)
             {
@@ -158,36 +135,6 @@ namespace SkillCourse.Panels.MainBlock
             }
 
             return change;
-        }
-
-        private void ChangeUserImageFile(User user)
-        {
-            if (NewImageUser == null)
-                return;
-
-            string imagePath = "";
-            if (user.ImagePath == "" || user.ImagePath == null)
-            {
-                imagePath = user.FirstName + user.LastName + "_" + user.IdUser + ".png";
-                user.ImagePath = imagePath;
-                AccountHandler.Instance.ChangedUserFields(user, false);          //только присваиваю новое назнание картинки пользователю, в случае его утсутствия
-            }
-            else
-            {
-                imagePath = user.ImagePath;
-            }
-
-            ImageSaveHelper.SaveImageToFile(ImageSaveHelper.TypeImage.User, imagePath, NewImageUser);
-            NewImageUser = null;
-
-            //Image? image = ImageSaveHelper.SelectDialogAndSaveImage(ImageSaveHelper.TypeImage.User, imagePath);
-            //if (image != null)
-            //{
-            //    if (pictureBoxIcon.Image != null)
-            //        pictureBoxIcon.Image.Dispose();
-            //    pictureBoxIcon.Image = image;
-            //    // Здесь может быть обновление картинки на главной страници пользователя z-z-z-zzzzz
-            //}
         }
 
 
@@ -215,18 +162,10 @@ namespace SkillCourse.Panels.MainBlock
 
         private void textBoxPassword_TextChanged(object sender, EventArgs e)
         {
-            PanelAutorization_SingUp.ValidityCheckPassword(textBoxPassword, false);
+            PanelAutorization_SingUp.ValidityCheckPassword(textBoxPassword, true);
         }
 
-        private void roundedButtonEditImage_Click(object sender, EventArgs e)
-        {
-            if (ImageSaveHelper.SelectDialogImage() is Image image)
-            {
-                if (pictureBoxIcon.Image != null)
-                    pictureBoxIcon.Image.Dispose();
-                pictureBoxIcon.Image = image;
-                NewImageUser = image;
-            }
-        }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        { }
     }
 }

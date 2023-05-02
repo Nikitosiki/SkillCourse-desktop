@@ -79,6 +79,7 @@
             TextBoxPassword.BackColor = Color.FromArgb(40, 49, 60);
             TextBoxPassword.BorderColor = SystemColors.ControlDarkDark;
             TextBoxPassword.BorderColorNotActive = Color.FromArgb(127, 140, 141);
+            TextBoxPassword.EnabledTextPreview = true;
             TextBoxPassword.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxPassword.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxPassword.ForeColor = SystemColors.ControlLight;
@@ -97,6 +98,7 @@
             TextBoxEmail.BackColor = Color.FromArgb(40, 49, 60);
             TextBoxEmail.BorderColor = SystemColors.ControlDarkDark;
             TextBoxEmail.BorderColorNotActive = Color.FromArgb(127, 140, 141);
+            TextBoxEmail.EnabledTextPreview = true;
             TextBoxEmail.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxEmail.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxEmail.ForeColor = SystemColors.ControlLight;
@@ -115,6 +117,7 @@
             TextBoxLastName.BackColor = Color.FromArgb(40, 49, 60);
             TextBoxLastName.BorderColor = SystemColors.ControlDarkDark;
             TextBoxLastName.BorderColorNotActive = Color.FromArgb(127, 140, 141);
+            TextBoxLastName.EnabledTextPreview = true;
             TextBoxLastName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxLastName.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxLastName.ForeColor = SystemColors.ControlLight;
@@ -133,6 +136,7 @@
             TextBoxFirstName.BackColor = Color.FromArgb(40, 49, 60);
             TextBoxFirstName.BorderColor = SystemColors.ControlDarkDark;
             TextBoxFirstName.BorderColorNotActive = Color.FromArgb(127, 140, 141);
+            TextBoxFirstName.EnabledTextPreview = true;
             TextBoxFirstName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxFirstName.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxFirstName.ForeColor = SystemColors.ControlLight;

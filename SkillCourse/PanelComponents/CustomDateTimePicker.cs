@@ -23,10 +23,22 @@ namespace SkillCourse.PanelComponents
         private bool droppedDown = false;
         private Image calendarIcon = Properties.Resources.calendarWhite;
         private RectangleF iconButtonArea;
+        private bool spaceBeforeText = true;
         private const int calendarIconWidth = 34;
         private const int arrowIconWidth = 17;
 
         //Properties
+
+
+        public bool SpaceBeforeText
+        {
+            get => spaceBeforeText;
+            set
+            {
+                spaceBeforeText = value;
+                this.Invalidate();
+            }
+        }
         public Color SkinColor
         {
             get { return skinColor; }
@@ -63,6 +75,15 @@ namespace SkillCourse.PanelComponents
             set
             {
                 borderSize = value;
+                this.Invalidate();
+            }
+        }
+        public new DateTimePickerFormat Format
+        {
+            get { return base.Format; }
+            set
+            {
+                base.Format = value;
                 this.Invalidate();
             }
         }
@@ -112,7 +133,8 @@ namespace SkillCourse.PanelComponents
                 //Draw surface
                 graphics.FillRectangle(skinBrush, clientArea);
                 //Draw text
-                graphics.DrawString("   " + this.Text, this.Font, textBrush, clientArea, textFormat);
+                string beforeText = SpaceBeforeText ? "   " : " ";
+                graphics.DrawString(beforeText + this.Text.Split()[0], this.Font, textBrush, clientArea, textFormat);
                 //Draw open calendar icon highlight
                 if (droppedDown == true) graphics.FillRectangle(openIconBrush, iconArea);
                 //Draw border 

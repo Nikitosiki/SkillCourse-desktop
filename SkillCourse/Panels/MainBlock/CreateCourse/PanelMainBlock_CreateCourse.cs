@@ -103,7 +103,8 @@ namespace SkillCourse.Panels.MainBlock
 
         private void PublicNewCourse()
         {
-            string imagePath = ImageSaveHelper.SaveImageToFile(ImageSaveHelper.TypeImage.Course, NameCourse.Replace(" ", "_"), ImageCourse ?? ImageSaveHelper.LoadImageFromFile(SerializeSetting.Default.CourseImageDefault));
+            string path = "Course_" + NameCourse.Replace(" ", "_") + ".png";
+            string imagePath = ImageSaveHelper.SaveImageToFile(ImageSaveHelper.TypeImage.Course, path, ImageCourse ?? ImageSaveHelper.LoadImageFromFile(SerializeSetting.Default.CourseImageDefault));
             Course newCourse = new Course(NameCourse, DescriptionCourse, imagePath, teatherHandler.IdUser);
             teatherHandler.CreateCourse(newCourse);
             if (FirstTaskName != null && FirstTaskName != "")

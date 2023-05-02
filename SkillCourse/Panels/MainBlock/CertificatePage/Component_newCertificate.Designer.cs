@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Component_newCertificate));
             labelCEO = new Label();
             labelOwner = new Label();
             labelTeacher = new Label();
@@ -38,8 +37,8 @@
             panelTextCourse = new Panel();
             labelText = new Label();
             labelNumber = new Label();
-            buttonPrint = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            roundButtonPrint = new CPProject.components.ui.CustomRoundedButton();
             panelLabelOwner.SuspendLayout();
             panelTeacher.SuspendLayout();
             panelTextCourse.SuspendLayout();
@@ -128,17 +127,28 @@
             labelNumber.TabIndex = 7;
             labelNumber.Text = "№ ABC1-VN23-JG99-SDSA-78QA-MN0P / 12.12.2023\r\n";
             // 
-            // buttonPrint
+            // roundButtonPrint
             // 
-            buttonPrint.FlatStyle = FlatStyle.Flat;
-            buttonPrint.Image = (Image)resources.GetObject("buttonPrint.Image");
-            buttonPrint.Location = new Point(749, 507);
-            buttonPrint.Name = "buttonPrint";
-            buttonPrint.Size = new Size(50, 43);
-            buttonPrint.TabIndex = 8;
-            buttonPrint.UseVisualStyleBackColor = true;
-            buttonPrint.Visible = false;
-            buttonPrint.Click += buttonPrint_Click;
+            roundButtonPrint.Autofocus = false;
+            roundButtonPrint.BackColor = Color.White;
+            roundButtonPrint.BackgroundColor = Color.White;
+            roundButtonPrint.BorderColor = Color.White;
+            roundButtonPrint.BorderRadius = 10;
+            roundButtonPrint.BorderSize = 0;
+            roundButtonPrint.FlatAppearance.BorderSize = 0;
+            roundButtonPrint.FlatStyle = FlatStyle.Flat;
+            roundButtonPrint.FocusBorderColor = Color.Gray;
+            roundButtonPrint.FocusBorderSize = 2;
+            roundButtonPrint.ForeColor = Color.White;
+            roundButtonPrint.Image = Properties.Resources.printer;
+            roundButtonPrint.Location = new Point(747, 507);
+            roundButtonPrint.Margin = new Padding(0);
+            roundButtonPrint.Name = "roundButtonPrint";
+            roundButtonPrint.Size = new Size(52, 43);
+            roundButtonPrint.TabIndex = 9;
+            roundButtonPrint.TextColor = Color.White;
+            roundButtonPrint.UseVisualStyleBackColor = false;
+            roundButtonPrint.Click += buttonPrint_Click;
             // 
             // Component_newCertificate
             // 
@@ -146,7 +156,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.CompressedCertificate_860x6112;
-            Controls.Add(buttonPrint);
+            Controls.Add(roundButtonPrint);
             Controls.Add(labelNumber);
             Controls.Add(panelTextCourse);
             Controls.Add(panelLabelOwner);
@@ -172,7 +182,7 @@
         private Panel panelTextCourse;
         private Label labelText;
         private Label labelNumber;
-        private Button buttonPrint;
         private System.Windows.Forms.Timer timer1;
+        private CPProject.components.ui.CustomRoundedButton roundButtonPrint;
     }
 }

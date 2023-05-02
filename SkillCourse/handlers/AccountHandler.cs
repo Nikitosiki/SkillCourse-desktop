@@ -71,6 +71,25 @@ namespace SkillCourse
             OnChangeUser(user);
         }
 
+        public void ChangedUserFields(User user, bool reloadMainPage)
+        {
+            DataBase.Users.Update(user);
+            if (reloadMainPage)
+                OnChangeUser(user);
+        }
+
+        public void ChangedUserFields(User user, string password)
+        {
+            if (password.Length < 8 || !Regex.IsMatch(password, @"^[a-zA-Z0-9]+$"))
+                throw new FormatException($"Invalid format.\n{nameof(password)}");
+
+            string hashPass = PasswordEncryptor.Encrypt(password);
+            user.Password = hashPass;
+
+            DataBase.Users.Update(user);
+            OnChangeUser(user);
+        }
+
         public bool LogIn(string email, string password)
         {
             User? thisUser = null;

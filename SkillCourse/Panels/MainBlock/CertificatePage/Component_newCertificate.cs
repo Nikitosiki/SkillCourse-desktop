@@ -36,7 +36,7 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-            buttonPrint.Visible = false;
+            roundButtonPrint.Visible = false;
             handlers.PrintHandler.ShowPrintPreview(this);
         }
 
@@ -56,7 +56,7 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
                 oldCursorPositionX = Cursor.Position.X;
                 oldCursorPositionY = Cursor.Position.Y;
 
-                buttonPrint.Visible = true;
+                roundButtonPrint.Visible = true;
                 timer1.Stop();
                 timer1.Start();
                 timer1.Enabled = true;
@@ -65,7 +65,7 @@ namespace SkillCourse.Panels.MainBlock.CertificatePage
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            buttonPrint.Visible = false;
+            roundButtonPrint.Visible = false;
             timer1.Enabled = false;
         }
     }

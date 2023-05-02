@@ -35,13 +35,13 @@
             labelMesError = new Label();
             buttonHidePassword = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            panel2 = new Panel();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            panel2 = new Panel();
             tableLayoutPanel1.SuspendLayout();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // newButton2
@@ -77,6 +77,7 @@
             newGoogleTextBox4.BackColor = Color.FromArgb(40, 49, 60);
             newGoogleTextBox4.BorderColor = SystemColors.ControlDarkDark;
             newGoogleTextBox4.BorderColorNotActive = Color.FromArgb(127, 140, 141);
+            newGoogleTextBox4.EnabledTextPreview = true;
             newGoogleTextBox4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newGoogleTextBox4.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             newGoogleTextBox4.ForeColor = SystemColors.ControlLight;
@@ -94,6 +95,7 @@
             newGoogleTextBox3.BackColor = Color.FromArgb(40, 49, 60);
             newGoogleTextBox3.BorderColor = SystemColors.ControlDarkDark;
             newGoogleTextBox3.BorderColorNotActive = Color.FromArgb(127, 140, 141);
+            newGoogleTextBox3.EnabledTextPreview = true;
             newGoogleTextBox3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             newGoogleTextBox3.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             newGoogleTextBox3.ForeColor = SystemColors.ControlLight;
@@ -161,6 +163,15 @@
             tableLayoutPanel1.Size = new Size(553, 251);
             tableLayoutPanel1.TabIndex = 18;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(labelMesError);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(44, 123);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(465, 125);
+            panel2.TabIndex = 20;
+            // 
             // panel1
             // 
             panel1.AutoSize = true;
@@ -189,15 +200,6 @@
             tableLayoutPanel2.Size = new Size(553, 95);
             tableLayoutPanel2.TabIndex = 19;
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(labelMesError);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(44, 123);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(465, 125);
-            panel2.TabIndex = 20;
-            // 
             // PanelAutorization_LogIn
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -212,9 +214,9 @@
             Size = new Size(553, 500);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
-            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

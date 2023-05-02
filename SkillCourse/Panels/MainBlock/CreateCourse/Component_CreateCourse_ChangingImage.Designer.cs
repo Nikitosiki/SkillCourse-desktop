@@ -47,7 +47,7 @@
             panel2.Controls.Add(newButtonSelectImage);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(284, 103);
+            panel2.Location = new Point(264, 103);
             panel2.Name = "panel2";
             panel2.Size = new Size(481, 313);
             panel2.TabIndex = 0;
@@ -77,7 +77,7 @@
             pictureBoxImage.Location = new Point(0, 0);
             pictureBoxImage.Name = "pictureBoxImage";
             pictureBoxImage.Size = new Size(257, 180);
-            pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
             // 

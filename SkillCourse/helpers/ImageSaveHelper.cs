@@ -61,10 +61,9 @@ namespace SkillCourse.helpers
             return null;
         }
 
-        public static string SaveImageToFile(TypeImage typeImage, string nameNewFile, Image image)
+        public static string SaveImageToFile(TypeImage typeImage, string fileName, Image image)
         {
             string destinationPath = string.Empty;
-            string fileName = "Course_" + nameNewFile + ".png";
 
             switch (typeImage)
             {
@@ -94,6 +93,11 @@ namespace SkillCourse.helpers
         public static Image? LoadCourseImageFromFile(string filePath)
         {
             return LoadImageFromFile(filePath) ?? LoadImageFromFile(SerializeSetting.Default.CourseImageDefault);
+        }
+
+        public static Image? LoadUserImageFromFile(string filePath)
+        {
+            return LoadImageFromFile(filePath) ?? LoadImageFromFile(SerializeSetting.Default.UserImagesDefault);
         }
 
         public static Image? LoadImageFromFile(string filePath)

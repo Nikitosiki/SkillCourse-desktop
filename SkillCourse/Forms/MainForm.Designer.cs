@@ -33,7 +33,7 @@
             groupBox2 = new GroupBox();
             panelNavbarBut = new Panel();
             panel1 = new Panel();
-            label2 = new Label();
+            labelVersions = new Label();
             groupBox1 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             labelAuthorization = new Label();
@@ -79,23 +79,25 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(labelVersions);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(3, 514);
             panel1.Name = "panel1";
             panel1.Size = new Size(238, 37);
             panel1.TabIndex = 0;
             // 
-            // label2
+            // labelVersions
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ControlDark;
-            label2.Location = new Point(39, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(193, 20);
-            label2.TabIndex = 0;
-            label2.Text = "SkillCourse  Apr 24 Version";
+            labelVersions.Dock = DockStyle.Fill;
+            labelVersions.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelVersions.ForeColor = SystemColors.ControlDark;
+            labelVersions.Location = new Point(0, 0);
+            labelVersions.Name = "labelVersions";
+            labelVersions.Padding = new Padding(0, 0, 3, 5);
+            labelVersions.Size = new Size(238, 37);
+            labelVersions.TabIndex = 0;
+            labelVersions.Text = "SkillCourse  Apr 24 Version";
+            labelVersions.TextAlign = ContentAlignment.BottomRight;
             // 
             // groupBox1
             // 
@@ -207,7 +209,6 @@
             panelNavbar.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
@@ -225,7 +226,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panelNavbarBut;
         private Panel panel1;
-        private Label label2;
+        private Label labelVersions;
         private TableLayoutPanel tableLayoutPanel2;
         private Label labelAuthorization;
     }
