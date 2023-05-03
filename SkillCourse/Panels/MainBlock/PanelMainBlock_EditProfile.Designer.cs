@@ -518,7 +518,7 @@ namespace SkillCourse.Panels.MainBlock
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.SelectionStart = 0;
             textBoxEmail.Size = new Size(360, 34);
-            textBoxEmail.TabIndex = 40;
+            textBoxEmail.TabIndex = 0;
             textBoxEmail.TextInput = "nikita@dot.net";
             textBoxEmail.TextPreview = "";
             textBoxEmail.UseSystemPasswordChar = false;

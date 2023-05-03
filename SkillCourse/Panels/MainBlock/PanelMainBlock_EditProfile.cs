@@ -1,6 +1,7 @@
 ﻿using SkillCourse.DataBaseStructure;
 using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.DataBaseStructure.types;
+using SkillCourse.helperConfig;
 using SkillCourse.helpers;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,8 @@ namespace SkillCourse.Panels.MainBlock
             textBoxEmail.Text = handler.Email;
             dateTimePicker1.Value = handler.DateOfBirth;
             string path = SerializeSetting.Default.UserImages + handler.ImagePath;
-            pictureBoxIcon.Image = ImageSaveHelper.LoadUserImageFromFile(path);
+            if (ImageSaveHelper.LoadUserImageFromFile(path) is Image image)
+                pictureBoxIcon.Image = image;
 
             switch (handler.Gender)
             {
@@ -222,6 +224,7 @@ namespace SkillCourse.Panels.MainBlock
         {
             if (ImageSaveHelper.SelectDialogImage() is Image image)
             {
+                image = ImageSaveHelper.ResizeImageWithCrop(image, CustomImageSize.User.targetWidth, CustomImageSize.User.targetHeight);
                 if (pictureBoxIcon.Image != null)
                     pictureBoxIcon.Image.Dispose();
                 pictureBoxIcon.Image = image;

@@ -24,6 +24,7 @@ namespace SkillCourse.PanelComponents.UsersPage
             ThisCourse = course;
             Name = user.FirstName + " " + user.LastName;
             labelText.Text = user.FirstName + " " + user.LastName;
+            tableLayoutPanelImage.Controls.Add(new Component_ImageIconUser(user), 1, 1);
 
 
             if (user.Equals(AccountHandler.Instance.UserLog))

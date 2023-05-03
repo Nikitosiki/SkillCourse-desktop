@@ -1,5 +1,7 @@
 ﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.DataBaseStructure.serialize;
 using SkillCourse.handlers;
+using SkillCourse.helpers;
 using SkillCourse.Panels.MainBlock;
 using SkillCourse.Panels.MainBlock.Tasks;
 using System;
@@ -8,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,12 +32,13 @@ namespace SkillCourse.PanelComponents.UsersPage
             UserFirstName = user.FirstName;
             Name = UserLastName + " " + UserFirstName;
             labelText.Text = UserFirstName + " " + UserLastName;
+            tableLayoutPanelImage.Controls.Add(new Component_ImageIconUser(user), 1, 1);
 
             if (user.Equals(AccountHandler.Instance.UserLog))
                 labelLast.Text = "Online";
             else
                 labelLast.Text = DateHelper.GetTimeDifferenceString(user.LastLoginDate);
-                //labelLast.Text = $"Last: {user.LastLoginDate.ToString("HH:mm d MMMM yyyy 'г.'")}";
+            //labelLast.Text = $"Last: {user.LastLoginDate.ToString("HH:mm d MMMM yyyy 'г.'")}";
 
             AddMouseHandlers(this);
         }

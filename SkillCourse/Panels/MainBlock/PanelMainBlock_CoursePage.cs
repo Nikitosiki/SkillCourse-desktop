@@ -9,6 +9,7 @@ using SkillCourse.PanelComponents;
 using SkillCourse.PanelComponents.CoursePage;
 using SkillCourse.PanelComponents.UsersPage;
 using SkillCourse.Panels.MainBlock.Notification;
+using System.IO;
 using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse.Panels.MainBlock
@@ -224,9 +225,12 @@ namespace SkillCourse.Panels.MainBlock
                 imagePath = CourseThis.ImagePath;
             }
 
-            Image? image = ImageSaveHelper.SelectDialogAndSaveImage(ImageSaveHelper.TypeImage.Course, imagePath);
+            //Image? image = ImageSaveHelper.SelectDialogAndSaveImage(ImageSaveHelper.TypeImage.Course, imagePath);
+            Image? image = ImageSaveHelper.SelectDialogImage();
             if (image != null)
             {
+                image = ImageSaveHelper.ResizeImageWithCrop(image, CustomImageSize.Course.targetWidth, CustomImageSize.Course.targetHeight);
+                ImageSaveHelper.SaveImageToFile(ImageSaveHelper.TypeImage.Course, imagePath, image);
                 if (pictureBoxImage.Image != null)
                     pictureBoxImage.Image.Dispose();
                 pictureBoxImage.Image = image;

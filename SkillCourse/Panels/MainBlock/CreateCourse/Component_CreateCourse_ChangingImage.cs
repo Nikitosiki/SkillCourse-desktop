@@ -1,4 +1,5 @@
-﻿using SkillCourse.helpers;
+﻿using SkillCourse.helperConfig;
+using SkillCourse.helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
         {
             if (ImageSaveHelper.SelectDialogImage() is Image image)
             {
+                image = ImageSaveHelper.ResizeImageWithCrop(image, CustomImageSize.Course.targetWidth, CustomImageSize.Course.targetHeight);
                 if (pictureBoxImage.Image != null)
                     pictureBoxImage.Image.Dispose();
                 pictureBoxImage.Image = image;

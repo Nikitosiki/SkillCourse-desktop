@@ -1,4 +1,5 @@
 ﻿using SkillCourse.DataBaseStructure.serialize;
+using SkillCourse.helperConfig;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -90,13 +91,19 @@ namespace SkillCourse.helpers
             return fileName;
         }
 
-        public static Image? LoadCourseImageFromFile(string filePath)
+        public static Image? LoadCourseImageFromFile(string? filePath)
         {
+            if (filePath == null)
+                return LoadImageFromFile(SerializeSetting.Default.CourseImageDefault);
+
             return LoadImageFromFile(filePath) ?? LoadImageFromFile(SerializeSetting.Default.CourseImageDefault);
         }
 
-        public static Image? LoadUserImageFromFile(string filePath)
+        public static Image? LoadUserImageFromFile(string? filePath)
         {
+            if (filePath == null)
+                return LoadImageFromFile(SerializeSetting.Default.UserImagesDefault);
+
             return LoadImageFromFile(filePath) ?? LoadImageFromFile(SerializeSetting.Default.UserImagesDefault);
         }
 
@@ -121,5 +128,42 @@ namespace SkillCourse.helpers
 
             return image;
         }
+
+        public static Image ResizeImageWithCrop(Image originalImage, int targetWidth, int targetHeight)
+        {
+            var originalAspectRatio = (float)originalImage.Width / originalImage.Height;
+            var targetAspectRatio = (float)targetWidth / targetHeight;
+
+            int cropWidth, cropHeight;
+
+            if (originalAspectRatio > targetAspectRatio)  // original is wider than target
+            {
+                cropHeight = originalImage.Height;
+                cropWidth = (int)(targetAspectRatio * cropHeight);
+            }
+            else // original is taller than target
+            {
+                cropWidth = originalImage.Width;
+                cropHeight = (int)(cropWidth / targetAspectRatio);
+            }
+
+            // Get the cropped image
+            var croppedImage = new Bitmap(cropWidth, cropHeight);
+
+            using (var graphics = Graphics.FromImage(croppedImage))
+            {
+                graphics.DrawImage(
+                    originalImage,
+                    new Rectangle(0, 0, cropWidth, cropHeight),
+                    new Rectangle((originalImage.Width - cropWidth) / 2, (originalImage.Height - cropHeight) / 2, cropWidth, cropHeight),
+                    GraphicsUnit.Pixel);
+            }
+
+            // Resize the cropped image to the desired target size
+            var resizedImage = new Bitmap(croppedImage, new Size(targetWidth, targetHeight));
+
+            return resizedImage;
+        }
+
     }
 }

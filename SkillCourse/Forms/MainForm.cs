@@ -18,6 +18,8 @@ using SkillCourse.PanelComponents;
 using Microsoft.VisualBasic.Devices;
 using SkillCourse.Panels.MainBlock.Navbar;
 using System.Diagnostics;
+using SkillCourse.DataBaseStructure.serialize;
+using SkillCourse.helpers;
 
 namespace SkillCourse
 {
@@ -117,9 +119,10 @@ namespace SkillCourse
                 TUpdateTimeLastVisit.Stop();
 
                 User = null;
-                labelAuthorization.Location = new Point(labelAuthorization.Location.X, labelAuthorization.Location.Y + 25);
-                labelAuthorization.Font = new Font(labelAuthorization.Font.FontFamily, 14);
-                labelAuthorization.Text = "\nnot authorized";
+
+                backRoundPanel1.Hide();
+                tableLayoutPanelNaming.Hide();
+                labelAuthorization.Show();
 
                 newButtonAuthorization.Text = "LogIn / RegIn";
 
@@ -128,24 +131,17 @@ namespace SkillCourse
             else
             {
                 TUpdateTimeLastVisit.Start();
-                if (user.UserType == UserType.Teacher)
-                {
-                    //Все настройки для авторизированного учителя
-
-
-                }
-                else
-                {
-                    //Все настройки для авторизированного студента
-
-
-                }
-
 
                 User = user;
-                labelAuthorization.Location = new Point(labelAuthorization.Location.X, labelAuthorization.Location.Y - 25);
-                labelAuthorization.Font = new Font(labelAuthorization.Font.FontFamily, 12);
-                labelAuthorization.Text = user.FirstName + "\n" + user.LastName;
+
+                backRoundPanel1.Show();
+                tableLayoutPanelNaming.Show();
+                labelAuthorization.Hide();
+
+                labelFirstN.Text = user.FirstName;
+                labelLastN.Text = user.LastName;
+                string path = SerializeSetting.Default.UserImages + user.ImagePath;
+                pictureBoxIconUser.Image = ImageSaveHelper.ResizeImageWithCrop(ImageSaveHelper.LoadUserImageFromFile(path), pictureBoxIconUser.Width, pictureBoxIconUser.Height);
 
                 newButtonAuthorization.Text = "Go Out";
 
