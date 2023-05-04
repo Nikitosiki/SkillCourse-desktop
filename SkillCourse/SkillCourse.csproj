@@ -18,14 +18,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SerializeSetting.settings</DependentUpon>
     </Compile>
+    <Compile Update="Forms\CheckingAnswerToTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\CreateTask.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MessageYesNo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PanelComponents\CoursePage\Component_AnswerTaskForTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="PanelComponents\UsersPage\Component_UserTextForTeacher.cs" />
     <Compile Update="Panels\MainBlock\PanelMainBlock_EditProfile_Old.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Panels\MainBlock\Tasks\PanelMainBlock_TasksForTeacher.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

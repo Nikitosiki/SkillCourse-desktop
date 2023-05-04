@@ -15,14 +15,14 @@ using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse.PanelComponents
 {
-    public partial class Component_Task : UserControl
+    public partial class Component_TaskForStudent : UserControl
     {
         public Student handler = (Student)AccountHandler.Instance.UserLog;
         public Task ThisTask { get; private set; }
-        private Action clickOnSend;
+        private Action<UserControl> clickOnSend;
 
         //Task
-        public Component_Task(Task task, int id)
+        public Component_TaskForStudent(Task task, int id)
         {
             InitializeComponent();
             Dock = DockStyle.Top;
@@ -36,7 +36,7 @@ namespace SkillCourse.PanelComponents
             UpdateStateAnsverTask(task);
         }
 
-        public Component_Task(Task task, int id, Action onClickButtonSend)
+        public Component_TaskForStudent(Task task, int id, Action<UserControl> onClickButtonSend)
         {
             InitializeComponent();
             Dock = DockStyle.Top;
@@ -52,7 +52,7 @@ namespace SkillCourse.PanelComponents
         }
 
         //Message
-        public Component_Task(Task task)
+        public Component_TaskForStudent(Task task)
         {
             InitializeComponent();
             Dock = DockStyle.Top;
@@ -135,7 +135,7 @@ namespace SkillCourse.PanelComponents
 
                 handler.CompleteTask(ThisTask, returnText);
                 UpdateStateAnsverTask(ThisTask);
-                clickOnSend?.Invoke();
+                clickOnSend?.Invoke(this);
                 //MessageBox.Show("Введенный текст: " + returnText);
             }
         }

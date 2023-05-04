@@ -200,7 +200,7 @@
             backRoundPanel1.Autofocus = false;
             backRoundPanel1.BackColor = Color.Transparent;
             backRoundPanel1.BackgroundColor = Color.Transparent;
-            backRoundPanel1.BorderColor = Color.PaleVioletRed;
+            backRoundPanel1.BorderColor = Color.FromArgb(80, 175, 138);
             backRoundPanel1.BorderRadius = 34;
             backRoundPanel1.BorderSize = 2;
             backRoundPanel1.Controls.Add(pictureBoxIconUser);

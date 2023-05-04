@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SkillCourse.Panels.MainBlock.Navbar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -73,26 +75,40 @@ namespace SkillCourse
 
         public static void BackPage(Control RemoveContent, Control? ParentPanel)
         {
-            if (ParentPanel != null && ParentPanel.Controls.Count > 1)
+            if (ParentPanel != null)
             {
                 Panel mainPanel = (Panel)ParentPanel;
                 mainPanel.Controls.Remove(RemoveContent);
-                mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = true;
 
+                VisibleBackPage(ParentPanel, mainPanel);
             }
         }
 
         public static void BackPage(List<Control> RemoveContent, Control? ParentPanel)
         {
-            if (ParentPanel != null && ParentPanel.Controls.Count > RemoveContent.Count)
+            if (ParentPanel != null && ParentPanel.Controls.Count >= RemoveContent.Count)
             {
                 Panel mainPanel = (Panel)ParentPanel;
                 foreach (var item in RemoveContent)
                 {
                     mainPanel.Controls.Remove(item);
                 }
-                mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = true;
 
+                VisibleBackPage(ParentPanel, mainPanel);
+            }
+        }
+
+        private static void VisibleBackPage(Control? ParentPanel, Panel mainPanel)
+        {
+            if (ParentPanel.Controls.Count > 1)
+            {
+                mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = true;
+            }
+            else
+            {
+                // Открываем дефолтную страницу (под роль)
+                if (PanelMainBlock_Navbar.GetInstance() is PanelMainBlock_Navbar navbar)
+                    navbar.LoadDefaultPanel();
             }
         }
 

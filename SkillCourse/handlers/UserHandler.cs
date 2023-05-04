@@ -24,6 +24,20 @@ namespace SkillCourse.handlers
             }
         }
 
+        public static Course? FindCourse(string name)
+        {
+            return DataBase.Courses.FindLast(course => course.Name == name);
+        }
+
+        public static Task? FindTask(Course course, string name)
+        {
+            return DataBase.Tasks.FindLast(task => task.IdCourse == course.IdCourse && task.TextTask == name);
+        }
+
+        public static Student? GetStudent(AnswerTask answer)
+        {
+            return DataBase.Users.Students().FindLast(user => user.IdUser == answer.IdUser);
+        }
 
         public static List<Student> GetStudents(Course course)
         {

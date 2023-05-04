@@ -1,4 +1,5 @@
 ﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.handlers;
 using SkillCourse.PanelComponents;
 using SkillCourse.Panels.MainBlock.Notification;
 using System;
@@ -14,7 +15,7 @@ using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse.Panels.MainBlock.Tasks
 {
-    public partial class PanelMainBlock_TaskAssigned : UserControl
+    public partial class PanelMainBlock_TasksForStudent : UserControl
     {
         private Student handler = (Student)AccountHandler.Instance.UserLog;
 
@@ -24,7 +25,7 @@ namespace SkillCourse.Panels.MainBlock.Tasks
         private TypeBlockTasks thisTypePage = TypeBlockTasks.Missing;
 
 
-        public PanelMainBlock_TaskAssigned(TypeBlockTasks thisTypePage)
+        public PanelMainBlock_TasksForStudent(TypeBlockTasks thisTypePage)
         {
             InitializeComponent();
 
@@ -33,10 +34,7 @@ namespace SkillCourse.Panels.MainBlock.Tasks
             this.thisTypePage = thisTypePage;
             Name += thisTypePage.ToString();
 
-            foreach (var course in handler.CoursesSubscribed)
-            {
-                AddCertainTasksToList(course);
-            }
+            UpdatePanel_OnSelectedIndexChanged();
 
             FillListControlTasks();
             FillPanel();
@@ -69,7 +67,7 @@ namespace SkillCourse.Panels.MainBlock.Tasks
             ListTasks.Clear();
             foreach (var task in thisTasks)
             {
-                ListTasks.Add(new Component_Task(task, ++i, UpdatePanel_OnSelectedIndexChanged));
+                ListTasks.Add(new Component_TaskForStudent(task, ++i, RemoveThisTaskToPanel));
             }
             ListTasks.Reverse();
         }
@@ -89,6 +87,17 @@ namespace SkillCourse.Panels.MainBlock.Tasks
         private void customComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
             => UpdatePanel_OnSelectedIndexChanged();
 
+        private void RemoveThisTaskToPanel(UserControl task)
+        {
+            panelMain.Controls.Remove(task);
+
+            if (panelMain.Controls.Count < 1)
+            {
+                panelMain.Controls.Add(new PanelMainBlock_MessageText("There is nothing here."));
+                panelMain.Controls[0].Dock = DockStyle.Fill;
+            }
+        }
+
         private void UpdatePanel_OnSelectedIndexChanged()
         {
             thisTasks.Clear();
@@ -103,9 +112,8 @@ namespace SkillCourse.Panels.MainBlock.Tasks
             }
             else
             {
-                Course? thisSelectCourse = handler.GetCourse(nameSelectCoure);
-                if (thisSelectCourse != null)
-                    AddCertainTasksToList(thisSelectCourse);
+                if (UserHandler.FindCourse(nameSelectCoure) is Course selectCourse)
+                    AddCertainTasksToList(selectCourse);
             }
 
             FillListControlTasks();

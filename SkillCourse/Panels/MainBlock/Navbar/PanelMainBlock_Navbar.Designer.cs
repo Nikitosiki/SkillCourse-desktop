@@ -38,6 +38,7 @@
             BackColor = Color.FromArgb(40, 49, 60);
             Name = "PanelMainBlock_Navbar";
             Size = new Size(329, 331);
+            Load += PanelMainBlock_Navbar_Load;
             ResumeLayout(false);
         }
 

@@ -18,11 +18,11 @@ using Task = SkillCourse.DataBaseStructure.Task;
 
 namespace SkillCourse.PanelComponents.CoursePage
 {
-    public partial class Component_TaskForTeacher : UserControl
+    public partial class Component_TaskForTeacherEdit : UserControl
     {
         private Task TaskThis { get; set; }
 
-        public Component_TaskForTeacher(Task task)
+        public Component_TaskForTeacherEdit(Task task)
         {
             InitializeComponent();
             Dock = DockStyle.Top;
@@ -39,7 +39,7 @@ namespace SkillCourse.PanelComponents.CoursePage
             Tag = "Message";
         }
 
-        public Component_TaskForTeacher(Task task, int id)
+        public Component_TaskForTeacherEdit(Task task, int id)
         {
             InitializeComponent();
             Dock = DockStyle.Top;

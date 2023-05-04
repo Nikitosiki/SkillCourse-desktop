@@ -109,7 +109,7 @@ namespace SkillCourse.Panels.MainBlock
 
             foreach (UserControl item in ListPanelStreams)
             {
-                if (item is Component_TaskForTeacher task)
+                if (item is Component_TaskForTeacherEdit task)
                     task.AdminView(false);
             }
             foreach (UserControl item in ListPanelPeople)
@@ -135,7 +135,7 @@ namespace SkillCourse.Panels.MainBlock
 
             foreach (UserControl item in ListPanelStreams)
             {
-                if (item is Component_TaskForTeacher task)
+                if (item is Component_TaskForTeacherEdit task)
                     task.AdminView(true);
             }
             foreach (UserControl item in ListPanelPeople)
@@ -294,9 +294,9 @@ namespace SkillCourse.Panels.MainBlock
             foreach (Task task in StreamTasks)
             {
                 if (task.TaskTypeMessage)
-                    ListPanelStreams.Add(user.UserType == UserType.Student ? new Component_Task(task) : new Component_TaskForTeacher(task));
+                    ListPanelStreams.Add(user.UserType == UserType.Student ? new Component_TaskForStudent(task) : new Component_TaskForTeacherEdit(task));
                 else
-                    ListPanelStreams.Add(user.UserType == UserType.Student ? new Component_Task(task, ++i) : new Component_TaskForTeacher(task, ++i));
+                    ListPanelStreams.Add(user.UserType == UserType.Student ? new Component_TaskForStudent(task, ++i) : new Component_TaskForTeacherEdit(task, ++i));
             }
             ListPanelStreams.Reverse();
 

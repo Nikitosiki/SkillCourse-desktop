@@ -39,9 +39,29 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
+        public List<AnswerTask> GetAllAnswerTask_Waiting(Task task)     // Ожидают проверки
+        {
+            return DataBase.AnswerTasks.Where(anwer => anwer.IdTask == task.IdTask && anwer.State == StateTask.Done).ToList();
+        }
+
+        public List<AnswerTask> GetAllAnswerTask_Checked(Task task)     // Проверенные задания
+        {
+            return DataBase.AnswerTasks.Where(anwer => anwer.IdTask == task.IdTask && anwer.State == StateTask.Checked).ToList();
+        }
+
+        public List<Task> GetTasksNoMessage(Course course)
+        {
+            return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse && task.TaskTypeMessage == false).ToList();
+        }
+
         public List<Task> GetTasks(Course course)
         {
             return DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse).ToList();
+        }
+
+        public Task? GetTask(AnswerTask answer)
+        {
+            return DataBase.Tasks.FindLast(task => task.IdTask == answer.IdTask);
         }
 
         public List<Task> GetAllMyTasks()

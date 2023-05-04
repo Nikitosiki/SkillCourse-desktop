@@ -39,7 +39,7 @@ namespace SkillCourse
             //--- NavigateBar
 
             //panelMain.Controls.Add(new PanelMainBlock_Courses());
-            panelNavbarBut.Controls.Add(new PanelMainBlock_Navbar((User != null ? User.UserType : null), panelMain));
+            panelNavbarBut.Controls.Add(PanelMainBlock_Navbar.NewInstance((User != null ? User.UserType : null), panelMain));
             NavigatePages.setMainPanel(panelMain);
             //AddButtonToNavbar();
 
@@ -80,14 +80,10 @@ namespace SkillCourse
 
         private void LoadLabelVersions()
         {
-            // Получить текущую сборку (т.е. эту программу)
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            string assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            DateTime creationTime = System.IO.File.GetLastWriteTime(assemblyPath);
 
-            // Получить дату и время компиляции сборки
-            var buildDate = new DateTimeOffset(2000, 1, 1, 0, 0, 0, TimeSpan.Zero)
-                .AddSeconds(Convert.ToDouble(assembly.GetName().Version.Build));
-
-            labelVersions.Text = $"SkillCourse  {buildDate.ToString("MMM dd")} Version";
+            labelVersions.Text = $"SkillCourse  {creationTime.ToString("MMM dd")} Version";
         }
 
         private void TUpdateTimeLastVisit_Tick(object? sender, EventArgs e)

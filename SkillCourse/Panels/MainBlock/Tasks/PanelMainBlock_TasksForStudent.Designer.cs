@@ -1,6 +1,6 @@
 ﻿namespace SkillCourse.Panels.MainBlock.Tasks
 {
-    partial class PanelMainBlock_TaskAssigned
+    partial class PanelMainBlock_TasksForStudent
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainBlock_TaskAssigned));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainBlock_TasksForStudent));
             tableLayoutPanel1 = new TableLayoutPanel();
             label3 = new Label();
             panel3 = new Panel();
@@ -156,7 +156,7 @@
             // 
             // panelMain
             // 
-            panelMain.AutoSize = true;
+            panelMain.AutoScroll = true;
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(20, 93);
             panelMain.Name = "panelMain";
