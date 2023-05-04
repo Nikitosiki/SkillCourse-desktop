@@ -109,7 +109,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Teachers",
-                Properties.Resources.ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32") as Image,
+                Properties.Resources.ResourceManager.GetObject("small_group_white_24dp") as Image,
                 false, GuestButtonEvents.TeachersClick, null));
 
 
@@ -191,7 +191,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Teachers",
-                Properties.Resources.ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32") as Image,
+                Properties.Resources.ResourceManager.GetObject("small_group_white_24dp") as Image,
                 false, StudentButtonEvents.TeacherClick, null));
 
 
@@ -252,7 +252,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Certificates",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32") as Image,
+                Properties.Resources.ResourceManager.GetObject("add_certificate_wght400_GRAD0_opsz48_32") as Image,
                 false, TeacherButtonEvents.Certificate_IssuedClick, CertificatesDopButtons));
 
 
@@ -267,7 +267,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             listControls.Add(
                 new Component_NavigationBut("Students",
-                Properties.Resources.ResourceManager.GetObject("view_cozy_FILL0_wght400_GRAD0_opsz48-32") as Image,
+                Properties.Resources.ResourceManager.GetObject("peoples_wght400_GRAD0_opsz48_32") as Image,
                 false, TeacherButtonEvents.Student_MyClick, StudentsDopButtons));
 
 

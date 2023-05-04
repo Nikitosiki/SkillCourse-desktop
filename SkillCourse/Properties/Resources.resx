@@ -214,4 +214,10 @@
   <data name="printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon\printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add_certificate_wght400_GRAD0_opsz48_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\add_certificate_wght400_GRAD0_opsz48-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="small_group_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icon\NavBar\small_group_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

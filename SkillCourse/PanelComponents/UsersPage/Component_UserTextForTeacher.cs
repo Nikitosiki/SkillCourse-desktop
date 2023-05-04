@@ -12,9 +12,11 @@ namespace SkillCourse.PanelComponents.UsersPage
         private User ThisUser { get; set; }
         public bool DeleteAvailable { get; set; } = true;
 
+        private Action clickThis;
+
         private User userHandler = AccountHandler.Instance.UserLog;
 
-        public Component_UserTextForTeacher(User user, Course course, bool defState)
+        public Component_UserTextForTeacher(User user, Course course, bool defState, Action action)
         {
             InitializeComponent();
             Dock = DockStyle.Top;
@@ -26,6 +28,7 @@ namespace SkillCourse.PanelComponents.UsersPage
             labelText.Text = user.FirstName + " " + user.LastName;
             tableLayoutPanelImage.Controls.Add(new Component_ImageIconUser(user), 1, 1);
 
+            clickThis = action;
 
             if (user.Equals(AccountHandler.Instance.UserLog))
                 labelLast.Text = "Online";
@@ -54,6 +57,7 @@ namespace SkillCourse.PanelComponents.UsersPage
                 roundedButton.BackColor = Color.FromArgb(50, 65, 80);
                 roundedButton.Image = Properties.Resources.outline_add_white_24dp;
             }
+            clickThis?.Invoke();
         }
 
         private void roundedButton_Click(object sender, EventArgs e)

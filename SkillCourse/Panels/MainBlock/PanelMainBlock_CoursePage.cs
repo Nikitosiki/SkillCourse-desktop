@@ -313,23 +313,33 @@ namespace SkillCourse.Panels.MainBlock
 
 
             //--- Студенты
-            if (Students.Any())
-                ListPanelPeople.Add(new Component_UserTextHeader("All Users", Students.Count));
+            //if (Students.Any())
+            UserControl controlStudHeader = new Component_UserTextHeader("All Users", Students.Count);
+            controlStudHeader.Tag = "ControlStudHeader";
+            ListPanelPeople.Add(controlStudHeader);
             foreach (Student stud in Students)
             {
-                ListPanelPeople.Add(user.UserType == UserType.Student ? new Component_UserText(stud) : new Component_UserTextForTeacher(stud, CourseThis, true));
+                ListPanelPeople.Add(user.UserType == UserType.Student ? new Component_UserText(stud) : new Component_UserTextForTeacher(stud, CourseThis, true, UpdateCountStudent));
             }
 
             //--- Добавляем студентов невидимок (которых нету на курсе)
             foreach (Student stud in UserHandler.GetStudentsOut(CourseThis))
             {
-                UserControl controlStudOut = user.UserType == UserType.Student ? new Component_UserText(stud) : new Component_UserTextForTeacher(stud, CourseThis, false);
+                UserControl controlStudOut = user.UserType == UserType.Student ? new Component_UserText(stud) : new Component_UserTextForTeacher(stud, CourseThis, false, UpdateCountStudent);
                 controlStudOut.Tag = "Out";
                 controlStudOut.Visible = false;
                 ListPanelPeople.Add(controlStudOut);
             }
 
             ListPanelPeople.Reverse();
+        }
+
+        public void UpdateCountStudent()
+        {
+            Students = UserHandler.GetStudents(CourseThis);
+            UserControl? cont = ListPanelPeople.FindLast(control => control.Tag is not null && control.Tag.ToString() == "ControlStudHeader");
+            if (cont is Component_UserTextHeader textStudHeader)
+                textStudHeader.CountUser = Students.Count;
         }
 
         private void ChangeButtonPanel(object sender)

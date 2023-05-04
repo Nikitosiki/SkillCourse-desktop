@@ -1,6 +1,7 @@
 ﻿using SkillCourse.DataBaseStructure;
 using SkillCourse.DataBaseStructure.types;
 using SkillCourse.PanelComponents.UsersPage;
+using SkillCourse.Panels.MainBlock.Notification;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,14 @@ namespace SkillCourse.Panels.MainBlock
                         panelMainTeachers.Controls.Add(userControl);
                     });
                 }
+
+                if (allUsers.Count < 1)
+                    panelMainTeachers.Invoke((MethodInvoker)delegate
+                    {
+                        Control newMessage = new PanelMainBlock_MessageText("No one here yet, come back later.");
+                        newMessage.Dock = DockStyle.Fill;
+                        panelMainTeachers.Controls.Add(newMessage);
+                    });
             });
         }
 

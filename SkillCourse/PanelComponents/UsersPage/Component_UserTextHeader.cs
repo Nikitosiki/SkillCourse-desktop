@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,19 @@ namespace SkillCourse.PanelComponents
 {
     public partial class Component_UserTextHeader : UserControl
     {
+        private int countUser = 0;
+        public int CountUser
+        {
+            get
+            {
+                return countUser;
+            }
+            set
+            {
+                countUser = value;
+                labelCount.Text = $"{countUser} Users";
+            }
+        }
 
         public Component_UserTextHeader(string text)
         {
@@ -27,8 +41,10 @@ namespace SkillCourse.PanelComponents
             Dock = DockStyle.Top;
 
             labelText.Text = text;
-            labelCount.Visible = countUsers > 0;
-            labelCount.Text = $"{countUsers} Users";
+            //labelCount.Visible = countUsers > 0;
+            countUser = countUsers;
+            labelCount.Visible = true;
+            labelCount.Text = $"{countUser} Users";
         }
     }
 }

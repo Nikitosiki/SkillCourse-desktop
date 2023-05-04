@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.Panels.MainBlock.Navbar.NavigationButtonEvents;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +22,11 @@ namespace SkillCourse.Panels.MainBlock
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            NavigatePages.OpenNewPage(new PanelMainBlock_Courses(ViewCourseState.All, false, true));
+            if (AccountHandler.Instance.UserLog is Student stud)
+                StudentButtonEvents.Course_SubscribedClick();
+
+            if (AccountHandler.Instance.UserLog is Teather teac)
+                TeacherButtonEvents.Course_CreateClick();
         }
     }
 }

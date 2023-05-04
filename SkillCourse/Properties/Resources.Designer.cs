@@ -73,6 +73,16 @@ namespace SkillCourse.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_certificate_wght400_GRAD0_opsz48_32 {
+            get {
+                object obj = ResourceManager.GetObject("add_certificate_wght400_GRAD0_opsz48_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_up_341_svgrepo_com_down {
             get {
                 object obj = ResourceManager.GetObject("arrow-up-341-svgrepo-com-down", resourceCulture);
@@ -356,6 +366,16 @@ namespace SkillCourse.Properties {
         internal static System.Drawing.Bitmap printer {
             get {
                 object obj = ResourceManager.GetObject("printer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap small_group_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("small_group_white_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
