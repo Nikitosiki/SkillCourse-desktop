@@ -24,6 +24,22 @@ namespace SkillCourse.handlers
             }
         }
 
+        public static Course? GetCourse(int idCourse)
+        {
+            return DataBase.Courses.Find(cour => cour.IdCourse == idCourse);
+        }
+
+        public static string GetFullName(User user)
+        {
+            return $"{user.FirstName} {user.LastName}";
+        }
+
+        public static string GetFullName(int idUser)
+        {
+            User? user = DataBase.Users.Find(user => user.IdUser == idUser);
+            return user != null ? $"{user.FirstName} {user.LastName}" : String.Empty;
+        }
+
         public static Course? FindCourse(string name)
         {
             return DataBase.Courses.FindLast(course => course.Name == name);

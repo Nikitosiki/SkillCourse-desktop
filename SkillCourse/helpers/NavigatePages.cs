@@ -100,7 +100,7 @@ namespace SkillCourse
 
         private static void VisibleBackPage(Control? ParentPanel, Panel mainPanel)
         {
-            if (ParentPanel.Controls.Count > 1)
+            if (ParentPanel.Controls.Count > 0)
             {
                 mainPanel.Controls[mainPanel.Controls.Count - 1].Visible = true;
             }

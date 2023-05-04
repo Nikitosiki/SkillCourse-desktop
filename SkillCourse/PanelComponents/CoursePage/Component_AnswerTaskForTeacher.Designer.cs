@@ -42,7 +42,7 @@
             panelIndex = new Panel();
             labelId = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            labelBall = new Label();
+            component_Grade = new AnswerTaskComponent.Component_Grade();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -99,7 +99,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1157, 145);
+            panel1.Size = new Size(1446, 145);
             panel1.TabIndex = 3;
             // 
             // panel2
@@ -109,7 +109,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(83, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(888, 145);
+            panel2.Size = new Size(1177, 145);
             panel2.TabIndex = 9;
             // 
             // tableLayoutPanel3
@@ -127,7 +127,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(888, 145);
+            tableLayoutPanel3.Size = new Size(1177, 145);
             tableLayoutPanel3.TabIndex = 10;
             tableLayoutPanel3.Resize += tableLayoutPanel3_Resize;
             // 
@@ -150,7 +150,7 @@
             panelText.Dock = DockStyle.Top;
             panelText.Location = new Point(3, 23);
             panelText.Name = "panelText";
-            panelText.Size = new Size(882, 44);
+            panelText.Size = new Size(1171, 44);
             panelText.TabIndex = 10;
             // 
             // tableLayoutPanel4
@@ -164,7 +164,7 @@
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(882, 31);
+            tableLayoutPanel4.Size = new Size(1171, 31);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // labelText
@@ -176,7 +176,7 @@
             labelText.Location = new Point(3, 0);
             labelText.Name = "labelText";
             labelText.Padding = new Padding(18, 0, 0, 0);
-            labelText.Size = new Size(876, 31);
+            labelText.Size = new Size(1165, 31);
             labelText.TabIndex = 10;
             labelText.Text = "Пояснювальна записка до курсової роботи";
             labelText.TextChanged += labelText_TextChanged;
@@ -213,9 +213,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(labelBall, 1, 2);
+            tableLayoutPanel1.Controls.Add(component_Grade, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Right;
-            tableLayoutPanel1.Location = new Point(971, 0);
+            tableLayoutPanel1.Location = new Point(1260, 0);
             tableLayoutPanel1.MinimumSize = new Size(186, 101);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -226,21 +226,17 @@
             tableLayoutPanel1.Size = new Size(186, 145);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // labelBall
+            // component_Grade
             // 
-            labelBall.Dock = DockStyle.Fill;
-            labelBall.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBall.ForeColor = SystemColors.Control;
-            labelBall.Location = new Point(34, 77);
-            labelBall.Name = "labelBall";
-            labelBall.Padding = new Padding(3, 0, 0, 0);
-            labelBall.Size = new Size(118, 31);
-            labelBall.TabIndex = 7;
-            labelBall.Text = "0 / 5";
-            labelBall.TextAlign = ContentAlignment.MiddleCenter;
-            labelBall.Visible = false;
+            component_Grade.BackColor = Color.Transparent;
+            component_Grade.Grade = 0;
+            component_Grade.Location = new Point(61, 51);
+            component_Grade.Margin = new Padding(0);
+            component_Grade.Name = "component_Grade";
+            component_Grade.Size = new Size(63, 42);
+            component_Grade.TabIndex = 0;
             // 
-            // Component_AnswerTask
+            // Component_AnswerTaskForTeacher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -248,8 +244,8 @@
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(panel1);
             MinimumSize = new Size(0, 101);
-            Name = "Component_AnswerTask";
-            Size = new Size(1157, 145);
+            Name = "Component_AnswerTaskForTeacher";
+            Size = new Size(1446, 145);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -263,7 +259,6 @@
             panelIndex.ResumeLayout(false);
             panelIndex.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -281,9 +276,9 @@
         private Label labelId;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel1;
-        private Label labelBall;
         private Panel panelText;
         private TableLayoutPanel tableLayoutPanel4;
         private Label labelText;
+        private AnswerTaskComponent.Component_Grade component_Grade;
     }
 }

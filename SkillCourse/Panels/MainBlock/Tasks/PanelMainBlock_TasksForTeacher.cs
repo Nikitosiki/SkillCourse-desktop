@@ -28,6 +28,7 @@ namespace SkillCourse.Panels.MainBlock.Tasks
         public PanelMainBlock_TasksForTeacher(TypeBlockTasks thisTypePage)
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
 
             customComboBoxCourse.Items.Add("All");
             customComboBoxCourse.Items.AddRange(handler.MyCourses.Select(course => course.Name).ToArray());
@@ -122,7 +123,7 @@ namespace SkillCourse.Panels.MainBlock.Tasks
             thisAnswerTasks.Clear();
 
             string nameSelectCoure = customComboBoxCourse.Texts;
-            string nameSelectTask  = customComboBoxTask.Texts;
+            string nameSelectTask = customComboBoxTask.Texts;
 
             if (nameSelectCoure == "All")
             {

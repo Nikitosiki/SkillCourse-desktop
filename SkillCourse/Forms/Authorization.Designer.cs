@@ -129,7 +129,6 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Authorization";
-            TopMost = true;
             panel_Header.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

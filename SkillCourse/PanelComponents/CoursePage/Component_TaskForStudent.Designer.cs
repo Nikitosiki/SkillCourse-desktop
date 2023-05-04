@@ -42,9 +42,10 @@
             panelIndex = new Panel();
             labelId = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            labelBall = new Label();
+            labelStatus = new Label();
             panelButSend = new Panel();
             newButtonSend = new yt_DesignUI.NewButton();
+            compGrade = new AnswerTaskComponent.Component_Grade();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -216,40 +217,42 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(labelBall, 1, 2);
+            tableLayoutPanel1.Controls.Add(labelStatus, 1, 2);
             tableLayoutPanel1.Controls.Add(panelButSend, 1, 1);
+            tableLayoutPanel1.Controls.Add(compGrade, 1, 3);
             tableLayoutPanel1.Dock = DockStyle.Right;
             tableLayoutPanel1.Location = new Point(971, 0);
             tableLayoutPanel1.MinimumSize = new Size(186, 101);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new Size(186, 145);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // labelBall
+            // labelStatus
             // 
-            labelBall.Dock = DockStyle.Fill;
-            labelBall.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBall.ForeColor = SystemColors.Control;
-            labelBall.Location = new Point(34, 77);
-            labelBall.Name = "labelBall";
-            labelBall.Padding = new Padding(3, 0, 0, 0);
-            labelBall.Size = new Size(118, 31);
-            labelBall.TabIndex = 7;
-            labelBall.Text = "0 / 5";
-            labelBall.TextAlign = ContentAlignment.MiddleCenter;
-            labelBall.Visible = false;
+            labelStatus.Dock = DockStyle.Fill;
+            labelStatus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStatus.ForeColor = SystemColors.Control;
+            labelStatus.Location = new Point(34, 56);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Padding = new Padding(3, 0, 0, 0);
+            labelStatus.Size = new Size(118, 31);
+            labelStatus.TabIndex = 7;
+            labelStatus.Text = "0 / 5";
+            labelStatus.TextAlign = ContentAlignment.MiddleCenter;
+            labelStatus.Visible = false;
             // 
             // panelButSend
             // 
             panelButSend.AutoSize = true;
             panelButSend.Controls.Add(newButtonSend);
             panelButSend.Dock = DockStyle.Fill;
-            panelButSend.Location = new Point(34, 39);
+            panelButSend.Location = new Point(34, 18);
             panelButSend.MinimumSize = new Size(118, 31);
             panelButSend.Name = "panelButSend";
             panelButSend.Size = new Size(118, 35);
@@ -284,6 +287,18 @@
             newButtonSend.UseVisualStyleBackColor = false;
             newButtonSend.UseZoomEffectOnHover = false;
             newButtonSend.Click += newButtonSend_Click;
+            // 
+            // compGrade
+            // 
+            compGrade.BackColor = Color.Transparent;
+            compGrade.Grade = 0;
+            compGrade.Location = new Point(31, 87);
+            compGrade.Margin = new Padding(0);
+            compGrade.MinimumSize = new Size(63, 42);
+            compGrade.Name = "compGrade";
+            compGrade.Size = new Size(63, 42);
+            compGrade.TabIndex = 11;
+            compGrade.Visible = false;
             // 
             // Component_TaskForStudent
             // 
@@ -327,11 +342,12 @@
         private Label labelId;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel1;
-        private Label labelBall;
+        private Label labelStatus;
         private Panel panelButSend;
         private yt_DesignUI.NewButton newButtonSend;
         private Panel panelText;
         private TableLayoutPanel tableLayoutPanel4;
         private Label labelText;
+        private AnswerTaskComponent.Component_Grade compGrade;
     }
 }

@@ -1,43 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.handlers;
+using SkillCourse.helperConfig;
+using Task = SkillCourse.DataBaseStructure.Task;
+
 
 namespace SkillCourse.Forms
 {
     public partial class CheckingAnswerToTask : Form
     {
-        public string Text { get; set; }
         public int LoatLocationY { get; set; }
+        private Task TaskThis { get; set; }
+        private AnswerTask AnswerTask { get; set; }
 
-        private readonly int maxHeightContent = 550;
 
-        public CheckingAnswerToTask(Size size)
+        public CheckingAnswerToTask(Size size, Task task, AnswerTask answer)
         {
             InitializeComponent();
             this.Size = size;
+
+            this.TaskThis = task;
+            this.AnswerTask = answer;
+
+            FillingForm();
+            ReSizeText();
         }
 
-        //public CheckingAnswerToTask(Size size, string text, int maxTextLenght, bool autoSizeForText) : this(size)
-        //{
-        //    richTextBox1.MaxLength = maxTextLenght;
-        //    richTextBox1.Text = text;
-        //    labelCounter.Text = $"{text.Length} / {maxTextLenght}";
+        private void FillingForm()
+        {
+            if (UserHandler.GetCourse(TaskThis.IdCourse) is Course course)
+                labelCourse.Text = $"Course \"{course.Name}\"";
+            else
+                labelCourse.Text = "Null";
 
-        //    if (autoSizeForText)
-        //    {
-        //        int countRows = (maxTextLenght / 40) + 1;
-        //        int heightThisControl = 145 + (countRows * richTextBox1.Font.Height);
-        //        if (heightThisControl > maxHeightContent) heightThisControl = maxHeightContent;
-        //        tableLayoutPanel2.Size = new Size(tableLayoutPanel2.Size.Width, heightThisControl);
-        //    }
-        //}
+            labelTaskText.Text = TaskThis.TextTask;
+            labelAnswerText.Text = AnswerTask.Text;
+            labelStudentName.Text = $"Student: {UserHandler.GetFullName(AnswerTask.IdUser)}";
+
+            if (AnswerTask.Grade is int grade)
+                component_AssignmentScore1.Grade = grade;
+
+            if (AnswerTask.Text is string answerText)
+                labelCounter.Text = $"{answerText.Length} / {UserTextSize.AnswerTask.maxLenghtName}";
+            else
+                labelCounter.Text = $"0 / {UserTextSize.AnswerTask.maxLenghtName}";
+        }
+
+        private void ReSizeText()
+        {
+            backRoundPanelTask.Size = new System.Drawing.Size(labelTaskText.Width - labelTaskText.Padding.Horizontal, labelTaskText.Height + (backRoundPanelTask.Padding.Vertical));
+            backRoundPanelAnswer.Size = new System.Drawing.Size(labelAnswerText.Width - labelAnswerText.Padding.Horizontal, labelAnswerText.Height + (backRoundPanelAnswer.Padding.Vertical));
+        }
 
         private void newButton1_Click(object sender, EventArgs e)
         {
@@ -47,25 +59,13 @@ namespace SkillCourse.Forms
 
         private void newButtonApply_Click(object sender, EventArgs e)
         {
-            if (richTextBox1.ForeColor == SystemColors.Control)
-            {
-                if (richTextBox1.Text == null || richTextBox1.Text == "")
-                    return;
-
-                Text = richTextBox1.Text;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                //
-            }
+            AnswerTask.Grade = component_AssignmentScore1.Grade;
+            AnswerTask.State = DataBaseStructure.types.StateTask.Checked;
+            SkillCourseDB.Instance.AnswerTasks.Update(AnswerTask);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            labelCounter.Text = $"{richTextBox1.Text.Length} / {richTextBox1.MaxLength}";
-        }
 
         private void AnswerToTask_Load(object sender, EventArgs e)
         {

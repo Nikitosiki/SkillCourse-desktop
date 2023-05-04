@@ -31,20 +31,17 @@
             labelName = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
-            label1 = new Label();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // labelName
             // 
-            labelName.AutoSize = true;
-            labelName.Dock = DockStyle.Top;
             labelName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelName.ForeColor = SystemColors.ControlDark;
+            labelName.ForeColor = SystemColors.Control;
             labelName.Location = new Point(0, 0);
             labelName.Name = "labelName";
-            labelName.Size = new Size(230, 31);
+            labelName.Size = new Size(297, 31);
             labelName.TabIndex = 3;
             labelName.Text = "There's nothing here(";
             // 
@@ -68,25 +65,12 @@
             // panel1
             // 
             panel1.AutoSize = true;
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(labelName);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(354, 176);
+            panel1.Location = new Point(356, 188);
             panel1.Name = "panel1";
-            panel1.Size = new Size(303, 54);
+            panel1.Size = new Size(300, 31);
             panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(3, 31);
-            label1.Name = "label1";
-            label1.Padding = new Padding(10, 0, 0, 0);
-            label1.Size = new Size(297, 23);
-            label1.TabIndex = 4;
-            label1.Text = "The teacher will not add the task yet";
             // 
             // Component_NotTaskMessage
             // 
@@ -101,7 +85,6 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -110,6 +93,5 @@
         private Label labelName;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
-        private Label label1;
     }
 }

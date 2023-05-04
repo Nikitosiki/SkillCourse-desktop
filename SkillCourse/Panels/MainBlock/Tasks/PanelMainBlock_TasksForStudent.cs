@@ -28,6 +28,7 @@ namespace SkillCourse.Panels.MainBlock.Tasks
         public PanelMainBlock_TasksForStudent(TypeBlockTasks thisTypePage)
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
 
             customComboBox1.Items.Add("All");
             customComboBox1.Items.AddRange(handler.CoursesSubscribed.Select(course => course.Name).ToArray());

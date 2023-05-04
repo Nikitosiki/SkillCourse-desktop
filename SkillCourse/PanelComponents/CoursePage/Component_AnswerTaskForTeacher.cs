@@ -52,11 +52,11 @@ namespace SkillCourse.PanelComponents
         {
             if (answer.Grade != null)
             {
-                labelBall.Show();
-                labelBall.Text = $"{answer.Grade} / 5";
+                component_Grade.Show();
+                component_Grade.Grade = answer.Grade ?? 0;
             }
             else
-                labelBall.Hide();
+                component_Grade.Hide();
         }
 
         private void labelText_TextChanged(object sender, EventArgs e)
@@ -86,15 +86,13 @@ namespace SkillCourse.PanelComponents
                 thisParent = thisParent.Parent;
             }
 
-            AnswerToTask answerForm = new AnswerToTask(new Size(thisParent.ClientSize.Width, thisParent.ClientSize.Height),
-                String.Empty, UserTextSize.AnswerTask.maxLenghtName, false);
+            CheckingAnswerToTask answerForm = new CheckingAnswerToTask(new Size(thisParent.ClientSize.Width, thisParent.ClientSize.Height),
+                ThisTask, ThisAnswerTask);
             answerForm.LoatLocationY = ((SystemInformation.CaptionHeight) / 2);
             DialogResult result = answerForm.ShowDialog(this);
 
             if (result == DialogResult.OK)
             {
-                string returnText = answerForm.Text;
-
                 //Что-то ещё, к примеру обновление БД
                 UpdateStateBall(ThisAnswerTask);
                 clickOnThis?.Invoke(this);

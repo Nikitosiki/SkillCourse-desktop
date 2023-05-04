@@ -65,25 +65,40 @@ namespace SkillCourse.PanelComponents
             ReSizeDescription();
             labelDate.Text = task.TaskStartTime.ToString("dd MMM. yyyy 'г.'", new System.Globalization.CultureInfo("en-US"));
 
-            panelButSend.Visible = false;
-            labelBall.Visible = false;
+            panelButSend.Hide();
+            labelStatus.Hide();
+            compGrade.Hide();
             Tag = "Message";
         }
 
 
         private void UpdateStateAnsverTask(Task task)
         {
-            if (handler.CheckCompletedOrBallTask(task))
+            if (handler.CheckCompletedOrGradeTask(task))
             {
-                panelButSend.Visible = false;
-                labelBall.Visible = true;
+                if (handler.GetGradeToTask(task) is int grade)
+                {
+                    panelButSend.Hide();
+                    labelStatus.Hide();
+                    compGrade.Show();
 
-                labelBall.Text = handler.GetBallToTask(task);
+                    compGrade.Grade = grade;
+                }
+                else
+                {
+                    // Если у нас нету оценки
+                    panelButSend.Hide();
+                    labelStatus.Show();
+                    compGrade.Hide();
+
+                    labelStatus.Text = handler.GetStatusTask(task);
+                }
             }
             else
             {
-                labelBall.Visible = false;
-                panelButSend.Visible = true;
+                panelButSend.Show();
+                labelStatus.Hide();
+                compGrade.Hide();
             }
         }
 

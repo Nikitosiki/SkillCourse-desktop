@@ -123,32 +123,51 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Subscriptions.Any(sub => sub.IdStudent == this.IdUser && sub.IdCourse == course.IdCourse);
         }
 
-        public bool CheckCompletedOrBallTask(Task task)
+        public bool CheckCompletedOrGradeTask(Task task)
         {
             return DataBase.AnswerTasks.Any(ans => ans.IdTask == task.IdTask
             && ans.IdUser == this.IdUser && ans.State != StateTask.NotDone);
         }
 
-        public string GetBallToTask(Task task)
+        public int? GetGradeToTask(Task task)
         {
-            if (CheckCompletedOrBallTask(task))
+            if (CheckCompletedOrGradeTask(task))
             {
-                AnswerTask answer = DataBase.AnswerTasks.Find(ans => ans.IdTask == task.IdTask && ans.IdUser == this.IdUser);
-
-                if (answer.State == StateTask.Done)
-                    return $"Assigned";
-
-                if (answer.State == StateTask.Checked)
-                    return $"{answer.Grade} / 5";
-
-                return $"Send";  //Error
-            }
-            else
-            {
-                return $"Missing";
+                if (DataBase.AnswerTasks.FindLast(ans => ans.IdTask == task.IdTask && ans.IdUser == this.IdUser) is AnswerTask answer)
+                    return answer.Grade ?? null;
             }
 
+            return null;
         }
+
+        public string GetStatusTask(Task task)
+        {
+            if (DataBase.AnswerTasks.FindLast(ans => ans.IdTask == task.IdTask && ans.IdUser == this.IdUser) is AnswerTask answer)
+                return answer.State.ToString();
+
+            return String.Empty;
+        }
+
+        //public string GetBallToTask(Task task)
+        //{
+        //    if (CheckCompletedOrBallTask(task))
+        //    {
+        //        AnswerTask answer = DataBase.AnswerTasks.Find(ans => ans.IdTask == task.IdTask && ans.IdUser == this.IdUser);
+
+        //        if (answer.State == StateTask.Done)
+        //            return $"Assigned";
+
+        //        if (answer.State == StateTask.Checked)
+        //            return $"{answer.Grade} / 5";
+
+        //        return $"Send";  //Error
+        //    }
+        //    else
+        //    {
+        //        return $"Missing";
+        //    }
+
+        //}
 
         public List<Course> FindAllCourses(string search)
         {
