@@ -181,8 +181,9 @@ namespace SkillCourse.Panels.MainBlock
             //Если пользователь на странице подписок, с возможностью зайти на курс
             if (VisibleButView && VisibleButSub)
             {
-                return new Component_BriefСourse_View_Sub(course, true,
-                    () => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course)),
+                //            return new Component_BriefСourse_View_Sub(course, true,
+                //() => NavigatePages.OpenNextPage(new PanelMainBlock_CoursePage(course)),
+                return new Component_BriefСourse_Subscription(course, true,
                     () =>
                     {
                         if (!((Student)handlerUser).SubscripToCourse(course))

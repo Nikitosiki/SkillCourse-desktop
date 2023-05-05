@@ -23,7 +23,7 @@ namespace SkillCourse.Panels.MainBlock
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (AccountHandler.Instance.UserLog is Student stud)
-                StudentButtonEvents.Course_SubscribedClick();
+                StudentButtonEvents.Course_PublicClick();
 
             if (AccountHandler.Instance.UserLog is Teather teac)
                 TeacherButtonEvents.Course_CreateClick();

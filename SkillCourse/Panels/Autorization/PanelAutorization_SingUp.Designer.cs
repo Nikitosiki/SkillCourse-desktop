@@ -121,10 +121,10 @@
             TextBoxLastName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxLastName.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxLastName.ForeColor = SystemColors.ControlLight;
-            TextBoxLastName.Location = new Point(243, 85);
+            TextBoxLastName.Location = new Point(243, 87);
             TextBoxLastName.Name = "TextBoxLastName";
             TextBoxLastName.SelectionStart = 0;
-            TextBoxLastName.Size = new Size(219, 50);
+            TextBoxLastName.Size = new Size(219, 44);
             TextBoxLastName.TabIndex = 19;
             TextBoxLastName.TextInput = "";
             TextBoxLastName.TextPreview = "Last Name";
@@ -140,10 +140,10 @@
             TextBoxFirstName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TextBoxFirstName.FontTextPreview = new Font("Arial", 7F, FontStyle.Bold, GraphicsUnit.Point);
             TextBoxFirstName.ForeColor = SystemColors.ControlLight;
-            TextBoxFirstName.Location = new Point(0, 85);
+            TextBoxFirstName.Location = new Point(0, 87);
             TextBoxFirstName.Name = "TextBoxFirstName";
             TextBoxFirstName.SelectionStart = 0;
-            TextBoxFirstName.Size = new Size(218, 50);
+            TextBoxFirstName.Size = new Size(218, 44);
             TextBoxFirstName.TabIndex = 18;
             TextBoxFirstName.TextInput = "";
             TextBoxFirstName.TextPreview = "First Name";
@@ -243,12 +243,14 @@
             DateTimeBirthD.BorderSize = 1;
             DateTimeBirthD.CalendarMonthBackground = Color.FromArgb(127, 140, 141);
             DateTimeBirthD.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            DateTimeBirthD.Format = DateTimePickerFormat.Long;
             DateTimeBirthD.Location = new Point(0, 289);
             DateTimeBirthD.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             DateTimeBirthD.MinimumSize = new Size(0, 35);
             DateTimeBirthD.Name = "DateTimeBirthD";
             DateTimeBirthD.Size = new Size(462, 35);
             DateTimeBirthD.SkinColor = Color.FromArgb(40, 49, 60);
+            DateTimeBirthD.SpaceBeforeText = true;
             DateTimeBirthD.TabIndex = 30;
             DateTimeBirthD.TextColor = Color.FromArgb(127, 140, 141);
             // 

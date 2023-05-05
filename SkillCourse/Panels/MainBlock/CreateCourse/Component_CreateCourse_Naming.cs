@@ -40,7 +40,7 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
             Dock = DockStyle.Fill;
 
             int maxLenghtName = UserTextSize.Course.maxLenghtName;
-            int maxLenghtDescription = UserTextSize.Course.maxLenghtName;
+            int maxLenghtDescription = UserTextSize.Course.maxLenghtDescription;
             textBoxName.MaxLength = maxLenghtName;
             textBoxDescription.MaxLength = maxLenghtDescription;
             label2.Text = "0 / " + maxLenghtName;
@@ -59,7 +59,7 @@ namespace SkillCourse.Panels.MainBlock.CreateCourse
         private void textBoxDescription_TextChanged(object sender, EventArgs e)
         {
             ValidityCheckName(textBoxDescription);
-            int maxLenghtDescription = UserTextSize.Course.maxLenghtName;
+            int maxLenghtDescription = UserTextSize.Course.maxLenghtDescription;
             label4.Text = textBoxDescription.Text.Length.ToString() + " / " + maxLenghtDescription;
         }
 
