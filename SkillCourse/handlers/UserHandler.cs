@@ -24,6 +24,16 @@ namespace SkillCourse.handlers
             }
         }
 
+        public static User? GetUser(int idUser)
+        {
+            return DataBase.Users.Find(user => user.IdUser == idUser);
+        }
+
+        public static Course? GetCourse(SubscriptionCourse sub)
+        {
+            return DataBase.Courses.Find(cour => cour.IdCourse == sub.IdCourse);
+        }
+
         public static Course? GetCourse(int idCourse)
         {
             return DataBase.Courses.Find(cour => cour.IdCourse == idCourse);
@@ -52,7 +62,12 @@ namespace SkillCourse.handlers
 
         public static Student? GetStudent(AnswerTask answer)
         {
-            return DataBase.Users.Students().FindLast(user => user.IdUser == answer.IdUser);
+            return DataBase.Users.Students().Find(user => user.IdUser == answer.IdUser);
+        }
+
+        public static Student? GetStudent(SubscriptionCourse sub)
+        {
+            return DataBase.Users.Students().Find(user => user.IdUser == sub.IdStudent);
         }
 
         public static List<Student> GetStudents(Course course)

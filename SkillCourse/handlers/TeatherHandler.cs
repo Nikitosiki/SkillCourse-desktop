@@ -4,6 +4,7 @@ using SkillCourse.DataBaseStructure.types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -47,6 +48,20 @@ namespace SkillCourse.DataBaseStructure
         public List<AnswerTask> GetAllAnswerTask_Checked(Task task)     // Проверенные задания
         {
             return DataBase.AnswerTasks.Where(anwer => anwer.IdTask == task.IdTask && anwer.State == StateTask.Checked).ToList();
+        }
+
+        public List<SubscriptionCourse> GetOnlySub_Waiting(Course course)     // У которых ещё нету сертификата
+        {
+            return DataBase.Subscriptions.Where(sub => sub.IdCourse == course.IdCourse && 
+                !DataBase.Certificates.Any(cer => cer.IdCourse == course.IdCourse && cer.IdOwner == sub.IdStudent))
+                .ToList();
+        }
+
+        public List<SubscriptionCourse> GetOnlySub_Issued(Course course)     // Которым уже выдан сертификат
+        {
+            return DataBase.Subscriptions.Where(sub => sub.IdCourse == course.IdCourse &&
+                DataBase.Certificates.Any(cer => cer.IdCourse == course.IdCourse && cer.IdOwner == sub.IdStudent))
+                .ToList();
         }
 
         public List<Task> GetTasksNoMessage(Course course)
@@ -105,6 +120,28 @@ namespace SkillCourse.DataBaseStructure
                 .Where(course => searchWords.Any(word =>
                     course.Name.Contains(word) || course.Description.Contains(word)))
                 .ToList();
+        }
+
+        public int ProcentCompleteCourse(SubscriptionCourse sub)
+        {
+            List<Task> tasksCourseThisSub = DataBase.Tasks.Where(task => task.IdCourse == sub.IdCourse).ToList();
+
+            int allTask = DataBase.Tasks.Where(task => task.IdCourse == sub.IdCourse && task.TaskTypeMessage == false).Count();
+
+            // Если заданий нету, то мы выполнилит на 100%
+            if (allTask == 0)
+                return 100;
+
+            int completeTask = DataBase.AnswerTasks.Where(answer =>
+                (answer.State == StateTask.Done || answer.State == StateTask.Checked) &&
+                answer.IdUser == sub.IdStudent &&
+                tasksCourseThisSub.Any(task => task.IdTask == answer.IdTask)
+                ).Count();
+
+            if (completeTask == 0)
+                return 0;
+
+            return (Int32)(((double)completeTask / (double)allTask) * 100);
         }
 
         public Course? CreateCourse(Course newCourse)
@@ -231,6 +268,14 @@ namespace SkillCourse.DataBaseStructure
             }
         }
 
+        public bool AddCertificate(int idCourse, int idStudent, string description)
+        {
+            return AddCertificate(
+                DataBase.Courses.Find(course => course.IdCourse == idCourse),
+                DataBase.Users.Students().Find(user => user.IdUser == idStudent),
+                description);
+        }
+
         public bool AddCertificate(Course course, Student student, string description)
         {
             try
@@ -246,13 +291,19 @@ namespace SkillCourse.DataBaseStructure
 
 
                         // Находим задачи для заданного курса
-                        List<Task> courseTasks = DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse).ToList();
+                        List<Task> courseTasks = DataBase.Tasks.Where(task => task.IdCourse == course.IdCourse && task.TaskTypeMessage == false).ToList();
 
                         // Находим ответы на задачи для перечисления заданий и студента
                         List<AnswerTask> completedTasks = DataBase.AnswerTasks.Where(ans => ans.IdUser == student.IdUser)
                             .Join(courseTasks, ans => ans.IdTask, task => task.IdTask, (ans, task) => ans).ToList();
 
-                        return courseTasks.Count == completedTasks.Count;
+                        if (courseTasks.Count != completedTasks.Count)
+                            return false;
+
+                        Certificate newCertificate = new Certificate(description, DateTime.Now, this.IdUser, student.IdUser, course.IdCourse);
+                        DataBase.Certificates.Add(newCertificate);
+
+                        return true;
                     }
 
                 return false;

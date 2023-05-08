@@ -244,8 +244,8 @@ namespace SkillCourse.Panels.MainBlock.Navbar
 
             List<Component_NavigationDopBut> CertificatesDopButtons = new List<Component_NavigationDopBut>()
             {
-                new Component_NavigationDopBut("Issued", TeacherButtonEvents.Certificate_IssuedClick),
                 new Component_NavigationDopBut("Waiting", TeacherButtonEvents.Certificate_WaitingClick),
+                new Component_NavigationDopBut("Issued", TeacherButtonEvents.Certificate_IssuedClick),
                 new Component_NavigationDopBut("Check", TeacherButtonEvents.Certificate_CheckClick)
             };
             CertificatesDopButtons.Reverse();
@@ -253,7 +253,7 @@ namespace SkillCourse.Panels.MainBlock.Navbar
             listControls.Add(
                 new Component_NavigationBut("Certificates",
                 Properties.Resources.ResourceManager.GetObject("add_certificate_wght400_GRAD0_opsz48_32") as Image,
-                false, TeacherButtonEvents.Certificate_IssuedClick, CertificatesDopButtons));
+                false, TeacherButtonEvents.Certificate_WaitingClick, CertificatesDopButtons));
 
 
             //------- Students

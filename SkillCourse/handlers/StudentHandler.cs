@@ -58,7 +58,7 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Tasks
                 .Where(task => task.IdCourse == course.IdCourse &&
                                task.TaskTypeMessage == false &&
-                               DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.State == StateTask.Done))
+                               DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.IdUser == this.IdUser && answerTask.State == StateTask.Done))
                 .OrderBy(task => task.TaskStartTime)
                 .ToList();
         }
@@ -68,7 +68,7 @@ namespace SkillCourse.DataBaseStructure
             return DataBase.Tasks
                 .Where(task => task.IdCourse == course.IdCourse &&
                                task.TaskTypeMessage == false &&
-                               DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.State == StateTask.Checked))
+                               DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.IdUser == this.IdUser && answerTask.State == StateTask.Checked))
                 .OrderBy(task => task.TaskStartTime)
                 .ToList();
         }
@@ -79,7 +79,7 @@ namespace SkillCourse.DataBaseStructure
                 .Where(task => task.IdCourse == course.IdCourse &&
                                task.TaskTypeMessage == false &&
                                (!DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask) ||
-                                DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.State == StateTask.NotDone)))
+                                DataBase.AnswerTasks.Any(answerTask => answerTask.IdTask == task.IdTask && answerTask.IdUser == this.IdUser && answerTask.State == StateTask.NotDone)))
                 .OrderBy(task => task.TaskStartTime)
                 .ToList();
         }

@@ -1,6 +1,6 @@
-﻿namespace SkillCourse.Panels.MainBlock.Tasks
+﻿namespace SkillCourse.Panels.MainBlock.CertificatePage
 {
-    partial class PanelMainBlock_TasksForStudent
+    partial class PanelMainBlock_CertificateForTeacher
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            panelMain = new Panel();
-            label1 = new Label();
+            panel3 = new Panel();
             panel4 = new Panel();
-            label15 = new Label();
             panel5 = new Panel();
             customComboBox1 = new PanelComponents.CustomComboBox();
-            panel3 = new Panel();
+            label15 = new Label();
+            label1 = new Label();
+            panelMain = new Panel();
             tableLayoutPanel1.SuspendLayout();
+            panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -63,27 +63,15 @@
             tableLayoutPanel1.Size = new Size(1012, 673);
             tableLayoutPanel1.TabIndex = 11;
             // 
-            // panelMain
+            // panel3
             // 
-            panelMain.AutoScroll = true;
-            panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(20, 93);
-            panelMain.Name = "panelMain";
-            panelMain.Size = new Size(964, 572);
-            panelMain.TabIndex = 11;
-            // 
-            // label1
-            // 
-            label1.Dock = DockStyle.Left;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Padding = new Padding(20, 0, 0, 0);
-            label1.Size = new Size(305, 54);
-            label1.TabIndex = 9;
-            label1.Text = "Assigned";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            panel3.Controls.Add(panel4);
+            panel3.Controls.Add(label1);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(20, 13);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(964, 54);
+            panel3.TabIndex = 10;
             // 
             // panel4
             // 
@@ -94,18 +82,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(448, 54);
             panel4.TabIndex = 10;
-            // 
-            // label15
-            // 
-            label15.Dock = DockStyle.Left;
-            label15.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.ForeColor = SystemColors.ControlLight;
-            label15.Location = new Point(0, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(85, 54);
-            label15.TabIndex = 8;
-            label15.Text = "Course";
-            label15.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -139,40 +115,64 @@
             customComboBox1.Texts = "All";
             customComboBox1.OnSelectedIndexChanged += customComboBox1_OnSelectedIndexChanged;
             // 
-            // panel3
+            // label15
             // 
-            panel3.Controls.Add(panel4);
-            panel3.Controls.Add(label1);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(20, 13);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(964, 54);
-            panel3.TabIndex = 10;
+            label15.Dock = DockStyle.Left;
+            label15.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.ForeColor = SystemColors.ControlLight;
+            label15.Location = new Point(0, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(85, 54);
+            label15.TabIndex = 8;
+            label15.Text = "Course";
+            label15.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // PanelMainBlock_TasksForStudent
+            // label1
+            // 
+            label1.Dock = DockStyle.Left;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Padding = new Padding(20, 0, 0, 0);
+            label1.Size = new Size(305, 54);
+            label1.TabIndex = 9;
+            label1.Text = "Assigned";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panelMain
+            // 
+            panelMain.AutoScroll = true;
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(20, 93);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(964, 572);
+            panelMain.TabIndex = 11;
+            // 
+            // PanelMainBlock_CertificateForTeacher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 49, 60);
             Controls.Add(tableLayoutPanel1);
-            Name = "PanelMainBlock_TasksForStudent";
+            Name = "PanelMainBlock_CertificateForTeacher";
             Size = new Size(1012, 673);
             tableLayoutPanel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Panel panelMain;
+        private Label label1;
+        private PanelComponents.CustomComboBox customComboBox1;
+        private Label label15;
         private Panel panel3;
         private Panel panel4;
         private Panel panel5;
-        private PanelComponents.CustomComboBox customComboBox1;
-        private Label label15;
-        private Label label1;
+        private Panel panelMain;
     }
 }

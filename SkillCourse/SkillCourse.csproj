@@ -31,6 +31,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="PanelComponents\UsersPage\Component_UserTextForTeacher.cs" />
+    <Compile Update="Panels\MainBlock\CertificatePage\Component_RowUserCertificate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Panels\MainBlock\CertificatePage\PanelMainBlock_CertificateForTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Panels\MainBlock\PanelMainBlock_EditProfile_Old.cs">
       <SubType>UserControl</SubType>
     </Compile>

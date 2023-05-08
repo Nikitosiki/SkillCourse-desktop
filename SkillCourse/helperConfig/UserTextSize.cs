@@ -23,5 +23,10 @@ namespace SkillCourse.helperConfig
         {
             public static readonly int maxLenghtName = 500;
         }
+
+        public static class Certificate
+        {
+            public static readonly int maxLenghtDescription = 200;
+        }
     }
 }

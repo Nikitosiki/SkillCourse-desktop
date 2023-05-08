@@ -1,4 +1,5 @@
 ﻿using SkillCourse.DataBaseStructure;
+using SkillCourse.Panels.MainBlock.CertificatePage;
 using SkillCourse.Panels.MainBlock.Tasks;
 using System;
 using System.Collections.Generic;
@@ -61,16 +62,16 @@ namespace SkillCourse.Panels.MainBlock.Navbar.NavigationButtonEvents
 
         //------- Certificate
 
-        public static Action Certificate_IssuedClick = () =>
-        {
-            NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), NavBarHandler.PanelParent);
-            NavBarHandler.UpdateStateButtons("Certificates", "Issued");
-        };
-
         public static Action Certificate_WaitingClick = () =>
         {
-            NavigatePages.OpenNewPage(new PanelMainBlock_NotImplemented(), NavBarHandler.PanelParent);
+            NavigatePages.OpenNewPage(new PanelMainBlock_CertificateForTeacher(PanelMainBlock_CertificateForTeacher.TypeBlockTasks.Waiting), NavBarHandler.PanelParent);
             NavBarHandler.UpdateStateButtons("Certificates", "Waiting");
+        };
+
+        public static Action Certificate_IssuedClick = () =>
+        {
+            NavigatePages.OpenNewPage(new PanelMainBlock_CertificateForTeacher(PanelMainBlock_CertificateForTeacher.TypeBlockTasks.Issued), NavBarHandler.PanelParent);
+            NavBarHandler.UpdateStateButtons("Certificates", "Issued");
         };
 
         public static Action Certificate_CheckClick = () =>
