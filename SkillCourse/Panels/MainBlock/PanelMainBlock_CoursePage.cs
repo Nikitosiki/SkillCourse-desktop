@@ -100,7 +100,11 @@ namespace SkillCourse.Panels.MainBlock
 
         private void ResetAdministratorSettings()
         {
-            panelButtonSetting.Visible = true;
+            if (user != null && user.UserType == UserType.Teacher)
+                panelButtonSetting.Visible = true;
+            else
+                panelButtonSetting.Visible = false;
+
 
             AdminView = false;
             panelEditName.Visible = false;

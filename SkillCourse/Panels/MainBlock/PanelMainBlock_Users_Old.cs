@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SkillCourse.Panels.MainBlock
 {
-    public partial class PanelMainBlock_Users : UserControl
+    public partial class PanelMainBlock_Users_Old : UserControl
     {
-        public PanelMainBlock_Users()
+        public PanelMainBlock_Users_Old()
         {
             InitializeComponent();
         }

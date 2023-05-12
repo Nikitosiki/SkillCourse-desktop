@@ -1,6 +1,6 @@
 ﻿namespace SkillCourse.Panels.MainBlock
 {
-    partial class PanelMainBlock_Users
+    partial class PanelMainBlock_Users_Old
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainBlock_Users));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainBlock_Users_Old));
             panelBack = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panelTeacherLabel = new Panel();
