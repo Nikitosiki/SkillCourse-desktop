@@ -40,7 +40,7 @@ Not authorized user
  ![image](https://user-images.githubusercontent.com/61596575/236934184-35bed63b-d97d-49c8-9c39-f267fdae1c8a.png)
  ![image](https://user-images.githubusercontent.com/61596575/236934257-4e416869-a139-48bc-9c3f-23150a96251e.png)
 
- - create Course
+ - create Courses
  ![image](https://user-images.githubusercontent.com/61596575/236933685-27d23f22-d1bc-4845-969a-acf9996b62a5.png)
  ![image](https://user-images.githubusercontent.com/61596575/236933717-033098a4-230a-407d-974d-689126654c70.png)
  ![image](https://user-images.githubusercontent.com/61596575/236933910-af5d0862-f5e3-49d7-8939-bc134593a48b.png)
